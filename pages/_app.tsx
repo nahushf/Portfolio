@@ -5,6 +5,7 @@ import { fab, faBehance, faInstagram, faLinkedinIn } from '@fortawesome/free-bra
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { createGlobalStyle } from 'styled-components';
 import { Fragment } from 'react';
+import { AnimationLayout } from '../components/AnimationLayout';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn);
 
@@ -29,6 +30,13 @@ const GlobalStyle = createGlobalStyle`
     #__next {
         padding: 24px;
         flex: 1;
+        display: flex;
+        flex-direction: column
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column
+        }
     }
 `;
 
@@ -36,7 +44,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Fragment>
             <GlobalStyle />
-            <Component {...pageProps} />
+            <AnimationLayout>
+                <Component {...pageProps} />
+            </AnimationLayout>
         </Fragment>
     );
 }
