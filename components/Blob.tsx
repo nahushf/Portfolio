@@ -92,8 +92,8 @@ export const AnimatedBlob = () => {
             <defs>
                 {/* Our gradient fill #gradient */}
                 <linearGradient id="gradient" x2="50%" y2="100%" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#48afc1" />
-                    <stop offset="100%" stop-color="#b4c63b" />
+                    <stop offset="0%" stopColor="#48afc1" />
+                    <stop offset="100%" stopColor="#b4c63b" />
                 </linearGradient>
                 {/* <linearGradient id="gradient" gradientTransform="rotate(90)"> */}
                 {/* <stop id="gradientStop1" offset="0%" stop-color="var(--startColor)" /> */}

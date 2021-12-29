@@ -5,7 +5,7 @@ import { ButtonWinona } from './ButtonWinona';
 
 const SocialLink = ({ href, iconName }: { href: string, iconName: IconName }) => {
     return (
-        <a href={href} target="_blank">
+        <a href={href} target="_blank" rel="noreferrer" >
             <FontAwesomeIcon icon={['fab', iconName]} />
         </a>
     );
