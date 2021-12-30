@@ -36,12 +36,12 @@ function createPoints() {
     return points;
 }
 
-const useAnimationFrame = callback => {
+const useAnimationFrame = (callback) => {
     // Use useRef for mutable variables that we want to persist
     // without triggering a re-render on their change
     const requestRef = useRef(void 0);
     const previousTimeRef = useRef(void 0);
-    const animate = time => {
+    const animate = (time) => {
         if (previousTimeRef.current != undefined) {
             const deltaTime = time - previousTimeRef.current;
             callback(deltaTime);
@@ -67,7 +67,14 @@ function noise(x, y) {
     return simplex.noise2D(x, y);
 }
 
-export const AnimatedBlob = () => {
+function getGradientUrl(project: IProject) {
+    if (!project) {
+        return 'gradient';
+    }
+    return `gradient-${project.id}`;
+}
+
+export const AnimatedBlob = ({ projects=[], selectedProject=null }: { projects?: IProject[]; selectedProject?: IProject }) => {
     const [pathPoints, setPathPoints] = useState('');
     const points = createPoints();
     useAnimationFrame(() => {
@@ -87,20 +94,37 @@ export const AnimatedBlob = () => {
 
         setPathPoints(spline(points, 1, true));
     });
+
     return (
         <svg viewBox="0 0 200 200">
             <defs>
                 {/* Our gradient fill #gradient */}
-                <linearGradient id="gradient" x2="50%" y2="100%" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stopColor="#48afc1" />
-                    <stop offset="100%" stopColor="#b4c63b" />
+                {projects.map((project) => {
+                    const [startColor, endColor] = project.gradient;
+                    return (
+                        <linearGradient
+                            id={getGradientUrl(project)}
+                            x2="50%"
+                            y2="100%"
+                            gradientUnits="userSpaceOnUse"
+                            key={project.id}
+                        >
+                            <stop offset="0%" stopColor={startColor} />
+                            <stop offset="100%" stopColor={endColor} />
+                        </linearGradient>
+                    );
+                })}
+
+                <linearGradient id={getGradientUrl(null)} x2="50%" y2="100%" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stopColor="#ffe259" />
+                    <stop offset="100%" stopColor="#ffa751" />
                 </linearGradient>
                 {/* <linearGradient id="gradient" gradientTransform="rotate(90)"> */}
                 {/* <stop id="gradientStop1" offset="0%" stop-color="var(--startColor)" /> */}
                 {/* <stop id="gradientStop2 " offset="100%" stop-color="var(--stopColor)" /> */}
                 {/* </linearGradient> */}
             </defs>
-            <path d={pathPoints || ''} fill="url('#gradient')"></path>
+            <path d={pathPoints || ''} fill={`url('#${getGradientUrl(selectedProject)}')`}></path>
         </svg>
     );
 };
@@ -108,4 +132,7 @@ export const AnimatedBlob = () => {
 const SVG = styled.svg`
     width: 90vmin;
     height: 90vmin;
+    path {
+        transition: fill 0.2s ease-out;
+    }
 `;

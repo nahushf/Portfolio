@@ -1,11 +1,13 @@
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 /** Picked from https://codepen.io/StephenFlannery/pen/MaoMyp*/
 
-export const ButtonWinona = ({ text }: { text: string }) => {
+export const ButtonWinona = ({ text, href }: { text: string; href: string }) => {
+    const router = useRouter();
     return (
         <WinonaContainer>
-            <button className="button button--winona" data-text={text}>
+            <button className="button button--winona" data-text={text} onClick={() => router.push(href)}>
                 <span>{text}</span>
             </button>
         </WinonaContainer>
@@ -16,9 +18,7 @@ const WinonaContainer = styled.div`
     .button {
         border: 1px solid #4a4a4a;
         border-radius: 8px;
-        cursor: pointer;
         font-size: 24px;
-        float: left;
         min-width: 150px;
         max-width: 400;
         display: block;
@@ -43,6 +43,11 @@ const WinonaContainer = styled.div`
         transition: border-color 0.3s, background-color 0.3s;
         -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
         transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+        &:active {
+            &::after {
+                font-size: 15px;
+            }
+        }
     }
     .button--winona::after {
         content: attr(data-text);
@@ -68,7 +73,7 @@ const WinonaContainer = styled.div`
         transition: transform 0.3s, opacity 0.3s;
         -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
         transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-        letter-spacing: 7px;
+        font-size: 16px;
     }
     .button--winona:hover {
         border-color: #3f51b5;

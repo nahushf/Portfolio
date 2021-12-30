@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
 const variants = {
     hidden: { opacity: 0, x: 0, y: -200 },
@@ -6,17 +7,18 @@ const variants = {
     exit: { opacity: 0, x: 0, y: -100 }
 };
 
-export const AnimationLayout = ({ children }) => {
+export const AnimationLayout = ({ children, className = '' }) => {
     return (
-        <motion.main
+        <motion.div
             variants={variants} // Pass the variant object into Framer Motion
             initial="hidden" // Set the initial state to variants.hidden
             animate="enter" // Animated state to variants.enter
             exit="exit" // Exit state (used later) to variants.exit
             transition={{ type: 'linear' }} // Set the transition to linear
-            className=""
+            className={`layout-animation-container ${className}`}
         >
             {children}
-        </motion.main>
+
+        </motion.div>
     );
 };
