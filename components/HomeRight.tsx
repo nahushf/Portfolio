@@ -12,4 +12,11 @@ export const HomeRight = () => {
 const Container = styled.div`
     display: flex;
     align-items: center;
+    svg {
+        z-index: -1;
+        left: 30vw;
+        top: -50%;
+        height: 200vh;
+        position: fixed;
+    }
 `;

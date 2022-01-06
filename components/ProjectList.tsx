@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { EventHandler, MouseEvent, useState } from 'react';
 import styled from 'styled-components';
 
 const ProjectListItem = ({
@@ -7,13 +8,15 @@ const ProjectListItem = ({
     onMouseOver = () => {},
     onMouseLeave = () => {},
     isOpen,
-    isInitial
+    isInitial,
+    onClick = () => {}
 }: {
     project: IProject;
     onMouseOver?;
     onMouseLeave?;
     isOpen: boolean;
     isInitial: boolean;
+    onClick?: EventHandler<MouseEvent>;
 }) => {
     const toggleClose = () => {
         onMouseLeave();
@@ -24,9 +27,10 @@ const ProjectListItem = ({
     return (
         <div
             className={` project-list-item ${isOpen ? 'open' : ''} ${isInitial ? 'initial' : ''}`}
+            onClick={onClick}
             onMouseOver={toggleOpen}
             onMouseLeave={toggleClose}
-            style={{order: project.id}}
+            style={{ order: project.id }}
             data-gradient-start={project.gradient[0]}
             data-gradient-end={project.gradient[1]}
         >
@@ -48,6 +52,7 @@ export const ProjectList = ({
     onProjectMouseLeave: (project: IProject) => void;
     onProjectMouseOver: (project: IProject) => void;
 }) => {
+    const router = useRouter();
     return (
         <Container data-cursor-size="90" data-cursor-text="View Project">
             {projects.map((project) => (
@@ -58,6 +63,7 @@ export const ProjectList = ({
                     key={project.id}
                     onMouseOver={() => onProjectMouseOver(project)}
                     onMouseLeave={() => onProjectMouseLeave(project)}
+                    onClick={() => router.push(project.route)}
                 />
             ))}
         </Container>

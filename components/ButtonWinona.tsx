@@ -16,6 +16,7 @@ export const ButtonWinona = ({ text, href }: { text: string; href: string }) => 
 
 const WinonaContainer = styled.div`
     .button {
+        cursor: none;
         border: 1px solid #4a4a4a;
         border-radius: 8px;
         font-size: 24px;

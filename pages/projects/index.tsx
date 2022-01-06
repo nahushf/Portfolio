@@ -1,10 +1,9 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
-import { AnimationLayout } from '../components/AnimationLayout';
-import { AnimatedBlob } from '../components/Blob';
-import { ProjectList } from '../components/ProjectList';
+import { AnimatedBlob } from '../../components/Blob';
+import { ProjectList } from '../../components/ProjectList';
 
 const projects: IProject[] = [
     {
@@ -12,21 +11,24 @@ const projects: IProject[] = [
         title: 'Farm2U',
         description: 'Connecting people to their local produce in an efficient manner',
         gradient: ['#58B96E', '#7DBD78'],
-        image: 'Farm2U-splash.png'
+        image: 'Farm2U-splash.png',
+        route: ''
     },
     {
         id: 3,
         title: 'Trupaws',
         description: 'Matching adopters with shelter animals',
         gradient: ['#F7516F', '#FED089'],
-        image: 'Trupaws-splash.png'
+        image: 'Trupaws-splash.png',
+        route: ''
     },
     {
         id: 1,
         title: 'Courtside',
         description: 'Enhancing the basketball experience for the visually impaired',
         gradient: ['#F4A58A', '#ED6B4E'],
-        image: 'Courtside-splash.png'
+        image: 'Courtside-splash.png',
+        route: '/projects/courtside'
     }
 ];
 
@@ -66,7 +68,7 @@ const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     .project-list-container {
-        padding: 24px;
+        padding: 24px 0px 24px 24px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

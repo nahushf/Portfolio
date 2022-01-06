@@ -13,7 +13,6 @@ const SocialLink = ({ href, iconName }: { href: string; iconName: IconName }) =>
 };
 
 export const HomeLeft = () => {
-    const router = useRouter();
     return (
         <Container>
             <div className="social-media-icons">
@@ -51,6 +50,9 @@ const Container = styled.div`
             &:active {
                 color: #000;
             }
+        }
+        a {
+            cursor: none;
         }
     }
     .name {

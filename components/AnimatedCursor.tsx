@@ -38,7 +38,7 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
     const [isActive, setIsActive] = useState(false);
     const [isActiveClickable, setIsActiveClickable] = useState(false);
 
-    const DEFAULT_CURSOR_PROPS = { text: '', size: innerSize, gradient: ['#4a4a4a', '#4a4a4a'] };
+    const DEFAULT_CURSOR_PROPS = { text: '', size: innerSize, gradient: ['#4a4a4a', '#4a4a4a'], textColor: '#fff' };
     const [cursorStuff, setCursorStuff] = useState(DEFAULT_CURSOR_PROPS);
     let endX = useRef(0);
     let endY = useRef(0);
@@ -54,15 +54,18 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
                 const nodeCursorSize = parseInt(closestTextNode.getAttribute('data-cursor-size')) || innerSize;
                 const gradientStart = closestGradientNode.getAttribute('data-gradient-start');
                 const gradientEnd = closestGradientNode.getAttribute('data-gradient-end');
+                const textColor = closestTextNode.getAttribute('data-cursor-color') || DEFAULT_CURSOR_PROPS.textColor;
                 if (
                     cursorStuff.text !== nodeCursorText ||
                     cursorStuff.gradient[0] !== gradientStart ||
-                    cursorStuff.gradient[1] !== gradientEnd
+                    cursorStuff.gradient[1] !== gradientEnd ||
+                    cursorStuff.textColor !== textColor
                 ) {
                     setCursorStuff({
                         text: nodeCursorText,
                         size: nodeCursorSize,
-                        gradient: [gradientStart, gradientEnd]
+                        gradient: [gradientStart, gradientEnd],
+                        textColor
                     });
                 }
             } else if (!closestTextNode && !!cursorStuff.text) {
@@ -127,8 +130,8 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
             return;
         }
         if (isActiveClickable) {
-            cursorInnerRef.current.style.transform = `scale(${innerScale * 1.3}) translate(-50%, -50%)`;
-            cursorOuterRef.current.style.transform = `scale(${outerScale * 1.4}) translate(-50%, -50%)`;
+            cursorInnerRef.current.style.transform = `scale(${innerScale * 1.3})`;
+            cursorOuterRef.current.style.transform = `scale(${outerScale * 1.4})`;
         }
     }, [innerScale, outerScale, isActiveClickable]);
 
@@ -212,6 +215,7 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
             maxWidth: cursorStuff.size + 'px',
             maxHeight: cursorStuff.size + 'px',
             pointerEvents: 'none',
+            color: cursorStuff.textColor,
             background: `linear-gradient(135deg, ${cursorStuff.gradient[0]}, ${cursorStuff.gradient[1]})`,
             transition:
                 'opacity 0.15s ease-in-out, transform 0.10s ease-in-out, max-height 0.1s ease-in-out, max-width 0.1s ease-in-out, background 0.15s ease-in-out'
