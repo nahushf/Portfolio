@@ -8,6 +8,7 @@ import { Fragment } from 'react';
 import { AnimationLayout } from '../components/AnimationLayout';
 import dynamic from 'next/dynamic';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { maxDevice, minDevice } from '../constants/styles';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
@@ -54,6 +55,74 @@ const GlobalStyle = createGlobalStyle`
             width:100%;
         }
     }
+    ${minDevice.tablet} {
+        * {
+            cursor: none !important
+        }
+    }
+    ${maxDevice.tablet} {
+        h1 {
+            font-size: 48px;
+            line-height: 48px;
+            letter-spacing: -2px;
+        }
+    }
+    .mobile-only {
+        ${minDevice.mobile} {
+            display: none !important;
+        }
+    }
+    .tablet-only {
+        ${minDevice.tablet} {
+            display: none;
+        }
+        ${maxDevice.mobile} {
+            display: none;
+        }
+    }
+    .desktop-only {
+        ${maxDevice.tablet} {
+            display: none;
+        }
+    }
+    .till-desktop {
+        ${maxDevice.desktop} {
+            display: none;
+        }
+    }
+    .till-tablet {
+        ${minDevice.tablet} {
+            display: none;
+        }
+    }
+    .not-tablet {
+        ${maxDevice.tablet} {
+            display: none !important;
+        }
+        ${maxDevice.mobile} {
+            display: block !important;                
+        }
+    }
+    .not-mobile {
+        ${maxDevice.mobile} {
+            display: none !important;
+        }
+    }
+    .not-desktop {
+        ${minDevice.tablet} {
+            display: none !important;
+        }
+    }
+    .before-desktop-only {
+        ${minDevice.desktop} {
+            display: none !important;
+        }
+    }
+    .after-desktop-only {
+        ${maxDevice.desktop} {
+            display: none !important;
+        }
+    }
 `;
 
 const AnimatedCursor = dynamic(() => import('../components/AnimatedCursor'), {
@@ -92,7 +161,10 @@ const MailIcon = styled.a`
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    cursor: none;
+    ${maxDevice.tablet} {
+        bottom: 16px;
+        right: 16px;
+    }
 `;
 
 export default MyApp;

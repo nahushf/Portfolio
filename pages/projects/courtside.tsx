@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
+import {BackButton} from '../../components/reusableComponents';
 
 const BasketballAudio = dynamic(() => import('../../components/BasketballAudio'), {
     ssr: false
@@ -279,6 +280,9 @@ const Courtside = () => {
                     Have some feedback for this project or just want to chat? Feel free to&nbsp;
                     <a href="mailto:nahush.farkande@gmail.com">reach out to me</a>
                 </div>
+                <div className="project-footer">
+                    <BackButton href="/projects" text="Back to Projects" />
+                </div>
             </div>
         </Container>
     );
@@ -471,7 +475,6 @@ const Container = styled.div`
                 a {
                     color: #000;
                     text-decoration: underline;
-                    cursor: none;
                 }
             }
         }

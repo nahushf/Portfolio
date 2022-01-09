@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { maxDevice } from '../constants/styles';
 import { AnimatedBlob } from './Blob';
 
 export const HomeRight = () => {
@@ -18,5 +19,11 @@ const Container = styled.div`
         top: -50%;
         height: 200vh;
         position: fixed;
+    }
+    ${maxDevice.mobile} {
+        svg {
+            left: 0vw;
+            height: 150vh;
+        }
     }
 `;

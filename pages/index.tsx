@@ -1,9 +1,6 @@
-import SimplexNoise from 'simplex-noise';
-import { useEffect, useRef, useState } from 'react';
-import type { NextPage } from 'next';
+import { NextPage } from 'next';
 import styled from 'styled-components';
 import { HomeLeft } from '../components/HomeLeft';
-import { spline } from '../scripts/spline';
 import { HomeRight } from '../components/HomeRight';
 
 const Home: NextPage = () => {
@@ -16,7 +13,8 @@ const Home: NextPage = () => {
 };
 
 const Container = styled.div`
-    height: 100%;
+    height: 100vh;
+    overflow: hidden;
     flex: 1;
     display: grid;
     grid-template-columns: 1fr 1fr;

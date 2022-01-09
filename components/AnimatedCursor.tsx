@@ -1,5 +1,7 @@
 import { Fragment, useCallback, useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
+import { maxDevice } from '../constants/styles';
+import { useIsDevice } from '../useWindowSize';
 
 function useEventListener(eventName, handler, element = document) {
     const savedHandler = useRef<any>();
@@ -42,6 +44,8 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
     const [cursorStuff, setCursorStuff] = useState(DEFAULT_CURSOR_PROPS);
     let endX = useRef(0);
     let endY = useRef(0);
+    const isDesktop = useIsDevice('desktop');
+
     const onMouseMove = useCallback(
         ({ target, clientX, clientY }) => {
             if (!cursorOuterRef.current || !cursorInnerRef.current) {
@@ -149,7 +153,10 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
     }, [isVisible]);
 
     useEffect(() => {
-        document.documentElement.style.cursor = 'none';
+        if (isDesktop) {
+            document.documentElement.style.cursor = 'none';
+        }
+
         const clickables = document.querySelectorAll(
             'a, input[type="submit"], input[type="image"], label[for], select, button, .link'
         );
@@ -233,12 +240,14 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
                 'opacity 0.15s ease-in-out, transform 0.10s ease-in-out, max-height 0.1s ease-in-out, max-width 0.1s ease-in-out'
         }
     };
-
+    if (!isDesktop) {
+        return null;
+    }
     return (
         <Fragment>
-            <OuterCursor ref={cursorOuterRef} style={styles.cursorOuter} />
+            <OuterCursor className="desktop-only" ref={cursorOuterRef} style={styles.cursorOuter} />
             <InnerCursor
-                className={`inner-cursor ${cursorStuff.text ? 'has-cursor-text' : ''}`}
+                className={`inner-cursor desktop-only ${cursorStuff.text ? 'has-cursor-text' : ''}`}
                 ref={cursorInnerRef}
                 style={styles.cursorInner}
             >

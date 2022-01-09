@@ -4,6 +4,9 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { AnimatedBlob } from '../../components/Blob';
 import { ProjectList } from '../../components/ProjectList';
+import { BackButton } from '../../components/reusableComponents';
+import { maxDevice } from '../../constants/styles';
+import { useIsDevice } from '../../useWindowSize';
 
 const projects: IProject[] = [
     {
@@ -35,25 +38,25 @@ const projects: IProject[] = [
 const Projects = () => {
     const [selectedProject, setSelectedProject] = useState(projects[2]);
     const openId = selectedProject?.id || -1;
+    const isMobile = useIsDevice('mobile');
     return (
         <Container>
             <div className="project-list-container">
                 <ProjectList
                     projects={projects}
                     openId={openId}
+                    onMobileProjectChange={(project) => isMobile && setSelectedProject(project)}
                     onProjectMouseOver={(project) => {
-                        if (openId !== project.id) {
-                            setSelectedProject(project);
+                        if (!isMobile) {
+                            if (openId !== project.id) {
+                                setSelectedProject(project);
+                            }
                         }
                     }}
-                    onProjectMouseLeave={() => setSelectedProject(null)}
+                    onProjectMouseLeave={() => !isMobile && setSelectedProject(null)}
                 />
                 <h1>Projects</h1>
-                <Link href="/">
-                    <div className="back-link">
-                        <FontAwesomeIcon icon="chevron-left" /> Back
-                    </div>
-                </Link>
+                <BackButton href="/" />
             </div>
             <div className="project-presentation">
                 {selectedProject && <img src={`/${selectedProject?.image}`} />}
@@ -77,20 +80,6 @@ const Container = styled.div`
             align-items: flex-end;
             flex: 1;
         }
-        .back-link {
-            font-weight: 400;
-            height: 29px;
-            display: flex;
-            align-items: center;
-            color: #1b1425;
-            .svg-inline--fa {
-                margin-right: 8px;
-            }
-            &:active {
-                color: #000;
-                font-size: 22px;
-            }
-        }
     }
     .project-presentation {
         display: flex;
@@ -102,6 +91,26 @@ const Container = styled.div`
             position: absolute;
             height: 50vh;
             margin-top: 4vh;
+        }
+    }
+    ${maxDevice.mobile} {
+        grid-template-columns: 1fr;
+        .project-list-container {
+            padding: 16px;
+            min-width: 0;
+            display: grid;
+            grid-template-rows: 1fr max-content max-content;
+        }
+        .project-presentation {
+            z-index: -1;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            img {
+                display: none;
+            }
         }
     }
 `;

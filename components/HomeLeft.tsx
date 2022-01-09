@@ -2,6 +2,7 @@ import { IconName } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { maxDevice } from '../constants/styles';
 import { ButtonWinona } from './ButtonWinona';
 
 const SocialLink = ({ href, iconName }: { href: string; iconName: IconName }) => {
@@ -52,12 +53,7 @@ const Container = styled.div`
             }
         }
         a {
-            cursor: none;
         }
-    }
-    .name {
-        font-size: 88px;
-        line-height: 88px;
     }
     .title {
         font-size: 24px;
@@ -66,5 +62,15 @@ const Container = styled.div`
     }
     .button--winona {
         margin-bottom: 24px;
+    }
+    ${maxDevice.mobile} {
+        padding: 16px;
+        .title {
+            letter-spacing: 6px;
+            font-size: 16px;
+        }
+        .button--winona {
+            margin-bottom: 16px;
+        }
     }
 `;

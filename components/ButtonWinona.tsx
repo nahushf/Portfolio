@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import { maxDevice } from '../constants/styles';
 
 /** Picked from https://codepen.io/StephenFlannery/pen/MaoMyp*/
 
@@ -16,7 +17,6 @@ export const ButtonWinona = ({ text, href }: { text: string; href: string }) => 
 
 const WinonaContainer = styled.div`
     .button {
-        cursor: none;
         border: 1px solid #4a4a4a;
         border-radius: 8px;
         font-size: 24px;
@@ -93,5 +93,10 @@ const WinonaContainer = styled.div`
         opacity: 0;
         -webkit-transform: translate3d(0, -25%, 0);
         transform: translate3d(0, -25%, 0);
+    }
+    ${maxDevice.mobile} {
+        .button {
+            padding: 16px;
+        }
     }
 `;
