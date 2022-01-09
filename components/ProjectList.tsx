@@ -1,4 +1,3 @@
-import '@brainhubeu/react-carousel/lib/style.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useRouter } from 'next/router';
 import { EventHandler, Fragment, MouseEvent, useCallback, useEffect, useRef, useState } from 'react';
