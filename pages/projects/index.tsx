@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Link from 'next/link';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { AnimatedBlob } from '../../components/Blob';
@@ -15,7 +13,7 @@ const projects: IProject[] = [
         description: 'Connecting people to their local produce in an efficient manner',
         gradient: ['#58B96E', '#7DBD78'],
         image: 'Farm2U-splash.png',
-        route: ''
+        route: '/projects/farm2u'
     },
     {
         id: 3,
@@ -23,7 +21,7 @@ const projects: IProject[] = [
         description: 'Matching adopters with shelter animals',
         gradient: ['#F7516F', '#FED089'],
         image: 'Trupaws-splash.png',
-        route: ''
+        route: '/projects/trupaws'
     },
     {
         id: 1,

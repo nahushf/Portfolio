@@ -14,7 +14,7 @@ library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPl
 
 const GlobalStyle = createGlobalStyle`
     html {
-        color: #4a4a4a;
+        color: #1b1425;
         font-family: 'Poppins';
     }
     body {
@@ -24,7 +24,7 @@ const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         font-size: 24px;
         font-weight: 300;
-        color: #616060;
+        color: #1b1425;
     }
     h1 {
         letter-spacing: -4px;

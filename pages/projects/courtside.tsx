@@ -1,106 +1,49 @@
-import styled from 'styled-components';
 import dynamic from 'next/dynamic';
-import {BackButton} from '../../components/reusableComponents';
+import styled from 'styled-components';
+import {
+    BackButton,
+    Insight,
+    InsightsContainer,
+    MajorPoint,
+    Overview,
+    ProcessStep,
+    ProcessStepsContainer,
+    ProjectBanner,
+    ProjectContainer,
+    ProjectFooter,
+    ProjectInfoContainer,
+    ProjectStat,
+    ProjectStatsContainer,
+    ScreensSection,
+    Section,
+    SectionDescription,
+    SectionTitle
+} from '../../components/reusableComponents';
 
 const BasketballAudio = dynamic(() => import('../../components/BasketballAudio'), {
     ssr: false
 });
 
-const ProjectStat = ({ className, title, children }) => {
-    return (
-        <div className={`project-stat ${className}`}>
-            <div className="project-stat__key">{title}</div>
-            <div className="project-stat__value">{children}</div>{' '}
-        </div>
-    );
-};
-
-const ProcessStep = ({ name, src }) => {
-    return (
-        <div className="process-step">
-            <img className="process-image" src={`/courtside/${src}`} />
-            <div className="step-name">{name}</div>
-        </div>
-    );
-};
-
-const Insight = ({ index, header, children }) => {
-    return (
-        <div className="insight-container">
-            <div className="index">Insight #{index}</div>
-            <div className="header">{header}</div>
-            <div className="content">{children}</div>
-        </div>
-    );
-};
-
-const Limitation = ({ index, header, children }) => {
-    return (
-        <div className="limitation-container">
-            <div className="index">Limitation #{index}</div>
-            <div className="header">{header}</div>
-            <div className="content">{children}</div>
-        </div>
-    );
-};
-
-const MajorPoint = ({ children, src }) => {
-    return (
-        <div className="major-point__container">
-            <img src={`/courtside/${src}`} />
-            <div className="major-point">{children}</div>
-        </div>
-    );
-};
-
-const ScreensSection = ({ title, children, srcs }) => {
-    return (
-        <div className="screens-section__container">
-            <div className="screens-info">
-                <div className="screens-section__title">{title}</div>
-                <div className="screens-section__description">{children}</div>
-            </div>
-            <div className="screen-images">
-                {srcs.map((src, index) => {
-                    return <img src={`/courtside/${src}`} key={index} />;
-                })}
-            </div>
-        </div>
-    );
-};
-
 const Courtside = () => {
     return (
         <Container>
-            <div className="banner-container">
-                <img src="/courtside/banner.png" />
-            </div>
-            <div className="project-info">
-                <div className="overview-container">
-                    <div className="overview">
-                        <div className="project-name">Courtside</div>
-                        Courtside is an application/service that is aimed at enhancing the Basketball experience for the
-                        visually impaired. The service is inspired by games such as Beep ball and Golf(where the balls
-                        contain sensors). The app is primarily aimed towards the visually impaired but can also enhance
-                        the experience of the average user by bringing them closer to the Courtside experience.
-                    </div>
-                    <div className="salient-points">
-                        <div className="salient-points__title">Salient Points</div>
-                        <ul>
-                            <li>
-                                Won the Best Accessibility, Best use of 5G and the Overall grand prize at the AT&T 5G
-                                Sports Hackathon
-                            </li>
-                            <li>Got us nominated for the Elite 50 Award at IUPUI</li>
-                        </ul>
-                    </div>
-                </div>
+            <ProjectBanner imgSrc="/courtside/banner.png" />
+            <ProjectInfoContainer>
+                <Overview
+                    projectName="Courtside"
+                    projectDescription={`Courtside is an application/service that is aimed at enhancing the Basketball experience for the visually impaired. The service is inspired by games such as Beep ball and Golf(where the balls contain sensors). The app is primarily aimed towards the visually impaired but can also enhance the experience of the average user by bringing them closer to the Courtside experience.
+`}
+                    salientPoints={[
+                        `Won the Best Accessibility, Best use of 5G and the Overall grand prize at the AT&T 5G Sports Hackathon`,
+                        `Got us nominated for the Elite 50 Award at IUPUI`
+                    ]}
+                />
                 <div className="secondary-banner">
                     <img src="/courtside/award-1.jpg" />
                     <img src="/courtside/award-2.jpg" />
                     <img src="/courtside/award-3.jpg" />
                 </div>
-                <div className="project-stats">
+                <ProjectStatsContainer>
                     <ProjectStat title="Duration" className="duration">
                         48 hours
                     </ProjectStat>
@@ -113,24 +56,23 @@ const Courtside = () => {
                     <ProjectStat title="Team" className="team">
                         1 Data Science Student, 4 HCI Students
                     </ProjectStat>
-                </div>
-                <div className="process section">
+                </ProjectStatsContainer>
+                <Section className="process">
                     <SectionTitle>Process</SectionTitle>
-                    <div className="process-steps-container">
-                        <ProcessStep name="Research" src="research.png" />
-                        <ProcessStep name="Brainstorming" src="brainstorming.png" />
-                        <ProcessStep name="Expert Validation" src="expert-validation.png" />
-                        <ProcessStep name="Prototyping" src="prototyping.png" />
-                    </div>
-                </div>
-
-                <div className="research section">
+                    <ProcessStepsContainer>
+                        <ProcessStep name="Research" src="/courtside/research.png" />
+                        <ProcessStep name="Brainstorming" src="/courtside/brainstorming.png" />
+                        <ProcessStep name="Expert Validation" src="/courtside/expert-validation.png" />
+                        <ProcessStep name="Prototyping" src="/courtside/prototyping.png" />
+                    </ProcessStepsContainer>
+                </Section>
+                <Section className="research">
                     <SectionTitle>Research</SectionTitle>
                     <SectionDescription>
                         As part of our research we found information about what 5g is and some problems areas in sports
                         which could be tackled using 5g
                     </SectionDescription>
-                    <div className="insights-container">
+                    <InsightsContainer>
                         <Insight index="1" header="What is 5G?">
                             5th Generation wireless technology Higher internet speeds Ultra low latency
                         </Insight>
@@ -143,31 +85,31 @@ const Courtside = () => {
                             the average joe to afford. Sound is the primary factory that contributes to the courtside
                             experience
                         </Insight>
-                    </div>
-                </div>
-                <div className="problem-statement section">
+                    </InsightsContainer>
+                </Section>
+                <Section className="problem-statement">
                     <SectionTitle>Problem Statement</SectionTitle>
                     <SectionDescription>
                         Based on our research we finalized the following problem statement
                     </SectionDescription>
-                    <MajorPoint src="problem-statement-illustration.png">
+                    <MajorPoint src="/courtside/problem-statement-illustration.png">
                         How might we enhance the basketball experience for the visually impaired and improve upon the
                         experience of the average joe with the use of sound
                     </MajorPoint>
-                </div>
-                <div className="brainstorming section">
+                </Section>
+                <Section className="brainstorming">
                     <SectionTitle>Brainstorming and Initial Solution</SectionTitle>
                     <SectionDescription>
                         We used the information we gathered in our research to guide our brainstorming sessions. After a
                         few brief sessions we decided on the following solution which we thought could best address our
                         problem:
                     </SectionDescription>
-                    <MajorPoint src="idea-illustration.png">
+                    <MajorPoint src="/courtside/idea-illustration.png">
                         A service that uses a combination of tactile braille displays and sensors in the ball to give
                         the visually impaired a touch based alternative to experiencing basketball
                     </MajorPoint>
-                </div>
-                <div className="expert-validation section">
+                </Section>
+                <Section className="expert-validation">
                     <SectionTitle>Expert Validation</SectionTitle>
                     <SectionDescription>
                         We used the information we gathered in our research to guide our brainstorming sessions. After a
@@ -175,34 +117,34 @@ const Courtside = () => {
                         problem:
                     </SectionDescription>
                     <div className="limitations-container">
-                        <Limitation index="1" header="Tactile Braille displays are too expensive">
+                        <Insight headerText="Limitation" index="1" header="Tactile Braille displays are too expensive">
                             The service would make use of tactile braille displays which are too expensive for the
                             average joe. Let alone for the visually impaired and their limited earning potential
-                        </Limitation>
-                        <Limitation index="2" header="The actual experience is in the sound ">
+                        </Insight>
+                        <Insight headerText="Limitation" index="2" header="The actual experience is in the sound ">
                             While a tactile display would give the users an idea of where the players are located, the
                             actually joy of any sport lies in the energy at the venue and not just the technicals of the
                             sport
-                        </Limitation>
-                        <Limitation index="3" header="Does not address ordinary sports fans">
+                        </Insight>
+                        <Insight headerText="Limitation" index="3" header="Does not address ordinary sports fans">
                             While the tactile display would definitely enhance the experience of the visually impaired,
                             such a service would be useless for people who can see clearly and would thus not address
                             the latter part of our problem statement.
-                        </Limitation>
+                        </Insight>
                     </div>
-                </div>
-                <div className="rethinking section">
+                </Section>
+                <Section className="rethinking">
                     <SectionTitle>Rethinking the idea</SectionTitle>
                     <SectionDescription>
                         Using our conversations with the experts, we decided to rethink our initial idea. and came up
                         with the following solution:
                     </SectionDescription>
-                    <MajorPoint src="idea-illustration.png">
+                    <MajorPoint src="/courtside/idea-illustration.png">
                         An application that live streams gameplay audio from sensors embedded within the basketball and
                         provides a spatial audio simulation of a courtside experience for the users.{' '}
                     </MajorPoint>
-                </div>
-                <div className="prototyping section">
+                </Section>
+                <Section className="prototyping">
                     <SectionTitle>Prototyping</SectionTitle>
                     <SectionDescription>
                         After validating our new idea with the experts we decided to come up with a plan to demonstrate
@@ -210,8 +152,8 @@ const Courtside = () => {
                         demonstration was consisted of two parts. One part was the UI and a figma prototype and the
                         second part was a proof on concept demonstrating the movement of a ball using sound.
                     </SectionDescription>
-                </div>
-                <div className="audio-poc section">
+                </Section>
+                <Section className="audio-poc">
                     <SectionTitle>Audio POC</SectionTitle>
                     <SectionDescription>
                         As part of our proof of concept we used something like the following to illustrate that sound
@@ -219,8 +161,8 @@ const Courtside = () => {
                         <span>(Please use headphones for the best experience)</span>
                     </SectionDescription>
                     <BasketballAudio />
-                </div>
-                <div className="mobile-app section">
+                </Section>
+                <Section className="mobile-app">
                     <SectionTitle>Mobile App</SectionTitle>
                     <SectionDescription>
                         For the UI we started off trying to design a UI targetted at the visually impaired. This
@@ -242,14 +184,17 @@ const Courtside = () => {
                         features present in the iOS and Android Operating systems handle the accessibility for the
                         visually impaired. Keeping this in mind we designed the following screens
                     </SectionDescription>
-                    <ScreensSection srcs={['match-list.png', 'match-details.png']} title="Match list and details">
+                    <ScreensSection
+                        srcs={['/courtside/match-list.png', '/courtside/match-details.png']}
+                        title="Match list and details"
+                    >
                         The starting screens of the application. Users can see all the games that are being hosted on
                         the app and then tap any game to view some more detailed information about the game. On the
                         details page the user would have the ability to buy the ‘virtual ticket’ which you enable them
                         to access the spatial audio experience of the game
                     </ScreensSection>
                     <ScreensSection
-                        srcs={['match-stats.png', 'match-audio.png']}
+                        srcs={['/courtside/match-stats.png', '/courtside/match-audio.png']}
                         title="Match screens and spatial audio experience"
                     >
                         Once the user purchases the ‘virtual ticket’ they can go to the match screen where they will be
@@ -259,13 +204,16 @@ const Courtside = () => {
                         players moving on the court. The users will also be able to customize the audio by reducing or
                         increasing the volumes of each component of the audio
                     </ScreensSection>
-                    <ScreensSection srcs={['voice-assistant-1.png', 'voice-assistant-2.png']} title="Voice Assistant">
+                    <ScreensSection
+                        srcs={['/courtside/voice-assistant-1.png', '/courtside/voice-assistant-2.png']}
+                        title="Voice Assistant"
+                    >
                         As an additional layer of accessibility for the visually impaired the application would also
                         contain a voice assistant feature where the user can use his/her voice to move around in the
                         application.
                     </ScreensSection>
-                </div>
-                <div className="final-thoughts section">
+                </Section>
+                <Section className="final-thoughts">
                     <SectionTitle>Final Thoughts</SectionTitle>
                     <SectionDescription>
                         Overall, we were really proud of what we made. From the beginning none of us went into this
@@ -275,68 +223,27 @@ const Courtside = () => {
                     </SectionDescription>
                     <img src="/courtside/team-funyuns.jpg" />
                     <ImageDescription>Team Funyuns for the win!!</ImageDescription>
-                </div>
-                <div className="contact section">
-                    Have some feedback for this project or just want to chat? Feel free to&nbsp;
-                    <a href="mailto:nahush.farkande@gmail.com">reach out to me</a>
-                </div>
-                <div className="project-footer">
-                    <BackButton href="/projects" text="Back to Projects" />
-                </div>
-            </div>
+                </Section>
+                <ProjectFooter />
+            </ProjectInfoContainer>
         </Container>
     );
 };
-const SectionTitle = styled.div``;
 const ImageDescription = styled.div`
     font-size: 12px;
+    line-height: 18px;
     color: #9b9b9b;
 `;
-const SectionDescription = styled.div``;
+
 const secondaryBannerGap = 32;
-const processThumbnailHeight = '124px';
-const Container = styled.div`
+const Container = styled(ProjectContainer)`
     font-size: 16px;
     line-height: 24px;
     padding: 24px;
-    .banner-container {
-        margin: -24px -24px 0px -24px;
+    .project-banner-container {
         background: linear-gradient(137.49deg, #f4a58a 0%, #ed6b4e 96.01%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 70vh;
-        img {
-            height: 80%;
-        }
     }
-    .project-info {
-        max-width: 700px;
-        margin: 0px auto;
-        .overview-container {
-            padding: 40px 0px;
-            display: flex;
-            align-items: flex-start;
-            gap: 32px;
-            .overview {
-                flex: 0.6;
-                .project-name {
-                    font-size: 32px;
-                    font-weight: 700;
-                    margin-bottom: 16px;
-                }
-            }
-            .salient-points {
-                flex: 0.4;
-                color: #9b9b9b;
-                .salient-points__title {
-                    font-weight: 700;
-                }
-                ul {
-                    margin: 16px 0px;
-                }
-            }
-        }
+    ${ProjectInfoContainer} {
         .secondary-banner {
             display: flex;
             align-items: flex-start;
@@ -347,83 +254,13 @@ const Container = styled.div`
                 box-shadow: 0px 28px 60px rgba(0, 0, 0, 0.1);
             }
         }
-        .project-stats {
-            margin: 40px 0px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-column-gap: 24px;
-            .project-stat {
-                .project-stat__key {
-                    font-weight: 700;
-                }
+        .insight-container {
+            .index {
+                color: #ed6b4e;
             }
         }
-        .section {
-            margin-bottom: 40px;
-            ${SectionTitle} {
-                font-size: 24px;
-                font-weight: 700;
-                margin-bottom: 16px;
-            }
-            ${SectionDescription} {
-                span {
-                    color: #9b9b9b;
-                }
-            }
-            .insights-container .insight-container,
-            .limitation-container {
-                margin: 16px auto 0px auto;
-                width: 50vw;
-                .index,
-                .header {
-                    font-weight: 700;
-                }
-                .index {
-                    color: #ed6b4e;
-                }
-                .header {
-                }
-                .content {
-                }
-            }
-            .major-point__container {
-                height: 200px;
-                display: flex;
-                align-items: center;
-                gap: 16px;
-                font-weight: 700;
-                width: 100%;
-                margin: 16px auto 0px auto;
-                img {
-                    height: 100%;
-                }
-            }
+        ${Section} {
             &.process {
-                .process-steps-container {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
-                    position: relative;
-                    .process-step {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        img {
-                            height: ${processThumbnailHeight};
-                            margin-bottom: 16px;
-                        }
-                    }
-                    &::after {
-                        content: '';
-                        background: linear-gradient(137.49deg, #f4a58a 0%, #ed6b4e 96.01%);
-                        height: 5px;
-                        width: calc(100% - 1vw);
-                        position: absolute;
-                        left: 0px;
-                        top: calc(${processThumbnailHeight} / 2);
-                        z-index: -9;
-                    }
-                }
             }
             &.research {
             }
@@ -437,26 +274,6 @@ const Container = styled.div`
                     margin-bottom: 16px;
                 }
                 .screens-section__container {
-                    width: 100%;
-                    margin: 0 auto;
-                    margin-top: 32px;
-                    display: flex;
-                    gap: 24px;
-                    .screens-info {
-                        .screens-section__title {
-                            font-weight: 700;
-                        }
-                    }
-                    .screen-images {
-                        display: flex;
-                        gap: 32px;
-                        img {
-                            height: 400px;
-                        }
-                    }
-                    &:nth-child(2n + 1) {
-                        flex-direction: row-reverse;
-                    }
                 }
             }
             &.final-thoughts {
@@ -470,11 +287,9 @@ const Container = styled.div`
                 .image-description {
                 }
             }
-            &.contact {
-                color: #6f6f6f;
-                a {
-                    color: #000;
-                    text-decoration: underline;
+            ${ProcessStepsContainer} {
+                &::after {
+                    background: linear-gradient(137.49deg, #f4a58a 0%, #ed6b4e 96.01%);
                 }
             }
         }

@@ -4,11 +4,11 @@ import { maxDevice } from '../constants/styles';
 
 /** Picked from https://codepen.io/StephenFlannery/pen/MaoMyp*/
 
-export const ButtonWinona = ({ text, href }: { text: string; href: string }) => {
+export const ButtonWinona = ({ className = '', text, href }: { className?: string; text: string; href: string }) => {
     const router = useRouter();
     return (
         <WinonaContainer>
-            <button className="button button--winona" data-text={text} onClick={() => router.push(href)}>
+            <button className={`button button--winona ${className}`} data-text={text} onClick={() => router.push(href)}>
                 <span>{text}</span>
             </button>
         </WinonaContainer>

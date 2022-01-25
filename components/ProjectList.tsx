@@ -34,14 +34,13 @@ const ProjectListItem = ({
             onClick={onClick}
             onMouseOver={toggleOpen}
             onMouseLeave={toggleClose}
-            style={{ order: (isMobile ? 1 : -1) * project.id }}
             data-gradient-start={project.gradient[0]}
             data-gradient-end={project.gradient[1]}
         >
             <FontAwesomeIcon icon="chevron-right" />
             <h3 className="project-title">{project.title}</h3>
             <div className="project-description">{project.description}</div>
-            <ButtonWinona text="View Project" href={project.route}></ButtonWinona>
+            <ButtonWinona className="mobile-only" text="View Project" href={project.route}></ButtonWinona>
             <img className="mobile-only" src={`/${project.image}`} />
         </div>
     );
@@ -124,17 +123,21 @@ export const ProjectList = ({
                 ref={container}
                 onScroll={handleProjectListMobileScroll}
             >
-                {projects.map((project) => (
-                    <ProjectListItem
-                        isLast={project.id === 3}
-                        isOpen={project.id === openId}
-                        project={project}
-                        key={project.id}
-                        onMouseOver={() => onProjectMouseOver(project)}
-                        onMouseLeave={() => onProjectMouseLeave(project)}
-                        onClick={() => !isMobile && router.push(project.route)}
-                    />
-                ))}
+                {projects
+                    .sort((a, b) => {
+                        return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+                    })
+                    .map((project) => (
+                        <ProjectListItem
+                            isLast={project.id === 3}
+                            isOpen={project.id === openId}
+                            project={project}
+                            key={project.id}
+                            onMouseOver={() => onProjectMouseOver(project)}
+                            onMouseLeave={() => onProjectMouseLeave(project)}
+                            onClick={() => !isMobile && router.push(project.route)}
+                        />
+                    ))}
             </Container>
             <CarouselNav className="mobile-only" ref={navBar}>
                 <span className="thumb"></span>
@@ -187,7 +190,7 @@ const CarouselNav = styled.div`
 
 const Container = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     &::-webkit-scrollbar {
         display: none;
     }
