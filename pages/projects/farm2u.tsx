@@ -48,11 +48,11 @@ const Farm2U = () => {
                 <Section className="process">
                     <SectionTitle>Process</SectionTitle>
                     <ProcessStepsContainer>
-                        <ProcessStep name="Research" src="/farm2U/research.png" />
-                        <ProcessStep name="Analyze" src="/farm2U/analyze.png" />
-                        <ProcessStep name="Ideate" src="/farm2U/ideate.png" />
-                        <ProcessStep name="Prototype" src="/farm2U/prototype.png" />
-                        <ProcessStep name="Evaluate" src="/farm2U/evaluate.png" />
+                        <ProcessStep name="Research" src="/farm2u/research.png" />
+                        <ProcessStep name="Analyze" src="/farm2u/analyze.png" />
+                        <ProcessStep name="Ideate" src="/farm2u/ideate.png" />
+                        <ProcessStep name="Prototype" src="/farm2u/prototype.png" />
+                        <ProcessStep name="Evaluate" src="/farm2u/evaluate.png" />
                     </ProcessStepsContainer>
                 </Section>
                 <Section>
@@ -70,7 +70,7 @@ const Farm2U = () => {
                         to come up with a solution that addresses the identified problem area. Our research was
                         initiallly focused on identifying a problem area and subsequently on coming up with a solution
                     </SectionDescription>
-                    <MajorPoint src="/farm2U/problem-illustration.png">
+                    <MajorPoint src="/farm2u/problem-illustration.png">
                         Making sustainable* consumer choices is challenging, even when motivation is present due to:
                         <ul>
                             <li>Local choices not being easily accessible to consumers</li>
@@ -128,7 +128,7 @@ const Farm2U = () => {
                         points mentioned in our problem. Based on this notion we finalized the following problem
                         statement
                     </SectionDescription>
-                    <MajorPoint src="/farm2U/problem-statement-illustration.png">
+                    <MajorPoint src="/farm2u/problem-statement-illustration.png">
                         How might enable people to connect with their local produce in a way that not only exposes them
                         to effectively using them but also reduces wastage.
                     </MajorPoint>
@@ -139,7 +139,7 @@ const Farm2U = () => {
                         To address our problem statement we came up with Farm2U. What is Farm2U? you may ask. At it’s
                         core,
                     </SectionDescription>
-                    <MajorPoint src="/farm2U/solution-illustration.png">
+                    <MajorPoint src="/farm2u/solution-illustration.png">
                         Farm2U is a meal box curation service using locally sourced ingredients
                     </MajorPoint>
                 </Section>
@@ -164,7 +164,7 @@ const Farm2U = () => {
                 <Section>
                     <SectionTitle>How is it sustainable?</SectionTitle>
                     <SectionDescription>Farm2U strives to be sustainable through the following ways</SectionDescription>
-                    <MajorPoint src="/farm2U/sustainability-illustration.png">
+                    <MajorPoint src="/farm2u/sustainability-illustration.png">
                         <li>
                             Shortening the supply chain
                             <ul>

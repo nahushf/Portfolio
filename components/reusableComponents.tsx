@@ -257,6 +257,7 @@ export const ScreensSectionContainer = styled.div`
         gap: 32px;
         img {
             height: 400px;
+            box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.1)
         }
     }
     &:nth-child(2n + 1) {
