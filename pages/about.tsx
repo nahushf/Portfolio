@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Navigation } from '../components/reusableComponents';
+import { BackButton, Navigation } from '../components/reusableComponents';
 
 const AboutPage = () => {
     return (
@@ -16,10 +16,12 @@ const AboutPage = () => {
                         managed to bag the Best Overall Product Prize at the AT&T 5G Sports Hackathon and the 2nd place
                         at a Design Sprint Competition held by my University
                     </p>
+
+                <BackButton href="/" /> 
                 </div>
             </div>
             <div className="about__right">
-                <img src="/self.jpg" />{' '}
+                <img src="/self.jpg" />
             </div>
         </Container>
     );
@@ -28,25 +30,26 @@ const AboutPage = () => {
 const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    position: relative;
+    height: 100vh;
+    overflow: hidden;
     .about__left {
         display: flex;
         padding: 24px;
-        justify-content: flex-start;
+        flex-direction: column;
+        justify-content: space-between;
         p {
             font-size: 16px;
             line-height: 1.5;
         }
         .about__info {
-            position: absolute;
             bottom: 24px;
-            width: 70vw;
             .about__description {
                 background: rgba(255, 255, 255, 0.8);
             }
         }
     }
     .about__right {
+        min-height: 0;
         img {
             max-width: 50vw;
         }
