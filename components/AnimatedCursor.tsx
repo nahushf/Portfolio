@@ -48,7 +48,7 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
 
     const onMouseMove = useCallback(
         ({ target, clientX, clientY }) => {
-            if (!cursorOuterRef.current || !cursorInnerRef.current) {
+            if (/*!cursorOuterRef.current ||*/ !cursorInnerRef.current) {
                 return;
             }
             const closestTextNode = target.closest('[data-cursor-text]');
@@ -86,17 +86,17 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
 
     const animateOuterCursor = useCallback(
         (time) => {
-            if (!cursorOuterRef.current) {
-                return;
-            }
-            if (previousTimeRef.current !== undefined) {
-                coords.x += (endX.current - coords.x) / 8;
-                coords.y += (endY.current - coords.y) / 8;
-                cursorOuterRef.current.style.top = `calc(${coords.y + 'px'} - ${outerSize / 2}px)`;
-                cursorOuterRef.current.style.left = `calc(${coords.x + 'px'} - ${outerSize / 2}px)`;
-            }
-            previousTimeRef.current = time;
-            requestRef.current = requestAnimationFrame(animateOuterCursor);
+            // if (!cursorOuterRef.current) {
+            // return;
+            // }
+            // if (previousTimeRef.current !== undefined) {
+            // coords.x += (endX.current - coords.x) / 8;
+            // coords.y += (endY.current - coords.y) / 8;
+            // cursorOuterRef.current.style.top = `calc(${coords.y + 'px'} - ${outerSize / 2}px)`;
+            // cursorOuterRef.current.style.left = `calc(${coords.x + 'px'} - ${outerSize / 2}px)`;
+            // }
+            // previousTimeRef.current = time;
+            // requestRef.current = requestAnimationFrame(animateOuterCursor);
         },
         [requestRef] // eslint-disable-line
     );
@@ -117,51 +117,51 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
     useEventListener('mouseleave', onMouseLeave, document);
 
     useEffect(() => {
-        if (!cursorOuterRef.current || !cursorInnerRef.current) {
+        if (/*!cursorOuterRef.current || */ !cursorInnerRef.current) {
             return;
         }
         if (isActive) {
             cursorInnerRef.current.style.transform = `scale(${innerScale})`;
-            cursorOuterRef.current.style.transform = `scale(${outerScale})`;
+            // cursorOuterRef.current.style.transform = `scale(${outerScale})`;
         } else {
             cursorInnerRef.current.style.transform = 'scale(1)';
-            cursorOuterRef.current.style.transform = 'scale(1)';
+            // cursorOuterRef.current.style.transform = 'scale(1)';
         }
     }, [innerScale, outerScale, isActive]);
 
     useEffect(() => {
-        if (!cursorOuterRef.current || !cursorInnerRef.current) {
+        if (/*!cursorOuterRef.current ||*/ !cursorInnerRef.current) {
             return;
         }
         if (isActiveClickable) {
             cursorInnerRef.current.style.transform = `scale(${innerScale * 1.3})`;
-            cursorOuterRef.current.style.transform = `scale(${outerScale * 1.4})`;
+            // cursorOuterRef.current.style.transform = `scale(${outerScale * 1.4})`;
         }
     }, [innerScale, outerScale, isActiveClickable]);
 
     useEffect(() => {
-        if (!cursorOuterRef.current || !cursorInnerRef.current) {
+        if (/*!cursorOuterRef.current || */ !cursorInnerRef.current) {
             return;
         }
         if (isVisible) {
             cursorInnerRef.current.style.opacity = 1;
-            cursorOuterRef.current.style.opacity = 1;
+            // cursorOuterRef.current.style.opacity = 1;
         } else {
             cursorInnerRef.current.style.opacity = 0;
-            cursorOuterRef.current.style.opacity = 0;
+            // cursorOuterRef.current.style.opacity = 0;
         }
     }, [isVisible]);
 
     useEffect(() => {
-        if (isDesktop) {
-            document.documentElement.style.cursor = 'none';
-        }
+        // if (isDesktop) {
+        // document.documentElement.style.cursor = 'none';
+        // }
 
         const clickables = document.querySelectorAll(
             'a, input[type="submit"], input[type="image"], label[for], select, button, .link'
         );
         clickables.forEach((el: any) => {
-            el.style.cursor = 'none';
+            // el.style.cursor = 'none';
 
             el.addEventListener('mouseover', () => {
                 setIsActive(true);
@@ -245,7 +245,7 @@ export default function AnimatedCursor({ innerSize = 8, outerSize = 24, outerSca
     }
     return (
         <Fragment>
-            <OuterCursor className="desktop-only" ref={cursorOuterRef} style={styles.cursorOuter} />
+            {/* <OuterCursor className="desktop-only" ref={cursorOuterRef} style={styles.cursorOuter} /> */}
             <InnerCursor
                 className={`inner-cursor desktop-only ${cursorStuff.text ? 'has-cursor-text' : ''}`}
                 ref={cursorInnerRef}

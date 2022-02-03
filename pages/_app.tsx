@@ -13,7 +13,17 @@ import { maxDevice, minDevice } from '../constants/styles';
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
 const GlobalStyle = createGlobalStyle`
-    html {
+    @font-face {
+        font-family: 'ClashDisplay';
+        src: url('/fonts/ClashDisplay-SemiBold.otf');
+        font-weight: 600;
+    }
+    @font-face {
+        font-family: 'ClashDisplay';
+        src: url('/fonts/ClashDisplay-Medium.otf');
+        font-weight: 500;
+    }   
+    html, body {
         color: #1b1425;
         font-family: 'Poppins';
     }
@@ -24,12 +34,13 @@ const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         font-size: 24px;
         font-weight: 300;
-        color: #1b1425;
     }
     h1 {
-        letter-spacing: -4px;
         font-size: 88px;
         margin: 0px;
+        font-family: 'ClashDisplay';
+        font-weight: 500;
+        line-height: 88px;
     }
     h3 {
         letter-spacing: -1px;
@@ -57,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
     }
     ${minDevice.tablet} {
         * {
-            cursor: none !important
+// cursor: none !important
         }
     }
     ${maxDevice.tablet} {

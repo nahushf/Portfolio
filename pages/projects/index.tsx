@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { AnimatedBlob } from '../../components/Blob';
 import { ProjectList } from '../../components/ProjectList';
-import { BackButton } from '../../components/reusableComponents';
+import { BackButton, Navigation } from '../../components/reusableComponents';
 import { maxDevice } from '../../constants/styles';
 import { useIsDevice } from '../../useWindowSize';
 
@@ -45,16 +45,16 @@ const Projects = () => {
                     openId={openId}
                     onMobileProjectChange={(project) => isMobile && setSelectedProject(project)}
                     onProjectMouseOver={(project) => {
-                        if (!isMobile) {
-                            if (openId !== project.id) {
-                                setSelectedProject(project);
-                            }
-                        }
+                    if (!isMobile) {
+                        if (openId !== project.id) {
+                            setSelectedProject(project);
+                    }
+                    }
                     }}
                     onProjectMouseLeave={() => !isMobile && setSelectedProject(null)}
                 />
-                <h1>Projects</h1>
-                <BackButton href="/" />
+                    <h1>Projects</h1>
+                    <BackButton href="/" />
             </div>
             <div className="project-presentation">
                 {selectedProject && <img src={`/${selectedProject?.image}`} />}

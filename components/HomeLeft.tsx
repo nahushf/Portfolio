@@ -1,31 +1,12 @@
-import { IconName } from '@fortawesome/fontawesome-svg-core';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { maxDevice } from '../constants/styles';
-import { ButtonWinona } from './ButtonWinona';
-
-const SocialLink = ({ href, iconName }: { href: string; iconName: IconName }) => {
-    return (
-        <a href={href} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={['fab', iconName]} />
-        </a>
-    );
-};
+import { Navigation } from './reusableComponents';
 
 export const HomeLeft = () => {
     return (
         <Container>
-            <div className="social-media-icons">
-                <SocialLink
-                    href="https://www.behance.net/nahushFarkande?tracking_source=search_users_recommended"
-                    iconName="behance"
-                />
-                <SocialLink href="https://www.instagram.com/nahushfarkande/" iconName="instagram" />
-                <SocialLink href="https://www.linkedin.com/in/nahushfarkande/" iconName="linkedin-in" />
-            </div>
+            <Navigation />
             <div className="page-header">
-                <ButtonWinona text="View Projects" href="projects" />
                 <div className="title">UI/UX DESIGNER</div>
                 <h1 className="name">Nahush Farkande</h1>
             </div>
@@ -38,23 +19,6 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    .social-media-icons {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        margin-bottom: 24px;
-        .svg-inline--fa {
-            height: 32px;
-            width: 32px;
-            color: #1b1425;
-            &:active {
-                color: #000;
-            }
-        }
-        a {
-        }
-    }
     .title {
         font-size: 24px;
         letter-spacing: 11px;

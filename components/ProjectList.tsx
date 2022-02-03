@@ -194,9 +194,10 @@ const Container = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
-    scrollbar-width: none;
+    scrollbar-width: nonxe;
     -ms-overflow-style: none;
     .project-list-item {
+        cursor: pointer;
         display: grid;
         grid-template-columns: 24px 1fr;
         border-bottom: 1px solid #e5e5e5;

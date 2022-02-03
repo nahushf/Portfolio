@@ -11,7 +11,7 @@ class MyDocument extends Document<{ styleTags: Node }> {
 
     render() {
         return (
-            <Html>
+            <Html prefix={`og: http://ogp.me/ns#`}>
                 <Head>
                     <link
                         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,200&display=swap"
@@ -19,6 +19,11 @@ class MyDocument extends Document<{ styleTags: Node }> {
                     />
                     <link rel="manifest" href="/manifest.json" />
                     <title>Nahush Farkande</title>
+                    <meta property="og:title" content="Nahush Farkande" />
+                    <meta name="image" property="og:image" content="/website_thumbnail.png" />
+                    <meta name="author" content="Example Author" />
+                    <meta property="og:description" content="Example Description" />
+                    <meta property="og:url" content="https://example.com" />
                     {this.props.styleTags}
                 </Head>
                 <body>
