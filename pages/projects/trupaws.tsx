@@ -41,7 +41,7 @@ export const Trupaws = () => {
                         5 HCI Students
                     </ProjectStat>
                 </ProjectStatsContainer>
-                <Section className="process">
+                <Section className="process not-mobile">
                     <SectionTitle>Process</SectionTitle>
                     <ProcessStepsContainer>
                         <ProcessStep name="Research" src="/trupaws/research.png" />
@@ -50,6 +50,10 @@ export const Trupaws = () => {
                         <ProcessStep name="Prototype" src="/trupaws/prototype.png" />
                         <ProcessStep name="Evaluate" src="/trupaws/evaluate.png" />
                     </ProcessStepsContainer>
+                </Section>
+                <Section className="process-mobile mobile-only">
+                    <SectionTitle>Process</SectionTitle>
+                    <img src="/trupaws/process_map.png" />
                 </Section>
                 <Section>
                     <SectionTitle>Background</SectionTitle>
@@ -198,15 +202,15 @@ export const Trupaws = () => {
                 <Section>
                     <SectionTitle>Final Thoughts and Reflection</SectionTitle>
                     <SectionDescription>
-                        The most interesting part of this project was thinking of ways to try and understand the
-                        users and shelters and finding a way that they can be matched. We definitely see room for
-                        improvement in the way the shelters will be posting their animals onto the platform. Even though
-                        the process we came up with is thorough, it does seem to be quite time consuming. Shelters, with
-                        their limited resources, would definitely find it challenging to enter so much information for
-                        each animal. <p>Overall the entire project was quite enjoyable and challenging at the same time.</p>
+                        The most interesting part of this project was thinking of ways to try and understand the users
+                        and shelters and finding a way that they can be matched. We definitely see room for improvement
+                        in the way the shelters will be posting their animals onto the platform. Even though the process
+                        we came up with is thorough, it does seem to be quite time consuming. Shelters, with their
+                        limited resources, would definitely find it challenging to enter so much information for each
+                        animal. <p>Overall the entire project was quite enjoyable and challenging at the same time.</p>
                     </SectionDescription>
                 </Section>
-                <ProjectFooter /> 
+                <ProjectFooter />
             </ProjectInfoContainer>
         </Container>
     );
@@ -231,6 +235,12 @@ const Container = styled(ProjectContainer)`
         }
     }
     ${Section} {
+        &.process-mobile {
+            img {
+                width: 95%;
+                margin: 0px auto;
+            }
+        }
         &.solution {
             img {
                 width: 224px;

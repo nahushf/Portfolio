@@ -45,7 +45,7 @@ const Farm2U = () => {
                         5 HCI Students
                     </ProjectStat>
                 </ProjectStatsContainer>
-                <Section className="process">
+                <Section className="process not-mobile">
                     <SectionTitle>Process</SectionTitle>
                     <ProcessStepsContainer>
                         <ProcessStep name="Research" src="/farm2u/research.png" />
@@ -54,6 +54,10 @@ const Farm2U = () => {
                         <ProcessStep name="Prototype" src="/farm2u/prototype.png" />
                         <ProcessStep name="Evaluate" src="/farm2u/evaluate.png" />
                     </ProcessStepsContainer>
+                </Section>
+                <Section className="process_mobile mobile-only">
+                    <SectionTitle>Process</SectionTitle>
+                    <img src="/farm2u/process_map.png" />
                 </Section>
                 <Section>
                     <SectionTitle>Background</SectionTitle>
@@ -124,8 +128,8 @@ const Farm2U = () => {
                 <Section>
                     <SectionTitle>Problem Statement</SectionTitle>
                     <SectionDescription>
-                        Based on our research we realized that connecting people to their local produce address all of the
-                        points mentioned in our problem. Based on this notion we finalized the following problem
+                        Based on our research we realized that connecting people to their local produce address all of
+                        the points mentioned in our problem. Based on this notion we finalized the following problem
                         statement
                     </SectionDescription>
                     <MajorPoint src="/farm2u/problem-statement-illustration.png">
@@ -283,6 +287,12 @@ const Container = styled(ProjectContainer)`
             ${ProcessStepsContainer} {
                 &::after {
                     background: linear-gradient(180deg, #58b96e 0%, #7dbd78 100%);
+                }
+            }
+            &.process_mobile {
+                img {
+                    width: 100%;
+                    margin: 0px auto;
                 }
             }
             &.personas {

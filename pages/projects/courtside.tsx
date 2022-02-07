@@ -57,7 +57,7 @@ const Courtside = () => {
                         1 Data Science Student, 4 HCI Students
                     </ProjectStat>
                 </ProjectStatsContainer>
-                <Section className="process">
+                <Section className="process not-mobile">
                     <SectionTitle>Process</SectionTitle>
                     <ProcessStepsContainer>
                         <ProcessStep name="Research" src="/courtside/research.png" />
@@ -65,6 +65,10 @@ const Courtside = () => {
                         <ProcessStep name="Expert Validation" src="/courtside/expert-validation.png" />
                         <ProcessStep name="Prototyping" src="/courtside/prototyping.png" />
                     </ProcessStepsContainer>
+                </Section>
+                <Section className="process-mobile mobile-only">
+                    <SectionTitle>Process</SectionTitle>
+                    <img src="/courtside/process_map.png" />
                 </Section>
                 <Section className="research">
                     <SectionTitle>Research</SectionTitle>
@@ -260,7 +264,11 @@ const Container = styled(ProjectContainer)`
             }
         }
         ${Section} {
-            &.process {
+            &.process-mobile {
+                img {
+                    width: 95%;
+                    margin: 0px auto;
+                }
             }
             &.research {
             }
