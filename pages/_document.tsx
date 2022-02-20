@@ -1,4 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document<{ styleTags: Node }> {
@@ -18,7 +18,6 @@ class MyDocument extends Document<{ styleTags: Node }> {
                         rel="stylesheet"
                     />
                     <link rel="manifest" href="/manifest.json" />
-                    <title>Nahush Farkande</title>
                     <meta property="og:title" content="Nahush Farkande" />
                     <meta name="image" property="og:image" content="/website_thumbnail.png" />
                     <meta name="author" content="Example Author" />
