@@ -149,7 +149,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <title>Nahush Farkande</title>
             </Head>
             <Script
-                id="clarity"
+                id="clarity-script"
                 strategy="afterInteractive"
                 dangerouslySetInnerHTML={{
                     __html: `
