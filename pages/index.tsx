@@ -1,11 +1,13 @@
 import { NextPage } from 'next';
 import styled from 'styled-components';
-import { HomeLeft } from '../components/HomeLeft';
+import { HomeContent } from '../components/HomeLeft';
+import { Navigation } from '../components/reusableComponents';
 
 const Home: NextPage = () => {
     return (
         <Container>
-            <HomeLeft />
+            <Navigation />
+            <HomeContent />
         </Container>
     );
 };

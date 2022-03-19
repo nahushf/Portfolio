@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { motion, useAnimation } from 'framer-motion';
+import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
@@ -10,7 +10,7 @@ import { isEmpty } from '../scripts/utils';
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
     return (
         <Link href={href}>
-            <BackButtonContainer>
+            <BackButtonContainer layoutId="back-button">
                 <FontAwesomeIcon icon="chevron-left" />
                 &nbsp;{text ?? 'Back'}
             </BackButtonContainer>
@@ -18,7 +18,7 @@ export const BackButton = ({ href, text }: { href: string; text?: string }) => {
     );
 };
 
-const BackButtonContainer = styled.div`
+const BackButtonContainer = styled(motion.div)`
     cursor: pointer;
     font-weight: 400;
     font-size: 16px;
@@ -276,7 +276,7 @@ export const ScreensSectionContainer = styled.div`
 `;
 
 export const ProjectInfoContainer = styled.div`
-    max-width: 700px;
+    max-width: 1024px;
     margin: 0px auto;
 `;
 
@@ -457,7 +457,6 @@ const Navigation_DEPContainer = styled.div`
 
 export const Navigation = () => {
     const router = useRouter();
-    console.log(router);
     return (
         <NavigationContainer>
             <NavLink href="/">
@@ -475,8 +474,10 @@ export const NavLink = ({ href, className = '', children }) => {
     const router = useRouter();
     console.log(router.pathname, href);
     return (
-        <Link {...{ href, className: `nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}` }}>
-            {children}
+        <Link {...{ href }}>
+            <span className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}>
+                {children}
+            </span>
         </Link>
     );
 };
@@ -529,4 +530,12 @@ export const Name = styled.div`
 export const Emp = styled.span`
     color: white;
     font-weight: bold;
+`;
+
+export const HomePageSection = styled.div`
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    scroll-padding: 50%;
+    scroll-snap-stop: always;
+    scroll-snap-destination: 0 100px;
 `;

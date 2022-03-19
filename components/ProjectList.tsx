@@ -100,10 +100,8 @@ export const ProjectList = ({
                 return;
             }
             const pageOffset = getNodePageOffset(e.target as HTMLDivElement);
-            console.log(pageOffset);
             const newPage = Math.round(pageOffset);
             const newProject = updatePage(newPage);
-            console.log(newPage);
             // navBar.current.style.paddingLeft = `${pageOffset * 33.33}%`;
             updateThumb(newProject);
         },
