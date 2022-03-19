@@ -460,9 +460,9 @@ export const Navigation = () => {
     console.log(router);
     return (
         <NavigationContainer>
-            <a href="/">
+            <NavLink href="/">
                 <img src="/logo.png" />
-            </a>
+            </NavLink>
             <div className="nav-items-container">
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/Resume.pdf">Resume</NavLink>
@@ -475,9 +475,9 @@ export const NavLink = ({ href, className = '', children }) => {
     const router = useRouter();
     console.log(router.pathname, href);
     return (
-        <a {...{ href, className: `nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}` }}>
+        <Link {...{ href, className: `nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}` }}>
             {children}
-        </a>
+        </Link>
     );
 };
 
