@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BackButton, Navigation } from '../components/reusableComponents';
+import { BackButton, Emp, Name, Navigation } from '../components/reusableComponents';
 
 const AboutPage = () => {
     return (
@@ -8,16 +8,16 @@ const AboutPage = () => {
                 <Navigation />
                 <div className="about__info">
                     <p>Hello, my name is </p>
-                    <h1>Nahush Farkande</h1>
+                    <Name>Nahush Farkande</Name>
                     <p className="about__description">
-                        I am an aspiring UI/UX/Product designer pursuing my Masters in Human Computer Interaction at
+                        I am an aspiring <Emp>UI/UX/Product designer</Emp> pursuing my Masters in Human Computer Interaction at
                         Indiana University. I worked as front end engineer for 6 years before switching to design as my
                         primary field. In my free time I like to sing, sketch and accumulate dad jokes. Most recently I
-                        managed to bag the Best Overall Product Prize at the AT&T 5G Sports Hackathon and the 2nd place
-                        at a Design Sprint Competition held by my University
+                        managed to bag the <Emp>Best Overall Product</Emp> Prize at the <Emp>AT&T 5G Sports Hackathon</Emp> and the 2nd place
+                        at a Design Sprint Competition which took place at my University
                     </p>
 
-                <BackButton href="/" /> 
+                    <BackButton href="/" />
                 </div>
             </div>
             <div className="about__right">
@@ -32,6 +32,10 @@ const Container = styled.div`
     grid-template-columns: 1fr 1fr;
     height: 100vh;
     overflow: hidden;
+    align-items: center;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: 4vh;
     .about__left {
         display: flex;
         padding: 24px;
@@ -44,14 +48,19 @@ const Container = styled.div`
         .about__info {
             bottom: 24px;
             .about__description {
-                background: rgba(255, 255, 255, 0.8);
             }
+        }
+        ${Name} {
+            font-size: 104px;
         }
     }
     .about__right {
         min-height: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         img {
-            max-width: 50vw;
+            max-height: 61vh;
         }
     }
 `;

@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import {
     BackButton,
+    Emp,
     Insight,
     InsightsContainer,
     MajorPoint,
@@ -31,8 +32,15 @@ const Courtside = () => {
             <ProjectInfoContainer>
                 <Overview
                     projectName="Courtside"
-                    projectDescription={`Courtside is an application/service that is aimed at enhancing the Basketball experience for the visually impaired. The service is inspired by games such as Beep ball and Golf(where the balls contain sensors). The app is primarily aimed towards the visually impaired but can also enhance the experience of the average user by bringing them closer to the Courtside experience.
-`}
+                    projectDescription={
+                        <>
+                            Courtside is an application/service that is aimed at <Emp>enhancing the Basketball experience for
+                            the visually impaired</Emp>. The service is inspired by games such as Beep ball and Golf(where the
+                            balls contain sensors). The app is primarily aimed towards the visually impaired but can
+                            also enhance the experience of the average user by <Emp>bringing them closer to the Courtside
+                            experience</Emp>.
+                        </>
+                    }
                     salientPoints={[
                         `Won the Best Accessibility, Best use of 5G and the Overall grand prize at the AT&T 5G Sports Hackathon`,
                         `Got us nominated for the Elite 50 Award at IUPUI`

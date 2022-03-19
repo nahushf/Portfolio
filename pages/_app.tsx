@@ -1,16 +1,16 @@
-import '../styles/globals.css';
-import { AppProps } from 'next/app';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faBehance, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import { faChevronRight, fas, faPlay, faPause, faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import styled, { createGlobalStyle } from 'styled-components';
-import { Fragment } from 'react';
-import { AnimationLayout } from '../components/AnimationLayout';
+import { faChevronRight, faEnvelope, faPause, faPlay, fas } from '@fortawesome/free-solid-svg-icons';
+import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { maxDevice, minDevice } from '../constants/styles';
-import Script from 'next/script';
 import Head from 'next/head';
+import Script from 'next/script';
+import { Fragment } from 'react';
+import styled, { createGlobalStyle } from 'styled-components';
+import { AnimationLayout } from '../components/AnimationLayout';
+import { EmailIcon } from '../components/InstaIcon';
+import { black, maxDevice, minDevice, textColor } from '../constants/styles';
+import '../styles/globals.css';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
@@ -26,8 +26,9 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 500;
     }   
     html, body {
-        color: #1b1425;
-        font-family: 'Poppins';
+        color: ${textColor};
+        font-family: 'Poppins' !important;
+        background: ${black};
     }
     body {
         height: 100vh;
@@ -173,7 +174,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 data-gradient-end="#4a4a4a"
                 href="mailto: nahush.farkande@gmail.com"
             >
-                <FontAwesomeIcon icon="envelope" />
+                <EmailIcon />
             </MailIcon>
         </Fragment>
     );
@@ -185,11 +186,12 @@ const MailIcon = styled.a`
     right: 32px;
     height: 80px;
     width: 80px;
-    border: 1px solid #4a4a4a;
     border-radius: 100px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    backdrop-filter: blur(24px);
+    background: rgb(41, 29, 55, 0.5);
     ${maxDevice.tablet} {
         bottom: 16px;
         right: 16px;

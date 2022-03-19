@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import styled from 'styled-components';
+import { textColor } from '../constants/styles';
 import { isEmpty } from '../scripts/utils';
 
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
@@ -24,7 +25,7 @@ const BackButtonContainer = styled.div`
     height: 29px;
     display: flex;
     align-items: center;
-    color: #1b1425;
+    color: #fafafa;
     .svg-inline--fa {
         margin-right: 8px;
     }
@@ -123,6 +124,7 @@ const OverviewContainer = styled.div`
             font-size: 32px;
             font-weight: 700;
             margin-bottom: 16px;
+            color: #fafafa;
         }
     }
     .salient-points {
@@ -148,6 +150,7 @@ export const ProjectStat = ({ className, title, children }) => {
 
 const ProjectStatContainer = styled.div`
     .project-stat__key {
+        color: #fafafa;
         font-weight: 700;
     }
 `;
@@ -167,6 +170,7 @@ export const Section = styled.div`
         font-size: 24px;
         font-weight: 700;
         margin-bottom: 16px;
+        color: #fafafa;
     }
     ${SectionDescription} {
         span {
@@ -192,6 +196,7 @@ export const MajorPointContainer = styled.div`
     font-weight: 700;
     width: 100%;
     margin: 16px auto 0px auto;
+    color: #fafafa;
     img {
         height: 100%;
     }
@@ -215,6 +220,7 @@ const InsightContainer = styled.div`
     .index,
     .header {
         font-weight: 700;
+        color: #fafafa;
     }
     .header {
     }
@@ -257,7 +263,7 @@ export const ScreensSectionContainer = styled.div`
         gap: 32px;
         img {
             height: 400px;
-            box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.1)
+            box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.1);
         }
     }
     &:nth-child(2n + 1) {
@@ -288,7 +294,7 @@ export const ProjectFooter = () => {
                 <a href="mailto:nahush.farkande@gmail.com">reach out to me</a>
             </ContactContainer>
             <FooterContainer className="project-footer">
-                <BackButton href="/projects" text="Back to Projects" />
+                <BackButton href="/" text="Back to Projects" />
             </FooterContainer>
         </Fragment>
     );
@@ -296,13 +302,13 @@ export const ProjectFooter = () => {
 const ContactContainer = styled(Section)`
     color: #6f6f6f;
     a {
-        color: #000;
+        color: ${textColor};
         text-decoration: underline;
     }
 `;
 const FooterContainer = styled.div``;
 
-export const NavLink = ({
+export const NavLink_DEP = ({
     href,
     text = null,
     newTab = false,
@@ -422,19 +428,19 @@ const socialOptions = [
     { content: 'LinkedIn', href: 'https://www.linkedin.com/in/nahushfarkande/' }
 ];
 
-export const Navigation = () => {
+export const Navigation_DEP = () => {
     const { pathname } = useRouter();
     return (
-        <NavigationContainer className="navigation">
+        <Navigation_DEPContainer className="navigation">
             <NavMenu toggleContent="Social" options={socialOptions} />
-            <NavLink href="https://medium.com/@nahush.farkande" text="Blog" newTab />
-            <NavLink href="projects" text="Projects" />
-            <NavLink href="about" text="About" active={pathname === '/about'} />
-        </NavigationContainer>
+            <NavLink_DEP href="https://medium.com/@nahush.farkande" text="Blog" newTab />
+            <NavLink_DEP href="projects" text="Projects" />
+            <NavLink_DEP href="about" text="About" active={pathname === '/about'} />
+        </Navigation_DEPContainer>
     );
 };
 
-const NavigationContainer = styled.div`
+const Navigation_DEPContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -447,4 +453,80 @@ const NavigationContainer = styled.div`
             color: #000;
         }
     }
+`;
+
+export const Navigation = () => {
+    const router = useRouter();
+    console.log(router);
+    return (
+        <NavigationContainer>
+            <a href="/">
+                <img src="/logo.png" />
+            </a>
+            <div className="nav-items-container">
+                <NavLink href="/about">About</NavLink>
+                <NavLink href="/Resume.pdf">Resume</NavLink>
+            </div>
+        </NavigationContainer>
+    );
+};
+
+export const NavLink = ({ href, className = '', children }) => {
+    const router = useRouter();
+    console.log(router.pathname, href);
+    return (
+        <a {...{ href, className: `nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}` }}>
+            {children}
+        </a>
+    );
+};
+
+const NavigationContainer = styled.div`
+    background: rgb(27, 19, 37, 0.8);
+    z-index: 9999;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 24px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    backdrop-filter: blur(24px);
+    justify-content: space-between;
+    img {
+        height: 40px;
+    }
+    .nav-items-container {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        .nav-item {
+            padding: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 400;
+            &:active {
+                color: #e0e0e0;
+            }
+            &.active {
+                color: white;
+            }
+        }
+    }
+`;
+
+export const Name = styled.div`
+    font-size: 16vh;
+    font-weight: bold;
+    line-height: 13vh;
+    letter-spacing: -1vh;
+    color: white;
+    .full-stop {
+        color: #f87e77;
+    }
+`;
+
+export const Emp = styled.span`
+    color: white;
+    font-weight: bold;
 `;

@@ -9,4 +9,9 @@ declare interface IProject {
     gradient: string[];
     image: string;
     route: string;
+    tags: string[];
 }
+
+declare type VariantType = import('framer-motion').Variant;
+
+declare type IProjectTileVariant = { [key: 'rest' | 'show' | 'hover' | 'active']: VariantType };
