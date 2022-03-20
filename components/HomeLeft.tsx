@@ -6,6 +6,7 @@ import { black, maxDevice } from '../constants/styles';
 import { ArrowIcon } from './arrowIcon';
 import { Footer } from './Footer';
 import { BehanceIcon, EmailIcon, InstaIcon, LinkedInIcon } from './InstaIcon';
+import {OtherWork} from './OtherWork';
 import { ProjectTileList } from './ProjectTileList';
 import { Emp, HomePageSection, Name } from './reusableComponents';
 
@@ -54,6 +55,7 @@ export const HomeContent = () => {
                     <h2>Selected Work</h2>
                     <ProjectTileList />
                 </HomePageSection>
+                <OtherWork /> 
             </div>
             <Footer />
         </Container>
@@ -64,6 +66,7 @@ const Container = styled(motion.div)`
     overflow: auto;
     min-height: 0;
     scroll-snap-type: y mandatory;
+    scroll-padding: 100px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     font-weight: 100;
@@ -75,13 +78,11 @@ const Container = styled(motion.div)`
         padding: 24px;
         max-width: 1024px;
         .landing {
-            height: 95vh;
-            margin-top: 80px;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 32px;
-            padding-top: 7vh;
         }
         .intro-title {
             font-size: 24px;
@@ -119,9 +120,6 @@ const Container = styled(motion.div)`
             }
         }
         .projects-container {
-            h2 {
-                color: #fafafa;
-            }
             .projects-list-container {
                 display: grid;
                 grid-template-columns: 1fr 1fr;

@@ -45,9 +45,13 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 500;
         line-height: 88px;
     }
+    h1, h2, h3, h4 {
+        color: #fafafa;
+    }
     h3 {
         letter-spacing: -1px;
         font-size: 40px;
+
     }
     h1, h3{
         color: #1b1425;

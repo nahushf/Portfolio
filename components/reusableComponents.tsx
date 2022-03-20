@@ -535,7 +535,4 @@ export const Emp = styled.span`
 export const HomePageSection = styled.div`
     scroll-snap-align: start;
     flex-shrink: 0;
-    scroll-padding: 50%;
-    scroll-snap-stop: always;
-    scroll-snap-destination: 0 100px;
 `;
