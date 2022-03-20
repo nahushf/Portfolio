@@ -24,7 +24,7 @@ const AboutPage = () => {
                             Interaction at Indiana University. I worked as a front end engineer for around 6 years
                             before switching to design as my primary field.
                             <p>
-                                <Emp> "Design is intelligence made visible"</Emp>. This quote by Alina Wheeler perfectly
+                                <Emp> &quot;Design is intelligence made visible&quot;</Emp>. This quote by Alina Wheeler perfectly
                                 encapsulates my outlook on design. I believe that good design can not only be effective
                                 in solving problems but also in helping businesses grow.
                             </p>
@@ -70,7 +70,7 @@ const AboutPage = () => {
                     </WinSection>
                     <WinSection>
                         <article>
-                            <Emp>2nd Place</Emp> at the "Neighbourhoods of the Future" Design Sprint sponsored by the
+                            <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint sponsored by the
                             School of Informatics and Computing
                         </article>
                         <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref>
