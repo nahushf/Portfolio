@@ -10,18 +10,35 @@ export const OtherWork = () => {
     const renderImages = (imgArr: string[]) => {
         return imgArr.map((file) => {
             const imgUrl = `/other-work/${file}`;
-            return <motion.img src={imgUrl} key={file} layoutId={imgUrl} onClick={() => setModalSrc(imgUrl)} onAnimationComplete={() => console.log(22)}/>;
+            return (
+                <motion.img
+                    src={imgUrl}
+                    key={file}
+                    layoutId={imgUrl}
+                    onClick={() => setModalSrc(imgUrl)}
+                    onAnimationComplete={() => console.log(22)}
+                />
+            );
         });
     };
     // const { scrollXProgress } = useViewportScroll();
     // console.log(scrollXProgress);
     return (
-        <Container>
+        <Container id="other-work">
             <AnimateSharedLayout>
                 <h2>A few other things that I do</h2>
                 <h4>Hand lettering</h4>
                 <div className="lettering-images">
-                    {renderImages(['lettering-1.png', 'lettering-2.png', 'the_trip.png'])}
+                    {renderImages([
+                        'lettering-3.png',
+                        'lettering-4.png',
+                        'lettering-5.png',
+                        'the_trip.png',
+                        'lettering-6.png',
+                        'lettering-7.png',
+                        'lettering-1.png',
+                        'lettering-2.png'
+                    ])}
                 </div>
                 <h4>Digital and Analog Art</h4>
                 <div className="artwork-images-container">
@@ -46,12 +63,16 @@ export const OtherWork = () => {
                 </div>
                 {modalSrc && (
                     <AnimatePresence>
-                        <div className="overlay" onClick={() => setModalSrc('')} >
+                        <div className="overlay" onClick={() => setModalSrc('')}>
                             <div className="image-container">
                                 <div className="close-overlay">
                                     <CloseIcon />{' '}
                                 </div>
-                                <motion.img layoutId={modalSrc} src={modalSrc}  onAnimationComplete={() => console.log(11)}/>{' '}
+                                <motion.img
+                                    layoutId={modalSrc}
+                                    src={modalSrc}
+                                    onAnimationComplete={() => console.log(11)}
+                                />{' '}
                             </div>
                         </div>
                     </AnimatePresence>
@@ -69,7 +90,7 @@ const Container = styled(HomePageSection)`
     .artwork-images {
         display: flex;
         align-items: center;
-        height: 300px;
+        height: 200px;
         gap: 8px;
         overflow: auto;
         position: relative;

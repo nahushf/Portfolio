@@ -16,7 +16,7 @@ export const HomeContent = () => {
     return (
         <Container ref={pageContainer}>
             <div className="home-page-content">
-                <HomePageSection className="landing">
+                <HomePageSection className="landing" id="landing" >
                     <div className="intro-title">Hi there, I am</div>
                     <Name className="name">
                         Nahush Farkande<span className="full-stop">.</span>

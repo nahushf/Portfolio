@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import { textColor } from '../constants/styles';
+import { red, textColor } from '../constants/styles';
 import { isEmpty } from '../scripts/utils';
 
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
@@ -463,6 +463,7 @@ export const Navigation = () => {
                 <img src="/logo.png" />
             </NavLink>
             <div className="nav-items-container">
+                <NavLink href="/">Home</NavLink>
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/Resume.pdf">Resume</NavLink>
             </div>
@@ -523,7 +524,7 @@ export const Name = styled.div`
     letter-spacing: -1vh;
     color: white;
     .full-stop {
-        color: #f87e77;
+        color: ${red};
     }
 `;
 

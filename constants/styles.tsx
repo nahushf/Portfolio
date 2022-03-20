@@ -26,3 +26,4 @@ function generateDeviceBreakpoints(max: boolean) {
 
 export const black = '#1b1425';
 export const textColor = '#9c92ab';
+export const red="#f87e77"
