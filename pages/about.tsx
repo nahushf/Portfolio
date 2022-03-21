@@ -1,105 +1,115 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { ChevronDown, ChevronDropDown } from '../components/ChevronDown';
-import {Footer} from '../components/Footer';
+import { Footer } from '../components/Footer';
 import { Emp, Name, Navigation } from '../components/reusableComponents';
 import { red } from '../constants/styles';
 import ATTWin from '../public/AT&T-win.jpg';
 
+const GlobalStyle = createGlobalStyle`
+
+                    #__next {
+                    }
+`;
+
 const AboutPage = () => {
     const winsSection = useRef<HTMLDivElement>(null);
     return (
-        <Container>
-            <Navigation />
+        <>
+            <Container>
+                <GlobalStyle />
+                <Navigation />
 
-            <AboutSection className="primary-info">
-                <div className="about__left">
-                    <div className="about__info">
-                        <p>Hello, my name is </p>
-                        <Name>Nahush Farkande</Name>
-                        <p className="about__description">
-                            I am an aspiring <Emp>UI/UX/Product designer</Emp> pursuing my Masters in Human Computer
-                            Interaction at Indiana University. I worked as a front end engineer for around 6 years
-                            before switching to design as my primary field.
-                            <p>
-                                <Emp> &quot;Design is intelligence made visible&quot;</Emp>. This quote by Alina Wheeler perfectly
-                                encapsulates my outlook on design. I believe that good design can not only be effective
-                                in solving problems but also in helping businesses grow.
+                <AboutSection className="primary-info">
+                    <div className="about__left">
+                        <div className="about__info">
+                            <p>Hello, my name is </p>
+                            <Name>Nahush Farkande</Name>
+                            <p className="about__description">
+                                I am an aspiring <Emp>UI/UX/Product designer</Emp> pursuing my Masters in Human Computer
+                                Interaction at Indiana University. I worked as a front end engineer for around 6 years
+                                before switching to design as my primary field.
+                                <p>
+                                    <Emp> &quot;Design is intelligence made visible&quot;</Emp>. This quote by Alina
+                                    Wheeler perfectly encapsulates my outlook on design. I believe that good design can
+                                    not only be effective in solving problems but also in helping businesses grow.
+                                </p>
+                                <p>In my free time I like to sing, sketch and accumulate dad jokes.</p>
                             </p>
-                            <p>In my free time I like to sing, sketch and accumulate dad jokes.</p>
-                        </p>
-                        <div
-                            className="read-more"
-                            onClick={() => winsSection.current?.scrollIntoView({ behavior: 'smooth' })}
-                        >
-                            Check out some of my recent achievements <ChevronDown fill={red} />
+                            <div
+                                className="read-more"
+                                onClick={() => winsSection.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                            >
+                                Check out some of my recent achievements <ChevronDown fill={red} />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className="about__right">
-                    <img src="/self.jpg" />
-                </div>
-            </AboutSection>
-            <AboutSection className="wins-section" id="wins-section" ref={winsSection}>
-                <h3>Here are some of the awards that my team projects have won:</h3>
-                <div className="wins-container">
-                    <WinSection>
-                        <div className="image-container">
-                            <Image src={ATTWin} height="500px" width="400px" objectFit="contain" />
-                        </div>
-                        <article>
-                            <article>
-                                The <Emp>Best Overall Product, Best Accessibility, and Best use of 5G</Emp> awards at
-                                the AT&T 5G Sports Hackathon
-                            </article>
-                            <div className="links-container">
-                                <Link href="/projects/courtside" passHref>
-                                    <a target="_blank">
-                                        View Project <ChevronDropDown fill={red} />{' '}
-                                    </a>
-                                </Link>
-                                <Link href="https://soic.iupui.edu/news/soic-students-dominate-5g-hackathon/" passHref>
-                                    <a>
-                                        Read Article <ChevronDropDown fill={red} />{' '}
-                                    </a>
-                                </Link>
+                    <div className="about__right">
+                        <img src="/self.jpg" />
+                    </div>
+                </AboutSection>
+                <AboutSection className="wins-section" id="wins-section" ref={winsSection}>
+                    <h3>Here are some of the awards that my team projects have won:</h3>
+                    <div className="wins-container">
+                        <WinSection>
+                            <div className="image-container">
+                                <Image src={ATTWin} height="500px" width="400px" objectFit="contain" />
                             </div>
-                        </article>
-                    </WinSection>
-                    <WinSection>
-                        <article>
-                            <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint sponsored by the
-                            School of Informatics and Computing
-                        </article>
-                        <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref>
-                            <a target="_blank">
-                                Read Article
-                                <ChevronDropDown fill={red} />{' '}
-                            </a>
-                        </Link>
-                    </WinSection>
-                    <WinSection>
-                        <article>
-                            <Emp>3rd Place</Emp> at the Monon30 Innovation Sprint at IUPUI
-                        </article>
-                    </WinSection>
-                </div>
-            </AboutSection>
-{/* <AboutSection> */}
-{/* <h3>What I am currently upto</h3> */}
-{/* <HobbySection></HobbySection> */}
-{/* <article>Currently reading</article> */}
-{/* </AboutSection> */}
-            <Footer /> 
-        </Container>
+                            <article>
+                                <article>
+                                    The <Emp>Best Overall Product, Best Accessibility, and Best use of 5G</Emp> awards
+                                    at the AT&T 5G Sports Hackathon
+                                </article>
+                                <div className="links-container">
+                                    <Link href="/projects/courtside" passHref>
+                                        <a target="_blank">
+                                            View Project <ChevronDropDown fill={red} />{' '}
+                                        </a>
+                                    </Link>
+                                    <Link
+                                        href="https://soic.iupui.edu/news/soic-students-dominate-5g-hackathon/"
+                                        passHref
+                                    >
+                                        <a>
+                                            Read Article <ChevronDropDown fill={red} />{' '}
+                                        </a>
+                                    </Link>
+                                </div>
+                            </article>
+                        </WinSection>
+                        <WinSection>
+                            <article>
+                                <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint
+                                sponsored by the School of Informatics and Computing
+                            </article>
+                            <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref>
+                                <a target="_blank">
+                                    Read Article
+                                    <ChevronDropDown fill={red} />{' '}
+                                </a>
+                            </Link>
+                        </WinSection>
+                        <WinSection>
+                            <article>
+                                <Emp>3rd Place</Emp> at the Monon30 Innovation Sprint at IUPUI
+                            </article>
+                        </WinSection>
+                    </div>
+                </AboutSection>
+                {/* <AboutSection> */}
+                {/* <h3>What I am currently upto</h3> */}
+                {/* <HobbySection></HobbySection> */}
+                {/* <article>Currently reading</article> */}
+                {/* </AboutSection> */}
+            </Container>
+            <Footer />
+        </>
     );
 };
 
-const HobbySection = styled.div`
-
-`;
+const HobbySection = styled.div``;
 
 const AboutSection = styled.div`
     scroll-snap-align: start;
@@ -159,13 +169,11 @@ const WinSection = styled.div`
     }
 `;
 const Container = styled.div`
-    height: 100vh;
     overflow: auto;
     max-width: 1024px;
     margin: 0 auto;
     padding-top: 4vh;
     font-size: 16px;
-    scroll-snap-type: y mandatory;
     scroll-padding: 80px;
     .about__left {
         display: flex;
