@@ -200,7 +200,7 @@ const Container = styled.div`
                 }
             }
             &.specific-projects {
-                padding: 0px 56px;
+                padding: 24px 56px;
             }
         }
     }
