@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Footer } from '../components/Footer';
 import { FullStop, Name, Navigation } from '../components/reusableComponents';
 import roLogo from '../public/ro-logo.png';
-import Image from 'next/Image';
+import Image from 'next/image';
 import { ChevronDown } from '../components/ChevronDown';
 import { CUSTOM_EASING, darkBackground, textColor } from '../constants/styles';
 import { motion } from 'framer-motion';
