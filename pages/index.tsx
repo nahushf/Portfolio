@@ -2,11 +2,12 @@ import { NextPage } from 'next';
 import styled from 'styled-components';
 import { HomeContent } from '../components/HomeLeft';
 import { Navigation } from '../components/reusableComponents';
+import { HOME_SHOW_VARIANT } from '../constants/styles';
 
 const Home: NextPage = () => {
     return (
         <Container>
-            <Navigation />
+            <Navigation variants={HOME_SHOW_VARIANT(1.7)} />
             <HomeContent />
         </Container>
     );

@@ -24,6 +24,14 @@ function generateDeviceBreakpoints(max: boolean) {
     };
 }
 
+export const CUSTOM_EASING = [0.6, 0.01, -0.05, 0.95];
+export const HOME_SHOW_VARIANT = (delay = 2, duration = 1) => ({
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { ease: 'easeInOut', delay, duration } },
+    exit: {}
+});
+
 export const black = '#1b1425';
 export const textColor = '#9c92ab';
-export const red="#f87e77"
+export const red = '#f87e77';
+export const darkBackground = '#291d37';

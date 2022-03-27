@@ -455,10 +455,11 @@ const Navigation_DEPContainer = styled.div`
     }
 `;
 
-export const Navigation = () => {
+export const Navigation = ({ variants }: { variants?: { initial; animate; exit } }) => {
     const router = useRouter();
+    const { initial, animate, exit } = variants || {};
     return (
-        <NavigationContainer>
+        <NavigationContainer variants={{ initial, animate, exit }} initial="initial" animate="animate" exit="exit">
             <NavLink href="/">
                 <img src="/logo.png" />
             </NavLink>
@@ -473,17 +474,16 @@ export const Navigation = () => {
 
 export const NavLink = ({ href, className = '', children }) => {
     const router = useRouter();
-    console.log(router.pathname, href);
     return (
         <Link {...{ href }}>
-            <span className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}>
+            <a className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}>
                 {children}
-            </span>
+            </a>
         </Link>
     );
 };
 
-const NavigationContainer = styled.div`
+const NavigationContainer = styled(motion.div)`
     background: rgb(27, 19, 37, 0.8);
     z-index: 9999;
     position: fixed;
@@ -517,8 +517,8 @@ const NavigationContainer = styled.div`
     }
 `;
 
-export const Name = styled.div`
-    font-size: 16vh;
+export const Name = styled(motion.div)`
+    font-size: 14vh;
     font-weight: bold;
     line-height: 13vh;
     letter-spacing: -1vh;
@@ -533,7 +533,11 @@ export const Emp = styled.span`
     font-weight: bold;
 `;
 
-export const HomePageSection = styled.div`
+export const HomePageSection = styled(motion.div)`
     scroll-snap-align: start;
     flex-shrink: 0;
+`;
+
+export const FullStop = styled.div.attrs(() => ({ children: '.' }))`
+    color: ${red};
 `;

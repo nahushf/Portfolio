@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
+import {CUSTOM_EASING} from '../constants/styles';
 
-const CUSTOM_EASING = [0.6, 0.01, -0.05, 0.95];
 
 const variants = {
     rest: { transform: 'scale(1)', boxShadow: '0px 0px 0px transparent' },
@@ -52,6 +52,7 @@ export const ProjectTile = ({
             whileInView="show"
             variants={cardVariants}
             onClick={() => router.push(route)}
+            className="project-tile" 
         >
             <div className="project-information">
                 <motion.div

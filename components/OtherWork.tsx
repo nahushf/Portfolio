@@ -1,5 +1,4 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { AnimatePresence, AnimateSharedLayout, motion, useViewportScroll } from 'framer-motion';
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
 import { useState } from 'react';
 import styled from 'styled-components';
 import { CloseIcon } from './CloseIcon';
@@ -24,7 +23,7 @@ export const OtherWork = () => {
     // const { scrollXProgress } = useViewportScroll();
     // console.log(scrollXProgress);
     return (
-        <Container id="other-work">
+        <Container id="other-work" >
             <AnimateSharedLayout>
                 <h2>A few other things that I do</h2>
                 <h4>Hand lettering</h4>

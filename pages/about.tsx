@@ -9,9 +9,9 @@ import { red } from '../constants/styles';
 import ATTWin from '../public/AT&T-win.jpg';
 
 const GlobalStyle = createGlobalStyle`
-
-                    #__next {
-                    }
+    #__next {
+    flex-direction: column;
+    }
 `;
 
 const AboutPage = () => {
@@ -31,16 +31,18 @@ const AboutPage = () => {
                                 I am an aspiring <Emp>UI/UX/Product designer</Emp> pursuing my Masters in Human Computer
                                 Interaction at Indiana University. I worked as a front end engineer for around 6 years
                                 before switching to design as my primary field.
-                                <p>
-                                    <Emp> &quot;Design is intelligence made visible&quot;</Emp>. This quote by Alina
-                                    Wheeler perfectly encapsulates my outlook on design. I believe that good design can
-                                    not only be effective in solving problems but also in helping businesses grow.
-                                </p>
-                                <p>In my free time I like to sing, sketch and accumulate dad jokes.</p>
                             </p>
+                            <p>
+                                <Emp> &quot;Design is intelligence made visible&quot;</Emp>. This quote by Alina Wheeler
+                                perfectly encapsulates my outlook on design. I believe that good design can not only be
+                                effective in solving problems but also in helping businesses grow.
+                            </p>
+                            <p>In my free time I like to sing, sketch and accumulate dad jokes.</p>
                             <div
                                 className="read-more"
-                                onClick={() => winsSection.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })}
+                                onClick={() =>
+                                    winsSection.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
+                                }
                             >
                                 Check out some of my recent achievements <ChevronDown fill={red} />
                             </div>

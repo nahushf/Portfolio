@@ -30,6 +30,7 @@ export const Footer = () => {
 };
 
 const Container = styled(HomePageSection)`
+    width: 100vw;
     color: #fff;
     background: #291d37;
     margin-top: 56px;

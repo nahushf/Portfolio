@@ -54,7 +54,7 @@ const GlobalStyle = createGlobalStyle`
 
     }
     h1, h3{
-        color: #1b1425;
+        color: #fafafa;
         font-weight: 600;
         margin: 0px;
     }
@@ -168,9 +168,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             />
             <GlobalStyle />
             <AnimatedCursor />
-            <AnimationLayout>
-                <Component {...pageProps} />
-            </AnimationLayout>
+            <Component {...pageProps} />
             <MailIcon
                 data-cursor-text="Contact"
                 data-cursor-size="80"
