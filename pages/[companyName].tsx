@@ -53,8 +53,9 @@ const mePoints = [
 ];
 
 const CompanyPage = ({ companyName }) => {
+    const router = useRouter();
     if (!companyName) {
-        companyName = useRouter().query.companyName;
+        companyName = router.query.companyName;
     }
     const currentCompany = COMPANIES.find((company) => company.slug === companyName);
     if (!currentCompany) {
@@ -66,8 +67,14 @@ const CompanyPage = ({ companyName }) => {
             <div className="page-content">
                 <div className="landing">
                     <AnimatedName />
-                    <motion.div {...HOME_FADE_PROPS} className="plus">+</motion.div>
-                    <motion.div {...HOME_FADE_PROPS} className="logo-container" style={{ width: currentCompany.logoWidth + 'px' }}>
+                    <motion.div {...HOME_FADE_PROPS} className="plus">
+                        +
+                    </motion.div>
+                    <motion.div
+                        {...HOME_FADE_PROPS}
+                        className="logo-container"
+                        style={{ width: currentCompany.logoWidth + 'px' }}
+                    >
                         <Image src={currentCompany.logo} layout="responsive"></Image>
                     </motion.div>
                     <motion.div {...HOME_FADE_PROPS} className="see-why">
