@@ -1,13 +1,16 @@
 import styled from 'styled-components';
 import { Footer } from '../components/Footer';
-import { FullStop, Name, Navigation } from '../components/reusableComponents';
+import { AnimatedName, AnimatedTitle, FullStop, Name, Navigation } from '../components/reusableComponents';
 import roLogo from '../public/ro-logo.png';
 import Image from 'next/image';
 import { ChevronDown } from '../components/ChevronDown';
-import { CUSTOM_EASING, darkBackground, textColor } from '../constants/styles';
+import { CUSTOM_EASING, darkBackground, HOME_FADE_PROPS, textColor } from '../constants/styles';
 import { motion } from 'framer-motion';
 import { PROJECTS } from '../constants/projects';
 import { ProjectTile } from '../components/ProjectTile';
+import { useRouter } from 'next/router';
+import { COMPANIES } from '../constants/companySpecificPoints';
+import { useEffect } from 'react';
 
 const companyName = 'Ro';
 
@@ -49,18 +52,25 @@ const mePoints = [
     }
 ];
 
-const Ro = () => {
+const CompanyPage = ({ companyName }) => {
+    if (!companyName) {
+        companyName = useRouter().query.companyName;
+    }
+    const currentCompany = COMPANIES.find((company) => company.slug === companyName);
+    if (!currentCompany) {
+        return null;
+    }
     return (
         <Container>
-            <Navigation />
+            <Navigation variants />
             <div className="page-content">
                 <div className="landing">
-                    <Name>
-                        Nahush Farkande <FullStop />{' '}
-                    </Name>
-                    <div className="plus">+</div>
-                    <Image src={roLogo} layout="fixed" height={160} width={160}></Image>
-                    <div className="see-why">
+                    <AnimatedName />
+                    <motion.div {...HOME_FADE_PROPS} className="plus">+</motion.div>
+                    <motion.div {...HOME_FADE_PROPS} className="logo-container" style={{ width: currentCompany.logoWidth + 'px' }}>
+                        <Image src={currentCompany.logo} layout="responsive"></Image>
+                    </motion.div>
+                    <motion.div {...HOME_FADE_PROPS} className="see-why">
                         See Why{' '}
                         <motion.span
                             animate={{ transform: 'translateY(5px)' }}
@@ -68,14 +78,14 @@ const Ro = () => {
                         >
                             <ChevronDown fill={textColor} />
                         </motion.span>{' '}
-                    </div>
+                    </motion.div>
                 </div>
                 <PointsSection
                     className="why-company"
-                    title={`I want to work at ${companyName} because...`}
-                    points={companyPoints}
+                    title={`I want to work at ${currentCompany.companyName} because...`}
+                    points={currentCompany.companyPoints}
                 />
-                <PointsSection className="why-me" title="I'm a good fit because..." points={mePoints} />
+                <PointsSection className="why-me" title="I'm a good fit because..." points={currentCompany.mePoints} />
                 <ReasonSection
                     className="specific-projects"
                     title="Lastly, here are some of my projects that you might like..."
@@ -89,6 +99,10 @@ const Ro = () => {
             <Footer />
         </Container>
     );
+};
+
+CompanyPage.getInitialProps = ({ query }) => {
+    return query;
 };
 
 const ReasonSection = ({ className = '', title, children }) => {
@@ -169,6 +183,9 @@ const Container = styled.div`
             .plus {
                 font-size: 56px;
             }
+            .logo-container {
+                width: 300px;
+            }
             .see-why {
                 position: absolute;
                 font-size: 16px;
@@ -206,4 +223,4 @@ const Container = styled.div`
     }
 `;
 
-export default Ro;
+export default CompanyPage;

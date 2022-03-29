@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useState } from 'react';
 import styled from 'styled-components';
-import { red, textColor } from '../constants/styles';
+import { CUSTOM_EASING, HOME_SHOW_VARIANT, red, textColor } from '../constants/styles';
 import { isEmpty } from '../scripts/utils';
 
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
@@ -455,9 +455,10 @@ const Navigation_DEPContainer = styled.div`
     }
 `;
 
-export const Navigation = ({ variants }: { variants?: { initial; animate; exit } }) => {
+export const Navigation = ({ variants }: { variants?: { initial; animate; exit } | boolean }) => {
     const router = useRouter();
-    const { initial, animate, exit } = variants || {};
+    const { initial, animate, exit } =
+        (typeof variants === 'boolean' && variants === true ? HOME_SHOW_VARIANT(1.7) : variants) || {};
     return (
         <NavigationContainer variants={{ initial, animate, exit }} initial="initial" animate="animate" exit="exit">
             <NavLink href="/">
@@ -476,9 +477,7 @@ export const NavLink = ({ href, className = '', children }) => {
     const router = useRouter();
     return (
         <Link {...{ href }}>
-            <a className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}>
-                {children}
-            </a>
+            <a className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}>{children}</a>
         </Link>
     );
 };
@@ -518,9 +517,9 @@ const NavigationContainer = styled(motion.div)`
 `;
 
 export const Name = styled(motion.div)`
-    font-size: 14vh;
+    font-size: 96px;
     font-weight: bold;
-    line-height: 13vh;
+    line-height: 96px;
     letter-spacing: -1vh;
     color: white;
     .full-stop {
@@ -540,4 +539,58 @@ export const HomePageSection = styled(motion.div)`
 
 export const FullStop = styled.div.attrs(() => ({ children: '.' }))`
     color: ${red};
+`;
+
+const parentVariant = {
+    initial: {},
+    animate: {
+        transition: { delayChildren: 0.4, staggerChildren: 0.05 }
+    }
+};
+
+const letterVariant = {
+    initial: { y: 400 },
+    animate: {
+        y: 0,
+        transition: {
+            ease: CUSTOM_EASING,
+            duration: 0.5
+        }
+    }
+};
+
+export const AnimatedTitle = ({ text }) => {
+    return (
+        <motion.div variants={parentVariant} initial="initial" animate="animate">
+            {[...text.split('')].map((chr: string, index: number) => {
+                return chr === ' ' ? (
+                    <>&nbsp;</>
+                ) : (
+                    <motion.span
+                        key={index}
+                        variants={letterVariant}
+                        className="animated-title__char"
+                        style={{ display: 'inline-block' }}
+                    >
+                        {chr}
+                    </motion.span>
+                );
+            })}
+        </motion.div>
+    );
+};
+
+export const AnimatedName = ({}) => {
+    return (
+        <AnimatedNameContainer>
+            <AnimatedTitle text="Nahush Farkande." />
+        </AnimatedNameContainer>
+    );
+};
+
+const AnimatedNameContainer = styled(Name)`
+    overflow: hidden;
+    .animated-title__char:last-child {
+        color: ${red};
+    }
 `;

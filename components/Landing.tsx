@@ -1,65 +1,21 @@
-import { motion, Variant } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { black, CUSTOM_EASING, HOME_SHOW_VARIANT, red } from '../constants/styles';
+import { black, HOME_FADE_PROPS, HOME_SHOW_VARIANT } from '../constants/styles';
 import { ArrowIcon } from './arrowIcon';
-import { Emp, HomePageSection, Name } from './reusableComponents';
+import { AnimatedName, Emp, HomePageSection } from './reusableComponents';
 
-const parentVariant = {
-    initial: {},
-    animate: {
-        transition: { delayChildren: 0.4, staggerChildren: 0.05 }
-    }
-};
-
-const letterVariant = {
-    initial: { y: 400 },
-    animate: {
-        y: 0,
-        transition: {
-            ease: CUSTOM_EASING,
-            duration: 0.5
-        }
-    }
-};
-
-const AnimatedTitle = ({ text }) => {
-    return (
-        <motion.div variants={parentVariant} initial="initial" animate="animate">
-            {[...text.split('')].map((chr: string, index: number) => {
-                return chr === ' ' ? (
-                    <>&nbsp;</>
-                ) : (
-                    <motion.span
-                        key={index}
-                        variants={letterVariant}
-                        className="animated-title__char"
-                        style={{ display: 'inline-block' }}
-                    >
-                        {chr}
-                    </motion.span>
-                );
-            })}
-        </motion.div>
-    );
-};
-
-const animationProps = {
-    initial: 'initial',
-    animate: 'animate',
-    exit: 'exit',
-    variants: HOME_SHOW_VARIANT(1.2)
-};
-
+const animationProps = HOME_FADE_PROPS;
 export const Landing = ({ onWorkClick }) => {
     return (
         <Container className="landing" id="landing">
             <motion.div className="intro-title" {...animationProps}>
                 Hi there, I am
             </motion.div>
-            <Name className="name" variants={parentVariant} onAnimationComplete={() => console.log("Name")}>
-                <AnimatedTitle text="Nahush Farkande." />
-            </Name>
+            {/* <Name className="name" onAnimationComplete={() => console.log('Name')}> */}
+            {/* <AnimatedTitle text="Nahush Farkande." /> */}
+            {/* </Name> */}
+            <AnimatedName />
             <motion.div className="description" {...animationProps}>
                 I’m a UI/UX Designer who is passionate about solving problems. Currently pursuing my Masters in Human
                 Computer Interaction Indiana University. Previously I have led multiple UI development teams while
@@ -92,13 +48,6 @@ export const Container = styled(HomePageSection)`
 
     .intro-title {
         font-size: 24px;
-    }
-    ${Name} {
-        overflow: hidden;
-
-        .animated-title__char:last-child {
-            color: ${red};
-        }
     }
     .intro-title,
     .description {

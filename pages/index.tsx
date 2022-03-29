@@ -7,7 +7,7 @@ import { HOME_SHOW_VARIANT } from '../constants/styles';
 const Home: NextPage = () => {
     return (
         <Container>
-            <Navigation variants={HOME_SHOW_VARIANT(1.7)} />
+            <Navigation variants />
             <HomeContent />
         </Container>
     );

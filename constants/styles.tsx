@@ -35,3 +35,11 @@ export const black = '#1b1425';
 export const textColor = '#9c92ab';
 export const red = '#f87e77';
 export const darkBackground = '#291d37';
+
+
+export const HOME_FADE_PROPS = {
+    initial: 'initial',
+    animate: 'animate',
+    exit: 'exit',
+    variants: HOME_SHOW_VARIANT(1.2)
+};
