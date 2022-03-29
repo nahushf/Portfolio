@@ -2,6 +2,7 @@ import roLogo from '../public/ro-logo.png';
 import goDaddyLogo from '../public/GoDaddy-Logo.png';
 import abelsonTaylorLogo from '../public/abelson-taylor-logo.png';
 import squareTradeLogo from '../public/square-trade-logo.png';
+import moserLogo from '../public/moser-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -147,6 +148,36 @@ export const COMPANIES = [
                 title: 'I want to understand the challenges in the warranty domain',
                 description:
                     'This opportunity would expose me to the world of device protection and warranty and allow me to learn and empathize with users in a domain that I am not too experienced in.'
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('Moser Consulting', 'moser', moserLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: 'I see the value in the tech consulting domain and in a customer first company',
+                description: `
+                Coming from a background in tech and having had worked in multiple consulting firms, I am aware of the challenges and the rewards of working in the IT consulting domain.             `
+            },
+            {
+                title: `${companyName}'s values`,
+                description: `${companyName}'s focus on customer satisfaction and the endorsements from it's past customers makes the company stand out.
+`
             }
         ])
         .setMePoints([
