@@ -3,6 +3,9 @@ import goDaddyLogo from '../public/GoDaddy-Logo.png';
 import abelsonTaylorLogo from '../public/abelson-taylor-logo.png';
 import squareTradeLogo from '../public/square-trade-logo.png';
 import moserLogo from '../public/moser-logo.png';
+import vsaLogo from '../public/vsa-logo.png';
+import homelisterLogo from '../public/homelister-logo.png';
+import bradfordLogo from '../public/bradford-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -142,7 +145,7 @@ export const COMPANIES = [
             },
             {
                 title: 'I wish to learn about the new and upcoming innovations in this domain',
-                description: `I am curious to know what's next in this domain. As this market will continue to grow, it will keep bringing up new challenges and I wish to learn and contribute to this problems.`
+                description: `I am curious to know what's next in this domain. As this market will continue to grow, it will keep bringing up new challenges and I wish to learn and contribute to these problems.`
             },
             {
                 title: 'I want to understand the challenges in the warranty domain',
@@ -195,6 +198,99 @@ export const COMPANIES = [
                 title: 'Extensive closely related experience',
                 description:
                     'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('VSA Partners', 'vsa', vsaLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: 'I am attracted to the quality of people and the kind of work that takes place at VSA',
+                description: `
+                After looking through the projects that the company has worked on and the people that work in the company, I am fascinated by how well the designs came out (Especially the branding for the Breckenridge brewery). This is the reason why I am curious about the processes and the workflows that the company follows.    
+            `
+            },
+            {
+                title: `The range of Design Domains that the company works on`,
+                description: `${companyName}'s about page outlines the variety of domains that the company works on. As someone who enjoys all forms of design I wish to work in a company that has so much depth in the world of design and ${companyName} perfectly fits the description.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('HomeLister', 'homelister', homelisterLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: 'I wish to learn about the new and upcoming innovations in this domain',
+                description: `I am curious to know what's next in this domain. As this market continues to grow, it will keep bringing up new challenges and I wish to learn and contribute to these problems.`
+            },
+            {
+                title: 'I like the clean and simple UI of the website',
+                description: `
+                For me a good reflection of the design culture of a company is their own website. The clean and to-the-point interface of the company conveys a culture where design is valued and this is the kind of company I wish to work in.
+            `
+            },
+            {
+                title: `The expanse of ${companyName}'s business`,
+                description: `The number of cities that ${companyName} conducts it's business in is something that strongly attracts me to the company. With such an expansive business the company is bound to face numerous challenges which could potentially be solved by design. As we say in the design world "mo' problems mo' design"`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('The Bradford Exchange', 'bradford', bradfordLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: 'I wish to learn about the new and upcoming innovations in this domain',
+                description: `I am curious to know what's next in this domain. As this market continues to grow, it will keep bringing up new challenges and I wish to learn and contribute to these problems.`
+            },
+            {
+                title: 'I like the clean and simple UI of the website',
+                description: `
+                For me a good reflection of the design culture of a company is their own website. The clean and to-the-point interface of the company conveys a culture where design is valued and this is the kind of company I wish to work in.
+            `
+            },
+            {
+                title: `The creativity involved in each of the company's businesses`,
+                description: `As someone who absolutely loves sketching and art in any form. I am fascinated by the highly artistic work that is undertaken by the company. `
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
             }
         ])
 ];

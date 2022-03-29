@@ -281,7 +281,7 @@ export const ProjectInfoContainer = styled.div`
 `;
 
 export const ProjectContainer = styled.div`
-    width:100%;
+    width: 100%;
     font-size: 16px;
     line-height: 24px;
     padding: 24px;
@@ -523,6 +523,7 @@ export const Name = styled(motion.div)`
     line-height: 96px;
     letter-spacing: -1vh;
     color: white;
+    padding: 0px 10px;
     .full-stop {
         color: ${red};
     }
