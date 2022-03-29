@@ -3,6 +3,7 @@ import {
     Insight,
     InsightsContainer,
     MajorPoint,
+    Navigation,
     Overview,
     ProcessStep,
     ProcessStepsContainer,
@@ -21,6 +22,7 @@ import {
 export const Trupaws = () => {
     return (
         <Container>
+            <Navigation /> 
             <ProjectBanner imgSrc="/trupaws/banner.png" />
             <ProjectInfoContainer>
                 <Overview

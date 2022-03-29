@@ -3,6 +3,7 @@ import {
     Insight,
     InsightsContainer,
     MajorPoint,
+    Navigation,
     Overview,
     ProcessStep,
     ProcessStepsContainer,
@@ -21,6 +22,7 @@ import {
 const Farm2U = () => {
     return (
         <Container>
+            <Navigation />
             <ProjectBanner imgSrc="/farm2u/banner.png" />
             <ProjectInfoContainer>
                 <Overview

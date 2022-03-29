@@ -81,7 +81,7 @@ export const ProjectBanner = ({ imgSrc }) => {
 };
 
 const ProjectBannerContainer = styled.div`
-    margin: -24px -24px 0px -24px;
+    margin: 72px -24px 0px -24px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -281,6 +281,7 @@ export const ProjectInfoContainer = styled.div`
 `;
 
 export const ProjectContainer = styled.div`
+    width:100%;
     font-size: 16px;
     line-height: 24px;
     padding: 24px;

@@ -5,6 +5,7 @@ import {
     Insight,
     InsightsContainer,
     MajorPoint,
+    Navigation,
     Overview,
     ProcessStep,
     ProcessStepsContainer,
@@ -27,17 +28,18 @@ const BasketballAudio = dynamic(() => import('../../components/BasketballAudio')
 const Courtside = () => {
     return (
         <Container>
+            <Navigation />
             <ProjectBanner imgSrc="/courtside/banner.png" />
             <ProjectInfoContainer>
                 <Overview
                     projectName="Courtside"
                     projectDescription={
                         <>
-                            Courtside is an application/service that is aimed at <Emp>enhancing the Basketball experience for
-                            the visually impaired</Emp>. The service is inspired by games such as Beep ball and Golf(where the
-                            balls contain sensors). The app is primarily aimed towards the visually impaired but can
-                            also enhance the experience of the average user by <Emp>bringing them closer to the Courtside
-                            experience</Emp>.
+                            Courtside is an application/service that is aimed at{' '}
+                            <Emp>enhancing the Basketball experience for the visually impaired</Emp>. The service is
+                            inspired by games such as Beep ball and Golf(where the balls contain sensors). The app is
+                            primarily aimed towards the visually impaired but can also enhance the experience of the
+                            average user by <Emp>bringing them closer to the Courtside experience</Emp>.
                         </>
                     }
                     salientPoints={[
