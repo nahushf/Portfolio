@@ -6,6 +6,7 @@ import moserLogo from '../public/moser-logo.png';
 import vsaLogo from '../public/vsa-logo.png';
 import homelisterLogo from '../public/homelister-logo.png';
 import bradfordLogo from '../public/bradford-logo.png';
+import brainCorpLogo from '../public/braincorp-logo.jpeg';
 
 interface ICompanyPoint {
     title: string;
@@ -291,6 +292,40 @@ export const COMPANIES = [
                 title: 'Quick Learner',
                 description:
                     'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            }
+        ]),
+    new Company('Brain Corp', 'braincorp', brainCorpLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: 'I am interested in the world of autonomous robots',
+                description: `I have been interested in the field of autonomous robots for quite a while now. I believe the field poses some unique design challenges (something I am always on the hunt for). As an example of the ideas that I think of in this field, I have always thought the household kitchen holds a massive room for automation. With most food recipes following specific steps, Automation in this area can free up time for any individual and can thus be a rich market for autonomous robots.`
+            },
+            {
+                title: `The company's values and perks are very attractive`,
+                description: `
+                Everything that the company offers all the way from Game Nights to Daily lunches, paint the picture of a company where employees are well taken care of. Working in a company like this would not only help me work better but also will keep me motivated to contribute to the company in any way I can
+            `
+            },
+            {
+                title: `The creativity involved in each of the company's solutions`,
+                description: `I really like how well thought out the solutions constructed by the company are. Coming from a background in tech I was obviously the most intrigued by the BrainOS. I like how well rounded the OS is keeping in most, if not all, the use cases of an autonomous robot`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ])
 ];
