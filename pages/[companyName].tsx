@@ -1,56 +1,15 @@
-import styled from 'styled-components';
-import { Footer } from '../components/Footer';
-import { AnimatedName, AnimatedTitle, FullStop, Name, Navigation } from '../components/reusableComponents';
-import roLogo from '../public/ro-logo.png';
-import Image from 'next/image';
-import { ChevronDown } from '../components/ChevronDown';
-import { CUSTOM_EASING, darkBackground, HOME_FADE_PROPS, textColor } from '../constants/styles';
 import { motion } from 'framer-motion';
-import { PROJECTS } from '../constants/projects';
-import { ProjectTile } from '../components/ProjectTile';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { forwardRef, ReactNode, useRef } from 'react';
+import styled from 'styled-components';
+import { ChevronDown } from '../components/ChevronDown';
+import { Footer } from '../components/Footer';
+import { ProjectTile } from '../components/ProjectTile';
+import { AnimatedName, Name, Navigation } from '../components/reusableComponents';
 import { COMPANIES } from '../constants/companySpecificPoints';
-import { useEffect } from 'react';
-
-const companyName = 'Ro';
-
-const companyPoints = [
-    {
-        title: 'I see the value in telehealth and healthcare',
-        description: `
-                Healthcare was always a rich field for me (in terms of the challenges and the room for design
-                innovation). But Covid has made it clear that telehealth is the need of the hour and could use some
-                innovation as well.
-            `
-    },
-    {
-        title: 'I wish to work in a design mature company',
-        description: `${companyName}'s values, stature and growth attracts a lot of talent and would allow me to work with and learn from designers at the top of their game.`
-    },
-    {
-        title: 'I want to understand the challenges in the healthcare domain',
-        description:
-            'This opportunity would expose me to the world of healthcare and allow me to learn and empathize with users in a domain that I am not too experienced in.'
-    }
-];
-
-const mePoints = [
-    {
-        title: 'Philosophy: Be the dumbest person in the room',
-        description:
-            'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
-    },
-    {
-        title: 'Quick Learner',
-        description:
-            'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
-    },
-    {
-        title: 'Extensive closely related experience',
-        description:
-            'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
-    }
-];
+import { PROJECTS } from '../constants/projects';
+import { CUSTOM_EASING, darkBackground, HOME_FADE_PROPS, textColor } from '../constants/styles';
 
 const CompanyPage = ({ companyName }) => {
     const router = useRouter();
@@ -61,6 +20,8 @@ const CompanyPage = ({ companyName }) => {
     if (!currentCompany) {
         return null;
     }
+
+    const whyCompanySection = useRef<HTMLDivElement>(null);
     return (
         <Container>
             <Navigation variants />
@@ -77,7 +38,19 @@ const CompanyPage = ({ companyName }) => {
                     >
                         <Image src={currentCompany.logo} layout="responsive"></Image>
                     </motion.div>
-                    <motion.div {...HOME_FADE_PROPS} className="see-why">
+                    <motion.div
+                        {...HOME_FADE_PROPS}
+                        className="see-why"
+                        onClick={() => {
+                            if (whyCompanySection?.current) {
+                                whyCompanySection.current.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'center',
+                                    inline: 'nearest'
+                                });
+                            }
+                        }}
+                    >
                         See Why{' '}
                         <motion.span
                             animate={{ transform: 'translateY(5px)' }}
@@ -88,6 +61,7 @@ const CompanyPage = ({ companyName }) => {
                     </motion.div>
                 </div>
                 <PointsSection
+                    ref={whyCompanySection}
                     className="why-company"
                     title={`I want to work at ${currentCompany.companyName} because...`}
                     points={currentCompany.companyPoints}
@@ -112,31 +86,48 @@ CompanyPage.getInitialProps = ({ query }) => {
     return query;
 };
 
-const ReasonSection = ({ className = '', title, children }) => {
-    return (
-        <motion.div className={`reason ${className}`} initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
-            <div className="background" />
-            <div className="reason-content-container">
-                <h3>{title}</h3>
-                <div className="reason-content">{children}</div>
-            </div>
-        </motion.div>
-    );
-};
+const ReasonSection = forwardRef<any, { className?: string; title: string | JSX.Element; children: ReactNode }>(
+    ({ className = '', title, children }, ref) => {
+        return (
+            <motion.div
+                className={`reason ${className}`}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                ref={ref}
+            >
+                <div className="background" />
+                <div className="reason-content-container">
+                    <h3>{title}</h3>
+                    <div className="reason-content">{children}</div>
+                </div>
+            </motion.div>
+        );
+    }
+);
 
-const PointsSection = ({ className = '', title, points }) => {
-    return (
-        <ReasonSection className="points-section" title={title}>
-            <>
-                {points.map((point, index) => {
-                    return <Point {...point} key={index} />;
-                })}
-            </>
-        </ReasonSection>
-    );
-};
+const PointsSection = forwardRef<any, { className: string; title: string | JSX.Element; points: IPoint[] }>(
+    ({ className = '', title, points }, ref) => {
+        return (
+            <ReasonSection className="points-section" title={title} ref={ref}>
+                <>
+                    {points.map((point, index) => {
+                        return <Point {...point} key={index} />;
+                    })}
+                </>
+            </ReasonSection>
+        );
+    }
+);
 
-const Point = ({ title, description }) => {
+export interface IPoint {
+    title: string;
+    description: string;
+}
+
+const Point = ({ title, description }: IPoint) => {
+    if (typeof description === 'string' && !description.endsWith('.')) {
+        description += '.';
+    }
     return (
         <div className="point">
             <h4>{title}</h4>
@@ -194,12 +185,20 @@ const Container = styled.div`
                 width: 300px;
             }
             .see-why {
+                cursor: pointer;
                 position: absolute;
                 font-size: 16px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 bottom: 0px;
+                transition: 0.1s transform ease-in-out;
+                &:hover {
+                    color: #fafafa;
+                }
+                &:active {
+                    transform: scale(0.95);
+                }
             }
         }
         .reason {

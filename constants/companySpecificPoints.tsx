@@ -8,6 +8,7 @@ import homelisterLogo from '../public/homelister-logo.png';
 import bradfordLogo from '../public/bradford-logo.png';
 import brainCorpLogo from '../public/braincorp-logo.jpeg';
 import redditLogo from '../public/reddit-logo.png';
+import dotdashLogo from '../public/dotdash-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -342,6 +343,38 @@ export const COMPANIES = [
             {
                 title: `I wish to work with designers at the top of their game`,
                 description: `I came across quite a few designers working at reddit on LinkedIn and I was quite impressed by their work. I especially found the work of Louise Zhou quite engaging. I wish to work with such skilled designers in order to learn and up my own design game`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('DotDash Meredith', 'dotdash', dotdashLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The company's expanse and reputation`,
+                description: `As of 2021 ${companyName} reaches more than a 100 million users on a monthly basis. Despite having such a huge user base the company efficiently manages to publish content relevant to a wide vareity of themes. I wish to work at a company with such a high level of efficiency`
+            },
+            {
+                title: `I wish to empathize with the users and stakeholders in this domain`,
+                description: `With such a massive business there are bound to numerous opportunities for problem solving using design. I wish to understand what kind of problems ${companyName}'s users/stakeholders face and how the company is tackling or planning to tackle to those problems. I wish to play a role in contributing to the resolution of these challenges`
+            },
+            {
+                title: `Curious about what's next`,
+                description: `I am curious and excited about what is coming next for the company. I want to know what the roadmap is like ahead and also want to work on building this road for the company.`
             }
         ])
         .setMePoints([
