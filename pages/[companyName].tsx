@@ -6,10 +6,11 @@ import styled from 'styled-components';
 import { ChevronDown } from '../components/ChevronDown';
 import { Footer } from '../components/Footer';
 import { ProjectTile } from '../components/ProjectTile';
-import { AnimatedName, Name, Navigation } from '../components/reusableComponents';
+import { AnimatedName, Emp, Name, Navigation } from '../components/reusableComponents';
 import { COMPANIES } from '../constants/companySpecificPoints';
 import { PROJECTS } from '../constants/projects';
 import { CUSTOM_EASING, darkBackground, HOME_FADE_PROPS, textColor } from '../constants/styles';
+import endMeme from '../public/end-meme.png';
 
 const CompanyPage = ({ companyName }) => {
     const router = useRouter();
@@ -75,7 +76,13 @@ const CompanyPage = ({ companyName }) => {
                         <ProjectTile key={project.id} project={project} />
                     ))}
                 </ReasonSection>
-                <div className="reason specific-projects"></div>
+                <div className="end-of-page">
+                    <div className="end-meme-container">
+                        <Image src={endMeme} layout="responsive" objectFit="contain" />
+                    </div>
+                    <p>Thanks for letting me ramble on..</p>{' '}
+                    <p><Emp>Wanna chat?</Emp> Check out my contact information in the footer below</p>{' '}
+                </div>
             </div>
             <Footer />
         </Container>
@@ -224,6 +231,24 @@ const Container = styled.div`
             }
             &.specific-projects {
                 padding: 24px 56px;
+            }
+        }
+        .end-of-page {
+            display: flex;
+            flex-direction: column;
+
+            padding-top: 80px;
+            .end-meme-container {
+                margin-bottom: 24px;
+                height: 240px;
+                span {
+                    height: 100% !important;
+                }
+            }
+            p {
+            margin-bottom: 0px;
+                text-align: center;
+                font-size: 16px;
             }
         }
     }
