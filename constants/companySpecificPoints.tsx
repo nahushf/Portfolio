@@ -7,6 +7,7 @@ import vsaLogo from '../public/vsa-logo.png';
 import homelisterLogo from '../public/homelister-logo.png';
 import bradfordLogo from '../public/bradford-logo.png';
 import brainCorpLogo from '../public/braincorp-logo.jpeg';
+import redditLogo from '../public/reddit-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -309,6 +310,38 @@ export const COMPANIES = [
             {
                 title: `The creativity involved in each of the company's solutions`,
                 description: `I really like how well thought out the solutions constructed by the company are. Coming from a background in tech I was obviously the most intrigued by the BrainOS. I like how well rounded the OS is keeping in most, if not all, the use cases of an autonomous robot`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('Reddit', 'reddit', redditLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `${companyName}'s reputation preceeds itself'`,
+                description: `${companyName}'s name is pretty famous among the youth. As someone who is still relatively young, I have had the opportunity to interact with a number of redditers. The company projects youth and energy and is therefore a company I wish to work in'`
+            },
+            {
+                title: `I wish to learn about the ${companyName}'s new and upcoming innovations `,
+                description: `With an already well established product in place, I am curious to know what's next for the company`
+            },
+            {
+                title: `I wish to work with designers at the top of their game`,
+                description: `I came across quite a few designers working at reddit on LinkedIn and I was quite impressed by their work. I especially found the work of Louise Zhou quite engaging. I wish to work with such skilled designers in order to learn and up my own design game`
             }
         ])
         .setMePoints([
