@@ -45,14 +45,17 @@ const CompanyPage = ({ companyName }) => {
                         </div>
                         <motion.div {...HOME_FADE_PROPS} className="intro-text">
                             <p>
-                            <Emp>Hello {currentCompany.companyName},</Emp> Thanks for considering me as a candidate for your
-                            company. I really appreciate it. I am passionate about problem solving and design and I
-                            think I would be a really good fit at your company.
+                                <Emp>Hello {currentCompany.companyName},</Emp> Thanks for considering me as a candidate
+                                for your company. I really appreciate it. I am passionate about problem solving and
+                                design and I think I would be a really good fit at your company.
                             </p>
                             <p>
                                 I have collected a couple of my projects which I think you would like. Be sure to check
-                                out <Emp><Link href="/projects/courtside">Courtside</Link></Emp>, which won me the AT&T 5G Sports
-                                Hackathon.
+                                out{' '}
+                                <Emp>
+                                    <Link href="/projects/courtside">Courtside</Link>
+                                </Emp>
+                                , which won me the AT&T 5G Sports Hackathon.
                             </p>
                         </motion.div>
                     </div>
@@ -81,7 +84,7 @@ const CompanyPage = ({ companyName }) => {
                 <PointsSection
                     ref={whyCompanySection}
                     className="why-company"
-                    title={`I want to work at ${currentCompany.companyName} because...`}
+                    title={currentCompany.whyTitle}
                     points={currentCompany.companyPoints}
                 />
                 <PointsSection className="why-me" title="I'm a good fit because..." points={currentCompany.mePoints} />

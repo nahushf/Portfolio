@@ -10,6 +10,7 @@ import brainCorpLogo from '../public/braincorp-logo.jpeg';
 import redditLogo from '../public/reddit-logo.png';
 import dotdashLogo from '../public/dotdash-logo.png';
 import havenLogo from '../public/haven-logo.png';
+import konradLogo from '../public/konrad-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -19,7 +20,10 @@ interface ICompanyPoint {
 class Company {
     companyPoints: ICompanyPoint[];
     mePoints: ICompanyPoint[];
-    constructor(public companyName: string, public slug: string, public logo, public logoWidth: number) {}
+    whyTitle: string;
+    constructor(public companyName: string, public slug: string, public logo, public logoWidth: number) {
+        this.setWhyTitle(`I want to work at ${this.companyName} because...`);
+    }
 
     setCompanyPoints(companyPoints: ICompanyPoint[] | ((companyName: string) => ICompanyPoint[])) {
         this.companyPoints = companyPoints instanceof Function ? companyPoints(this.companyName) : companyPoints;
@@ -28,6 +32,11 @@ class Company {
 
     setMePoints(mePoints: ICompanyPoint[] | ((companyName: string) => ICompanyPoint[])) {
         this.mePoints = mePoints instanceof Function ? mePoints(this.companyName) : mePoints;
+        return this;
+    }
+
+    setWhyTitle(whyTitle: string | ((companyName: string) => string)) {
+        this.whyTitle = whyTitle instanceof Function ? whyTitle(this.companyName) : whyTitle;
         return this;
     }
 }
@@ -423,5 +432,41 @@ export const COMPANIES = [
                 description:
                     'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
+        ]),
+    new Company('Konrad Group', 'konrad', konradLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: 'Impressive portfolio',
+                description: `
+        I found the company's past work quite impressive. As a sucker for pastel colors, I especially thought the work done with Spotify was quite beautiful.
+            `
+            },
+            {
+                title: 'Working in a Design-Mature Company',
+                description: `The company's past work reflects a culture where design is respected and valued. The company thus perfectly fits into the kind of companies that I wish to work for.`
+            },
+            {
+                title: 'Working and networking with Designers at the top of their game',
+                description:
+                    'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. I found the skill level of most of the people working in the company to be quite high. This is another reason I wish to work with the company, since working with such designers will help me grow.'
+            }
         ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ])
+        .setWhyTitle((companyName) => `I want to work at the ${companyName} because...`)
 ];
