@@ -66,7 +66,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -76,7 +76,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('GoDaddy', 'godaddy', goDaddyLogo, 300)
@@ -98,7 +98,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -108,7 +108,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Abelson Taylor', 'abelson-taylor', abelsonTaylorLogo, 160)
@@ -135,7 +135,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -145,7 +145,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('SquareTrade', 'square-trade', squareTradeLogo, 200)
@@ -170,7 +170,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -180,7 +180,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Moser Consulting', 'moser', moserLogo, 300)
@@ -200,7 +200,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -210,7 +210,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('VSA Partners', 'vsa', vsaLogo, 300)
@@ -230,7 +230,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -240,7 +240,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('HomeLister', 'homelister', homelisterLogo, 300)
@@ -264,7 +264,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -274,7 +274,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('The Bradford Exchange', 'bradford', bradfordLogo, 300)
@@ -298,7 +298,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -327,7 +327,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -337,7 +337,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Reddit', 'reddit', redditLogo, 200)
@@ -359,7 +359,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -369,7 +369,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('DotDash Meredith', 'dotdash', dotdashLogo, 300)
@@ -391,7 +391,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -401,7 +401,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
 
@@ -420,7 +420,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -430,7 +430,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Konrad Group', 'konrad', konradLogo, 300)
@@ -455,7 +455,7 @@ export const COMPANIES = [
             {
                 title: 'Philosophy: Be the dumbest person in the room',
                 description:
-                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
@@ -465,7 +465,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ])
         .setWhyTitle((companyName) => `I want to work at the ${companyName} because...`)
