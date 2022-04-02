@@ -15,6 +15,7 @@ import endMeme from '../public/end-meme.png';
 
 const CompanyPage = ({ companyName }) => {
     const router = useRouter();
+    const whyCompanySection = useRef<HTMLDivElement>(null);
     if (!companyName) {
         companyName = router.query.companyName;
     }
@@ -23,7 +24,6 @@ const CompanyPage = ({ companyName }) => {
         return null;
     }
 
-    const whyCompanySection = useRef<HTMLDivElement>(null);
     return (
         <Container>
             <Navigation variants />
@@ -111,7 +111,7 @@ CompanyPage.getInitialProps = ({ query }) => {
 };
 
 const ReasonSection = forwardRef<any, { className?: string; title: string | JSX.Element; children: ReactNode }>(
-    ({ className = '', title, children }, ref) => {
+    function ReasonSectionImpl({ className = '', title, children }, ref) {
         return (
             <motion.div
                 className={`reason ${className}`}
@@ -130,7 +130,7 @@ const ReasonSection = forwardRef<any, { className?: string; title: string | JSX.
 );
 
 const PointsSection = forwardRef<any, { className: string; title: string | JSX.Element; points: IPoint[] }>(
-    ({ className = '', title, points }, ref) => {
+    function PointsSectionImpl({ className = '', title, points }, ref) {
         return (
             <ReasonSection className="points-section" title={title} ref={ref}>
                 <>
