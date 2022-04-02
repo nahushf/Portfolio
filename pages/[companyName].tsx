@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { forwardRef, ReactNode, useRef } from 'react';
 import styled from 'styled-components';
@@ -28,17 +29,31 @@ const CompanyPage = ({ companyName }) => {
             <Navigation variants />
             <div className="page-content">
                 <div className="landing">
-                    <AnimatedName />
-                    <motion.div {...HOME_FADE_PROPS} className="plus">
-                        +
-                    </motion.div>
-                    <motion.div
-                        {...HOME_FADE_PROPS}
-                        className="logo-container"
-                        style={{ width: currentCompany.logoWidth + 'px' }}
-                    >
-                        <Image src={currentCompany.logo} layout="responsive"></Image>
-                    </motion.div>
+                    <div className="intro-content">
+                        <div className="intro-beginning">
+                            <AnimatedName name={'Nahush.'} />
+                            <motion.div {...HOME_FADE_PROPS} className="plus">
+                                +
+                            </motion.div>
+                            <motion.div
+                                {...HOME_FADE_PROPS}
+                                className="logo-container"
+                                style={{ width: currentCompany.logoWidth + 'px' }}
+                            >
+                                <Image src={currentCompany.logo} layout="responsive"></Image>
+                            </motion.div>
+                        </div>
+                        <motion.div {...HOME_FADE_PROPS} className="intro-text">
+                            Hello {currentCompany.companyName}, Thanks for considering me as a candidate for your
+                            company. I really appreciate it. I am passionate about problem solving and design and I
+                            think I would be a really good fit at your company.
+                            <p>
+                                I have collected a couple of my projects which I think you would like. Be sure to check
+                                out <Link href="/projects/courtside">Courtside</Link>, which won me the AT&T 5G Sports
+                                Hackathon.
+                            </p>
+                        </motion.div>
+                    </div>
                     <motion.div
                         {...HOME_FADE_PROPS}
                         className="see-why"
@@ -81,7 +96,9 @@ const CompanyPage = ({ companyName }) => {
                         <Image src={endMeme} layout="responsive" objectFit="contain" />
                     </div>
                     <p>Thanks for letting me ramble on..</p>{' '}
-                    <p><Emp>Wanna chat?</Emp> Check out my contact information in the footer below</p>{' '}
+                    <p>
+                        <Emp>Wanna chat?</Emp> Check out my contact information in the footer below
+                    </p>{' '}
                 </div>
             </div>
             <Footer />
@@ -178,18 +195,39 @@ const Container = styled.div`
         .landing {
             height: 98vh;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             position: relative;
             ${Name} {
                 display: flex;
             }
-            .plus {
-                font-size: 56px;
-            }
             .logo-container {
                 width: 300px;
+            }
+
+            .intro-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                justify-items: center;
+                .intro-text {
+                    font-size: 16px;
+                    text-align: center;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    a {
+                        color: #fafafa;
+                        display: inline-block;
+                        &:active {
+                            transform: scale(0.95);
+                        }
+                    }
+                }
+
+                .plus {
+                    font-size: 56px;
+                    text-align: center;
+                }
             }
             .see-why {
                 cursor: pointer;
@@ -246,7 +284,7 @@ const Container = styled.div`
                 }
             }
             p {
-            margin-bottom: 0px;
+                margin-bottom: 0px;
                 text-align: center;
                 font-size: 16px;
             }

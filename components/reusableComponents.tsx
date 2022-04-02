@@ -582,10 +582,10 @@ export const AnimatedTitle = ({ text }) => {
     );
 };
 
-export const AnimatedName = ({}) => {
+export const AnimatedName = ({name = "Nahush Farkande."}) => {
     return (
         <AnimatedNameContainer>
-            <AnimatedTitle text="Nahush Farkande." />
+            <AnimatedTitle text={name}/>
         </AnimatedNameContainer>
     );
 };
