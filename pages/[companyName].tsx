@@ -87,7 +87,7 @@ const CompanyPage = ({ companyName }) => {
                     className="specific-projects"
                     title="Lastly, here are some of my projects that you might like..."
                 >
-                    {[PROJECTS[2], PROJECTS[1]].map((project) => (
+                    {[PROJECTS[2], PROJECTS[0]].map((project) => (
                         <ProjectTile key={project.id} project={project} />
                     ))}
                 </ReasonSection>
@@ -209,6 +209,11 @@ const Container = styled.div`
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 justify-items: center;
+                .intro-beginning {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
                 .intro-text {
                     font-size: 16px;
                     text-align: center;
