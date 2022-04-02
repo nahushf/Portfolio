@@ -167,7 +167,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                 }}
             />
             <GlobalStyle />
-            <AnimatedCursor />
             <Component {...pageProps} />
             <MailIcon
                 data-cursor-text="Contact"
