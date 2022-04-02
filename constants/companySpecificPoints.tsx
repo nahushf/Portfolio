@@ -11,6 +11,7 @@ import redditLogo from '../public/reddit-logo.png';
 import dotdashLogo from '../public/dotdash-logo.png';
 import havenLogo from '../public/haven-logo.png';
 import konradLogo from '../public/konrad-logo.png';
+import ciscoLogo from '../public/cisco-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -468,5 +469,41 @@ export const COMPANIES = [
                     'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ])
-        .setWhyTitle((companyName) => `I want to work at the ${companyName} because...`)
+        .setWhyTitle((companyName) => `I want to work at the ${companyName} because...`),
+
+    new Company('Cisco', 'cisco', ciscoLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `${companyName}'s reputation`,
+                description: `
+        Coming from a background in tech, I have been aware of cisco for a while. Almost everyone I know uses a cisco router. With such a wide user base, the compony is bound to have a plethora of challenges which could potentially be solved by design.
+            `
+            },
+            {
+                title: 'Working in a Design-Mature Company',
+                description: `The company's work reflects a culture where design is respected and valued. The company thus perfectly fits into the kind of companies that I wish to work for.`
+            },
+            {
+                title: 'Working and networking with Designers at the top of their game',
+                description:
+                    'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. I found the skill level of most of the people working in the company to be quite high. This is another reason I wish to work with the company, since working with such designers will help me grow.'
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ])
 ];
