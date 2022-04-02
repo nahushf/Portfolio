@@ -9,6 +9,7 @@ import bradfordLogo from '../public/bradford-logo.png';
 import brainCorpLogo from '../public/braincorp-logo.jpeg';
 import redditLogo from '../public/reddit-logo.png';
 import dotdashLogo from '../public/dotdash-logo.png';
+import havenLogo from '../public/haven-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -366,7 +367,7 @@ export const COMPANIES = [
         .setCompanyPoints((companyName) => [
             {
                 title: `The company's expanse and reputation`,
-                description: `As of 2021 ${companyName} reaches more than a 100 million users on a monthly basis. Despite having such a huge user base the company efficiently manages to publish content relevant to a wide vareity of themes. I wish to work at a company with such a high level of efficiency`
+                description: `As of 2021 ${companyName} reaches more than a 100 million users on a monthly basis. Despite having such a huge user base the company efficiently manages to publish content relevant to a wide variety of themes. I wish to work at a company with such a high level of efficiency`
             },
             {
                 title: `I wish to empathize with the users and stakeholders in this domain`,
@@ -375,6 +376,35 @@ export const COMPANIES = [
             {
                 title: `Curious about what's next`,
                 description: `I am curious and excited about what is coming next for the company. I want to know what the roadmap is like ahead and also want to work on building this road for the company.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room philosophy". If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even thought I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Haven Technologies', 'haven', havenLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Mo' problems Mo' Design`,
+                description: `Insurance has always been a rich field in terms of problems faced by both customers as well as insurance providers. I am curious to know how ${companyName} simplifies life in this field. Working in this field will make me apply all my design know-how and will also help me up my design game.`
+            },
+            {
+                title: `Curious about what's next`,
+                description: `I am curious and excited about what is coming next for the company. I want to know what the roadmap is like in this field and also want to work on building this road for the company.`
             }
         ])
         .setMePoints([
