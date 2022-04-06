@@ -201,7 +201,7 @@ export const Trupaws = () => {
                     <SectionDescription>
                         Upon getting some external feedback from our professor and our peers about our initial ideas, we
                         realized that the 2nd concept, although promising, involved a significant time commitment which
-                        might discourage users from adopting a pet altogether. The process of understanding the user's
+                        might discourage users from adopting a pet altogether. The process of understanding the user&apos;s
                         preferences needed to be quicker.
                     </SectionDescription>
                 </Section>
@@ -218,7 +218,7 @@ export const Trupaws = () => {
                             wireframe17,
                             wireframe18
                         ].map((src, index) => (
-                            <div className="image-container">
+                            <div className="image-container" key={index}>
                                 <Image layout="responsive" src={src} key={index} objectFit="contain" />
                             </div>
                         ))}
@@ -229,7 +229,7 @@ export const Trupaws = () => {
                     <SectionDescription>
                         {[wireframe21, wireframe22, wireframe23, wireframe24, wireframe25, wireframe26].map(
                             (src, index) => (
-                                <div className="image-container">
+                                <div className="image-container" key={index}>
                                     <Image layout="responsive" src={src} key={index} objectFit="contain" />
                                 </div>
                             )
@@ -240,7 +240,7 @@ export const Trupaws = () => {
                     <SectionTitle>Wireframes - Browsing pets</SectionTitle>
                     <SectionDescription>
                         {[wireframe31, wireframe32, wireframe33, wireframe34].map((src, index) => (
-                            <div className="image-container">
+                            <div className="image-container" key={index}>
                                 <Image layout="responsive" src={src} key={index} objectFit="contain" />
                             </div>
                         ))}

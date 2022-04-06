@@ -46,7 +46,8 @@ const CompanyPage = ({ companyName }) => {
                         <motion.div {...HOME_FADE_PROPS} className="intro-text">
                             <p>
                                 Hello {currentCompany.companyName}, Thanks for considering me as a candidate for your
-                                company. I really appreciate it. I am passionate about <Emp>problem solving</Emp> and
+                                company. I really appreciate it. I am passionate about <Emp>problem solving</Emp>{' '}
+                                and&nbsp;
                                 <Emp>design</Emp> and I think I would be a really good fit at your company.
                             </p>
                             <p>
@@ -92,7 +93,7 @@ const CompanyPage = ({ companyName }) => {
                     className="specific-projects"
                     title="Lastly, here are some of my projects that you might like..."
                 >
-                    {[PROJECTS[2], PROJECTS[0]].map((project) => (
+                    {[PROJECTS[2], PROJECTS[1]].map((project) => (
                         <ProjectTile key={project.id} project={project} />
                     ))}
                 </ReasonSection>

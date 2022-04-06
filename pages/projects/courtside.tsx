@@ -207,7 +207,7 @@ const Courtside = () => {
                         srcs={['/courtside/match-details.mp4']}
                         title="Match screens and spatial audio experience"
                     >
-                        On purchasing a 'virtual ticket' users can view the match details and access the{' '}
+                        On purchasing a &apos;virtual ticket&apos; users can view the match details and access the{' '}
                         <Emp>spatial audio experience</Emp> which will be constructed using the sensors in the ball.
                     </ScreensSection>
                     <ScreensSection srcs={['/courtside/voice-assistant.mp4']} title="Voice Assistant">
