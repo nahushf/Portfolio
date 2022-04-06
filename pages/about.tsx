@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRef } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, useTheme } from 'styled-components';
 import { ChevronDown, ChevronDropDown } from '../components/ChevronDown';
 import { Footer } from '../components/Footer';
 import { Emp, Name, Navigation } from '../components/reusableComponents';
@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
 
 const AboutPage = () => {
     const winsSection = useRef<HTMLDivElement>(null);
+    const { primary } = useTheme() as any;
     return (
         <>
             <Container>
@@ -44,7 +45,7 @@ const AboutPage = () => {
                                     winsSection.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
                                 }
                             >
-                                Check out some of my recent achievements <ChevronDown fill={red} />
+                                Check out some of my recent achievements <ChevronDown fill={primary} />
                             </div>
                         </div>
                     </div>
@@ -67,7 +68,7 @@ const AboutPage = () => {
                                 <div className="links-container">
                                     <Link href="/projects/courtside" passHref>
                                         <a target="_blank">
-                                            View Project <ChevronDropDown fill={red} />{' '}
+                                            View Project <ChevronDropDown fill={primary} />{' '}
                                         </a>
                                     </Link>
                                     <Link
@@ -75,7 +76,7 @@ const AboutPage = () => {
                                         passHref
                                     >
                                         <a>
-                                            Read Article <ChevronDropDown fill={red} />{' '}
+                                            Read Article <ChevronDropDown fill={primary} />{' '}
                                         </a>
                                     </Link>
                                 </div>
@@ -89,7 +90,7 @@ const AboutPage = () => {
                             <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref>
                                 <a target="_blank">
                                     Read Article
-                                    <ChevronDropDown fill={red} />{' '}
+                                    <ChevronDropDown fill={primary} />{' '}
                                 </a>
                             </Link>
                         </WinSection>
@@ -164,7 +165,7 @@ const WinSection = styled.div`
         color: #fafafa;
         text-decoration: underline;
         display: flex;
-        color: ${red};
+        color: ${(props) => props.theme.primary};
         svg {
             transform: rotate(-90deg);
         }
@@ -192,7 +193,7 @@ const Container = styled.div`
             .about__description {
             }
             .read-more {
-                color: ${red};
+                color: ${(props) => props.theme.primary};
                 display: flex;
                 align-items: center;
                 cursor: pointer;

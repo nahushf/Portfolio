@@ -6,15 +6,15 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Script from 'next/script';
 import { Fragment } from 'react';
-import styled, { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { AnimationLayout } from '../components/AnimationLayout';
 import { EmailIcon } from '../components/InstaIcon';
-import { black, maxDevice, minDevice, textColor } from '../constants/styles';
+import { black, darkBackground, maxDevice, minDevice, red, textColor } from '../constants/styles';
 import '../styles/globals.css';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<any>`
     @font-face {
         font-family: 'ClashDisplay';
         src: url('/fonts/ClashDisplay-SemiBold.otf');
@@ -26,9 +26,9 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 500;
     }   
     html, body {
-        color: ${textColor};
+        color: ${(props) => props.theme.paragraph};
         font-family: 'Poppins' !important;
-        background: ${black};
+        background: ${(props) => props.theme.background};
     }
     body {
         height: 100vh;
@@ -147,36 +147,62 @@ const AnimatedCursor = dynamic(() => import('../components/AnimatedCursor'), {
     ssr: false
 });
 
+const appTheme_DEP = {
+    background: black,
+    headline: '#fffffe',
+    paragraph: textColor,
+    button: red,
+    buttonText: black,
+    primary: red,
+    empText: '#fafafa',
+    cardBackground: darkBackground
+};
+
+const appTheme = {
+    background: '#0f0e17',
+    headline: '#fffffe',
+    paragraph: '#a7a9be',
+    button: '#ff8906',
+    buttonText: '#fffffe',
+    empText: '#fffffe',
+    stroke: '#000',
+    primary: '#ff8906',
+    secondary: '#f25f4c',
+    tertiary: '#e53170'
+};
+
 function MyApp({ Component, pageProps }: AppProps) {
     return (
         <Fragment>
-            <Head>
-                <title>Nahush Farkande</title>
-            </Head>
-            <Script
-                id="clarity-script"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-(function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "apgj3t3slt")
-      `
-                }}
-            />
-            <GlobalStyle />
-            <Component {...pageProps} />
-            <MailIcon
-                data-cursor-text="Contact"
-                data-cursor-size="80"
-                data-gradient-start="#4a4a4a"
-                data-gradient-end="#4a4a4a"
-                href="mailto: nahush.farkande@gmail.com"
-            >
-                <EmailIcon />
-            </MailIcon>
+            <ThemeProvider theme={appTheme_DEP}>
+                <Head>
+                    <title>Nahush Farkande</title>
+                </Head>
+                <Script
+                    id="clarity-script"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{
+                        __html: `
+    (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "apgj3t3slt")
+        `
+                    }}
+                />
+                <GlobalStyle />
+                <Component {...pageProps} />
+                <MailIcon
+                    data-cursor-text="Contact"
+                    data-cursor-size="80"
+                    data-gradient-start="#4a4a4a"
+                    data-gradient-end="#4a4a4a"
+                    href="mailto: nahush.farkande@gmail.com"
+                >
+                    <EmailIcon />
+                </MailIcon>
+            </ThemeProvider>
         </Fragment>
     );
 }

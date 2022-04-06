@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {Footer} from '../../components/Footer';
 import {
     Insight,
     InsightsContainer,
@@ -260,6 +261,7 @@ const Farm2U = () => {
                 </Section>
                 <ProjectFooter />
             </ProjectInfoContainer>
+            <Footer /> 
         </Container>
     );
 };

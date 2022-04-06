@@ -1,7 +1,9 @@
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
+import {Footer} from '../../components/Footer';
 import {
     Emp,
+    ImageDescription,
     Insight,
     InsightsContainer,
     MajorPoint,
@@ -60,7 +62,7 @@ const Courtside = () => {
                         Figma, Python
                     </ProjectStat>
                     <ProjectStat title="My Contributions" className="contributions">
-                        Conceptualized Initial idea, Prototyping, Research
+                        Conceptualized Initial idea, Prototyping, Expert Validation, Internet Research
                     </ProjectStat>
                     <ProjectStat title="Team" className="team">
                         1 Data Science Student, 4 HCI Students
@@ -82,8 +84,8 @@ const Courtside = () => {
                 <Section className="research">
                     <SectionTitle>Research</SectionTitle>
                     <SectionDescription>
-                        As part of our research we found information about what 5g is and some problems areas in sports
-                        which could be tackled using 5g
+                        We performed some <Emp>online research</Emp> to understand 5G and to find out some problem areas
+                        in sports which could be tackled using 5G. Some of the key insights we found were as follows
                     </SectionDescription>
                     <InsightsContainer>
                         <Insight index="1" header="What is 5G?">
@@ -197,33 +199,20 @@ const Courtside = () => {
                         features present in the iOS and Android Operating systems handle the accessibility for the
                         visually impaired. Keeping this in mind we designed the following screens
                     </SectionDescription>
-                    <ScreensSection
-                        srcs={['/courtside/match-list.png', '/courtside/match-details.png']}
-                        title="Match list and details"
-                    >
-                        The starting screens of the application. Users can see all the games that are being hosted on
-                        the app and then tap any game to view some more detailed information about the game. On the
-                        details page the user would have the ability to buy the ‘virtual ticket’ which you enable them
-                        to access the spatial audio experience of the game
+                    <ScreensSection srcs={['/courtside/match-list-and-details.mp4']} title="Match list and details">
+                        The users can see all upcoming games on the application and can tap a game to see more details
+                        and buy a virtual ticket
                     </ScreensSection>
                     <ScreensSection
-                        srcs={['/courtside/match-stats.png', '/courtside/match-audio.png']}
+                        srcs={['/courtside/match-details.mp4']}
                         title="Match screens and spatial audio experience"
                     >
-                        Once the user purchases the ‘virtual ticket’ they can go to the match screen where they will be
-                        given access to information such as the match and player statistics. Here they can also access
-                        the audio experience which will be the USP of this application. The audio experience will be a
-                        combination of the sounds of the audience, the commentary and the sounds of the ball and the
-                        players moving on the court. The users will also be able to customize the audio by reducing or
-                        increasing the volumes of each component of the audio
+                        On purchasing a 'virtual ticket' users can view the match details and access the{' '}
+                        <Emp>spatial audio experience</Emp> which will be constructed using the sensors in the ball.
                     </ScreensSection>
-                    <ScreensSection
-                        srcs={['/courtside/voice-assistant-1.png', '/courtside/voice-assistant-2.png']}
-                        title="Voice Assistant"
-                    >
-                        As an additional layer of accessibility for the visually impaired the application would also
-                        contain a voice assistant feature where the user can use his/her voice to move around in the
-                        application.
+                    <ScreensSection srcs={['/courtside/voice-assistant.mp4']} title="Voice Assistant">
+                        The app would also host a voice assistant to further simplify operation for the visually
+                        impaired
                     </ScreensSection>
                 </Section>
                 <Section className="final-thoughts">
@@ -239,14 +228,10 @@ const Courtside = () => {
                 </Section>
                 <ProjectFooter />
             </ProjectInfoContainer>
+            <Footer /> 
         </Container>
     );
 };
-const ImageDescription = styled.div`
-    font-size: 12px;
-    line-height: 18px;
-    color: #9b9b9b;
-`;
 
 const secondaryBannerGap = 32;
 const Container = styled(ProjectContainer)`

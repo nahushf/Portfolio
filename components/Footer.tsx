@@ -23,7 +23,7 @@ export const Footer = () => {
                         <EmailIcon />
                     </a>
                 </div>
-                <div className="courtesy">©2022 Nahush Farkande. Made with ❤️ and 🍺</div>
+                <div className="courtesy">©2022 Nahush Farkande. Hand Coded with ❤️ &nbsp;and 🍺</div>
             </div>
         </Container>
     );

@@ -2,10 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
+import { InView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import { CUSTOM_EASING, HOME_SHOW_VARIANT, red, textColor } from '../constants/styles';
 import { isEmpty } from '../scripts/utils';
+import { Footer } from './Footer';
 
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
     return (
@@ -114,7 +116,6 @@ export const Overview = ({ projectName, projectDescription, salientPoints = [] }
 };
 
 const OverviewContainer = styled.div`
-    padding: 40px 0px;
     display: flex;
     align-items: flex-start;
     gap: 32px;
@@ -156,7 +157,6 @@ const ProjectStatContainer = styled.div`
 `;
 
 export const ProjectStatsContainer = styled.div`
-    margin: 40px 0px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 24px;
@@ -165,7 +165,6 @@ export const ProjectStatsContainer = styled.div`
 export const SectionTitle = styled.div``;
 export const SectionDescription = styled.div``;
 export const Section = styled.div`
-    margin-bottom: 40px;
     ${SectionTitle} {
         font-size: 24px;
         font-weight: 700;
@@ -215,8 +214,21 @@ export const Insight = ({ headerText = 'Insight', className = '', index, header,
 };
 
 const InsightContainer = styled.div`
-    margin: 16px auto 0px auto;
-    width: 50vw;
+    margin: 0px auto 0px auto;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-rows: max-content 1fr;
+    grid-column-gap: 32px;
+    background: ${props => props.theme.cardBackground};
+    padding: 16px;
+    border-radius: 8px;
+    .content {
+        grid-row-end: span 2;
+    }
+    .header {
+        grid-row-start: 2;
+    }
     .index,
     .header {
         font-weight: 700;
@@ -228,20 +240,47 @@ const InsightContainer = styled.div`
     }
 `;
 
-export const InsightsContainer = styled.div``;
+export const InsightsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+`;
 
 export const ScreensSection = ({ title, children, srcs }) => {
+    const videoRef = useRef<HTMLVideoElement>(null);
     return (
         <ScreensSectionContainer className={srcs.length === 3 ? 'vertical' : ''}>
             <div className="screens-info">
                 <div className="screens-section__title">{title}</div>
                 <div className="screens-section__description">{children}</div>
             </div>
-            <div className="screen-images">
+            <InView
+                className="screen-images"
+                onChange={(inView, entry) => {
+                    if (!videoRef.current) {
+                        return;
+                    }
+                    if (inView) {
+                        videoRef.current.play();
+                    } else {
+                        videoRef.current.pause();
+                        videoRef.current.currentTime = 0;
+                    }
+                }}
+            >
                 {srcs.map((src, index) => {
+                    if (src.endsWith('mp4')) {
+                        return (
+                            <video loop width={300} autoPlay muted ref={videoRef} key={index}>
+                                <source src={src} />
+                                Your browser does not support videos
+                            </video>
+                        );
+                    }
                     return <img src={src} key={index} />;
                 })}
-            </div>
+            </InView>
         </ScreensSectionContainer>
     );
 };
@@ -250,9 +289,15 @@ export const ScreensSectionContainer = styled.div`
     width: 100%;
     margin: 0 auto;
     margin-top: 32px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 24px;
+    .screens-section__title {
+        color: #fafafa;
+    }
     .screens-info {
+        padding-left: 80px;
+        margin-top: 80px;
         width: 100%;
         .screens-section__title {
             font-weight: 700;
@@ -261,6 +306,7 @@ export const ScreensSectionContainer = styled.div`
     .screen-images {
         display: flex;
         gap: 32px;
+        justify-self: center;
         img {
             height: 400px;
             box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 0.1);
@@ -278,6 +324,10 @@ export const ScreensSectionContainer = styled.div`
 export const ProjectInfoContainer = styled.div`
     max-width: 1024px;
     margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 40px 0px;
 `;
 
 export const ProjectContainer = styled.div`
@@ -285,6 +335,10 @@ export const ProjectContainer = styled.div`
     font-size: 16px;
     line-height: 24px;
     padding: 24px;
+    .footer {
+        margin: 0px -24px -24px -24px;
+        width: 100vw;
+    }
 `;
 
 export const ProjectFooter = () => {
@@ -463,7 +517,9 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
     return (
         <NavigationContainer variants={{ initial, animate, exit }} initial="initial" animate="animate" exit="exit">
             <NavLink href="/">
-                <img src="/logo.png" />
+                <div className="logo">
+                    n<FullStop />{' '}
+                </div>
             </NavLink>
             <div className="nav-items-container">
                 <NavLink href="/">Home</NavLink>
@@ -489,7 +545,7 @@ const NavigationContainer = styled(motion.div)`
     position: fixed;
     top: 0px;
     left: 0px;
-    padding: 24px;
+    padding: 8px 24px;
     width: 100vw;
     display: flex;
     align-items: center;
@@ -497,6 +553,14 @@ const NavigationContainer = styled(motion.div)`
     justify-content: space-between;
     img {
         height: 40px;
+    }
+    .logo {
+        display: flex;
+        font-weight: bold;
+        font-size: 72px;
+        line-height: 72px;
+        letter-spacing: -5px;
+        color: ${(props) => props.theme.empText};
     }
     .nav-items-container {
         display: flex;
@@ -530,7 +594,7 @@ export const Name = styled(motion.div)`
 `;
 
 export const Emp = styled.span`
-    color: white;
+    color: ${(props) => props.theme.empText} !important;
     font-weight: bold;
 `;
 
@@ -540,7 +604,7 @@ export const HomePageSection = styled(motion.div)`
 `;
 
 export const FullStop = styled.div.attrs(() => ({ children: '.' }))`
-    color: ${red};
+    color: ${(props) => props.theme.primary};
 `;
 
 const parentVariant = {
@@ -566,7 +630,7 @@ export const AnimatedTitle = ({ text }) => {
         <motion.div variants={parentVariant} initial="initial" animate="animate">
             {[...text.split('')].map((chr: string, index: number) => {
                 return chr === ' ' ? (
-                    <>&nbsp;</>
+                    <Fragment key="index">&nbsp;</Fragment>
                 ) : (
                     <motion.span
                         key={index}
@@ -582,10 +646,10 @@ export const AnimatedTitle = ({ text }) => {
     );
 };
 
-export const AnimatedName = ({name = "Nahush Farkande."}) => {
+export const AnimatedName = ({ name = 'Nahush Farkande.' }) => {
     return (
         <AnimatedNameContainer>
-            <AnimatedTitle text={name}/>
+            <AnimatedTitle text={name} />
         </AnimatedNameContainer>
     );
 };
@@ -593,6 +657,13 @@ export const AnimatedName = ({name = "Nahush Farkande."}) => {
 const AnimatedNameContainer = styled(Name)`
     overflow: hidden;
     .animated-title__char:last-child {
-        color: ${red};
+        color: ${(props) => props.theme.primary};
     }
+`;
+
+
+export const ImageDescription = styled.div`
+    font-size: 12px;
+    line-height: 18px;
+    color: #9b9b9b;
 `;

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { black, HOME_FADE_PROPS, HOME_SHOW_VARIANT } from '../constants/styles';
+import { black, HOME_FADE_PROPS, HOME_SHOW_VARIANT, red } from '../constants/styles';
 import { ArrowIcon } from './arrowIcon';
 import { AnimatedName, Emp, HomePageSection } from './reusableComponents';
 
@@ -12,9 +12,6 @@ export const Landing = ({ onWorkClick }) => {
             <motion.div className="intro-title" {...animationProps}>
                 Hi there, I am
             </motion.div>
-            {/* <Name className="name" onAnimationComplete={() => console.log('Name')}> */}
-            {/* <AnimatedTitle text="Nahush Farkande." /> */}
-            {/* </Name> */}
             <AnimatedName />
             <motion.div className="description" {...animationProps}>
                 I’m a UI/UX Designer who is passionate about solving problems. Currently pursuing my Masters in Human
@@ -24,15 +21,15 @@ export const Landing = ({ onWorkClick }) => {
             </motion.div>
             <motion.div className="links-container" {...animationProps}>
                 <Link href="">
-                    <motion.span className="link-content" onClick={onWorkClick}>
+                    <motion.a className="link-content" onClick={onWorkClick}>
                         <img src="/arrow.png" /> View my work
-                    </motion.span>
+                    </motion.a>
                 </Link>
-                <Link href="/about">
-                    <span className="link-content">
+                <Link href="/about" passHref>
+                    <motion.a className="link-content">
                         <ArrowIcon fill="#fff" />
                         Read my story
-                    </span>
+                    </motion.a>
                 </Link>
             </motion.div>
         </Container>
@@ -61,7 +58,7 @@ export const Container = styled(HomePageSection)`
         font-size: 20px;
         gap: 16px;
         .link-content {
-            padding: 8px;
+            padding: 8px 16px 8px 8px;
             cursor: pointer;
             color: white;
             display: flex;
@@ -70,8 +67,8 @@ export const Container = styled(HomePageSection)`
             border: 1px solid #fff;
             border-radius: 100px;
             &:first-child {
-                border: 1px solid #f87e77;
-                background: #f87e77;
+                border: 1px solid ${red};
+                background: ${red};
                 color: ${black};
                 img {
                     transform: rotate(90deg);

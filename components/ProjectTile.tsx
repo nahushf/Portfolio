@@ -18,7 +18,7 @@ const variants = {
 };
 
 const cardVariants = {
-    rest: { opacity: 0, background: 'transparent' },
+    rest: { opacity: 0 },
     show: {
         opacity: 1,
         transition: {
@@ -27,7 +27,6 @@ const cardVariants = {
         }
     },
     hover: {
-        background: '#291d37',
 
         transition: {
             ease: CUSTOM_EASING,
@@ -86,6 +85,9 @@ const Container = styled(motion.div)`
     cursor: pointer;
     border-radius: 12px;
     padding: 8px;
+    &:hover {
+        background: #291d37;
+    }
     .project-information {
         .project-title {
             color: #fff;

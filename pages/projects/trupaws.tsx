@@ -1,5 +1,9 @@
+import Image from 'next/Image';
 import styled from 'styled-components';
+import { Footer } from '../../components/Footer';
 import {
+    Emp,
+    ImageDescription,
     Insight,
     InsightsContainer,
     MajorPoint,
@@ -18,11 +22,31 @@ import {
     SectionDescription,
     SectionTitle
 } from '../../components/reusableComponents';
+import sketch1 from '../../public/trupaws/concept-1.jpg';
+import sketch2 from '../../public/trupaws/concept-2.jpg';
+import wireframe11 from '../../public/trupaws/wireframes/wireframe-1-1.png';
+import wireframe12 from '../../public/trupaws/wireframes/wireframe-1-2.png';
+import wireframe13 from '../../public/trupaws/wireframes/wireframe-1-3.png';
+import wireframe14 from '../../public/trupaws/wireframes/wireframe-1-4.png';
+import wireframe15 from '../../public/trupaws/wireframes/wireframe-1-5.png';
+import wireframe16 from '../../public/trupaws/wireframes/wireframe-1-6.png';
+import wireframe17 from '../../public/trupaws/wireframes/wireframe-1-7.png';
+import wireframe18 from '../../public/trupaws/wireframes/wireframe-1-8.png';
+import wireframe21 from '../../public/trupaws/wireframes/wireframe-2-1.png';
+import wireframe22 from '../../public/trupaws/wireframes/wireframe-2-2.png';
+import wireframe23 from '../../public/trupaws/wireframes/wireframe-2-3.png';
+import wireframe24 from '../../public/trupaws/wireframes/wireframe-2-4.png';
+import wireframe25 from '../../public/trupaws/wireframes/wireframe-2-5.png';
+import wireframe26 from '../../public/trupaws/wireframes/wireframe-2-6.png';
+import wireframe31 from '../../public/trupaws/wireframes/wireframe-3-1.png';
+import wireframe32 from '../../public/trupaws/wireframes/wireframe-3-2.png';
+import wireframe33 from '../../public/trupaws/wireframes/wireframe-3-3.png';
+import wireframe34 from '../../public/trupaws/wireframes/wireframe-3-4.png';
 
 export const Trupaws = () => {
     return (
         <Container>
-            <Navigation /> 
+            <Navigation />
             <ProjectBanner imgSrc="/trupaws/banner.png" />
             <ProjectInfoContainer>
                 <Overview
@@ -37,7 +61,7 @@ export const Trupaws = () => {
                         Figma
                     </ProjectStat>
                     <ProjectStat title="My Contributions" className="contributions">
-                        Research, Brainstorming, Prototyping, User Evaluation
+                        Desk Research, Affinity Mapping, Brainstorming, Prototyping, User Evaluation
                     </ProjectStat>
                     <ProjectStat title="Team" className="team">
                         5 HCI Students
@@ -79,7 +103,9 @@ export const Trupaws = () => {
                 <Section>
                     <SectionTitle>Why did we choose this problem?</SectionTitle>
                     <SectionDescription>
-                        Upon looking at the problem area more closely we stumbled upon the following insights
+                        We started off our research by <Emp>interviewing pet owners and enthusiasts</Emp> and{' '}
+                        <Emp>looking up information pertaining to the problem area on the internet</Emp>. Upon reading
+                        through a bunch of articles and papers we came across the following insights.
                     </SectionDescription>
                     <InsightsContainer>
                         <Insight
@@ -104,7 +130,7 @@ export const Trupaws = () => {
                 <Section>
                     <SectionTitle>So why aren’t shelter animals being adopted</SectionTitle>
                     <SectionDescription>
-                        Once we finalized our problem we decided to dig a little deeper into what specific hurdles,
+                        Once we finalized our problem we used the internet to dig a little deeper into what specific hurdles,
                         people and shelters were facing when it came to adopting pets. And here is what we found
                     </SectionDescription>
                     <InsightsContainer>
@@ -143,62 +169,118 @@ export const Trupaws = () => {
                     </div>
                     <SectionDescription>
                         There are already a bunch of pet matching applications out there. So how does our website
-                        differ? Where our site defers is it provides a framework for shelters to communicate the
-                        behaviors and personalities of their animals to the users. This in turn allows adopters to
-                        assess how well an animal can fit into their lifestyle and make an informed decision about which
+                        differ? Where our site defers is it provides a <Emp>framework for shelters to communicate the
+                        behaviors and personalities of their animals</Emp> to the users. This in turn allows adopters to&nbsp;
+                        <Emp>assess how well an animal can fit into their lifestyle</Emp> and make an informed decision about which
                         animal to adopt.
+                    </SectionDescription>
+                </Section>
+                <Section className="sketches">
+                    <SectionTitle>Initial Sketches</SectionTitle>
+                    <div className="sketches-container">
+                        <div className="sketch-container">
+                            <div className="image-container">
+                                <Image src={sketch1} layout="responsive" objectFit="contain" />
+                            </div>
+                            <ImageDescription>
+                                Concept 1: The differentiating factor in this concept was the idea of animal videos
+                                where users can observe animals in certain situations to understand if they can handle
+                                them.
+                            </ImageDescription>
+                        </div>
+                        <div className="sketch-container">
+                            <div className="image-container">
+                                <Image src={sketch2} layout="responsive" objectFit="contain" />
+                            </div>
+                            <ImageDescription>
+                                Concept 2: This idea involved taking care of a virtual pet with similar qualities as an
+                                actual animal to understand whether the user can handle the animal.
+                            </ImageDescription>
+                        </div>
+                    </div>
+                    <SectionDescription>
+                        Upon getting some external feedback from our professor and our peers about our initial ideas, we
+                        realized that the 2nd concept, although promising, involved a significant time commitment which
+                        might discourage users from adopting a pet altogether. The process of understanding the user's
+                        preferences needed to be quicker.
+                    </SectionDescription>
+                </Section>
+                <Section className="wireframes post-a-pet">
+                    <SectionTitle>Wireframes - Post a pet</SectionTitle>
+                    <SectionDescription>
+                        {[
+                            wireframe11,
+                            wireframe12,
+                            wireframe13,
+                            wireframe14,
+                            wireframe15,
+                            wireframe16,
+                            wireframe17,
+                            wireframe18
+                        ].map((src, index) => (
+                            <div className="image-container">
+                                <Image layout="responsive" src={src} key={index} objectFit="contain" />
+                            </div>
+                        ))}
+                    </SectionDescription>
+                </Section>
+                <Section className="wireframes user-onboarding">
+                    <SectionTitle>Wireframes - User onboarding</SectionTitle>
+                    <SectionDescription>
+                        {[wireframe21, wireframe22, wireframe23, wireframe24, wireframe25, wireframe26].map(
+                            (src, index) => (
+                                <div className="image-container">
+                                    <Image layout="responsive" src={src} key={index} objectFit="contain" />
+                                </div>
+                            )
+                        )}
+                    </SectionDescription>
+                </Section>
+                <Section className="wireframes browse-pets">
+                    <SectionTitle>Wireframes - Browsing pets</SectionTitle>
+                    <SectionDescription>
+                        {[wireframe31, wireframe32, wireframe33, wireframe34].map((src, index) => (
+                            <div className="image-container">
+                                <Image layout="responsive" src={src} key={index} objectFit="contain" />
+                            </div>
+                        ))}
                     </SectionDescription>
                 </Section>
                 <Section>
                     <SectionTitle>Mobile screens - Posting a pet</SectionTitle>
-                    <ScreensSection srcs={['/trupaws/posting-overview.png']} title="Post a pet">
+                    <ScreensSection srcs={['/trupaws/process-outline.mp4']} title="Post a pet">
                         This flow is used by animal shelters, to post an animal onto the website. The initial screen
                         gives an overview of what the process
                     </ScreensSection>
-                    <ScreensSection
-                        srcs={[
-                            '/trupaws/choose-animal.png',
-                            '/trupaws/general-info.png',
-                            '/trupaws/characteristics.png'
-                        ]}
-                        title="Animal Information"
-                    >
+                    <ScreensSection srcs={['/trupaws/animal-info.mp4']} title="Animal Information">
                         The posting process starts by first asking for what kind of animal is being posted followed by
                         some general information and characteristics about the animal.
                     </ScreensSection>
-                    <ScreensSection
-                        srcs={['/trupaws/evaluations-1.png', '/trupaws/evaluations-2.png']}
-                        title="Evaluations"
-                    >
+                    <ScreensSection srcs={['/trupaws/evaluations.mp4']} title="Evaluations">
                         Next some evaluation tests are presented which are meant to test how the animal behaves under
                         certain conditions and the animal’s response is noted using emojis and text.
                     </ScreensSection>
-                    <ScreensSection srcs={['/trupaws/profile-1.png', '/trupaws/profile-2.png']} title="Pet Profile">
+                    <ScreensSection srcs={['/trupaws/pet-profile.mp4']} title="Pet Profile">
                         Finally the profile of the shelter animal is ready and the person posting the pet can view all
                         the entered information
                     </ScreensSection>
                 </Section>
                 <Section>
                     <SectionTitle>Mobile screens - Finding pets to adopt</SectionTitle>
-                    <ScreensSection
-                        srcs={['/trupaws/find-1.png', '/trupaws/find-2.png', '/trupaws/breed-info.png']}
-                        title="Initial screens"
-                    >
+                    <ScreensSection srcs={['/trupaws/match-initial.mp4']} title="Initial screens">
                         The user’s preferences are taken
                     </ScreensSection>
-                    <ScreensSection
-                        srcs={['/trupaws/activities.png', '/trupaws/family-dynamics.png', '/trupaws/existing-pets.png']}
-                        title="Activities and Family Dynamics"
-                    >
+                    <ScreensSection srcs={['/trupaws/quiz.mp4']} title="Activities and Family Dynamics">
                         Next the user is asked what kind of activies they would like to indulge in with ther pet and
                         about the different people and pets already present in their family
                     </ScreensSection>
-                    <ScreensSection
-                        srcs={['/trupaws/find-characteristics.png', '/trupaws/issues.png']}
-                        title="Characteristics and Issues"
-                    >
+                    <ScreensSection srcs={['/trupaws/characteristics.mp4']} title="Characteristics and Issues">
                         Next the user is asked for some characteristics in their ideal pet and the kind of behaviors
                         they are willing to handle.
+                    </ScreensSection>
+                    <ScreensSection srcs={['/trupaws/browse.mp4']} title="Browsing Pets">
+                        Once the user has answered all the questions they will be shown adoptable pets according to
+                        their answers.
                     </ScreensSection>
                 </Section>
                 <Section>
@@ -214,6 +296,7 @@ export const Trupaws = () => {
                 </Section>
                 <ProjectFooter />
             </ProjectInfoContainer>
+            <Footer />
         </Container>
     );
 };
@@ -263,6 +346,30 @@ const Container = styled(ProjectContainer)`
                 img {
                     height: 40px;
                 }
+            }
+        }
+        &.sketches {
+            .sketches-container {
+                display: flex;
+                gap: 32px;
+                margin-bottom: 16px;
+                .sketch-container {
+                    flex: 1;
+                    .image-container {
+                        height: 400px;
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 16px;
+                    }
+                }
+            }
+        }
+        &.wireframes {
+            ${SectionDescription} {
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                grid-column-gap: 24px;
+                grid-row-gap: 24px;
             }
         }
     }
