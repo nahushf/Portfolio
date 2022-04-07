@@ -21,7 +21,6 @@ const AboutPage = () => {
             <Container>
                 <GlobalStyle />
                 <Navigation />
-
                 <AboutSection className="primary-info">
                     <div className="about__left">
                         <div className="about__info">
@@ -38,68 +37,60 @@ const AboutPage = () => {
                                 effective in solving problems but also in helping businesses grow.
                             </p>
                             <p>In my free time I like to sing, sketch and accumulate dad jokes.</p>
-                            <div
-                                className="read-more"
-                                onClick={() =>
-                                    winsSection.current?.scrollIntoView({ behavior: 'smooth', block: 'end' })
-                                }
-                            >
-                                Check out some of my recent achievements <ChevronDown fill={primary} />
-                            </div>
                         </div>
                     </div>
                     <div className="about__right">
                         <img src="/self.jpg" />
                     </div>
                 </AboutSection>
-                <AboutSection className="wins-section" id="wins-section" ref={winsSection}>
-                    <h3>Here are some of the awards that my team projects have won:</h3>
-                    <div className="wins-container">
-                        <WinSection>
-                            <div className="image-container">
-                                <Image src={ATTWin} height="500px" width="400px" objectFit="contain" />
-                            </div>
-                            <article>
-                                <article>
-                                    The <Emp>Best Overall Product, Best Accessibility, and Best use of 5G</Emp> awards
-                                    at the AT&T 5G Sports Hackathon
-                                </article>
-                                <div className="links-container">
-                                    <Link href="/projects/courtside" passHref>
-                                        <a target="_blank">
-                                            View Project <ChevronDropDown fill={primary} />{' '}
-                                        </a>
-                                    </Link>
-                                    <Link
-                                        href="https://soic.iupui.edu/news/soic-students-dominate-5g-hackathon/"
-                                        passHref
-                                    >
-                                        <a>
-                                            Read Article <ChevronDropDown fill={primary} />{' '}
-                                        </a>
-                                    </Link>
-                                </div>
-                            </article>
-                        </WinSection>
-                        <WinSection>
-                            <article>
-                                <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint
-                                sponsored by the School of Informatics and Computing
-                            </article>
-                            <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref>
-                                <a target="_blank">
-                                    Read Article
-                                    <ChevronDropDown fill={primary} />{' '}
-                                </a>
-                            </Link>
-                        </WinSection>
-                        <WinSection>
-                            <article>
-                                <Emp>3rd Place</Emp> at the Monon30 Innovation Sprint at IUPUI
-                            </article>
-                        </WinSection>
-                    </div>
-                </AboutSection>
+{/* <AboutSection className="wins-section" id="wins-section" ref={winsSection}> */}
+{/* <h3>Here are some of the awards that my team projects have won:</h3> */}
+{/* <div className="wins-container"> */}
+{/* <WinSection> */}
+{/* <div className="image-container"> */}
+{/* <Image src={ATTWin} height="500px" width="400px" objectFit="contain" /> */}
+{/* </div> */}
+{/* <article> */}
+{/* <article> */}
+{/* The <Emp>Best Overall Product, Best Accessibility, and Best use of 5G</Emp> awards */}
+{/* at the AT&T 5G Sports Hackathon */}
+{/* </article> */}
+{/* <div className="links-container"> */}
+{/* <Link href="/projects/courtside" passHref> */}
+{/* <a target="_blank"> */}
+{/* View Project <ChevronDropDown fill={primary} />{' '} */}
+{/* </a> */}
+{/* </Link> */}
+{/* <Link */}
+{/* href="https://soic.iupui.edu/news/soic-students-dominate-5g-hackathon/" */}
+{/* passHref */}
+{/* > */}
+{/* <a> */}
+{/* Read Article <ChevronDropDown fill={primary} />{' '} */}
+{/* </a> */}
+{/* </Link> */}
+{/* </div> */}
+{/* </article> */}
+{/* </WinSection> */}
+{/* <WinSection> */}
+{/* <article> */}
+{/* <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint */}
+{/* sponsored by the School of Informatics and Computing */}
+{/* </article> */}
+{/* <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref> */}
+{/* <a target="_blank"> */}
+{/* Read Article */}
+{/* <ChevronDropDown fill={primary} />{' '} */}
+{/* </a> */}
+{/* </Link> */}
+{/* </WinSection> */}
+{/* <WinSection> */}
+{/* <article> */}
+{/* <Emp>3rd Place</Emp> at the Monon30 Innovation Sprint at IUPUI */}
+{/* </article> */}
+{/* </WinSection> */}
+{/* </div> */}
+{/* </AboutSection> */}
                 {/* <AboutSection> */}
                 {/* <h3>What I am currently upto</h3> */}
                 {/* <HobbySection></HobbySection> */}
