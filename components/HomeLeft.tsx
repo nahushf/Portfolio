@@ -64,7 +64,7 @@ export const HomeContent = () => {
                         </WinSection>
                         <WinSection>
                             <article>
-                                <Emp>1st Place</Emp> at the "21st century Education" Design Sprint at IUPUI.
+                                <Emp>1st Place</Emp> at the &quot;21st century Education&quot; Design Sprint at IUPUI.
                             </article>
                         </WinSection>
                         <WinSection>

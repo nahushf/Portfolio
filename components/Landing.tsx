@@ -16,7 +16,7 @@ export const Landing = ({ onWorkClick }) => {
             <motion.div className="description" {...animationProps}>
                 <div className="intro-tagline">
                     I’m a <Emp>UI/UX Designer</Emp> who likes to use design as a tool to <Emp>make a difference</Emp> in
-                    people's lives.
+                    people&apos;s lives.
                 </div>
                 <div className="intro-bullets">
                     <div className="intro-bullet"></div>
