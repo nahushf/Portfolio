@@ -1,4 +1,4 @@
-import Image from 'next/Image';
+import Image from 'next/image';
 import styled from 'styled-components';
 import { Footer } from '../../components/Footer';
 import {
@@ -130,8 +130,9 @@ export const Trupaws = () => {
                 <Section>
                     <SectionTitle>So why aren’t shelter animals being adopted</SectionTitle>
                     <SectionDescription>
-                        Once we finalized our problem we used the internet to dig a little deeper into what specific hurdles,
-                        people and shelters were facing when it came to adopting pets. And here is what we found
+                        Once we finalized our problem we used the internet to dig a little deeper into what specific
+                        hurdles, people and shelters were facing when it came to adopting pets. And here is what we
+                        found
                     </SectionDescription>
                     <InsightsContainer>
                         <Insight headerText="Challenge" index="1" header="Lack of shelter resources">
@@ -169,10 +170,13 @@ export const Trupaws = () => {
                     </div>
                     <SectionDescription>
                         There are already a bunch of pet matching applications out there. So how does our website
-                        differ? Where our site defers is it provides a <Emp>framework for shelters to communicate the
-                        behaviors and personalities of their animals</Emp> to the users. This in turn allows adopters to&nbsp;
-                        <Emp>assess how well an animal can fit into their lifestyle</Emp> and make an informed decision about which
-                        animal to adopt.
+                        differ? Where our site defers is it provides a{' '}
+                        <Emp>
+                            framework for shelters to communicate the behaviors and personalities of their animals
+                        </Emp>{' '}
+                        to the users. This in turn allows adopters to&nbsp;
+                        <Emp>assess how well an animal can fit into their lifestyle</Emp> and make an informed decision
+                        about which animal to adopt.
                     </SectionDescription>
                 </Section>
                 <Section className="sketches">
@@ -201,8 +205,8 @@ export const Trupaws = () => {
                     <SectionDescription>
                         Upon getting some external feedback from our professor and our peers about our initial ideas, we
                         realized that the 2nd concept, although promising, involved a significant time commitment which
-                        might discourage users from adopting a pet altogether. The process of understanding the user&apos;s
-                        preferences needed to be quicker.
+                        might discourage users from adopting a pet altogether. The process of understanding the
+                        user&apos;s preferences needed to be quicker.
                     </SectionDescription>
                 </Section>
                 <Section className="wireframes post-a-pet">

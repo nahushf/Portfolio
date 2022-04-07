@@ -6,7 +6,6 @@ import { ChevronDown, ChevronDropDown } from '../components/ChevronDown';
 import { Footer } from '../components/Footer';
 import { Emp, Name, Navigation } from '../components/reusableComponents';
 import { red } from '../constants/styles';
-import ATTWin from '../public/AT&T-win.jpg';
 
 const GlobalStyle = createGlobalStyle`
     #__next {
@@ -141,36 +140,6 @@ const AboutSection = styled.div`
     }
 `;
 
-const WinSection = styled.div`
-    position: relative;
-    flex-shrink: 0;
-    height: 100%;
-    &:first-child {
-        grid-column-end: span 2;
-        display: flex;
-        align-items: center;
-        gap: 24px;
-    }
-    padding: 16px;
-    background: #291d37;
-    border-radius: 8px;
-    article {
-        margin-bottom: 16px;
-    }
-    .links-container {
-        display: flex;
-        gap: 16px;
-    }
-    a {
-        color: #fafafa;
-        text-decoration: underline;
-        display: flex;
-        color: ${(props) => props.theme.primary};
-        svg {
-            transform: rotate(-90deg);
-        }
-    }
-`;
 const Container = styled.div`
     overflow: auto;
     max-width: 1024px;
