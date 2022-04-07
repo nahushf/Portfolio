@@ -10,48 +10,56 @@ export const Landing = ({ onWorkClick }) => {
     return (
         <Container className="landing" id="landing">
             <motion.div className="intro-title" {...animationProps}>
-                Hi there, I am
+                Hello, my name is
             </motion.div>
             <AnimatedName />
             <motion.div className="description" {...animationProps}>
-                I’m a UI/UX Designer who is passionate about solving problems. Currently pursuing my Masters in Human
-                Computer Interaction Indiana University. Previously I have led multiple UI development teams while
-                coordinating with a number of designers, before jumping on the design bandwagon myself. Most recently, I
-                managed to bag the <Emp>Best Overall Product</Emp> award at the AT&T 5G Sports Hackathon.
+                <div className="intro-tagline">
+                    I’m a <Emp>UI/UX Designer</Emp> who likes to use design as a tool to <Emp>make a difference</Emp> in
+                    people's lives.
+                </div>
+                <div className="intro-bullets">
+                    <div className="intro-bullet"></div>
+                </div>
             </motion.div>
-            <motion.div className="links-container" {...animationProps}>
-                <Link href="">
-                    <motion.a className="link-content" onClick={onWorkClick}>
-                        <img src="/arrow.png" /> View my work
-                    </motion.a>
-                </Link>
-                <Link href="/about" passHref>
-                    <motion.a className="link-content">
-                        <ArrowIcon fill="#fff" />
-                        Read my story
-                    </motion.a>
-                </Link>
-            </motion.div>
+            {/* <motion.div className="links-container" {...animationProps}> */}
+            {/* <Link href=""> */}
+            {/* <motion.a className="link-content" onClick={onWorkClick}> */}
+            {/* <img src="/arrow.png" /> View my work */}
+            {/* </motion.a> */}
+            {/* </Link> */}
+            {/* <Link href="/about" passHref> */}
+            {/* <motion.a className="link-content"> */}
+            {/* <ArrowIcon fill="#fff" /> */}
+            {/* Read my story */}
+            {/* </motion.a> */}
+            {/* </Link> */}
+            {/* </motion.div> */}
         </Container>
     );
 };
 
 export const Container = styled(HomePageSection)`
-    height: 100vh;
+    padding-top: 56px;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 32px;
-
-    .intro-title {
-        font-size: 24px;
-    }
+    gap: 16px;
+    font-size: 24px;
     .intro-title,
     .description {
         line-height: 1.8;
         font-size: 18px;
     }
-
+    .description {
+        .intro-tagline {
+            margin-bottom: 16px;
+        }
+        .intro-bullets {
+            font-size: 16px;
+        }
+    }
     .links-container {
         display: flex;
         align-items: center;

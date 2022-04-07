@@ -23,7 +23,7 @@ export const OtherWork = () => {
     // const { scrollXProgress } = useViewportScroll();
     // console.log(scrollXProgress);
     return (
-        <Container id="other-work" >
+        <Container id="other-work">
             <AnimateSharedLayout>
                 <h2>A few other things that I do</h2>
                 <h4>Hand lettering</h4>
@@ -44,12 +44,12 @@ export const OtherWork = () => {
                     <div className="artwork-images">
                         {renderImages([
                             'chadwick.png',
-                            'eagle.png',
                             'joaquin.png',
-                            'random.png',
-                            'sketch-2.png',
-                            'sketch.png',
                             'The_Rock.png',
+                            'sketch-2.png',
+                            'eagle.png',
+                            'random.png',
+                            'sketch.png',
                             'urban.png'
                         ])}
                     </div>
@@ -70,7 +70,6 @@ export const OtherWork = () => {
                                 <motion.img
                                     layoutId={modalSrc}
                                     src={modalSrc}
-                                    onAnimationComplete={() => console.log(11)}
                                 />{' '}
                             </div>
                         </div>
@@ -82,6 +81,14 @@ export const OtherWork = () => {
 };
 
 const Container = styled(HomePageSection)`
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    h2 {
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
     h4 {
         margin-bottom: 16px;
     }
