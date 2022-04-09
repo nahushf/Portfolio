@@ -93,15 +93,15 @@ const CompanyPage = ({ companyName }) => {
                     className="specific-projects"
                     title="Lastly, here are some of my projects that you might like..."
                 >
-                    {[PROJECTS[2], PROJECTS[1]].map((project) => (
+                    {[PROJECTS[2], PROJECTS[0]].map((project) => (
                         <ProjectTile key={project.id} project={project} />
                     ))}
                 </ReasonSection>
                 <div className="end-of-page">
-                    <div className="end-meme-container">
-                        <Image src={endMeme} layout="responsive" objectFit="contain" />
-                    </div>
-                    <p>Thanks for letting me ramble on..</p>{' '}
+{/* <div className="end-meme-container"> */}
+{/* <Image src={endMeme} layout="responsive" objectFit="contain" /> */}
+{/* </div> */}
+                    <p>Thanks for hearing me out..</p>{' '}
                     <p>
                         <Emp>Wanna chat?</Emp> Check out my contact information in the footer below
                     </p>{' '}

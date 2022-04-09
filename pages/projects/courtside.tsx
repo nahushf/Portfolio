@@ -168,7 +168,7 @@ const Courtside = () => {
                         second part was a proof on concept demonstrating the movement of a ball using sound.
                     </SectionDescription>
                 </Section>
-                <Section className="audio-poc">
+                <Section className="audio-poc" id="audio-poc">
                     <SectionTitle>Audio POC</SectionTitle>
                     <SectionDescription>
                         As part of our proof of concept we used something like the following to illustrate that sound

@@ -1,6 +1,9 @@
+import Image from 'next/image';
 import styled from 'styled-components';
-import {Footer} from '../../components/Footer';
+import { Footer } from '../../components/Footer';
 import {
+    Emp,
+    ImageDescription,
     Insight,
     InsightsContainer,
     MajorPoint,
@@ -19,7 +22,32 @@ import {
     SectionDescription,
     SectionTitle
 } from '../../components/reusableComponents';
+const importAll = (require) =>
+    require.keys().reduce((acc, next) => {
+        acc[next.replace('./', '')] = require(next);
+        return acc;
+    }, {});
 
+function extractSrcName(entry) {
+    return parseInt(entry[0].split('-')[0]);
+}
+const wireframeSrcs = importAll(
+    (require as any).context('../../public/farm2u/wireframes', false, /\.(png|jpe?g|svg)$/)
+) as any;
+const wireframes = Object.entries(wireframeSrcs as Record<string, any>)
+    .map(([frameName, src]) => {
+        return [
+            ...frameName
+                .split('.')[0]
+                .split('-')
+                .map((str, index) => (!index ? parseInt(str) : str)),
+            src
+        ];
+    })
+    .sort(([a], [b]) => {
+        return a > b ? 1 : a < b ? -1 : 0;
+    });
+console.log(wireframes);
 const Farm2U = () => {
     return (
         <Container>
@@ -186,52 +214,55 @@ const Farm2U = () => {
                         <li>Only providing the exact amount of ingredients to lessen the chance of food waste</li>
                     </MajorPoint>
                 </Section>
+                <Section className="wireframes">
+                    <SectionTitle>Wireframes</SectionTitle>
+                    <SectionDescription>
+                        {wireframes.map(([frameIndex, frameName, frameSrc]) => (
+                            <div className="wireframe-container" key={frameIndex}>
+                                <Image src={frameSrc as any} />
+                                <ImageDescription>{frameName}</ImageDescription>
+                            </div>
+                        ))}
+                    </SectionDescription>
+                </Section>
                 <Section>
                     <SectionTitle>Mobile Screens</SectionTitle>
-                    <ScreensSection
-                        title="User Onboarding"
-                        srcs={['/farm2u/onboarding-1.png', '/farm2u/onboarding-2.png']}
-                    >
-                        The user’s dietary preferences and allergies are noted by the system. This information will be
-                        used to personalize the meal box curation process.
+                    <ScreensSection title="User Onboarding" srcs={['/farm2u/preferences.mp4']}>
+                        The user’s dietary preferences and allergies are noted and used to curate meal boxes.{' '}
                     </ScreensSection>
                     <ScreensSection
                         title="Location Information"
-                        srcs={['/farm2u/location-1.png', '/farm2u/location-2.png', '/farm2u/location-3.png']}
+                        srcs={['/farm2u/location-information.mp4']}
                     >
-                        The user will be asked for his/her location and will subsequently be shown the nearby pickup
-                        locations and farms from which the produce will be sourced
+                        The user&apos;s location will be taken to identify nearby farms and pickup locations.
                     </ScreensSection>
-                    <ScreensSection
-                        title="Meal box listing and filtering"
-                        srcs={['/farm2u/meal-list.png', '/farm2u/filter.png']}
-                    >
-                        The user will be able to view a list of curated meal boxes
+                    <ScreensSection title="Meal box listing and filtering" srcs={['/farm2u/list-filters.mp4']}>
+                        The user will be able to view a list of curated meal boxes.
                     </ScreensSection>
                     <ScreensSection
                         title="Meal box Information"
-                        srcs={['/farm2u/meal-info.png', '/farm2u/farm-info.png']}
+                        srcs={['/farm2u/meal-info-and-farms.mp4']}
                     >
-                        The user will be given some minimal information about a meal box such as the prep time and the
-                        farms the ingredients have been sourced from
+                        The user will be given some <Emp>minimal information</Emp> about a meal box such as the prep
+                        time and the farms the ingredients have been sourced from.
                     </ScreensSection>
                     <ScreensSection
                         title="Customize Meal and Order"
-                        srcs={['/farm2u/meal-customization.png', '/farm2u/cart.png']}
+                        srcs={['/farm2u/cart-and-customization.mp4']}
                     >
-                        Upon Selecting a meal the user will be able to tweak the ingredients and place an order. On the
-                        cart screen the user will be able to select pickup or delivery
+                        The user will be able to tweak the ingredients and place an order. On the cart screen the user
+                        will be able to select pickup or delivery.
                     </ScreensSection>
                     <ScreensSection
                         title="Validation of having made a sustainable choice"
-                        srcs={['/farm2u/validation.png']}
+                        srcs={['/farm2u/thank-you.png']}
                     >
                         On placing an order the user will be shown a screen giving them a glimpse of the impact they
                         have made by making choosing our service
                     </ScreensSection>
                     <ScreensSection
                         title="Post order Information"
-                        srcs={['/farm2u/order-details.png', '/farm2u/post-order-meal-info.png']}
+                        srcs={['/farm2u/post-order-flow.mp4']}
                     >
                         On receiving their order, the user will be able to use the qr code on the meal box to view their
                         order and to view the cooking instructions for their meal box
@@ -242,26 +273,26 @@ const Farm2U = () => {
                     <SectionDescription>
                         Going through this project certainly was an interesting experience. This was my first project as
                         a grad student pursuing a degree in HCI and it taught/exposed me to a number of aspects
-                        regarding working on a design project
+                        regarding team design project
                         <ul>
                             <li>
-                                First and foremost this project exposed me to the value of a breadth first approach to
-                                brainstorming. To give you some context, While looking at climate change and thinking
-                                about the specific problem to tackle, me and my team brainstormed a collection of 50+
-                                ideas which helped us look at the problem area from multiple angles and pick out the one
-                                problem that resonated with all of us. This breadth first approach to brainstorming has
-                                become one of the pillars of my design philosophy ever since.
+                                First and foremost this project exposed me to the <Emp>value of a breadth</Emp> first
+                                approach to brainstorming. To give you some context, While looking at climate change and
+                                thinking about the specific problem to tackle, me and my team brainstormed a collection
+                                of <Emp>50+ ideas</Emp> which helped us look at the problem area from multiple angles
+                                and pick out the one problem that resonated with all of us. This breadth first approach
+                                to brainstorming has become one of the pillars of my design philosophy ever since.
                             </li>
                             <li>
-                                Secondly, it exposed me to the internal push and pull which is present in any team and
-                                helped me think through ways to keep the team dynamics healthy from my end.
+                                Secondly, it exposed me to the <Emp>internal push and pull</Emp> which is present in any
+                                team and helped me think through ways to keep the team dynamics healthy.
                             </li>
                         </ul>
                     </SectionDescription>
                 </Section>
                 <ProjectFooter />
             </ProjectInfoContainer>
-            <Footer /> 
+            <Footer />
         </Container>
     );
 };
@@ -283,6 +314,15 @@ const Container = styled(ProjectContainer)`
             color: #58b96e;
         }
     }
+    ${Section} {
+        &.wireframes {
+            ${SectionDescription} {
+                display: grid;
+                grid-gap: 24px;
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
+    }
     ${ProjectInfoContainer} {
         ${ProjectStatsContainer} {
             margin-top: 0px;
@@ -300,11 +340,14 @@ const Container = styled(ProjectContainer)`
                 }
             }
             &.personas {
+                display: flex;
+                flex-direction: column;
                 ${SectionDescription} {
                     margin-bottom: 16px;
                 }
                 img {
                     height: 400px;
+                    align-self: center;
                 }
             }
         }

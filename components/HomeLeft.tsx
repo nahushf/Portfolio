@@ -34,7 +34,7 @@ export const HomeContent = () => {
                     <ProjectTileList />
                 </HomePageSection>
                 <HomePageSection className="wins-section" id="wins-section" ref={winsSection}>
-                    <h3>Awards won</h3>
+                    <h3>Achievements</h3>
                     <div className="wins-container">
                         <WinSection>
                             <div className="image-container">

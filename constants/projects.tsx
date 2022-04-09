@@ -1,3 +1,5 @@
+import ATT5GLogo from '../public/AT&T-5g-logo.png';
+
 export const PROJECTS: IProject[] = [
     {
         id: 2,
@@ -6,7 +8,7 @@ export const PROJECTS: IProject[] = [
         gradient: ['#58B96E', '#7DBD78'],
         image: 'Farm2U-splash.png',
         route: '/projects/farm2u',
-        tags: ['sustainability']
+        tags: ['sustainability'],
     },
     {
         id: 3,
@@ -24,6 +26,7 @@ export const PROJECTS: IProject[] = [
         gradient: ['#F4A58A', '#ED6B4E'],
         image: 'Courtside-splash.png',
         route: '/projects/courtside',
-        tags: ['accessibility', 'AT&T-5G-Hackathon']
+        tags: ['accessibility'],
+        badges: [{img: ATT5GLogo, tagline: 'AT&T 5G Sports Hackathon Winner'}]
     }
 ];

@@ -12,6 +12,7 @@ import dotdashLogo from '../public/dotdash-logo.png';
 import havenLogo from '../public/haven-logo.png';
 import konradLogo from '../public/konrad-logo.png';
 import ciscoLogo from '../public/cisco-logo.png';
+import brightlyLogo from '../public/brightly-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -487,6 +488,41 @@ export const COMPANIES = [
                 title: 'Working and networking with Designers at the top of their game',
                 description:
                     'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. I found the skill level of most of the people working in the company to be quite high. This is another reason I wish to work with the company, since working with such designers will help me grow.'
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+    new Company('Brightly', 'brightly', brightlyLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `${companyName}'s range`,
+                description: `
+        ${companyName} works in a wide variety of domains ranging from education to senior living. I have found that these industries are often rich with problems and therefore have the most room for design innovation.
+            `
+            },
+            {
+                title: 'Working in a Design-Mature Company',
+                description: `The company's work and the company's website reflects a culture where design is respected and valued. The company thus perfectly fits into the kind of companies that I wish to work for.`
+            },
+            {
+                title: 'Working and networking with Designers at the top of their game',
+                description:
+                    'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. I found the skill level of most of the people working in the company to be quite high. '
             }
         ])
         .setMePoints([

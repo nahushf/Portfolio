@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import {CUSTOM_EASING} from '../constants/styles';
-
+import { CUSTOM_EASING } from '../constants/styles';
+import Image from 'next/image';
 
 const variants = {
     rest: { transform: 'scale(1)', boxShadow: '0px 0px 0px transparent' },
@@ -27,7 +27,6 @@ const cardVariants = {
         }
     },
     hover: {
-
         transition: {
             ease: CUSTOM_EASING,
             duration: 0.2
@@ -37,7 +36,7 @@ const cardVariants = {
 };
 
 export const ProjectTile = ({
-    project: { route, gradient, image, title, description, tags }
+    project: { route, gradient, image, title, description, tags, badges }
 }: {
     project: IProject;
 }) => {
@@ -51,7 +50,7 @@ export const ProjectTile = ({
             whileInView="show"
             variants={cardVariants}
             onClick={() => router.push(route)}
-            className="project-tile" 
+            className="project-tile"
         >
             <div className="project-information">
                 <motion.div
@@ -60,6 +59,22 @@ export const ProjectTile = ({
                     variants={variants}
                 >
                     <img src={image} />
+                    <div className="badges-container">
+                        {badges?.length &&
+                            badges.map(({img, tagline}, index) => (
+                                <div className="badge-container">
+                                    <Image
+                                        src={img}
+                                        key={index}
+                                        objectFit="contain"
+                                        height={56}
+                                        width={56}
+                                        layout="fixed"
+                                    />
+                                    <div className="badge-tooltip">{tagline}</div>
+                                </div>
+                            ))}
+                    </div>
                 </motion.div>
                 <div className="project-title">{title}</div>
                 <div className="project-description">{description}</div>
@@ -100,16 +115,46 @@ const Container = styled(motion.div)`
         }
     }
     .image-container {
+        position: relative;
         padding: 24px;
         padding-top: 60px;
         border-radius: 16px;
         max-height: 400px;
-        overflow: hidden;
         display: flex;
         justify-content: center;
         align-items: start;
         img {
             width: 100%;
+        }
+        .badges-container {
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+            display: flex;
+            .badge-container {
+                display: flex;
+                position: relative;
+                .badge-tooltip {
+                    opacity: 0;
+                    position: absolute;
+                    padding: 4px;
+                    border-radius: 4px;
+                    background: #444;
+                    font-size: 12px;
+                    min-width: max-content;
+                    bottom: 100%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    color: #fff;
+                    border: 1px solid #666;
+                    transition: 0.15s ease-in-out;
+                }
+                &:hover {
+                    .badge-tooltip {
+                        opacity: 1;
+                    }
+                }
+            }
         }
     }
     .tags-container {
