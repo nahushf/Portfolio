@@ -61,16 +61,9 @@ export const ProjectTile = ({
                     <img src={image} />
                     <div className="badges-container">
                         {badges?.length &&
-                            badges.map(({img, tagline}, index) => (
-                                <div className="badge-container">
-                                    <Image
-                                        src={img}
-                                        key={index}
-                                        objectFit="contain"
-                                        height={56}
-                                        width={56}
-                                        layout="fixed"
-                                    />
+                            badges.map(({ img, tagline }, index) => (
+                                <div className="badge-container" key={index}>
+                                    <Image src={img} objectFit="contain" height={56} width={56} layout="fixed" />
                                     <div className="badge-tooltip">{tagline}</div>
                                 </div>
                             ))}
