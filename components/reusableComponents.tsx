@@ -524,7 +524,7 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
             <div className="nav-items-container">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/about">About</NavLink>
-                <NavLink href="/Resume.pdf">Resume</NavLink>
+                <NavLink href="/static/Resume.pdf">Resume</NavLink>
             </div>
         </NavigationContainer>
     );

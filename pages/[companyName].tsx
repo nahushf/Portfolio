@@ -56,7 +56,7 @@ const CompanyPage = ({ companyName }) => {
                                 <Emp>
                                     <Link href="/projects/courtside">Courtside</Link>
                                 </Emp>
-                                , which won me the AT&T 5G Sports Hackathon.
+                                , which won me the <Emp>AT&T 5G Sports Hackathon.</Emp>
                             </p>
                         </motion.div>
                     </div>
