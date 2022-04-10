@@ -14,6 +14,7 @@ import konradLogo from '../public/konrad-logo.png';
 import ciscoLogo from '../public/cisco-logo.png';
 import brightlyLogo from '../public/brightly-logo.png';
 import cedarLogo from '../public/cedar-logo.png';
+import vidmobLogo from '../public/vidmob-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -549,6 +550,42 @@ export const COMPANIES = [
                 title: `Awareness of the value in the billing and healthcare sector`,
                 description: `
         As someone who has had multiple surgeries over the past 5 years I am aware of the challenges involved in understanding the bills for any hospital visit. With my existing experiemnces in the problem area I wish to contribute in the simplification of this domain.
+            `
+            },
+            {
+                title: 'Working in a Design-Mature Company',
+                description: `The company's work and the company's website reflects a culture where design is respected and valued. The company thus perfectly fits into the kind of companies that I wish to work for.`
+            },
+            {
+                title: 'Working and networking with Designers at the top of their game',
+                description:
+                    'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. I found the skill level of most of the people working in the company to be quite high. '
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('VidMob', 'vidmob', vidmobLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Awareness of the value in the video marketing sector`,
+                description: `
+        As an avid consumer of video content on a daily basis I have had first hand experience in how effective a quality video marketing campaign can be. VidMob's one of a kind insight platform for video marketing is something that I believe can be very impactful for companies and I wish to contribute my design aptitude to such a domain.
             `
             },
             {
