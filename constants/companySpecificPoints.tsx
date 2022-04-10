@@ -632,7 +632,7 @@ export const COMPANIES = [
             {
                 title: 'Working and networking with Designers at the top of their game',
                 description:
-                    'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at microsoft. An opportunity to work with such designers would catapult my skill to unimaginable heights '
+                    `LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at ${companyName}. An opportunity to work with such designers would catapult my skill to unimaginable heights `
             }
         ])
         .setMePoints([
@@ -662,9 +662,8 @@ export const COMPANIES = [
             `
             },
             {
-                title: 'Working and networking with Designers at the top of their game',
-                description:
-                    'LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at microsoft. An opportunity to work with such designers would catapult my skill to unimaginable heights '
+                title: `Curious about what's next`,
+                description: `I am curious and excited about what is coming next for the company. I want to know what the roadmap is like ahead and also want to work on building this road for the company.`
             }
         ])
         .setMePoints([
