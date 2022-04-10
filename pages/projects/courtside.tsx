@@ -131,7 +131,7 @@ const Courtside = () => {
                         few brief sessions we decided on the following solution which we thought could best address our
                         problem:
                     </SectionDescription>
-                    <div className="limitations-container">
+                    <InsightsContainer className="limitations-container ">
                         <Insight headerText="Limitation" index="1" header="Tactile Braille displays are too expensive">
                             The service would make use of tactile braille displays which are too expensive for the
                             average joe. Let alone for the visually impaired and their limited earning potential
@@ -146,7 +146,7 @@ const Courtside = () => {
                             such a service would be useless for people who can see clearly and would thus not address
                             the latter part of our problem statement.
                         </Insight>
-                    </div>
+                    </InsightsContainer>
                 </Section>
                 <Section className="rethinking">
                     <SectionTitle>Rethinking the idea</SectionTitle>
