@@ -17,6 +17,7 @@ import cedarLogo from '../public/cedar-logo.png';
 import vidmobLogo from '../public/vidmob-logo.png';
 import microsoftLogo from '../public/microsoft-logo.png';
 import amaLogo from '../public/ama-logo.png';
+import spotHeroLogo from '../public/spothero-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -631,8 +632,7 @@ export const COMPANIES = [
             },
             {
                 title: 'Working and networking with Designers at the top of their game',
-                description:
-                    `LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at ${companyName}. An opportunity to work with such designers would catapult my skill to unimaginable heights `
+                description: `LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at ${companyName}. An opportunity to work with such designers would catapult my skill to unimaginable heights `
             }
         ])
         .setMePoints([
@@ -659,6 +659,37 @@ export const COMPANIES = [
                 title: `Well, AMA`,
                 description: `
         I first heard about AMA while working as the front end developer for a marketing intelligence company which worked on connecting revenue with the marketing team. While working at the same company I first realized the value of the work that marketers do and I have immense respect for the profession. Transitively, an organization that connects Marketers such as AMA is also one I respect and would thus like to work for.
+            `
+            },
+            {
+                title: `Curious about what's next`,
+                description: `I am curious and excited about what is coming next for the company. I want to know what the roadmap is like ahead and also want to work on building this road for the company.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('SpotHero', 'spothero', spotHeroLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Parking?`,
+                description: `
+        I was very intrigued to find out that spotHero works to simplify parking. In our school parking is an area all our professors actively advise us to stay away from because according to them it is unsolvable. However as someone who is actively attracted to things people advise against, this is something that intrigues me. I am curious to find out how ${companyName} is actually making this happen.
             `
             },
             {
