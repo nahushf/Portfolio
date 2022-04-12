@@ -19,6 +19,7 @@ import microsoftLogo from '../public/microsoft-logo.png';
 import amaLogo from '../public/ama-logo.png';
 import spotHeroLogo from '../public/spothero-logo.png';
 import pax8Logo from '../public/pax8-logo.jpeg';
+import squarespaceLogo from '../public/squarespace-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -749,4 +750,39 @@ export const COMPANIES = [
                     'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
+
+    new Company('Squarespace', 'squarespace', squarespaceLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Website builders are awesome`,
+                description: `
+        Coming from a background of 6 years in Front end development, No one knows better than me how tedious it can be to code a website. Additionally being a student of design, I am aware of how helpful my peers have found squarespace in order to get their portfolios online. I believe this can be an interesting as well as challenging product to work with.
+            `
+            },
+            {
+                title: 'Working in a Design-Mature Company',
+                description: `Judging from the online presence of the company and having heard feedback from my peers, it is pretty evident that design is an important aspect in the eyes of ${companyName}. My career goal is to work in companies where design is given such a high amount of respect.`
+            },
+            {
+                title: 'Working and networking with Designers at the top of their game',
+                description: `LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at ${companyName}. An opportunity to work with such designers would catapult my skill to unimaginable heights`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ])
 ];
