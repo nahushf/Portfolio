@@ -39,7 +39,7 @@ const BasketballAudio = () => {
         panNode.current.pan.setValueAtTime(sinValue, audioCtx.current.currentTime);
     }, [positionAngle, panNode.current]);
     return (
-        <Container className={playing ? 'playing' : ''}>
+        <Container className={`basketball-audio ${playing ? 'playing' : ''}`}>
             <div className="ball-animation">
                 <img
                     src="/courtside/basketball.png"
