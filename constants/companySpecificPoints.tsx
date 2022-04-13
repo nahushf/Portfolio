@@ -20,6 +20,7 @@ import amaLogo from '../public/ama-logo.png';
 import spotHeroLogo from '../public/spothero-logo.png';
 import pax8Logo from '../public/pax8-logo.jpeg';
 import squarespaceLogo from '../public/squarespace-logo.png';
+import abnormalLogo from '../public/abnormal-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -85,7 +86,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('GoDaddy', 'godaddy', goDaddyLogo, 300)
@@ -117,7 +118,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Abelson Taylor', 'abelson-taylor', abelsonTaylorLogo, 160)
@@ -154,7 +155,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('SquareTrade', 'square-trade', squareTradeLogo, 200)
@@ -189,7 +190,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Moser Consulting', 'moser', moserLogo, 300)
@@ -219,7 +220,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('VSA Partners', 'vsa', vsaLogo, 300)
@@ -249,7 +250,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('HomeLister', 'homelister', homelisterLogo, 300)
@@ -283,7 +284,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('The Bradford Exchange', 'bradford', bradfordLogo, 300)
@@ -346,7 +347,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Reddit', 'reddit', redditLogo, 200)
@@ -378,7 +379,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('DotDash Meredith', 'dotdash', dotdashLogo, 300)
@@ -410,7 +411,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
 
@@ -439,7 +440,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Konrad Group', 'konrad', konradLogo, 300)
@@ -474,7 +475,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ])
         .setWhyTitle((companyName) => `I want to work at the ${companyName} because...`),
@@ -511,7 +512,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Brightly', 'brightly', brightlyLogo, 300)
@@ -546,7 +547,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Cedar', 'cedar', cedarLogo, 200)
@@ -581,7 +582,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
 
@@ -617,7 +618,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Microsoft', 'microsoft', microsoftLogo, 200)
@@ -651,7 +652,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
 
@@ -682,7 +683,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
 
@@ -713,7 +714,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
     new Company('Pax8', 'pax8', pax8Logo, 200)
@@ -747,7 +748,7 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
 
@@ -782,7 +783,38 @@ export const COMPANIES = [
             {
                 title: 'Extensive closely related experience',
                 description:
-                    'Even though I am just starting my professional design journey, I have worked and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Abnormal', 'abnormal', abnormalLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The domain of security is interesting`,
+                description: `
+        I find the entire domain of cyber security quite interesting. In a world where computers handle all major aspects of any business, A person with a through and through understanding of computers can be a force to reckon with. This is the reason why I wish the get my feet wet in this domain that ${companyName} works in.
+            `
+            },
+            {
+                title: 'Empathizing with users in this domain',
+                description: `I wish to understand what challenges people encounter in this domain and I wish to know how design can contribute in making life easier.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers. In short I am a designer with a strong technical and leadership background, which I believe can be the perfect combination for this role.'
             }
         ])
 ];
