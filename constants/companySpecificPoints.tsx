@@ -21,6 +21,7 @@ import spotHeroLogo from '../public/spothero-logo.png';
 import pax8Logo from '../public/pax8-logo.jpeg';
 import squarespaceLogo from '../public/squarespace-logo.png';
 import abnormalLogo from '../public/abnormal-logo.png';
+import ameritasLogo from '../public/ameritas-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -816,5 +817,40 @@ export const COMPANIES = [
                 description:
                     'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers. In short I am a designer with a strong technical and leadership background, which I believe can be the perfect combination for this role.'
             }
+        ]),
+
+    new Company('Ameritas', 'ameritas', ameritasLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The domain and it's value`,
+                description: `
+        As an international student who recently suffered from a concussion, stitches to the face, teeth damage and A broken set of glasses from a skateboarding accident. I am all too aware of the value of insurance. With such a wide market of people seeking insurance, the company is bound to face multiple problems which could potentially be solved by design.
+            `
+            },
+            {
+                title: 'The design quality of company\'s current online presence',
+                description: `Judging from the company's current website and the rest of their online presence, I see a lot of room for design to be incorporated in a more effective manner. By working with the company I will be able to contribute my design aptitude to a large number of areas and thereby cause the most impact.`
+            },
+            {
+                title: 'Working and networking with Designers at the top of their game',
+                description: `LinkedIn is a pretty handy resource when it comes to going through the people working in a particular company. Even without a search, just from being a customer, one would have no trouble estimating the skill level of the people working at ${companyName}. An opportunity to work with such designers would catapult my skill to unimaginable heights`
+            }
         ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
 ];
