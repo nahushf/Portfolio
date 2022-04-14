@@ -192,7 +192,7 @@ const Container = styled.div`
     &::-webkit-scrollbar {
         display: none;
     }
-    scrollbar-width: nonxe;
+    scrollbar-width: none;
     -ms-overflow-style: none;
     .project-list-item {
         cursor: pointer;

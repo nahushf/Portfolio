@@ -109,10 +109,9 @@ const Container = styled(motion.div)`
     flex-direction: column;
     min-height: 0;
     min-width: 0;
-    cursor: pointer;
     border-radius: 12px;
     padding: 8px;
-    cursor: pointer;
+    cursor: pointer !important;
     &:hover {
         background: #291d37;
     }
@@ -137,12 +136,14 @@ const Container = styled(motion.div)`
         justify-content: center;
         align-items: start;
         transform-style: preserve-3d;
+        cursor: pointer;
         .glare-wrapper {
             border-radius: 16px !important;
         }
         img {
             width: 90%;
             transform: translateZ(60px);
+            cursor: pointer;
         }
         .badges-container {
             position: absolute;
