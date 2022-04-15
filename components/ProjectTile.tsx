@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { CUSTOM_EASING } from '../constants/styles';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { fa500px } from '@fortawesome/free-brands-svg-icons';
 
 const Tilt = require('react-parallax-tilt').default;
 
@@ -38,8 +37,6 @@ const cardVariants = {
     },
     active: { background: 'transparent' }
 };
-
-console.log(Tilt);
 
 export const ProjectTile = ({
     project: { route, gradient, image, title, description, tags, badges }

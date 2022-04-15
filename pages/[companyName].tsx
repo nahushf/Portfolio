@@ -48,7 +48,8 @@ const CompanyPage = ({ companyName }) => {
                                 Hello {currentCompany.companyName}, Thanks for considering me as a candidate for your
                                 company. I really appreciate it. I am passionate about <Emp>problem solving</Emp>{' '}
                                 and&nbsp;
-                                <Emp>design</Emp> and I think I would be a really good fit at your company.
+                                <Emp>design</Emp> and I think my UX skills in combination with my front-end development know
+                                how can be an asset to your company.
                             </p>
                             <p>
                                 I have collected a couple of my projects which I think you would like. Be sure to check
@@ -98,9 +99,9 @@ const CompanyPage = ({ companyName }) => {
                     ))}
                 </ReasonSection>
                 <div className="end-of-page">
-{/* <div className="end-meme-container"> */}
-{/* <Image src={endMeme} layout="responsive" objectFit="contain" /> */}
-{/* </div> */}
+                    {/* <div className="end-meme-container"> */}
+                    {/* <Image src={endMeme} layout="responsive" objectFit="contain" /> */}
+                    {/* </div> */}
                     <p>Thanks for hearing me out..</p>{' '}
                     <p>
                         <Emp>Wanna chat?</Emp> Check out my contact information in the footer below

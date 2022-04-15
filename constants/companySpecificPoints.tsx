@@ -22,6 +22,7 @@ import pax8Logo from '../public/pax8-logo.jpeg';
 import squarespaceLogo from '../public/squarespace-logo.png';
 import abnormalLogo from '../public/abnormal-logo.png';
 import ameritasLogo from '../public/ameritas-logo.png';
+import kentikLogo from '../public/kentik-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -828,7 +829,7 @@ export const COMPANIES = [
             `
             },
             {
-                title: 'The design quality of company\'s current online presence',
+                title: "The design quality of company's current online presence",
                 description: `Judging from the company's current website and the rest of their online presence, I see a lot of room for design to be incorporated in a more effective manner. By working with the company I will be able to contribute my design aptitude to a large number of areas and thereby cause the most impact.`
             },
             {
@@ -853,4 +854,39 @@ export const COMPANIES = [
                     'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
+
+    new Company('Kentik', 'kentik', kentikLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The domain and it's value`,
+                description: `
+        With 6 years of experience in tech I have come to realize the value of network traffic. Getting insight into who is visiting your website or web application and why can aid in strategy and provide a plethora of benefits. I wish to empathize with the users in this domain and try and identify areas of improvement.
+            `
+            },
+            {
+                title: "The company's new innovations",
+                description: `Prior to my Grad school I used to work as Lead UI Developer for a marketing intelligence company. I am intrigued by the Kentik Market Intelligence product because it shares some overlap with what I used to work on. I am curious to see how marketing intelligence would be applied to the world of ISPs and if given the opportunity I would like to contribute in shaping the product.`
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ])
 ];
