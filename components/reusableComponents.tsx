@@ -220,7 +220,7 @@ const InsightContainer = styled.div`
     grid-template-columns: 0.5fr 1fr;
     grid-template-rows: max-content 1fr;
     grid-column-gap: 32px;
-    background: ${props => props.theme.cardBackground};
+    background: ${(props) => props.theme.cardBackground};
     padding: 16px;
     border-radius: 8px;
     .content {
@@ -524,17 +524,23 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
             <div className="nav-items-container">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/about">About</NavLink>
+                <NavLink href="https://medium.com/@nahush.farkande" newTab>Blog</NavLink>
                 <NavLink href="/static/Resume.pdf">Resume</NavLink>
             </div>
         </NavigationContainer>
     );
 };
 
-export const NavLink = ({ href, className = '', children }) => {
+export const NavLink = ({ href, className = '', children, newTab = false }) => {
     const router = useRouter();
     return (
         <Link {...{ href }}>
-            <a className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}>{children}</a>
+            <a
+                className={`nav-item ${className || ''} ${router.pathname === href ? 'active' : ''}`}
+                {...(newTab ? { target: '_blank' } : {})}
+            >
+                {children}
+            </a>
         </Link>
     );
 };
@@ -660,7 +666,6 @@ const AnimatedNameContainer = styled(Name)`
         color: ${(props) => props.theme.primary};
     }
 `;
-
 
 export const ImageDescription = styled.div`
     font-size: 12px;
