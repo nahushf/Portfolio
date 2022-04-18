@@ -29,6 +29,7 @@ import lexisNexisLogo from '../public/lexisnexis-logo.png';
 import nvidiaLogo from '../public/nvidia-logo.png';
 import contentsquareLogo from '../public/contentsquare-logo.png';
 import fordLogo from '../public/ford-logo.png';
+import servicenowLogo from '../public/servicenow-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1047,6 +1048,41 @@ export const COMPANIES = [
             {
                 title: 'Empathizing with the users',
                 description: `I wish to understand what kind of challenges are faced by the users in this domain. By empathizing with users I wish to conceptualize solutions which keep the users as their focal point.`
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('ServiceNow', 'servicenow', servicenowLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Wide Range of solutions`,
+                description: `
+    The wide range of solutions and domains that the company works in bound to make the company a rich collection of challenges that can be solved using design. Working with the company would provide me with the opportunity to work on a wide variety of solutions and up my design game.
+        `
+            },
+            {
+                title: 'Empathizing with the users',
+                description: `I wish to understand what kind of challenges are faced by the customers of the company. By empathizing with customers I wish to conceptualize solutions which keep the customers as their focal point.`
             },
             {
                 title: 'Curiosity about the upcoming innovations in the domain',
