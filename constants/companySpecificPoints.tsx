@@ -26,6 +26,7 @@ import kentikLogo from '../public/kentik-logo.png';
 import karatLogo from '../public/karat-logo.jpeg';
 import springLogo from '../public/spring-logo.png';
 import lexisNexisLogo from '../public/lexisnexis-logo.png';
+import nvidiaLogo from '../public/nvidia-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -939,6 +940,41 @@ export const COMPANIES = [
             {
                 title: 'Empathizing with the users',
                 description: `I wish to understand what kind of challenges are faced by the users in this domain. I am especially intrigued by the Nexis DaaS Solution and want to know how design can be used to make life easier for the users.`
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('NVIDIA', 'nvidia', nvidiaLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The company and it's reputation`,
+                description: `
+        As a gamer I became aware of the company at a very young age. Regardless of age, however, the company and it's reputation preceeds itself. With such widely used products, the company is ought to face a plethora of challenges and I wish to employ my design acumen in the resolution of these challenges.
+            `
+            },
+            {
+                title: 'Empathizing with the users',
+                description: `I wish to understand what kind of challenges are faced by the users in this domain. By empathizing with users I wish to conceptualize solutions which keep the users as their focal point.`
             },
             {
                 title: 'Curiosity about the upcoming innovations in the domain',
