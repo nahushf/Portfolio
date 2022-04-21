@@ -123,7 +123,7 @@ const Farm2U = () => {
                     <SectionDescription>
                         Next, in <Emp>order to understand sustainability and consumers better</Emp> we conducted desk
                         research and conducted interviews with people who implement some form of sustainability in their
-                        lifestyle as well as people who don't.
+                        lifestyle as well as people who don&apos;t.
                     </SectionDescription>
                     <InsightsContainer>
                         <Insight index="1" header="Consumers want more visibility in the supply chain">
