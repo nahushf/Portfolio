@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import {Footer} from '../../components/Footer';
+import { Footer } from '../../components/Footer';
 import {
     Emp,
     ImageDescription,
@@ -37,13 +37,11 @@ const Courtside = () => {
                     projectName="Courtside"
                     projectDescription={
                         <>
-                            Courtside is an application/service that is aimed at{' '}
-                            <Emp>enhancing the Basketball experience for the visually impaired</Emp>. The service is
-                            inspired by games such as Beep ball and Golf(where the balls contain sensors). The app is
-                            primarily aimed towards the visually impaired but can also enhance the experience of the
-                            average user by <Emp>bringing them closer to the Courtside experience</Emp>.
+                            Courtside is an application/service that is aimed at using sound to{' '}
+                            <Emp>enhance the Basketball experience for the visually impaired</Emp>.
                         </>
                     }
+                    salientPointsTitle={<>Recognition 🏆</>}
                     salientPoints={[
                         `Won the Best Accessibility, Best use of 5G and the Overall grand prize at the AT&T 5G Sports Hackathon`,
                         `Got us nominated for the Elite 50 Award at IUPUI`
@@ -55,17 +53,17 @@ const Courtside = () => {
                     <img src="/courtside/award-3.jpg" />
                 </div>
                 <ProjectStatsContainer>
-                    <ProjectStat title="Duration" className="duration">
-                        48 hours
-                    </ProjectStat>
-                    <ProjectStat title="Tools" className="tools">
-                        Figma, Python
-                    </ProjectStat>
                     <ProjectStat title="My Contributions" className="contributions">
                         Conceptualized Initial idea, Prototyping, Expert Validation, Internet Research
                     </ProjectStat>
                     <ProjectStat title="Team" className="team">
                         1 Data Science Student, 4 HCI Students
+                    </ProjectStat>
+                    <ProjectStat title="Duration" className="duration">
+                        48 hours
+                    </ProjectStat>
+                    <ProjectStat title="Tools" className="tools">
+                        Figma, Python
                     </ProjectStat>
                 </ProjectStatsContainer>
                 <Section className="process not-mobile">
@@ -127,9 +125,9 @@ const Courtside = () => {
                 <Section className="expert-validation">
                     <SectionTitle>Expert Validation</SectionTitle>
                     <SectionDescription>
-                        We used the information we gathered in our research to guide our brainstorming sessions. After a
-                        few brief sessions we decided on the following solution which we thought could best address our
-                        problem:
+                        In order to get some insight on the feasability and value of our initial idea, we spoke to a
+                        couple of professors in our University whose research areas involved working with the visually
+                        impaired.{' '}
                     </SectionDescription>
                     <InsightsContainer className="limitations-container ">
                         <Insight headerText="Limitation" index="1" header="Tactile Braille displays are too expensive">
@@ -228,7 +226,7 @@ const Courtside = () => {
                 </Section>
                 <ProjectFooter />
             </ProjectInfoContainer>
-            <Footer /> 
+            <Footer />
         </Container>
     );
 };

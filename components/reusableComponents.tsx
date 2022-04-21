@@ -93,7 +93,7 @@ const ProjectBannerContainer = styled.div`
     }
 `;
 
-export const Overview = ({ projectName, projectDescription, salientPoints = [] }) => {
+export const Overview = ({ projectName, projectDescription, salientPointsTitle = 'Salient Points' as any, salientPoints = [] }) => {
     const salientPointsPresent = !isEmpty(salientPoints);
     return (
         <OverviewContainer>
@@ -103,7 +103,7 @@ export const Overview = ({ projectName, projectDescription, salientPoints = [] }
             </div>
             {salientPointsPresent && (
                 <div className="salient-points">
-                    <div className="salient-points__title">Salient Points</div>
+                    <Emp className="salient-points__title">{salientPointsTitle}</Emp>
                     <ul>
                         {salientPoints.map((point, index) => (
                             <li key={index}>{point}</li>
@@ -130,7 +130,7 @@ const OverviewContainer = styled.div`
     }
     .salient-points {
         flex: 0.4;
-        color: #9b9b9b;
+        color: ${props => props.theme.textColor};
         .salient-points__title {
             font-weight: 700;
         }

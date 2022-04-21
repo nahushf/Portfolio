@@ -47,7 +47,6 @@ const wireframes = Object.entries(wireframeSrcs as Record<string, any>)
     .sort(([a], [b]) => {
         return a > b ? 1 : a < b ? -1 : 0;
     });
-console.log(wireframes);
 const Farm2U = () => {
     return (
         <Container>
@@ -63,17 +62,17 @@ const Farm2U = () => {
                     "
                 />
                 <ProjectStatsContainer>
+                    <ProjectStat title="My Contributions" className="contributions">
+                        Observations, User Interviews, Affinity Mapping, Brainstorming, Prototyping, User Evaluation
+                    </ProjectStat>
+                    <ProjectStat title="Team" className="team">
+                        5 HCI Students
+                    </ProjectStat>
                     <ProjectStat title="Duration" className="duration">
                         8 weeks
                     </ProjectStat>
                     <ProjectStat title="Tools" className="tools">
                         Figma
-                    </ProjectStat>
-                    <ProjectStat title="My Contributions" className="contributions">
-                        Research, Brainstorming, Prototyping, User Evaluation
-                    </ProjectStat>
-                    <ProjectStat title="Team" className="team">
-                        5 HCI Students
                     </ProjectStat>
                 </ProjectStatsContainer>
                 <Section className="process not-mobile">
@@ -91,7 +90,7 @@ const Farm2U = () => {
                     <img src="/farm2u/process_map.png" />
                 </Section>
                 <Section>
-                    <SectionTitle>Background</SectionTitle>
+                    <SectionTitle>The Challenge</SectionTitle>
                     <SectionDescription>
                         Our Design prompt was to look for a significant problem area in the area of climate change and
                         to come up with a solution that addresses the identified problem area. Our research was
@@ -99,11 +98,16 @@ const Farm2U = () => {
                     </SectionDescription>
                 </Section>
                 <Section>
-                    <SectionTitle>The Problem</SectionTitle>
+                    <SectionTitle>Narrowing down the Problem</SectionTitle>
                     <SectionDescription>
-                        Our Design prompt was to look for a significant problem area in the area of climate change and
-                        to come up with a solution that addresses the identified problem area. Our research was
-                        initiallly focused on identifying a problem area and subsequently on coming up with a solution
+                        The area of climate change and sustainability is far too broad to be solved by one solution.
+                        Hence we decided to boil down to a specific problem in the area of climate change. To do this we
+                        spoke to a{' '}
+                        <Emp>
+                            few people in our network to understand what problems they face when trying to live
+                            sustainably
+                        </Emp>
+                        . What we found was,
                     </SectionDescription>
                     <MajorPoint src="/farm2u/problem-illustration.png">
                         Making sustainable* consumer choices is challenging, even when motivation is present due to:
@@ -115,17 +119,18 @@ const Farm2U = () => {
                     </MajorPoint>
                 </Section>
                 <Section>
-                    <SectionTitle>Why did we choose this problem?</SectionTitle>
+                    <SectionTitle>Sustainability and consumers</SectionTitle>
                     <SectionDescription>
-                        From our empirical and secondary research we obtained the following insights into the problems
-                        faced by people when it comes to living a sustainble life
+                        Next, in <Emp>order to understand sustainability and consumers better</Emp> we conducted desk
+                        research and conducted interviews with people who implement some form of sustainability in their
+                        lifestyle as well as people who don't.
                     </SectionDescription>
                     <InsightsContainer>
                         <Insight index="1" header="Consumers want more visibility in the supply chain">
                             <ul>
                                 <li>
                                     Consumers want to know where and how products are made, but this information is not
-                                    widely available (Growth from Knowledge, 2019)
+                                    widely available <a href="">(Growth from Knowledge, 2019)</a>
                                 </li>
                                 <li>
                                     Consumers have indicated they may even be “willing to pay 2% to 10% more for
@@ -230,26 +235,17 @@ const Farm2U = () => {
                     <ScreensSection title="User Onboarding" srcs={['/farm2u/preferences.mp4']}>
                         The user’s dietary preferences and allergies are noted and used to curate meal boxes.{' '}
                     </ScreensSection>
-                    <ScreensSection
-                        title="Location Information"
-                        srcs={['/farm2u/location-information.mp4']}
-                    >
+                    <ScreensSection title="Location Information" srcs={['/farm2u/location-information.mp4']}>
                         The user&apos;s location will be taken to identify nearby farms and pickup locations.
                     </ScreensSection>
                     <ScreensSection title="Meal box listing and filtering" srcs={['/farm2u/list-filters.mp4']}>
                         The user will be able to view a list of curated meal boxes.
                     </ScreensSection>
-                    <ScreensSection
-                        title="Meal box Information"
-                        srcs={['/farm2u/meal-info-and-farms.mp4']}
-                    >
+                    <ScreensSection title="Meal box Information" srcs={['/farm2u/meal-info-and-farms.mp4']}>
                         The user will be given some <Emp>minimal information</Emp> about a meal box such as the prep
                         time and the farms the ingredients have been sourced from.
                     </ScreensSection>
-                    <ScreensSection
-                        title="Customize Meal and Order"
-                        srcs={['/farm2u/cart-and-customization.mp4']}
-                    >
+                    <ScreensSection title="Customize Meal and Order" srcs={['/farm2u/cart-and-customization.mp4']}>
                         The user will be able to tweak the ingredients and place an order. On the cart screen the user
                         will be able to select pickup or delivery.
                     </ScreensSection>
@@ -260,10 +256,7 @@ const Farm2U = () => {
                         On placing an order the user will be shown a screen giving them a glimpse of the impact they
                         have made by making choosing our service
                     </ScreensSection>
-                    <ScreensSection
-                        title="Post order Information"
-                        srcs={['/farm2u/post-order-flow.mp4']}
-                    >
+                    <ScreensSection title="Post order Information" srcs={['/farm2u/post-order-flow.mp4']}>
                         On receiving their order, the user will be able to use the qr code on the meal box to view their
                         order and to view the cooking instructions for their meal box
                     </ScreensSection>
@@ -274,20 +267,25 @@ const Farm2U = () => {
                         Going through this project certainly was an interesting experience. This was my first project as
                         a grad student pursuing a degree in HCI and it taught/exposed me to a number of aspects
                         regarding team design project
-                        <ul>
+                        <ol>
                             <li>
-                                First and foremost this project exposed me to the <Emp>value of a breadth</Emp> first
-                                approach to brainstorming. To give you some context, While looking at climate change and
-                                thinking about the specific problem to tackle, me and my team brainstormed a collection
-                                of <Emp>50+ ideas</Emp> which helped us look at the problem area from multiple angles
-                                and pick out the one problem that resonated with all of us. This breadth first approach
-                                to brainstorming has become one of the pillars of my design philosophy ever since.
+                                <Emp> The value of a breadth first approach to brainstorming</Emp>. While looking at
+                                climate change and thinking about the specific problem to tackle, me and my team
+                                brainstormed a collection of <Emp>50+ ideas</Emp>{' '}
+                            </li>
+                            <li>
+                                <Emp>Validating an idea with professors and users early on</Emp>. In the initial stages
+                                of the project while we were struggling with the ideation, speaking to our professors
+                                gave us the understanding of what makes an effective solution and helped us align our
+                                research with the ideation process.
                             </li>
                             <li>
                                 Secondly, it exposed me to the <Emp>internal push and pull</Emp> which is present in any
-                                team and helped me think through ways to keep the team dynamics healthy.
+                                team and helped me think through ways to keep the team dynamics healthy by keeping a{' '}
+                                <Emp>constant stream of communication</Emp> about problems faced by my teammates and
+                                <Emp>handling moments of friction as calmly as possible</Emp>.{' '}
                             </li>
-                        </ul>
+                        </ol>
                     </SectionDescription>
                 </Section>
                 <ProjectFooter />

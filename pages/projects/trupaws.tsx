@@ -54,17 +54,17 @@ export const Trupaws = () => {
                     projectDescription="Trupaws is a pet matching website that helps users find pets to adopt from the shelters near them"
                 />
                 <ProjectStatsContainer>
-                    <ProjectStat title="Duration" className="duration">
-                        4 weeks
-                    </ProjectStat>
-                    <ProjectStat title="Tools" className="tools">
-                        Figma
-                    </ProjectStat>
                     <ProjectStat title="My Contributions" className="contributions">
                         Desk Research, Affinity Mapping, Brainstorming, Prototyping, User Evaluation
                     </ProjectStat>
                     <ProjectStat title="Team" className="team">
                         5 HCI Students
+                    </ProjectStat>
+                    <ProjectStat title="Duration" className="duration">
+                        4 weeks
+                    </ProjectStat>
+                    <ProjectStat title="Tools" className="tools">
+                        Figma
                     </ProjectStat>
                 </ProjectStatsContainer>
                 <Section className="process not-mobile">
