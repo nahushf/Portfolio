@@ -282,7 +282,7 @@ const Farm2U = () => {
                             <li>
                                 Secondly, it exposed me to the <Emp>internal push and pull</Emp> which is present in any
                                 team and helped me think through ways to keep the team dynamics healthy by keeping a{' '}
-                                <Emp>constant stream of communication</Emp> about problems faced by my teammates and
+                                <Emp>constant stream of communication</Emp> about problems faced by my teammates and&nbsp;
                                 <Emp>handling moments of friction as calmly as possible</Emp>.{' '}
                             </li>
                         </ol>
