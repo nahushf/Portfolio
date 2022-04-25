@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
-import Link from 'next/link';
 import styled from 'styled-components';
-import { black, HOME_FADE_PROPS, HOME_SHOW_VARIANT, red } from '../constants/styles';
-import { ArrowIcon } from './arrowIcon';
+import { black, HOME_FADE_PROPS, red } from '../constants/styles';
 import { AnimatedName, Emp, HomePageSection } from './reusableComponents';
 
 const animationProps = HOME_FADE_PROPS;
-export const Landing = ({ onWorkClick }) => {
+export const Landing = ({}) => {
     return (
         <Container className="landing" id="landing">
             <motion.div className="intro-title" {...animationProps}>
@@ -15,8 +13,8 @@ export const Landing = ({ onWorkClick }) => {
             <AnimatedName />
             <motion.div className="description" {...animationProps}>
                 <div className="intro-tagline">
-                    I’m a <Emp>UI/UX Designer</Emp> with <Emp>6 years of experience</Emp> in Front end development, who likes to use design as a tool to <Emp>make a difference</Emp> in
-                    people&apos;s lives.
+                    I’m a <Emp>UI/UX Designer</Emp> with <Emp>6 years of experience</Emp> in Front end development, who
+                    likes to use design as a tool to <Emp>make a difference</Emp> in people&apos;s lives.
                 </div>
                 <div className="intro-bullets">
                     <div className="intro-bullet"></div>

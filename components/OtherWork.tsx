@@ -40,8 +40,8 @@ export const OtherWork = () => {
                     ])}
                 </div>
                 <h4>Digital and Analog Art</h4>
-                <div className="artwork-images-container">
-                    <div className="artwork-images">
+                <div className="artwork-images-container" data-scroll-section>
+                    <div className="artwork-images" data-scroll-section>
                         {renderImages([
                             'chadwick.png',
                             'joaquin.png',

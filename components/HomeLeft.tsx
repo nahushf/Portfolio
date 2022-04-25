@@ -11,25 +11,24 @@ import { Emp, HomePageSection } from './reusableComponents';
 import Link from 'next/link';
 import { ChevronDropDown } from './ChevronDown';
 import ATTWin from '../public/AT&T-win.jpg';
+import ScrollBars from 'react-custom-scrollbars-2';
 
 export const HomeContent = () => {
     const projectsContainer = useRef<HTMLDivElement>(null);
-    const pageContainer = useRef<HTMLDivElement>(null);
+    const pageContainer = useRef<ScrollBars>(null);
     const { primary } = useTheme() as any;
     const winsSection = useRef<HTMLDivElement>(null);
     return (
-        <Container ref={pageContainer}>
+        <Container autoHide>
             <div className="home-page-content">
                 <Landing
-                    onWorkClick={(e) => {
-                        pageContainer.current.scrollTo({
-                            left: 0,
-                            top: projectsContainer.current.getBoundingClientRect().y,
-                            behavior: 'smooth'
-                        });
-                    }}
                 />
-                <HomePageSection className="projects-container" ref={projectsContainer} id="projects-container" {...HOME_FADE_PROPS}>
+                <HomePageSection
+                    className="projects-container"
+                    ref={projectsContainer}
+                    id="projects-container"
+                    {...HOME_FADE_PROPS}
+                >
                     <h2>Selected Work</h2>
                     <ProjectTileList />
                 </HomePageSection>
@@ -93,7 +92,7 @@ export const HomeContent = () => {
     );
 };
 
-const Container = styled(motion.div)`
+const Container = styled(ScrollBars)`
     overflow: auto;
     min-height: 0;
     scroll-padding: 100px 0px 0px 0px;

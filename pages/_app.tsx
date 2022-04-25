@@ -5,12 +5,14 @@ import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Script from 'next/script';
-import { Fragment } from 'react';
+import { Fragment, useRef } from 'react';
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { AnimationLayout } from '../components/AnimationLayout';
 import { EmailIcon } from '../components/InstaIcon';
 import { black, darkBackground, maxDevice, minDevice, red, textColor } from '../constants/styles';
 import '../styles/globals.css';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import { useRouter } from 'next/router';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
@@ -172,37 +174,49 @@ const appTheme = {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
+    const containerRef = useRef(null);
+    const { asPath } = useRouter();
     return (
         <Fragment>
-            <ThemeProvider theme={appTheme_DEP}>
-                <Head>
-                    <title>Nahush Farkande</title>
-                </Head>
-                <Script
-                    id="clarity-script"
-                    strategy="afterInteractive"
-                    dangerouslySetInnerHTML={{
-                        __html: `
-    (function(c,l,a,r,i,t,y){
-            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-        })(window, document, "clarity", "script", "apgj3t3slt")
+            <LocomotiveScrollProvider
+                options={{ smooth: true }}
+                watch={[]}
+                location={asPath}
+                onLocationChange={(scroll: any) => scroll.scrollTo(0, { duration: 0, disableLerp: true })}
+                containerRef={containerRef}
+            >
+                <ThemeProvider theme={appTheme_DEP}>
+                    <Head>
+                        <title>Nahush Farkande</title>
+                    </Head>
+                    <Script
+                        id="clarity-script"
+                        strategy="afterInteractive"
+                        dangerouslySetInnerHTML={{
+                            __html: `
+        (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "apgj3t3slt")
         `
-                    }}
-                />
-                <GlobalStyle />
-                <Component {...pageProps} />
-                <MailIcon
-                    data-cursor-text="Contact"
-                    data-cursor-size="80"
-                    data-gradient-start="#4a4a4a"
-                    data-gradient-end="#4a4a4a"
-                    href="mailto: nahush.farkande@gmail.com"
-                >
-                    <EmailIcon />
-                </MailIcon>
-            </ThemeProvider>
+                        }}
+                    />
+                    <GlobalStyle />
+                    <div data-scroll-container ref={containerRef} style={{width: '100%'}}>
+                        <Component {...pageProps} />
+                    </div>
+                    <MailIcon
+                        data-cursor-text="Contact"
+                        data-cursor-size="80"
+                        data-gradient-start="#4a4a4a"
+                        data-gradient-end="#4a4a4a"
+                        href="mailto: nahush.farkande@gmail.com"
+                    >
+                        <EmailIcon />
+                    </MailIcon>
+                </ThemeProvider>
+            </LocomotiveScrollProvider>
         </Fragment>
     );
 }

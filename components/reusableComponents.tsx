@@ -3,6 +3,7 @@ import { motion, useAnimation, useViewportScroll } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, useEffect, useRef, useState } from 'react';
+import Scrollbars, { ScrollbarProps } from 'react-custom-scrollbars-2';
 import { InView } from 'react-intersection-observer';
 import styled from 'styled-components';
 import { CUSTOM_EASING, HOME_SHOW_VARIANT, red, textColor } from '../constants/styles';
@@ -93,7 +94,12 @@ const ProjectBannerContainer = styled.div`
     }
 `;
 
-export const Overview = ({ projectName, projectDescription, salientPointsTitle = 'Salient Points' as any, salientPoints = [] }) => {
+export const Overview = ({
+    projectName,
+    projectDescription,
+    salientPointsTitle = 'Salient Points' as any,
+    salientPoints = []
+}) => {
     const salientPointsPresent = !isEmpty(salientPoints);
     return (
         <OverviewContainer>
@@ -130,7 +136,7 @@ const OverviewContainer = styled.div`
     }
     .salient-points {
         flex: 0.4;
-        color: ${props => props.theme.textColor};
+        color: ${(props) => props.theme.textColor};
         .salient-points__title {
             font-weight: 700;
         }
@@ -524,7 +530,9 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
             <div className="nav-items-container">
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/about">About</NavLink>
-                <NavLink href="https://medium.com/@nahush.farkande" newTab>Blog</NavLink>
+                <NavLink href="https://medium.com/@nahush.farkande" newTab>
+                    Blog
+                </NavLink>
                 <NavLink href="/static/Resume.pdf">Resume</NavLink>
             </div>
         </NavigationContainer>
@@ -672,3 +680,7 @@ export const ImageDescription = styled.div`
     line-height: 18px;
     color: #9b9b9b;
 `;
+
+export const CustomScroll = (props: ScrollbarProps) => {
+    return <Scrollbars renderView={(viewProps) => <div className="scroll-view" {...viewProps} />} {...props} />;
+};

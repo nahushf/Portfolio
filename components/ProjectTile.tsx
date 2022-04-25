@@ -49,54 +49,64 @@ export const ProjectTile = ({
         setIsMounted(true);
     }, []);
     const ImageWrapper = isMounted ? Tilt : 'div';
-    return (
-        <Container
-            initial="rest"
-            animate="rest"
-            whileHover="hover"
-            whileTap="active"
-            whileInView="show"
-            variants={cardVariants}
-            onClick={() => router.push(route)}
-            className="project-tile"
-        >
-            <div className="project-information">
-                <ImageWrapper
-                    className="image-container parallax-effect-glare-scale"
-                    style={{ background: `linear-gradient(137.49deg, ${gradient[0]} 0%, ${gradient[1]} 96.01%)` }}
-                    variants={variants}
-                    glareEnable={true}
-                    glareMaxOpacity={0.6}
-                    gyroscope={true}
-                    scale={1.02}
-                    transitionSpeed={1500}
-                    tiltMaxAngleY={10}
-                    perspective={1000}
-                    tiltMaxAngleX={10}
-                >
-                    <img src={image} className="inner-element" style={{ transform: 'translateZ(60px)' }} />
-                    <div className="badges-container">
-                        {badges?.length &&
-                            badges.map(({ img, tagline }, index) => (
-                                <div className="badge-container" key={index}>
-                                    <Image src={img} objectFit="contain" height={56} width={56} layout="fixed" />
-                                    <div className="badge-tooltip">{tagline}</div>
-                                </div>
-                            ))}
-                    </div>
-                </ImageWrapper>
-                <div className="project-title">{title}</div>
-                <div className="project-description">{description}</div>
-                <div className="tags-container">
-                    {tags.map((tag) => (
-                        <div className="tag" key={tag}>
-                            #{tag}
+    const imageWrapperProps = {
+        className: 'image-container parallax-effect-glare-scale',
+        style: { background: `linear-gradient(137.49deg, ${gradient[0]} 0%, ${gradient[1]} 96.01%)` },
+        ...(isMounted
+            ? {
+                  glareEnable: true,
+                  glareMaxOpacity: 0.6,
+                  gyroscope: true,
+                  scale: 1.02,
+                  transitionSpeed: 1500,
+                  tiltMaxAngleY: 10,
+                  perspective: 1000,
+                  tiltMaxAngleX: 10
+              }
+            : {})
+    };
+    try {
+        return (
+            <Container
+                initial="rest"
+                animate="rest"
+                whileHover="hover"
+                whileTap="active"
+                whileInView="show"
+                variants={cardVariants}
+                onClick={() => router.push(route)}
+                className="project-tile"
+            >
+                <div className="project-information">
+                    <ImageWrapper
+                        {...imageWrapperProps}
+                    >
+                        <img src={image} className="inner-element" style={{ transform: 'translateZ(60px)' }} />
+                        <div className="badges-container">
+                            {badges?.length &&
+                                badges.map(({ img, tagline }, index) => (
+                                    <div className="badge-container" key={index}>
+                                        <Image src={img} objectFit="contain" height={56} width={56} layout="fixed" />
+                                        <div className="badge-tooltip">{tagline}</div>
+                                    </div>
+                                ))}
                         </div>
-                    ))}
+                    </ImageWrapper>
+                    <div className="project-title">{title}</div>
+                    <div className="project-description">{description}</div>
+                    <div className="tags-container">
+                        {tags.map((tag) => (
+                            <div className="tag" key={tag}>
+                                #{tag}
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </Container>
-    );
+            </Container>
+        );
+    } catch (e) {
+        console.log(e);
+    }
 };
 
 const Container = styled(motion.div)`
