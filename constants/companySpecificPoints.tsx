@@ -32,6 +32,7 @@ import fordLogo from '../public/ford-logo.png';
 import servicenowLogo from '../public/servicenow-logo.png';
 import takeTwoLogo from '../public/take-two-logo.jpeg';
 import bitlyLogo from '../public/bitly-logo.png';
+import sraLogo from '../public/sra-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1158,6 +1159,41 @@ export const COMPANIES = [
             {
                 title: 'Curiosity about the upcoming innovations in the domain',
                 description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Samsung Research America', 'sra', sraLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Metaverse Enthusiast and future customer`,
+                description: `
+    The metaverse is the next big thing in the digital world as of today. I have been eager to become a user ever since the concept was released and the only reason I haven't yet dug deep is because of access to the VR headsets. An opportunity to learn and work on the metaverse would be a dream come true.
+        `
+            },
+            {
+                title: 'Empathizing with the users',
+                description: `I wish  to understand the challenges faced by metaversers and want to know how design can by employed in this field to make life easier for the users`
+            },
+            {
+                title: 'An avid 3D enthusiast',
+                description: `I have been fascinated by the world of digital 3D for a while and have recently started teaching myself the relevant tools. At the moment my favorite software would be shapr3d due to its intuitive ipad interaction system. But additionally I am also in the process of learning blender and unity.`
             }
         ])
         .setMePoints([
