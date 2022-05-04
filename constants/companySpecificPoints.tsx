@@ -33,6 +33,7 @@ import servicenowLogo from '../public/servicenow-logo.png';
 import takeTwoLogo from '../public/take-two-logo.jpeg';
 import bitlyLogo from '../public/bitly-logo.png';
 import sraLogo from '../public/sra-logo.png';
+import braveLogo from '../public/brave-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1199,6 +1200,41 @@ export const COMPANIES = [
         .setMePoints([
             {
                 title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Brave', 'brave', braveLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The company, the product and it's value`,
+                description: `
+    Brave's intention of protecting online privacy is something I resonate with. With personal information being siphoned from other browsers, Privacy has become the need of the hour and I would like to work on a product that works towards increasing privacy.
+        `
+            },
+            {
+                title: 'Empathizing with the users',
+                description: `I wish to understand what kind of challenges are faced by the customers of the company. By empathizing with customers I wish to conceptualize solutions which keep the customers as their focal point.`
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: The dumbest person in the room',
                 description:
                     'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
