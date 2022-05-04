@@ -1220,7 +1220,7 @@ export const COMPANIES = [
             {
                 title: `The company, the product and it's value`,
                 description: `
-    Brave's intention of protecting online privacy is something I resonate with. With personal information being siphoned from other browsers, Privacy has become the need of the hour and I would like to work on a product that works towards increasing privacy.
+    Brave's intention of protecting online privacy is something I resonate with. With personal information being siphoned from other browsers, Privacy has become the need of the hour and I would like to work on a product that works towards increasing privacy
         `
             },
             {
