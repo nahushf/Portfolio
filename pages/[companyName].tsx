@@ -45,7 +45,7 @@ const CompanyPage = ({ companyName }) => {
                         </div>
                         <motion.div {...HOME_FADE_PROPS} className="intro-text">
                             <p>
-                                Hello {currentCompany.companyName}, Thanks for considering me as a candidate for your
+                                Hello {currentCompany.companyName}, Thank you for considering me as a candidate for your
                                 company. I really appreciate it. I am passionate about <Emp>problem solving</Emp>{' '}
                                 and&nbsp;
                                 <Emp>design</Emp> and I think my UX skills in combination with my front-end development know

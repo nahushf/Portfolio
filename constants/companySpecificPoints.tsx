@@ -24,7 +24,6 @@ import abnormalLogo from '../public/abnormal-logo.png';
 import ameritasLogo from '../public/ameritas-logo.png';
 import kentikLogo from '../public/kentik-logo.png';
 import karatLogo from '../public/karat-logo.jpeg';
-import springLogo from '../public/spring-logo.png';
 import lexisNexisLogo from '../public/lexisnexis-logo.png';
 import nvidiaLogo from '../public/nvidia-logo.png';
 import contentsquareLogo from '../public/contentsquare-logo.png';
@@ -34,6 +33,7 @@ import takeTwoLogo from '../public/take-two-logo.jpeg';
 import bitlyLogo from '../public/bitly-logo.png';
 import sraLogo from '../public/sra-logo.png';
 import braveLogo from '../public/brave-logo.png';
+import collaboLogo from '../public/collabo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1237,6 +1237,41 @@ export const COMPANIES = [
                 title: 'Philosophy: The dumbest person in the room',
                 description:
                     'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Collabo Creative', 'collabo', collaboLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Service based Design firm`,
+                description: `
+    Working in a service based design firm will give me opportunities to work on projects that target multiple problem areas and will thus help me grow the most.
+        `
+            },
+            {
+                title: 'Female owned business',
+                description: `I have always admired the strength and dedication that women bring to their work and my gut tells me that working in such a company will give me a good set of opportunities for growth.`
+            },
+            {
+                title: 'Service Design',
+                description: `The company's emphasis on service design will expose me to all the entities revolving around any service. This will give me good exposure to the world of service design which is something I wish to learn.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: The dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow they needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
