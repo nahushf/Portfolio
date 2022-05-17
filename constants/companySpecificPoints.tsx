@@ -34,6 +34,7 @@ import bitlyLogo from '../public/bitly-logo.png';
 import sraLogo from '../public/sra-logo.png';
 import braveLogo from '../public/brave-logo.png';
 import collaboLogo from '../public/collabo.png';
+import statusphereLogo from '../public/statusphere-logo.png'
 
 interface ICompanyPoint {
     title: string;
@@ -1266,6 +1267,37 @@ export const COMPANIES = [
                 title: 'Service Design',
                 description: `The company's emphasis on service design will expose me to all the entities revolving around any service. This will give me good exposure to the world of service design which is something I wish to learn.`
             }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: The dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow they needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Statusphere', 'statusphere', statusphereLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Awareness of the value of finding the right creators`,
+                description: `
+    As an avid social media user, I have personally observed the power of social media marketing when I worked on promoting my mother's caricature business. While On the flip-side I am also aware of how challenging it can be to find the right kind of creators to promote your brand.
+        `
+            },
+            {
+                title: 'Women led business',
+                description: `I have always admired the strength and dedication that women bring to their work. As a matter of fact my role model happens to be my mother who came from a small village and an abusive household and today runs a successful caricature business back in India. I am sure that working in such a company will give me a good set of opportunities for growth.`
+            },
         ])
         .setMePoints([
             {

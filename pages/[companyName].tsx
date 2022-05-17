@@ -48,8 +48,8 @@ const CompanyPage = ({ companyName }) => {
                                 Hello {currentCompany.companyName}, Thank you for considering me as a candidate for your
                                 company. I really appreciate it. I am passionate about <Emp>problem solving</Emp>{' '}
                                 and&nbsp;
-                                <Emp>design</Emp> and I think my UX skills in combination with my front-end development know
-                                how can be an asset to your company.
+                                <Emp>design</Emp> and I think my UX skills in combination with my front-end development
+                                know how can be an asset to your company.
                             </p>
                             <p>
                                 I have collected a couple of my projects which I think you would like. Be sure to check
@@ -156,6 +156,7 @@ export interface IPoint {
 }
 
 const Point = ({ title, description }: IPoint) => {
+    description = description.trim();
     if (typeof description === 'string' && !description.endsWith('.')) {
         description += '.';
     }
