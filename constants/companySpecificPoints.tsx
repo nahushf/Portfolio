@@ -37,6 +37,7 @@ import collaboLogo from '../public/collabo.png';
 import statusphereLogo from '../public/statusphere-logo.png';
 import popmenuLogo from '../public/popmenu-logo.png';
 import {PROJECTS} from './projects';
+import shopifyLogo from '../public/shopify-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1355,5 +1356,40 @@ I see the value in the services that ${companyName} provides. As someone who is 
                 description:
                     'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
+        ]),
+
+    new Company('Shopify', 'shopify', shopifyLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `${companyName}'s reputation'`,
+                description: `
+    ${companyName} is quite a well known company that has a footprint in over 150 countries. With such a wide user base the company is bound to have a plethora of challenges that can be solved with design.
+        `
+            },
+            {
+                title: 'Empathizing with the users',
+                description: `With such a wide user base, the company is likely to have sold most of the problems that can be solved through design. The problems that would remain would be the ones that require some true innovation to address. Working on such high impact problems will force me to think out of the box and really bring out my A-game.`
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
         ])
+        .setMePoints([
+            {
+                title: 'Philosophy: The dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow they needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
 ];
