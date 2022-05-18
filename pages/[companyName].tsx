@@ -23,7 +23,7 @@ const CompanyPage = ({ companyName }) => {
     if (!currentCompany) {
         return null;
     }
-
+    const projects = currentCompany.projects || [PROJECTS[2], PROJECTS[0]];
     return (
         <Container>
             <Navigation variants />
@@ -94,7 +94,7 @@ const CompanyPage = ({ companyName }) => {
                     className="specific-projects"
                     title="Lastly, here are some of my projects that you might like..."
                 >
-                    {[PROJECTS[2], PROJECTS[0]].map((project) => (
+                    {projects.map((project) => (
                         <ProjectTile key={project.id} project={project} />
                     ))}
                 </ReasonSection>

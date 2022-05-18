@@ -34,7 +34,9 @@ import bitlyLogo from '../public/bitly-logo.png';
 import sraLogo from '../public/sra-logo.png';
 import braveLogo from '../public/brave-logo.png';
 import collaboLogo from '../public/collabo.png';
-import statusphereLogo from '../public/statusphere-logo.png'
+import statusphereLogo from '../public/statusphere-logo.png';
+import popmenuLogo from '../public/popmenu-logo.png';
+import {PROJECTS} from './projects';
 
 interface ICompanyPoint {
     title: string;
@@ -45,6 +47,7 @@ class Company {
     companyPoints: ICompanyPoint[];
     mePoints: ICompanyPoint[];
     whyTitle: string;
+    projects: IProject[];
     constructor(public companyName: string, public slug: string, public logo, public logoWidth: number) {
         this.setWhyTitle(`I want to work at ${this.companyName} because...`);
     }
@@ -61,6 +64,11 @@ class Company {
 
     setWhyTitle(whyTitle: string | ((companyName: string) => string)) {
         this.whyTitle = whyTitle instanceof Function ? whyTitle(this.companyName) : whyTitle;
+        return this;
+    }
+
+    setProjects(projects: IProject[]) {
+        this.projects = projects;
         return this;
     }
 }
@@ -1297,7 +1305,39 @@ export const COMPANIES = [
             {
                 title: 'Women led business',
                 description: `I have always admired the strength and dedication that women bring to their work. As a matter of fact my role model happens to be my mother who came from a small village and an abusive household and today runs a successful caricature business back in India. I am sure that working in such a company will give me a good set of opportunities for growth.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: The dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow they needs to work with people who are more skilled.'
             },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Popmenu', 'popmenu', popmenuLogo, 300)
+    .setProjects([PROJECTS[2], PROJECTS[1]] )
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The value of the domain`,
+                description: `
+I see the value in the services that ${companyName} provides. As someone who is connected to a number of restaurant owners, I can gauge first hand how hotels and restaurants can benefit from services such as Automated remarketing and Dynamic menus.
+        `
+            },
+            {
+                title: 'The quality of the designers working at the company',
+                description: `A quick search of designers working at ${companyName} on LinkedIn, made me aware of the high quality of designers that are hired by the company. I especially found Anne Nguyen's work quite interesting because one of her projects(Sniffer GPS) has some overlap with one of my projects(Trupaws) which you will find below. Networking with such designers will help me grow as a designer as well as up my own design game.`
+            }
         ])
         .setMePoints([
             {
