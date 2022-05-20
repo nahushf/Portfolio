@@ -38,6 +38,7 @@ import statusphereLogo from '../public/statusphere-logo.png';
 import popmenuLogo from '../public/popmenu-logo.png';
 import {PROJECTS} from './projects';
 import shopifyLogo from '../public/shopify-logo.png';
+import relativityLogo from '../public/relativity-logo.jpeg';
 
 interface ICompanyPoint {
     title: string;
@@ -1380,6 +1381,41 @@ I see the value in the services that ${companyName} provides. As someone who is 
                 title: 'Philosophy: The dumbest person in the room',
                 description:
                     'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow they needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('Relativity', 'relativity', relativityLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The domain and it's value`,
+                description: `
+        The legal domain has always been a domain rife with challenges and these challenges can drastically affect the quality of life of the people involved. I wish to work in such a domain where design can be used to solve problems that can affect the lives of real people.
+            `
+            },
+            {
+                title: 'Empathizing with the users',
+                description: `I wish to understand what kind of challenges are faced by the users in this domain. By empathizing with these users I wish to understand where I need to tweak my design process in order to most effectively build solutions.`
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
             },
             {
                 title: 'Quick Learner',
