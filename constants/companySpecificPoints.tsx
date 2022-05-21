@@ -39,6 +39,7 @@ import popmenuLogo from '../public/popmenu-logo.png';
 import {PROJECTS} from './projects';
 import shopifyLogo from '../public/shopify-logo.png';
 import relativityLogo from '../public/relativity-logo.jpeg';
+import logrocketLogo from '../public/logrocket-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1428,4 +1429,36 @@ I see the value in the services that ${companyName} provides. As someone who is 
                     'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
+
+    new Company('LogRocket', 'logrocket', logrocketLogo, 300)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `The product and it's value`,
+                description: `
+        Coming from a background in Front end Development (Primarily React/Redux) I am aware of how useful the product can be. Additionally with my background and experience using the product I will be able to better empathize with the company's users.
+            `
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
 ];
+
