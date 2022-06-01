@@ -292,76 +292,72 @@ export const DPSectionContent = styled.div`
 
 export const DPSectionContext = createContext({ setScrollSection() {}, currentElementIds: [] });
 
-export const DesignProcess = memo(
-    ({
-        title,
-        ...props
-    }: Omit<ISectionProps, 'title'> & {
-        title: (
-            renderLink: (props: { id: string; children: ReactNode; navigateID: string }) => JSX.Element
-        ) => JSX.Element;
-    }) => {
-        const { scroll } = useLocomotiveScroll();
-        const [currentElementIds, setCurrentElementIds] = useState('');
-        useEffect(() => {
-            if (!scroll) {
-                return;
-            }
+export const DesignProcessImpl = ({
+    title,
+    ...props
+}: Omit<ISectionProps, 'title'> & {
+    title: (renderLink: (props: { id: string; children: ReactNode; navigateID: string }) => JSX.Element) => JSX.Element;
+}) => {
+    const { scroll } = useLocomotiveScroll();
+    const [currentElementIds, setCurrentElementIds] = useState('');
+    useEffect(() => {
+        if (!scroll) {
+            return;
+        }
 
-            scroll.on('scroll', (obj) => {
-                const elementIds = Object.entries(obj.currentElements)
-                    .map(([key, element]: any[]) => element.el.getAttribute('data-section-id'))
-                    .filter((a) => a) as string[];
-                setCurrentElementIds(() => {
-                    return elementIds.toString();
-                });
+        scroll.on('scroll', (obj) => {
+            const elementIds = Object.entries(obj.currentElements)
+                .map(([key, element]: any[]) => element.el.getAttribute('data-section-id'))
+                .filter((a) => a) as string[];
+            setCurrentElementIds(() => {
+                return elementIds.toString();
             });
-        }, [scroll, currentElementIds, setCurrentElementIds]);
-        const renderProcessLink = useCallback(
-            ({ id, children, navigateID }) => {
-                const latestSectionId = currentElementIds.split(',').pop() || '';
-                return (
-                    <ProcessSectionHeader
-                        className={`${latestSectionId === id ? 'active' : ''}`}
-                        onClick={() =>
-                            scroll.scrollTo(navigateID.startsWith('#') ? navigateID : `#${navigateID}`, {
-                                offset: 288,
-                                disableLerp: true
-                            })
-                        }
-                    >
-                        {children}
-                    </ProcessSectionHeader>
-                );
-            },
-            [scroll, currentElementIds.toString(), setCurrentElementIds]
-        );
-        return (
-            <DPSectionContext.Provider
-                value={{ currentElementIds: currentElementIds.split(','), setScrollSection() {} }}
-            >
-                <DesignProcessContainer
-                    id="design-process"
-                    title={() => {
-                        return (
-                            <div
-                                className="design-process-title"
-                                data-scroll
-                                data-scroll-sticky
-                                data-scroll-target="#design-process"
-                                style={{ paddingTop: '100px' }}
-                            >
-                                <SectionTitle>Design Process</SectionTitle>
-                                {title(renderProcessLink)}
-                            </div>
-                        );
-                    }}
-                    {...props}
-                ></DesignProcessContainer>
-            </DPSectionContext.Provider>
-        );
-    }
-);
+        });
+    }, [scroll, currentElementIds, setCurrentElementIds]);
+    const renderProcessLink = useCallback(
+        ({ id, children, navigateID }) => {
+            const latestSectionId = currentElementIds.split(',').pop() || '';
+            return (
+                <ProcessSectionHeader
+                    className={`${latestSectionId === id ? 'active' : ''}`}
+                    onClick={() =>
+                        scroll.scrollTo(navigateID.startsWith('#') ? navigateID : `#${navigateID}`, {
+                            offset: 288,
+                            disableLerp: true
+                        })
+                    }
+                >
+                    {children}
+                </ProcessSectionHeader>
+            );
+        },
+        [scroll, currentElementIds.toString(), setCurrentElementIds]
+    );
+    return (
+        <DPSectionContext.Provider value={{ currentElementIds: currentElementIds.split(','), setScrollSection() {} }}>
+            <DesignProcessContainer
+                id="design-process"
+                title={() => {
+                    return (
+                        <div
+                            className="design-process-title"
+                            data-scroll
+                            data-scroll-sticky
+                            data-scroll-target="#design-process"
+                            style={{ paddingTop: '100px' }}
+                        >
+                            <SectionTitle>Design Process</SectionTitle>
+                            {title(renderProcessLink)}
+                        </div>
+                    );
+                }}
+                {...props}
+            ></DesignProcessContainer>
+        </DPSectionContext.Provider>
+    );
+};
+
+export const DesignProcess = memo(DesignProcessImpl);
 
 const DesignProcessContainer = styled(SplitSection)``;
 
