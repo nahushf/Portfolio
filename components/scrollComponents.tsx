@@ -171,7 +171,7 @@ export const SectionTitle = styled.div`
     margin-bottom: 24px;
 `;
 export const HeroContainer = styled(SplitSection)`
-    height: 100vh;
+    height: 90vh;
     // margin-top: 88px;
     margin-bottom: 32px;
     grid-template-columns: 1fr 1fr !important;
