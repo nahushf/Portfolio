@@ -22,15 +22,13 @@ import {
     SectionDescription,
     SectionTitle
 } from '../../components/reusableComponents';
+
 const importAll = (require) =>
     require.keys().reduce((acc, next) => {
         acc[next.replace('./', '')] = require(next);
         return acc;
     }, {});
 
-function extractSrcName(entry) {
-    return parseInt(entry[0].split('-')[0]);
-}
 const wireframeSrcs = importAll(
     (require as any).context('../../public/farm2u/wireframes', false, /\.(png|jpe?g|svg)$/)
 ) as any;
@@ -282,7 +280,8 @@ const Farm2U = () => {
                             <li>
                                 Secondly, it exposed me to the <Emp>internal push and pull</Emp> which is present in any
                                 team and helped me think through ways to keep the team dynamics healthy by keeping a{' '}
-                                <Emp>constant stream of communication</Emp> about problems faced by my teammates and&nbsp;
+                                <Emp>constant stream of communication</Emp> about problems faced by my teammates
+                                and&nbsp;
                                 <Emp>handling moments of friction as calmly as possible</Emp>.{' '}
                             </li>
                         </ol>

@@ -7,7 +7,7 @@ declare interface IProject {
     title: string;
     description: string;
     gradient: string[];
-    image: string;
+    image: StaticImageData;
     route: string;
     tags: string[];
     badges?: {img: StaticImageData; tagline: string;}[];

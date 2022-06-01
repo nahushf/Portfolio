@@ -13,6 +13,7 @@ import { black, darkBackground, maxDevice, minDevice, red, textColor } from '../
 import '../styles/globals.css';
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
 import { useRouter } from 'next/router';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
@@ -157,7 +158,9 @@ const appTheme_DEP = {
     buttonText: black,
     primary: red,
     empText: '#fafafa',
-    cardBackground: darkBackground
+    cardBackground: darkBackground,
+    cardRadius: '16px',
+    caseStudyColor: '#fafafa'
 };
 
 const appTheme = {
@@ -178,13 +181,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     const { asPath } = useRouter();
     return (
         <Fragment>
-{/* <LocomotiveScrollProvider */}
-{/* options={{ smooth: true }} */}
-{/* watch={[]} */}
-{/* location={asPath} */}
-{/* onLocationChange={(scroll: any) => scroll.scrollTo(0, { duration: 0, disableLerp: true })} */}
-{/* containerRef={containerRef} */}
-{/* > */}
+            <LocomotiveScrollProvider
+                options={{ smooth: true }}
+                watch={[]}
+                location={asPath}
+                onLocationChange={(scroll: any) => scroll.scrollTo(0, { duration: 0, disableLerp: true })}
+                containerRef={containerRef}
+            >
                 <ThemeProvider theme={appTheme_DEP}>
                     <Head>
                         <title>Nahush Farkande</title>
@@ -203,44 +206,45 @@ function MyApp({ Component, pageProps }: AppProps) {
                         }}
                     />
                     <GlobalStyle />
-{/* <div data-scroll-container ref={containerRef} style={{ width: '100%' }}> */}
-{/* <div data-scroll-container> */}
-{/* <div className="section" data-scroll-section> */}
-{/* <div> */}
-{/* <h1 data-scroll>Hey</h1> */}
-{/* <p */}
-{/* data-scroll */}
-{/* data-scroll-direction="horizontal" */}
-{/* data-scroll-speed="5" */}
-{/* style={{ marginLeft: '20vw' }} */}
-{/* > */}
-{/* 👋 */}
-{/* </p> */}
-{/* </div> */}
-{/* </div> */}
-{/* <div className="section" data-scroll-section> */}
-{/* <div> */}
-{/* <h2 data-scroll data-scroll-speed="1"> */}
-{/* Looks like rain */}
-{/* </h2> */}
-{/* <p data-scroll data-scroll-speed="4"> */}
-{/* 🌧 */}
-{/* </p> */}
-{/* </div> */}
-{/* </div> */}
-{/* <div className="section" data-scroll-section> */}
-{/* <div> */}
-{/* <h2 data-scroll data-scroll-speed="1"> */}
-{/* Have an apple */}
-{/* </h2> */}
-{/* <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="-6"> */}
-{/* 🍎 */}
-{/* </p> */}
-{/* </div> */}
-{/* </div> */}
-{/* </div> */}
+                    <div data-scroll-container ref={containerRef} style={{ width: '100%' }}>
+                        {/* <div data-scroll-container id="test"> */}
+                        {/* <h1 data-scroll-target="#test">abcccc</h1> */}
+                        {/* <div className="section" data-scroll-section> */}
+                        {/* <div> */}
+                        {/* <h1 data-scroll>Hey</h1> */}
+                        {/* <p */}
+                        {/* data-scroll */}
+                        {/* data-scroll-direction="horizontal" */}
+                        {/* data-scroll-speed="5" */}
+                        {/* style={{ marginLeft: '20vw' }} */}
+                        {/* > */}
+                        {/* 👋 */}
+                        {/* </p> */}
+                        {/* </div> */}
+                        {/* </div> */}
+                        {/* <div className="section" data-scroll-section> */}
+                        {/* <div> */}
+                        {/* <h2 data-scroll data-scroll-speed="1"> */}
+                        {/* Looks like rain */}
+                        {/* </h2> */}
+                        {/* <p data-scroll data-scroll-speed="4"> */}
+                        {/* 🌧 */}
+                        {/* </p> */}
+                        {/* </div> */}
+                        {/* </div> */}
+                        {/* <div className="section" data-scroll-section> */}
+                        {/* <div> */}
+                        {/* <h2 data-scroll data-scroll-speed="1"> */}
+                        {/* Have an apple */}
+                        {/* </h2> */}
+                        {/* <p data-scroll data-scroll-direction="horizontal" data-scroll-speed="-6"> */}
+                        {/* 🍎 */}
+                        {/* </p> */}
+                        {/* </div> */}
+                        {/* </div> */}
+                        {/* </div> */}
                         <Component {...pageProps} />
-{/* </div> */}
+                    </div>
                     <MailIcon
                         data-cursor-text="Contact"
                         data-cursor-size="80"
@@ -251,7 +255,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         <EmailIcon />
                     </MailIcon>
                 </ThemeProvider>
-{/* </LocomotiveScrollProvider> */}
+            </LocomotiveScrollProvider>
         </Fragment>
     );
 }

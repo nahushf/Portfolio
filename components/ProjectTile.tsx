@@ -78,10 +78,10 @@ export const ProjectTile = ({
                 className="project-tile"
             >
                 <div className="project-information">
-                    <ImageWrapper
-                        {...imageWrapperProps}
-                    >
-                        <img src={image} className="inner-element" style={{ transform: 'translateZ(60px)' }} />
+                    <ImageWrapper {...imageWrapperProps}>
+                        <div className="image-layout-container" style={{ transform: 'translateZ(60px)' }}>
+                            <Image src={image} className="inner-element" layout="responsive" objectFit="contain" />
+                        </div>
                         <div className="badges-container">
                             {badges?.length &&
                                 badges.map(({ img, tagline }, index) => (
@@ -147,7 +147,7 @@ const Container = styled(motion.div)`
         .glare-wrapper {
             border-radius: 16px !important;
         }
-        img {
+        .image-layout-container {
             width: 90%;
             transform: translateZ(60px);
             cursor: pointer;

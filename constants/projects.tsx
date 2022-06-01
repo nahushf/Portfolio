@@ -1,21 +1,23 @@
 import ATT5GLogo from '../public/AT&T-5g-logo.png';
-
+import Farm2USplash from '../public/Farm2U-splash.png';
+import TrupawsSplash from '../public/Trupaws-splash.png';
+import CourtsideSplash from '../public/Courtside-splash.png';
 export const PROJECTS: IProject[] = [
     {
         id: 2,
         title: 'Farm2U',
         description: 'Connecting people to their local produce in an efficient manner',
         gradient: ['#58B96E', '#7DBD78'],
-        image: 'Farm2U-splash.png',
+        image: Farm2USplash,
         route: '/projects/farm2u',
-        tags: ['sustainability'],
+        tags: ['sustainability']
     },
     {
         id: 3,
         title: 'Trupaws',
         description: 'Matching adopters with shelter animals',
         gradient: ['#F7516F', '#FED089'],
-        image: 'Trupaws-splash.png',
+        image: TrupawsSplash,
         route: '/projects/trupaws',
         tags: ['pet-adoption']
     },
@@ -24,9 +26,9 @@ export const PROJECTS: IProject[] = [
         title: 'Courtside',
         description: 'Enhancing the basketball experience for the visually impaired',
         gradient: ['#F4A58A', '#ED6B4E'],
-        image: 'Courtside-splash.png',
+        image: CourtsideSplash,
         route: '/projects/courtside',
         tags: ['accessibility'],
-        badges: [{img: ATT5GLogo, tagline: 'AT&T 5G Sports Hackathon Winner'}]
+        badges: [{ img: ATT5GLogo, tagline: 'AT&T 5G Sports Hackathon Winner' }]
     }
 ];

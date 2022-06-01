@@ -2,32 +2,56 @@ import styled from 'styled-components';
 import { BehanceIcon, EmailIcon, InstaIcon, LinkedInIcon } from './InstaIcon';
 import { HomePageSection } from './reusableComponents';
 
-export const Footer = () => {
+export const FooterBottom = () => {
     return (
-        <Container className="footer">
+        <FooterBottomContainer className="footer__bottom">
+            <div className="social">
+                <a href="https://www.behance.net/nahushFarkande">
+                    <BehanceIcon />
+                </a>
+                <a href="https://www.instagram.com/nahushfarkande">
+                    <InstaIcon />
+                </a>
+                <a href="https://www.linkedin.com/in/nahushfarkande/">
+                    <LinkedInIcon />
+                </a>
+                <a href="mailto: nahush.farkande@gmail.com">
+                    <EmailIcon />
+                </a>
+            </div>
+            <div className="courtesy">©2022 Nahush Farkande. Hand Coded with ❤️ &nbsp;and 🍺</div>
+        </FooterBottomContainer>
+    );
+};
+
+export const Footer = ({ css = '' }) => {
+    return (
+        <Container className="footer" data-scroll-section>
             <div className="greet">
                 <strong>Hello again!!</strong> {` Thanks for visiting my portfolio. Let's connect! `}
             </div>
-            <div className="footer__bottom">
-                <div className="social">
-                    <a href="https://www.behance.net/nahushFarkande">
-                        <BehanceIcon />
-                    </a>
-                    <a href="https://www.instagram.com/nahushfarkande">
-                        <InstaIcon />
-                    </a>
-                    <a href="https://www.linkedin.com/in/nahushfarkande/">
-                        <LinkedInIcon />
-                    </a>
-                    <a href="mailto: nahush.farkande@gmail.com">
-                        <EmailIcon />
-                    </a>
-                </div>
-                <div className="courtesy">©2022 Nahush Farkande. Hand Coded with ❤️ &nbsp;and 🍺</div>
-            </div>
+            <FooterBottom />
         </Container>
     );
 };
+
+const FooterBottomContainer = styled.div`
+    margin-top: 16px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    .courtesy {
+        color: #7e7787;
+    }
+    .social {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+`;
 
 const Container = styled(HomePageSection)`
     width: 100vw;
@@ -48,23 +72,6 @@ const Container = styled(HomePageSection)`
         strong {
             font-size: 24px;
             color: white;
-        }
-    }
-    .footer__bottom {
-        margin-top: 16px;
-        font-size: 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        .courtesy {
-            color: #7e7787;
-        }
-        .social {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 40px;
         }
     }
 `;

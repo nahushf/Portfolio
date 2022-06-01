@@ -13,8 +13,7 @@ export const Landing = ({}) => {
             <AnimatedName />
             <motion.div className="description" {...animationProps}>
                 <div className="intro-tagline">
-                    I’m a <Emp>UI/UX Designer</Emp> with <Emp>6 years of experience</Emp> in Front end development, who
-                    likes to use design as a tool to <Emp>make a difference</Emp> in people&apos;s lives.
+                    I’m a <Emp>UX/Product Designer</Emp> with a passion for solving problems.
                 </div>
                 <div className="intro-bullets">
                     <div className="intro-bullet"></div>

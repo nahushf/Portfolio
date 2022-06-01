@@ -1,81 +1,99 @@
 import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import styled from 'styled-components';
 import { CloseIcon } from './CloseIcon';
 import { HomePageSection } from './reusableComponents';
+import Image from 'next/image';
+import lettering1 from '../public/other-work/lettering-1.png';
+import lettering2 from '../public/other-work/lettering-2.png';
+import lettering3 from '../public/other-work/lettering-3.png';
+import lettering4 from '../public/other-work/lettering-4.png';
+import lettering5 from '../public/other-work/lettering-5.png';
+import lettering6 from '../public/other-work/lettering-6.png';
+import lettering7 from '../public/other-work/the_trip.png';
+import artwork0 from '../public/other-work/chadwick.png';
+import artwork1 from '../public/other-work/joaquin.png';
+import artwork2 from '../public/other-work/The_Rock.png';
+import artwork3 from '../public/other-work/sketch-2.png';
+import artwork4 from '../public/other-work/eagle.png';
+import artwork5 from '../public/other-work/random.png';
+import artwork6 from '../public/other-work/sketch.png';
+import artwork7 from '../public/other-work/urban.png';
+import { CUSTOM_EASING } from '../constants/styles';
+
+const overlayVariants = {
+    hidden: { opacity: 0 },
+    show: {
+        opacity: 1,
+        transition: {
+            ease: CUSTOM_EASING,
+            duration: 0.5
+        }
+    }
+};
+
+const artVariants = {
+    hidden: { ...overlayVariants.hidden, transform: 'translateY(100px)' },
+    show: { ...overlayVariants.show, transform: 'translateY(0px)' }
+};
 
 export const OtherWork = () => {
     const [modalSrc, setModalSrc] = useState('');
-    const renderImages = (imgArr: string[]) => {
-        return imgArr.map((file) => {
-            const imgUrl = `/other-work/${file}`;
-            return (
-                <motion.img
-                    src={imgUrl}
-                    key={file}
-                    layoutId={imgUrl}
-                    onClick={() => setModalSrc(imgUrl)}
-                    onAnimationComplete={() => console.log(22)}
-                />
-            );
+
+    const closeModal = useCallback(() => setModalSrc(''), [setModalSrc]);
+    const renderImages = (imgArr: StaticImageData[]) => {
+        return imgArr.map((file, index) => {
+            // return (
+            // <div className="other-work__image-container" key={index}>
+            // <Image src={file} objectFit="contain"  />
+            // </div>
+            // );
+            const imgUrl = file.src;
+            return <motion.img src={imgUrl} key={file.src} onClick={() => setModalSrc(imgUrl)} />;
         });
     };
     // const { scrollXProgress } = useViewportScroll();
     // console.log(scrollXProgress);
     return (
         <Container id="other-work">
-            <AnimateSharedLayout>
-                <h2>A few other things that I do</h2>
-                <h4>Hand lettering</h4>
-                <div className="lettering-images">
-                    {renderImages([
-                        'lettering-3.png',
-                        'lettering-4.png',
-                        'lettering-5.png',
-                        'the_trip.png',
-                        'lettering-6.png',
-                        'lettering-7.png',
-                        'lettering-1.png',
-                        'lettering-2.png'
-                    ])}
+            <h2>A few other things that I do</h2>
+            <h4>Hand lettering</h4>
+            <div className="lettering-images">
+                {renderImages([lettering1, lettering2, lettering3, lettering4, lettering5, lettering6, lettering7])}
+            </div>
+            <h4>Digital and Analog Art</h4>
+            <div className="artwork-images-container">
+                <div className="artwork-images">
+                    {renderImages([artwork0, artwork1, artwork2, artwork3, artwork4, artwork5, artwork6, artwork7])}
                 </div>
-                <h4>Digital and Analog Art</h4>
-                <div className="artwork-images-container" data-scroll-section>
-                    <div className="artwork-images" data-scroll-section>
-                        {renderImages([
-                            'chadwick.png',
-                            'joaquin.png',
-                            'The_Rock.png',
-                            'sketch-2.png',
-                            'eagle.png',
-                            'random.png',
-                            'sketch.png',
-                            'urban.png'
-                        ])}
-                    </div>
-                    {/* <div className="nav-button left"> */}
-                    {/* <FontAwesomeIcon icon="chevron-right" /> */}
-                    {/* </div> */}
-                    {/* <div className="nav-button right" style={{ display: scrollXProgress === 1 ? 'none' : 'flex' }}> */}
-                    {/* <FontAwesomeIcon icon="chevron-right" /> */}
-                    {/* </div> */}
-                </div>
+            </div>
+
+            <AnimatePresence>
                 {modalSrc && (
-                    <AnimatePresence>
-                        <div className="overlay" onClick={() => setModalSrc('')}>
-                            <div className="image-container">
-                                <div className="close-overlay">
-                                    <CloseIcon />{' '}
-                                </div>
-                                <motion.img
-                                    layoutId={modalSrc}
-                                    src={modalSrc}
-                                />{' '}
+                    <motion.div
+                        className="overlay"
+                        onClick={closeModal}
+                        initial="hidden"
+                        animate="show"
+                        exit="hidden"
+                        variants={overlayVariants}
+                    >
+                        <motion.div
+                            className="image-container"
+                            variants={artVariants}
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                            }}
+                        >
+                            <div className="close-overlay" onClick={closeModal}>
+                                <CloseIcon />{' '}
                             </div>
-                        </div>
-                    </AnimatePresence>
+                            <motion.img src={modalSrc} />{' '}
+                        </motion.div>
+                    </motion.div>
                 )}
-            </AnimateSharedLayout>
+            </AnimatePresence>
         </Container>
     );
 };

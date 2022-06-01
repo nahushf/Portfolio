@@ -1,295 +1,610 @@
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 import dynamic from 'next/dynamic';
-import styled from 'styled-components';
+import Image from 'next/image';
+import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import styled, { ThemeProvider, useTheme } from 'styled-components';
+import { BallIcon, CloudIcon, MobileIcon } from '../../components/CourtsideIcons';
 import { Footer } from '../../components/Footer';
+import { Emp, Navigation, ScreensSection } from '../../components/reusableComponents';
 import {
-    Emp,
-    ImageDescription,
-    Insight,
-    InsightsContainer,
-    MajorPoint,
-    Navigation,
-    Overview,
-    ProcessStep,
-    ProcessStepsContainer,
-    ProjectBanner,
-    ProjectContainer,
-    ProjectFooter,
-    ProjectInfoContainer,
-    ProjectStat,
-    ProjectStatsContainer,
-    ScreensSection,
+    BackButtonV2,
+    Card,
+    CardCollectionSection,
+    CardContent,
+    CardTitle,
+    CaseStudyFooter,
+    DesignProcess,
+    DPSection,
+    DPSectionContent,
+    Hero,
+    HeroStat,
+    HeroStatsContainer,
+    ListCard,
+    ListCardTitle,
+    ProcessSectionHeader,
     Section,
-    SectionDescription,
-    SectionTitle
-} from '../../components/reusableComponents';
+    SectionTitle,
+    SplitSection
+} from '../../components/scrollComponents';
+import FiveGSports from '../../public/5G + Sports.png';
+import ATTLogo from '../../public/AT&T-5g-logo.png';
+import bannerImage from '../../public/courtside/courtside-banner.png';
+import FiveG from '../../public/5G.png';
+import RemoteCoachingImage from '../../public/courtside/remote-coaching.png';
+import BrailleDisplayImage from '../../public/courtside/braille-display.png';
+import VirtualBoxingImage from '../../public/courtside/virtual-boxing.png';
+import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import ideaIllustration from '../../public/courtside/idea-illustration.png';
+import problemIllustration from '../../public/courtside/problem-statement-illustration.png';
+import initialSystemDesign from '../../public/courtside/initial-system-design.png';
+import navigationDesign from '../../public/courtside/navigation.png';
+import informationArchitecture from '../../public/courtside/information-architecture.png';
+import matchList from '../../public/courtside/screens/1-Match-List.png';
+import matchDetails from '../../public/courtside/screens/2-Match-Details.png';
+import matchAudio from '../../public/courtside/screens/3-Match-Audio.png';
+import matchStats from '../../public/courtside/screens/4-Match-Stats.png';
+import voiceAssistant from '../../public/courtside/screens/5-Voice-Assistant-1.png';
+import voicePlay from '../../public/courtside/screens/6-Voice-Play.png';
+import teamFunyuns from '../../public/courtside/team-funyuns.jpg';
+import win1 from '../../public/courtside/award-1.jpg';
+import win2 from '../../public/courtside/award-2.jpg';
+import win3 from '../../public/courtside/award-3.jpg';
+import { PROJECTS } from '../../constants/projects';
+import { ProjectTile } from '../../components/ProjectTile';
+
+const wins = [win1, win2, win3];
+
+const screens = {
+    'Match List': matchList,
+    'Match Details': matchDetails,
+    'Match Audio': matchAudio,
+    'Match Statistics': matchStats,
+    'Voice Assistant (Start)': voiceAssistant,
+    'Voice Assistant (Play)': voicePlay
+};
 
 const BasketballAudio = dynamic(() => import('../../components/BasketballAudio'), {
     ssr: false
 });
 
+const courtsideColor = 'linear-gradient(137.49deg, #f4a58a 0%, #ed6b4e 96.01%)';
+
+const explorationIdeas = [
+    {
+        title: 'Remote Coaching',
+        img: RemoteCoachingImage,
+        content: (
+            <>
+                Using VR and 5G coaches could train players from any part of the world. The coach could use some
+                wearable tech that would transmit the posture and location of the coach to a player in another part of
+                the world. The player could then interact with the projection of the coach as if the coach was standing
+                in front of them.
+            </>
+        )
+    },
+    {
+        title: 'Tactile Braille displays for the visually impaired to “feel” the sport',
+        img: BrailleDisplayImage,
+        content: (
+            <>
+                Tactile braille displays could map out the locations and movements of players on the field. These
+                displays could then be used by the visually impaired to see/feel how the players are moving
+            </>
+        )
+    },
+    {
+        title: 'Virtual Boxing',
+        img: VirtualBoxingImage,
+        content: (
+            <>
+                Movements of boxers could be mapped in the VR world to allow two boxers to box virtually without coming
+                in contact with each other.
+            </>
+        )
+    }
+];
+
 const Courtside = () => {
+    const theme = useTheme();
+    const containerRef = useRef(null);
     return (
-        <Container>
-            <Navigation />
-            <ProjectBanner imgSrc="/courtside/banner.png" />
-            <ProjectInfoContainer>
-                <Overview
-                    projectName="Courtside"
-                    projectDescription={
-                        <>
-                            Courtside is an application/service that is aimed at using sound to{' '}
-                            <Emp>enhance the Basketball experience for the visually impaired</Emp>.
-                        </>
-                    }
-                    salientPointsTitle={<>Recognition 🏆</>}
-                    salientPoints={[
-                        `Won the Best Accessibility, Best use of 5G and the Overall grand prize at the AT&T 5G Sports Hackathon`,
-                        `Got us nominated for the Elite 50 Award at IUPUI`
-                    ]}
-                />
-                <div className="secondary-banner">
-                    <img src="/courtside/award-1.jpg" />
-                    <img src="/courtside/award-2.jpg" />
-                    <img src="/courtside/award-3.jpg" />
-                </div>
-                <ProjectStatsContainer>
-                    <ProjectStat title="My Contributions" className="contributions">
-                        Conceptualized Initial idea, Prototyping, Expert Validation, Internet Research
-                    </ProjectStat>
-                    <ProjectStat title="Team" className="team">
-                        1 Data Science Student, 4 HCI Students
-                    </ProjectStat>
-                    <ProjectStat title="Duration" className="duration">
-                        48 hours
-                    </ProjectStat>
-                    <ProjectStat title="Tools" className="tools">
-                        Figma, Python
-                    </ProjectStat>
-                </ProjectStatsContainer>
-                <Section className="process not-mobile">
-                    <SectionTitle>Process</SectionTitle>
-                    <ProcessStepsContainer>
-                        <ProcessStep name="Research" src="/courtside/research.png" />
-                        <ProcessStep name="Brainstorming" src="/courtside/brainstorming.png" />
-                        <ProcessStep name="Expert Validation" src="/courtside/expert-validation.png" />
-                        <ProcessStep name="Prototyping" src="/courtside/prototyping.png" />
-                    </ProcessStepsContainer>
-                </Section>
-                <Section className="process-mobile mobile-only">
-                    <SectionTitle>Process</SectionTitle>
-                    <img src="/courtside/process_map.png" />
-                </Section>
-                <Section className="research">
-                    <SectionTitle>Research</SectionTitle>
-                    <SectionDescription>
-                        We performed some <Emp>online research</Emp> to understand 5G and to find out some problem areas
-                        in sports which could be tackled using 5G. Some of the key insights we found were as follows
-                    </SectionDescription>
-                    <InsightsContainer>
-                        <Insight index="1" header="What is 5G?">
-                            5th Generation wireless technology Higher internet speeds Ultra low latency
-                        </Insight>
-                        <Insight index="2" header="Poor experience for the visually impaired">
-                            The current method with which the visually impaired access a game such as basketball, is
-                            with the use of headphones which only deliver the commentary of any match
-                        </Insight>
-                        <Insight index="3" header="Courtside experience is too expensive">
-                            The courtside seats offer the richest basketball experience but are often too expensive for
-                            the average joe to afford. Sound is the primary factory that contributes to the courtside
-                            experience
-                        </Insight>
-                    </InsightsContainer>
-                </Section>
-                <Section className="problem-statement">
-                    <SectionTitle>Problem Statement</SectionTitle>
-                    <SectionDescription>
-                        Based on our research we finalized the following problem statement
-                    </SectionDescription>
-                    <MajorPoint src="/courtside/problem-statement-illustration.png">
-                        How might we enhance the basketball experience for the visually impaired and improve upon the
-                        experience of the average joe with the use of sound
-                    </MajorPoint>
-                </Section>
-                <Section className="brainstorming">
-                    <SectionTitle>Brainstorming and Initial Solution</SectionTitle>
-                    <SectionDescription>
-                        We used the information we gathered in our research to guide our brainstorming sessions. After a
-                        few brief sessions we decided on the following solution which we thought could best address our
-                        problem:
-                    </SectionDescription>
-                    <MajorPoint src="/courtside/idea-illustration.png">
-                        A service that uses a combination of tactile braille displays and sensors in the ball to give
-                        the visually impaired a touch based alternative to experiencing basketball
-                    </MajorPoint>
-                </Section>
-                <Section className="expert-validation">
-                    <SectionTitle>Expert Validation</SectionTitle>
-                    <SectionDescription>
-                        In order to get some insight on the feasability and value of our initial idea, we spoke to a
-                        couple of professors in our University whose research areas involved working with the visually
-                        impaired.{' '}
-                    </SectionDescription>
-                    <InsightsContainer className="limitations-container ">
-                        <Insight headerText="Limitation" index="1" header="Tactile Braille displays are too expensive">
-                            The service would make use of tactile braille displays which are too expensive for the
-                            average joe. Let alone for the visually impaired and their limited earning potential
-                        </Insight>
-                        <Insight headerText="Limitation" index="2" header="The actual experience is in the sound ">
-                            While a tactile display would give the users an idea of where the players are located, the
-                            actually joy of any sport lies in the energy at the venue and not just the technicals of the
-                            sport
-                        </Insight>
-                        <Insight headerText="Limitation" index="3" header="Does not address ordinary sports fans">
-                            While the tactile display would definitely enhance the experience of the visually impaired,
-                            such a service would be useless for people who can see clearly and would thus not address
-                            the latter part of our problem statement.
-                        </Insight>
-                    </InsightsContainer>
-                </Section>
-                <Section className="rethinking">
-                    <SectionTitle>Rethinking the idea</SectionTitle>
-                    <SectionDescription>
-                        Using our conversations with the experts, we decided to rethink our initial idea. and came up
-                        with the following solution:
-                    </SectionDescription>
-                    <MajorPoint src="/courtside/idea-illustration.png">
-                        An application that live streams gameplay audio from sensors embedded within the basketball and
-                        provides a spatial audio simulation of a courtside experience for the users.{' '}
-                    </MajorPoint>
-                </Section>
-                <Section className="prototyping">
-                    <SectionTitle>Prototyping</SectionTitle>
-                    <SectionDescription>
-                        After validating our new idea with the experts we decided to come up with a plan to demonstrate
-                        our idea in the limited timespan of 48 hours which was the duration of the Hackathon. Our
-                        demonstration was consisted of two parts. One part was the UI and a figma prototype and the
-                        second part was a proof on concept demonstrating the movement of a ball using sound.
-                    </SectionDescription>
-                </Section>
-                <Section className="audio-poc" id="audio-poc">
-                    <SectionTitle>Audio POC</SectionTitle>
-                    <SectionDescription>
-                        As part of our proof of concept we used something like the following to illustrate that sound
-                        can be used as an effective medium to convey the position of the ball.{' '}
-                        <span>(Please use headphones for the best experience)</span>
-                    </SectionDescription>
-                    <BasketballAudio />
-                </Section>
-                <Section className="mobile-app">
-                    <SectionTitle>Mobile App</SectionTitle>
-                    <SectionDescription>
-                        For the UI we started off trying to design a UI targetted at the visually impaired. This
-                        involved trying to think how to build a system that could be traversed by someone who cannot
-                        see.{' '}
-                    </SectionDescription>
-                    <img src="/courtside/initial-system-design.png" className="initial-system-design" />
-                    <ImageDescription>
-                        Fig1. Initial system design: One initial direction we explored visualized the system as a system
-                        of pits where each pit had multiple levels and each pit was analogous to a certain part of the
-                        UI, such as a pit for the settings part of the UI, another for accessing games, etc. And each
-                        pit had multiple levels that the user could jump between and each level represented substeps in
-                        a part of the UI. We imagined we could use a three finger swipe to jump between pits and two
-                        finger swipes to jump between levels in a pit
-                    </ImageDescription>
-                    <SectionDescription>
-                        With some guidance from William Lawrence who works as an accessibility expert at AT&T, we
-                        realized that we can design an ordinary mobile UI and let the inbuilt Talkback and Voice Over
-                        features present in the iOS and Android Operating systems handle the accessibility for the
-                        visually impaired. Keeping this in mind we designed the following screens
-                    </SectionDescription>
-                    <ScreensSection srcs={['/courtside/match-list-and-details.mp4']} title="Match list and details">
-                        The users can see all upcoming games on the application and can tap a game to see more details
-                        and buy a virtual ticket
-                    </ScreensSection>
-                    <ScreensSection
-                        srcs={['/courtside/match-details.mp4']}
-                        title="Match screens and spatial audio experience"
+        <ThemeProvider theme={{ ...theme, caseStudyColor: courtsideColor }}>
+            <Container data-scroll-container ref={containerRef}>
+                {/* <Navigation /> */}
+                <BackButtonV2 />
+                <div className="case-study-container">
+                    <Hero
+                        title={'Courtside'}
+                        index="01"
+                        tagline="Enhancing the basketball experience for the visually impaired"
                     >
-                        On purchasing a &apos;virtual ticket&apos; users can view the match details and access the{' '}
-                        <Emp>spatial audio experience</Emp> which will be constructed using the sensors in the ball.
-                    </ScreensSection>
-                    <ScreensSection srcs={['/courtside/voice-assistant.mp4']} title="Voice Assistant">
-                        The app would also host a voice assistant to further simplify operation for the visually
-                        impaired
-                    </ScreensSection>
-                </Section>
-                <Section className="final-thoughts">
-                    <SectionTitle>Final Thoughts</SectionTitle>
-                    <SectionDescription>
+                        <Image src={bannerImage} objectFit="contain" priority />
+                    </Hero>
+                    <HeroStatsContainer>
+                        <HeroStat className="for">
+                            <SectionTitle>For</SectionTitle>
+                            <div className="stat-content">
+                                <Image objectFit="contain" src={ATTLogo} width={200}></Image>
+                            </div>
+                        </HeroStat>
+                        <HeroStat className="type-and-deliverables">
+                            <SectionTitle>Project Type & Deliverables</SectionTitle>
+                            <div className="stat-content">
+                                <div className="stat-content-item">Hackathon Project</div>
+                                <div className="stat-content-item">Application Prototype</div>
+                                <div className="stat-content-item">Proof of concept</div>
+                            </div>
+                        </HeroStat>
+                        <HeroStat className="details">
+                            <SectionTitle>Project Details</SectionTitle>
+                            <div className="stat-content">
+                                <div className="detail-container">
+                                    <Emp>Role</Emp>
+                                    <div className="detail-content">UX designer</div>
+                                </div>
+                                <div className="detail-container">
+                                    <Emp>Team</Emp>
+                                    <div className="detail-content">4 HCI Students, 1 Bioinformatics student</div>
+                                </div>
+                                <div className="detail-container">
+                                    <Emp>Duration</Emp>
+                                    <div className="detail-content">
+                                        48 hours Hackathon + 2 weeks research and ideation
+                                    </div>
+                                </div>
+                            </div>
+                        </HeroStat>
+                    </HeroStatsContainer>
+                    <SplitSection title="Our Challenge" className="our-challenge">
+                        Conceptualize solutions that would leverage 5G to disrupt the way we experience, consume and
+                        engage with sports.
+                        <Image src={FiveGSports} objectFit="contain"></Image>
+                    </SplitSection>
+                    <SplitSection title="My Contributions">
+                        <ol>
+                            <li>
+                                Conceptualized <Emp>initial and final</Emp> idea.
+                            </li>
+                            <li>
+                                <Emp>Spoke with professors</Emp> to validated ideas.
+                            </li>
+                            <li>
+                                Constructed App <Emp>Prototype</Emp>.
+                            </li>
+                        </ol>
+                    </SplitSection>
+                    <CardCollectionSection>
+                        <Card>
+                            <CardTitle>Problem Statement</CardTitle>
+                            <CardContent>
+                                How might we enhance the basketball experience for the visually impaired and improve
+                                upon the experience of the average joe with the use of sound
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardTitle>Solution</CardTitle>
+                            <CardContent>
+                                A service that uses sound to enhance the Basketball experience for the visually
+                                impaired.
+                            </CardContent>
+                        </Card>
+                    </CardCollectionSection>
+                    <CardCollectionSection className="connected" title="How will it work">
+                        <Card className="centered">
+                            <CardTitle>Smart Ball</CardTitle>
+                            <BallIcon />
+                            <CardContent>
+                                Sensors embedded within the ball capture the location of the ball on the court and the
+                                audio of the <Emp>ball bouncing</Emp>, <Emp>the players</Emp> and{' '}
+                                <Emp>the audience</Emp>.
+                            </CardContent>
+                        </Card>
+                        <Card className="centered">
+                            <CardTitle>Cloud</CardTitle>
+                            <CloudIcon />
+                            <CardContent>
+                                The audio and GPS data is sent to the cloud server where the audio signal is run through{' '}
+                                <Emp>noise reduction</Emp>.
+                            </CardContent>
+                        </Card>
+                        <Card className="centered">
+                            <CardTitle>App</CardTitle>
+                            <MobileIcon />
+                            <CardContent>
+                                The location and audio information is delivered user to construct a{' '}
+                                <Emp>spatial audio experience</Emp>
+                                that is delivered through the <Emp>mobile app</Emp>.
+                            </CardContent>
+                        </Card>
+                    </CardCollectionSection>
+                    <Section title="Spatial Audio Experience">
+                        <BasketballAudio />
+                    </Section>
+                    <Section className="mobile-app">
+                        <SectionTitle>Mobile App</SectionTitle>
+                        <ScreensSection srcs={['/courtside/match-list-and-details.mp4']} title="Match list and details">
+                            The users can see all upcoming games on the application and can tap a game to see more
+                            details and buy a virtual ticket
+                        </ScreensSection>
+                        <ScreensSection
+                            srcs={['/courtside/match-details.mp4']}
+                            title="Match screens and spatial audio experience"
+                        >
+                            On purchasing a &apos;virtual ticket&apos; users can view the match details and access the{' '}
+                            <Emp>spatial audio experience</Emp> which will be constructed using the sensors in the ball.
+                        </ScreensSection>
+                        <ScreensSection srcs={['/courtside/voice-assistant.mp4']} title="Voice Assistant">
+                            The app would also host a voice assistant to further simplify operation for the visually
+                            impaired
+                        </ScreensSection>
+                    </Section>
+                    <DesignProcess
+                        title={(renderLink) => (
+                            <>
+                                {renderLink({
+                                    id: 'research',
+                                    children: 'Research',
+                                    navigateID: 'formative-research'
+                                })}
+                                {renderLink({
+                                    navigateID: 'solution-requirements',
+                                    children: 'Ideation',
+                                    id: 'ideation'
+                                })}
+                                {renderLink({
+                                    navigateID: 'expert-validation',
+                                    children: 'Validation',
+                                    id: 'validation'
+                                })}
+                                {renderLink({ navigateID: 'sketches', children: 'Design', id: 'design' })}
+                            </>
+                        )}
+                    >
+                        <DPSection id="formative-research" sectionId="research">
+                            <SectionTitle>Formative Research</SectionTitle>
+                            <DPSectionContent>
+                                We conducted some online research to understand 5G and how it can be applied in sports.
+                                What we found out about 5G was that compared to previous generations it has
+                                <div className="research-viz">
+                                    <Card>
+                                        <CardTitle>Low Latency</CardTitle>
+                                    </Card>
+                                    <Image src={FiveG} height={102} objectFit="contain" />
+                                    <div className="lower-research-points">
+                                        <Card>
+                                            <CardTitle>Greater Network Capacity</CardTitle>
+                                        </Card>
+                                        <Card>
+                                            <CardTitle>Higher Speed</CardTitle>
+                                        </Card>
+                                    </div>
+                                </div>
+                                Due to the fast paced nature of sports the <Emp>Low latency</Emp> aspect of 5G{' '}
+                                <Emp>stood out the most</Emp> to us.
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection id="solution-requirements" sectionId="ideation">
+                            <SectionTitle>Solution Requirements</SectionTitle>
+                            <DPSectionContent>
+                                Before moving to ideation we came up with a certain set of rules to guide our ideation.
+                                The solution would need to
+                                <ol className="solution-requirement-list">
+                                    <li>Employ accessibility effectively(Specific award for accessibility)</li>
+                                    <li>Address the needs of a significant target audience</li>
+                                    <li>Make effective use of 5G(Specific award for use of 5G)</li>
+                                    <li>Engages the fans</li>
+                                </ol>
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection id="explorations" sectionId="ideation">
+                            <SectionTitle>Explorations</SectionTitle>
+                            <DPSectionContent>
+                                Using our understanding of 5G we performed an initial round of ideas to see which
+                                solution areas stood out to us. The ideas that I came up with are as follows
+                                <ol className="exploration-idea-list">
+                                    {explorationIdeas.map(({ title, img, content }, index) => {
+                                        return (
+                                            <li key={index}>
+                                                <Emp>{title}</Emp>
+                                                <div className="exploration-image-container">
+                                                    <Image src={img} layout="responsive" objectFit="contain"></Image>
+                                                </div>
+                                                <div className="idea-content">{content}</div>
+                                            </li>
+                                        );
+                                    })}
+                                </ol>
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection id="final-idea" sectionId="ideation">
+                            <SectionTitle>Finalized Idea: {explorationIdeas[1].title}</SectionTitle>
+                            <DPSectionContent>
+                                This idea satisfies the following requirements
+                                <ol className="solution-requirement-checklist">
+                                    <li>
+                                        Employ accessibility effectively{' '}
+                                        <Emp>(The idea keeps in mind the accessibility for the visually impaired)</Emp>
+                                    </li>
+                                    <li>
+                                        Address the needs of a significant target audience{' '}
+                                        <Emp>(Opens up a sports experience for the visually impaired)</Emp>
+                                    </li>
+                                    <li>
+                                        Make effective use of 5G{' '}
+                                        <Emp>(Effective mapping of player positions would require low latency)</Emp>
+                                    </li>
+                                    <li>
+                                        Engages the fans{' '}
+                                        <Emp>(Adds another layer of interacttion for an entire demographic)</Emp>
+                                    </li>
+                                </ol>
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection id="expert-validation" sectionId="validation">
+                            <SectionTitle>Expert Validation</SectionTitle>
+                            <DPSectionContent>
+                                I spoke with 2 professors in our university to validate our idea while the rest of the
+                                team spoke with 2 additional professors. Together we identified the following
+                                limitations in the idea.
+                                <ListCard>
+                                    <ListCardTitle>Limitation #1</ListCardTitle>
+                                    <Emp>Tactile Braille displays are too expensive</Emp>
+                                    <p>
+                                        The service would make use of tactile braille displays which are too expensive
+                                        for the average joe. Let alone for the visually impaired and their limited
+                                        earning potential.
+                                    </p>
+                                </ListCard>
+                                <ListCard>
+                                    <ListCardTitle>Limitation #2</ListCardTitle>
+                                    <Emp>The actual experience is in the sound</Emp>
+                                    <p>
+                                        While a tactile display would give the users an idea of where the players are
+                                        located, the actually joy of any sport lies in the energy at the venue and not
+                                        just the technicals of the sport
+                                    </p>
+                                </ListCard>
+                                <ListCard>
+                                    <ListCardTitle>Limitation #3</ListCardTitle>
+                                    <Emp>Does not address ordinary sports fans</Emp>
+                                    <p>
+                                        While the tactile display would definitely enhance the experience of the
+                                        visually impaired, such a service would be useless for people who can see
+                                        clearly and would thus not address the latter part of our problem statement.
+                                    </p>
+                                </ListCard>
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection id="rethinking" sectionId="validation">
+                            <SectionTitle>Rethinking the Idea</SectionTitle>
+                            <p>
+                                Keeping the <Emp>Limitations</Emp> in mind I realized that instead of a feel based
+                                product, a sound based product might have more to offer to the visually impaired which
+                                led us to the following solution:
+                            </p>
+
+                            <Image objectFit="contain" src={ideaIllustration} height={200} />
+                            <Emp as="p">
+                                An application that live streams gameplay audio from sensors embedded within the
+                                basketball and provides a spatial audio simulation of a courtside experience for the
+                                users through a mobile application.
+                            </Emp>
+                        </DPSection>
+                        <DPSection className="app-sketches" id="sketches" sectionId="design">
+                            <SectionTitle>App Sketches</SectionTitle>
+                            <DPSectionContent>
+                                <p>The solution would have two components</p>
+                                <div className="solution-formula">
+                                    <ListCard>
+                                        <ListCardTitle>Smart Ball with sensors</ListCardTitle>
+                                    </ListCard>
+                                    +
+                                    <ListCard>
+                                        <ListCardTitle>Mobile App for audio experience</ListCardTitle>
+                                    </ListCard>
+                                </div>
+                                <p>
+                                    For the mobile app we decided to sketch an experience that the visually impaired can
+                                    easily navigate using audio and gestures. The following images illustrate how the
+                                    gestures would work.
+                                </p>
+                                <Image src={initialSystemDesign} objectFit="contain" />
+                                <Image src={navigationDesign} objectFit="contain" />
+                                <p>
+                                    However upon consultation with William Lawrence who is the accessibility expert at
+                                    AT&T we realised that this experience was <Emp>not technically feasible</Emp>.
+                                    Android and iOS already come with their own <Emp>Talkback</Emp> and&nbsp;
+                                    <Emp>VoiceOver</Emp> screen reader features which provide an{' '}
+                                    <Emp>inbuilt gesture based navigation system</Emp> for all applications.
+                                </p>
+                                <a href="https://www.levelaccess.com/part-1-mobile-screen-readers/">
+                                    Read More about Talkback and Voiceover here
+                                </a>
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection id="information-architecture" sectionId="design">
+                            <SectionTitle>Information Architecture</SectionTitle>
+                            <DPSectionContent>
+                                <Image src={informationArchitecture} objectFit="contain" layout="responsive" />
+                            </DPSectionContent>
+                        </DPSection>
+                        <DPSection className="screens-container" id="screens" sectionId="design">
+                            <SectionTitle>Screens</SectionTitle>
+                            <DPSectionContent>
+                                <Card>
+                                    {Object.entries(screens).map(([screenName, screenSrc], index) => {
+                                        return (
+                                            <div className="screen-image-container" key={index}>
+                                                <Image src={screenSrc as any} layout="responsive" />
+                                                <div className="screen-name">{screenName}</div>
+                                            </div>
+                                        );
+                                    })}
+                                </Card>
+                            </DPSectionContent>
+                        </DPSection>
+                    </DesignProcess>
+                    <SplitSection title="Next Steps">
+                        The future roadmap of this project will look like the following:
+                        <ul>
+                            <li>
+                                <Emp>Usability Evaluation:</Emp> The prototype of the mobile application will need to be
+                                tested to iron out any usability issues for the visually impaired
+                            </li>
+                            <li>
+                                <Emp>Prototype and Validation: </Emp> A prototype of the <Emp>Smart Basketball</Emp>{' '}
+                                will be needed to perform research in order to validate that the visuallu impaired
+                                actually enjoy a spatial audio experience of basketball
+                            </li>
+                            <li>
+                                <Emp>Mobile Application development:</Emp> The mobile app which would deliver the
+                                spatial audio experience will have to be developed
+                            </li>
+                        </ul>
+                    </SplitSection>
+                    <SplitSection title="Learnings">
+                        <ul>
+                            <li>
+                                <Emp>Early Research:</Emp> While working on this project we began our ideation and
+                                research much before the hackathon. This allowed us to control the depth of our research
+                                and iterate through our ideas
+                            </li>
+                            <li>
+                                <Emp>Expert Validation:</Emp> This project exposed me to the value of expert validation.
+                                Our winning idea was only generated after the professors we consulted walked us through
+                                the limitations of our initial idea. Additionally speaking with the experts also allowed
+                                us to anticipate the kind of questions that would rise up while pitching our concept and
+                                thus prepared us well to present an all-encompassing solution
+                            </li>
+                        </ul>
+                    </SplitSection>
+                    <Section title="Final Thoughts" className="final-thoughts">
                         Overall, we were really proud of what we made. From the beginning none of us went into this
                         hackathon with the intention of winning something. Our main focus the whole time was to build
                         something of value and we believe our product really hit the mark. Not the mention that the
                         prize money was also quite handy.
-                    </SectionDescription>
-                    <img src="/courtside/team-funyuns.jpg" />
-                    <ImageDescription>Team Funyuns for the win!!</ImageDescription>
-                </Section>
-                <ProjectFooter />
-            </ProjectInfoContainer>
-            <Footer />
-        </Container>
+                        <div className="wins-container">
+                            {wins.map((win, index) => (
+                                <img src={win.src} key={index} />
+                            ))}
+                        </div>
+                    </Section>
+                    <CaseStudyFooter projects={[PROJECTS[1], PROJECTS[2]]}></CaseStudyFooter>
+                </div>
+            </Container>
+        </ThemeProvider>
     );
 };
 
 const secondaryBannerGap = 32;
-const Container = styled(ProjectContainer)`
+const Container = styled.div`
+    width: 100%;
     font-size: 16px;
-    line-height: 24px;
-    padding: 24px;
-    .project-banner-container {
-        background: linear-gradient(137.49deg, #f4a58a 0%, #ed6b4e 96.01%);
-    }
-    ${ProjectInfoContainer} {
-        .secondary-banner {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: ${secondaryBannerGap}px;
-            img {
-                height: 35vw;
-                box-shadow: 0px 28px 60px rgba(0, 0, 0, 0.1);
-            }
-        }
-        .insight-container {
-            .index {
-                color: #ed6b4e;
-            }
-        }
-        ${Section} {
-            &.process-mobile {
-                img {
-                    width: 95%;
-                    margin: 0px auto;
-                }
-            }
-            &.research {
-            }
-            &.problem-statement {
-            }
-            &.mobile-app {
-                img.initial-system-design {
-                    width: 100%;
-                }
-                ${ImageDescription} {
-                    margin-bottom: 16px;
-                }
-                .screens-section__container {
-                }
-            }
-            &.final-thoughts {
+    .case-study-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .our-challenge {
+            .section-content{
                 display: flex;
                 flex-direction: column;
-                img {
-                    align-self: center;
-                    width: 100%;
-                    margin-top: 16px;
+                gap: 24px;
+                align-items: flex-start;
+            }
+        }
+    }
+    .final-thoughts {
+        .wins-container {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            img {
+                height: 30vw;
+            }
+        }
+    }
+    #design-process {
+        align-items: flex-start;
+        .design-process-header {
+            flex-shrink: 0;
+            ${SectionTitle} {
+                flex: 1;
+                flex-shrink: 0;
+            }
+        }
+        .design-process-section {
+            ${DPSectionContent} {
+                a {
+                    text-decoration: underline;
+                    font-size: 14px;
+
+                    &:hover {
+                        color: ${(props) => props.theme.empText};
+                    }
+                    &:active {
+                        color: #5c516c;
+                    }
+                    color: #5c516c;
                 }
-                .image-description {
+                .solution-requirement-list,
+                .solution-requirement-checklist {
+                    li {
+                        margin-bottom: 12px;
+                    }
+                }
+
+                .solution-requirement-checklist {
+                    li {
+                        &::marker {
+                            content: '✓ ';
+                            color: green;
+                            margin-right: 16px;
+                            display: inline-block;
+                        }
+                    }
                 }
             }
-            ${ProcessStepsContainer} {
-                &::after {
-                    background: linear-gradient(137.49deg, #f4a58a 0%, #ed6b4e 96.01%);
+            &.app-sketches {
+                .solution-formula {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                    ${ListCard} {
+                        margin-top: 0px;
+                    }
+                }
+            }
+            &.screens-container {
+                ${DPSectionContent} {
+                    ${Card} {
+                        display: flex;
+                        flex-wrap: wrap;
+                        flex-direction: row;
+                        gap: 16px;
+                        justify-content: space-between;
+                        .screen-image-container {
+                            flex: 1 0 160px;
+                            flex-shrink: 0;
+                            .screen-name {
+                                margin-top: 4px;
+                                text-align: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .section-content {
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            gap: 100px;
+            padding-top: 112px;
+            .wins-container {
+                display: flex;
+                .win-image-container {
+                    flex: 1;
                 }
             }
         }
