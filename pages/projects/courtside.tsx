@@ -26,7 +26,7 @@ import {
     SectionTitle,
     SplitSection
 } from '../../components/scrollComponents';
-import FiveGSports from '../../public/5G + Sports.png';
+import FiveGSports from '../../public/5G-sports.png';
 import ATTLogo from '../../public/AT&T-5g-logo.png';
 import bannerImage from '../../public/courtside/courtside-banner.png';
 import FiveG from '../../public/5G.png';
