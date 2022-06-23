@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { createContext, memo, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
+import { createContext, forwardRef, memo, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import styled from 'styled-components';
 import { shallowCompare } from '../scripts/utils';
@@ -48,41 +48,40 @@ export interface ISectionProps {
     id?: string;
     scrollSection?: boolean;
 }
-export const Section = ({
-    title = '',
-    children,
-    className = '',
-    titleScrollTarget = '',
-    id = '',
-    scrollSection = true
-}: ISectionProps) => {
-    return (
-        <SectionContainer
-            className={className || ''}
-            id={id}
-            {...(scrollSection ? { 'data-scroll-section': true, 'data-scroll': true } : {})}
-        >
-            {title ? (
-                title instanceof Function ? (
-                    title()
-                ) : (
-                    <SectionTitle
-                        {...(titleScrollTarget
-                            ? {
-                                  'data-scroll': true,
-                                  'data-scroll-sticky': true,
-                                  'data-scroll-target': titleScrollTarget
-                              }
-                            : {})}
-                    >
-                        {title}
-                    </SectionTitle>
-                )
-            ) : null}
-            <div className="section-content">{children}</div>{' '}
-        </SectionContainer>
-    );
-};
+export const Section = forwardRef(
+    (
+        { title = '', children, className = '', titleScrollTarget = '', id = '', scrollSection = true }: ISectionProps,
+        ref
+    ) => {
+        return (
+            <SectionContainer
+                className={className || ''}
+                id={id}
+                {...(scrollSection ? { 'data-scroll-section': true, 'data-scroll': true } : {})}
+                ref={ref as any}
+            >
+                {title ? (
+                    title instanceof Function ? (
+                        title()
+                    ) : (
+                        <SectionTitle
+                            {...(titleScrollTarget
+                                ? {
+                                      'data-scroll': true,
+                                      'data-scroll-sticky': true,
+                                      'data-scroll-target': titleScrollTarget
+                                  }
+                                : {})}
+                        >
+                            {title}
+                        </SectionTitle>
+                    )
+                ) : null}
+                <div className="section-content">{children}</div>{' '}
+            </SectionContainer>
+        );
+    }
+);
 
 export const SplitSection = (props: ISectionProps) => {
     return <SplitSectionContainer {...props} />;
@@ -102,6 +101,10 @@ export const Card = styled.div`
             text-align: center;
         }
     }
+`;
+
+export const HorizontalCard = styled(Card)`
+    flex-direction: row;
 `;
 
 export const ListCardTitle = styled.div`
@@ -156,11 +159,15 @@ export const SectionContainer = styled.div`
     padding: 0px calc(50vw - 512px);
     margin-bottom: 112px;
     .section-content {
-        ol {
-            padding-left: 16px;
+        p,
+        ol, ul {
+            margin: 8px 0px;
         }
-        li {
-            margin-bottom: 12px;
+        ol, ul {
+            padding-left: 16px;
+            li {
+                margin-bottom: 8px;
+            }
         }
     }
 `;
@@ -202,6 +209,7 @@ export const HeroContainer = styled(SplitSection)`
             font-size: 93px;
             font-weight: bold;
             letter-spacing: -3px;
+            line-height: 1;
         }
         .case-study-tagline {
         }
@@ -455,3 +463,8 @@ const CaseStudyFooterContainer = styled(Section)`
         gap: 0px;
     }
 `;
+
+export const StatContentItem = styled.div`
+    margin: 8px 0px;
+`;
+export const StatContent = styled.div``;

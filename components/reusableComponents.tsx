@@ -678,7 +678,7 @@ const AnimatedNameContainer = styled(Name)`
 export const ImageDescription = styled.div`
     font-size: 12px;
     line-height: 18px;
-    color: #9b9b9b;
+    color: ${props => props.theme.textColor};
 `;
 
 export const CustomScroll = (props: ScrollbarProps) => {

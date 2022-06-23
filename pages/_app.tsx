@@ -144,6 +144,12 @@ const GlobalStyle = createGlobalStyle<any>`
             display: none !important;
         }
     }
+
+    ul {
+        li {
+            list-style-type: circle;
+        }
+    }
 `;
 
 const AnimatedCursor = dynamic(() => import('../components/AnimatedCursor'), {

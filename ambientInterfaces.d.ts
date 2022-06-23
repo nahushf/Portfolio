@@ -11,6 +11,7 @@ declare interface IProject {
     route: string;
     tags: string[];
     badges?: {img: StaticImageData; tagline: string;}[];
+    cssGradient?: string;
 }
 
 declare type VariantType = import('framer-motion').Variant;

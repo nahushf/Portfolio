@@ -24,7 +24,9 @@ import {
     ProcessSectionHeader,
     Section,
     SectionTitle,
-    SplitSection
+    SplitSection,
+    StatContent,
+    StatContentItem
 } from '../../components/scrollComponents';
 import FiveGSports from '../../public/5G-sports.png';
 import ATTLogo from '../../public/AT&T-5g-logo.png';
@@ -123,36 +125,36 @@ const Courtside = () => {
                     <HeroStatsContainer>
                         <HeroStat className="for">
                             <SectionTitle>For</SectionTitle>
-                            <div className="stat-content">
+                            <StatContent>
                                 <Image objectFit="contain" src={ATTLogo} width={200}></Image>
-                            </div>
+                            </StatContent>
                         </HeroStat>
                         <HeroStat className="type-and-deliverables">
                             <SectionTitle>Project Type & Deliverables</SectionTitle>
-                            <div className="stat-content">
-                                <div className="stat-content-item">Hackathon Project</div>
-                                <div className="stat-content-item">Application Prototype</div>
-                                <div className="stat-content-item">Proof of concept</div>
-                            </div>
+                            <StatContent>
+                                <StatContentItem>Hackathon Project</StatContentItem>
+                                <StatContentItem>Application Prototype</StatContentItem>
+                                <StatContentItem>Proof of concept</StatContentItem>
+                            </StatContent>
                         </HeroStat>
                         <HeroStat className="details">
                             <SectionTitle>Project Details</SectionTitle>
-                            <div className="stat-content">
-                                <div className="detail-container">
+                            <StatContent>
+                                <StatContentItem>
                                     <Emp>Role</Emp>
                                     <div className="detail-content">UX designer</div>
-                                </div>
-                                <div className="detail-container">
+                                </StatContentItem>
+                                <StatContentItem>
                                     <Emp>Team</Emp>
                                     <div className="detail-content">4 HCI Students, 1 Bioinformatics student</div>
-                                </div>
-                                <div className="detail-container">
+                                </StatContentItem>
+                                <StatContentItem>
                                     <Emp>Duration</Emp>
                                     <div className="detail-content">
                                         48 hours Hackathon + 2 weeks research and ideation
                                     </div>
-                                </div>
-                            </div>
+                                </StatContentItem>
+                            </StatContent>
                         </HeroStat>
                     </HeroStatsContainer>
                     <SplitSection title="Our Challenge" className="our-challenge">
