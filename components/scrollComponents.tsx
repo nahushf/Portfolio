@@ -2,8 +2,7 @@ import Link from 'next/link';
 import { createContext, forwardRef, memo, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import styled from 'styled-components';
-import { shallowCompare } from '../scripts/utils';
-import { Footer, FooterBottom } from './Footer';
+import { FooterBottom } from './Footer';
 import { LeftArrow } from './LeftArrow';
 import { ProjectTile } from './ProjectTile';
 import { Emp } from './reusableComponents';
@@ -48,40 +47,40 @@ export interface ISectionProps {
     id?: string;
     scrollSection?: boolean;
 }
-export const Section = forwardRef(
-    (
-        { title = '', children, className = '', titleScrollTarget = '', id = '', scrollSection = true }: ISectionProps,
-        ref
-    ) => {
-        return (
-            <SectionContainer
-                className={className || ''}
-                id={id}
-                {...(scrollSection ? { 'data-scroll-section': true, 'data-scroll': true } : {})}
-                ref={ref as any}
-            >
-                {title ? (
-                    title instanceof Function ? (
-                        title()
-                    ) : (
-                        <SectionTitle
-                            {...(titleScrollTarget
-                                ? {
-                                      'data-scroll': true,
-                                      'data-scroll-sticky': true,
-                                      'data-scroll-target': titleScrollTarget
-                                  }
-                                : {})}
-                        >
-                            {title}
-                        </SectionTitle>
-                    )
-                ) : null}
-                <div className="section-content">{children}</div>{' '}
-            </SectionContainer>
-        );
-    }
-);
+
+const SectionImpl = (
+    { title = '', children, className = '', titleScrollTarget = '', id = '', scrollSection = true }: ISectionProps,
+    ref
+) => {
+    return (
+        <SectionContainer
+            className={className || ''}
+            id={id}
+            {...(scrollSection ? { 'data-scroll-section': true, 'data-scroll': true } : {})}
+            ref={ref as any}
+        >
+            {title ? (
+                title instanceof Function ? (
+                    title()
+                ) : (
+                    <SectionTitle
+                        {...(titleScrollTarget
+                            ? {
+                                  'data-scroll': true,
+                                  'data-scroll-sticky': true,
+                                  'data-scroll-target': titleScrollTarget
+                              }
+                            : {})}
+                    >
+                        {title}
+                    </SectionTitle>
+                )
+            ) : null}
+            <div className="section-content">{children}</div>{' '}
+        </SectionContainer>
+    );
+};
+export const Section = forwardRef(SectionImpl);
 
 export const SplitSection = (props: ISectionProps) => {
     return <SplitSectionContainer {...props} />;
@@ -160,10 +159,12 @@ export const SectionContainer = styled.div`
     margin-bottom: 112px;
     .section-content {
         p,
-        ol, ul {
+        ol,
+        ul {
             margin: 8px 0px;
         }
-        ol, ul {
+        ol,
+        ul {
             padding-left: 16px;
             li {
                 margin-bottom: 8px;

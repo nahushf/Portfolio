@@ -91,7 +91,7 @@ const midFiScreens = {
 
 const screens = [
     {
-        title: <Emp>Custom Charts and Statistics</Emp>,
+        title: `Custom Charts and Statistics`,
         src: homeScreen,
         desc: (
             <>
@@ -101,7 +101,7 @@ const screens = [
         )
     },
     {
-        title: <Emp>Discussions anywhere on the UI</Emp>,
+        title: `Discussions anywhere on the UI`,
         src: annotationScreen,
         desc: (
             <>
@@ -112,7 +112,7 @@ const screens = [
         )
     },
     {
-        title: <Emp>All Discussions and Tasks in one place</Emp>,
+        title: `All Discussions and Tasks in one place`,
         src: memoryPalaceScreen,
         desc: (
             <>
@@ -122,24 +122,24 @@ const screens = [
         )
     },
     {
-        title: <Emp>Simplified Report Generation</Emp>,
+        title: `Simplified Report Generation`,
         src: reportsScreen,
         desc: (
             <>
                 Users can build <Emp>report templates using UI component IDs</Emp> (time-range in this case) as
-                placeholders. When the user clicks on "Download" the system will populate the placeholders with the
+                placeholders. When the user clicks on &quot;Download&quot; the system will populate the placeholders with the
                 corresponding values.
             </>
         )
     },
     {
-        title: <Emp>Organization-wide visibility</Emp>,
+        title: `Organization-wide visibility`,
         src: connectionsScreen,
         desc: (
             <>
                 Users can view all the <Emp>E+H sensor connections and the connected excel sheets</Emp> in one place
                 along&nbsp;
-                <Emp>with their health</Emp> (using E+H's Heartbeat Technology) and replacement recommendations.
+                <Emp>with their health</Emp> (using E+H&apos;s Heartbeat Technology) and replacement recommendations.
             </>
         )
     }
@@ -250,13 +250,13 @@ const NetilionConserve = () => {
                         index={projectDescriptor.id.toString().padStart(2, '0')}
                         tagline={projectDescriptor.description}
                     >
-                        <Image src={projectDescriptor.image} objectFit="contain" priority />
+                        <Image src={projectDescriptor.image} objectFit="contain" priority alt="Netilion Conserve hero image"/>
                     </Hero>
                     <HeroStatsContainer>
                         <HeroStat className="for">
                             <SectionTitle>For</SectionTitle>
                             <StatContent>
-                                <Image objectFit="contain" src={EHLongLogo}></Image>
+                                <Image objectFit="contain" src={EHLongLogo} alt="E+H Full Logo"></Image>
                             </StatContent>
                         </HeroStat>
                         <HeroStat className="type-and-deliverables">
@@ -293,7 +293,7 @@ const NetilionConserve = () => {
                             internet.
                         </p>
                         <div className="eh-image-container">
-                            <Image src={EHShortLogo} objectFit="contain" layout="responsive"></Image>
+                            <Image src={EHShortLogo} objectFit="contain" layout="responsive" alt="E+H Short Logo"></Image>
                         </div>
                         <p>
                             The company also sells a suite of digital products called{' '}
@@ -301,10 +301,10 @@ const NetilionConserve = () => {
                             <abbr title="Internet of Things">IoT</abbr>-based sensors to provide various water network
                             insights in the Food & beverage, wastewater, and chemical industries.
                         </p>
-                        <Image src={NetilionLogo} objectFit="contain" height={120} />
+                        <Image src={NetilionLogo} objectFit="contain" height={120} alt="Netilion Logo"/>
                         <p>
                             To better understand how water treatment plants work, E+H connected us with{' '}
-                            <Emp>Citizen's Energy</Emp> which is a company that owns water treatment plants in downtown
+                            <Emp>Citizen&apos;s Energy</Emp> which is a company that owns water treatment plants in downtown
                             Indianapolis.
                         </p>
                         <CitizensLogo />
@@ -379,13 +379,13 @@ const NetilionConserve = () => {
                     <Section id="key-features" title="Key Features" ref={keyFeatureSection}>
                         <div className={wrapperClass}>
                             {screens.map(({ src, desc, title }, index) => (
-                                <div className="screen-info-container">
+                                <div className="screen-info-container" key={index}>
                                     <div className="screen-info">
-                                        <div className="screen-info__title">{title}</div>
+                                        <div className="screen-info__title"><Emp>{title}</Emp></div>
                                         <div className="screen-info__description">{desc}</div>
                                     </div>
                                     <div className="screen__image-wrapper" key={index}>
-                                        <Image src={src} objectFit="contain" layout="responsive" />
+                                        <Image src={src} objectFit="contain" layout="responsive" alt={`${title} - screen`}/>
                                     </div>
                                 </div>
                             ))}
@@ -477,20 +477,20 @@ const NetilionConserve = () => {
                                                 watched 15-20 videos,
                                             </UnderlinedLink>
                                         </Link>
-                                        &nbsp; and went through the financial reports of Citizen's Energy (assigned
+                                        &nbsp; and went through the financial reports of Citizen&apos;s Energy (assigned
                                         customer).
                                     </p>
                                 </ResearchDiv>
                                 <ResearchDiv>
                                     <Emp>Challenges faced</Emp>
                                     <ol>
-                                        <li>Understanding competitors' products that were paid.</li>
+                                        <li>Understanding competitors&apos; products that were paid.</li>
                                     </ol>
                                 </ResearchDiv>
                                 <ResearchDiv>
                                     <Emp>How I overcame them</Emp>
                                     <ol>
-                                        <li>Watched 4 videos about competitors' products on youtube.</li>
+                                        <li>Watched 4 videos about competitors&apos; products on youtube.</li>
                                     </ol>
                                 </ResearchDiv>
                             </DPSectionContent>
@@ -517,11 +517,11 @@ const NetilionConserve = () => {
                                             The <Emp>E+H Sponsor</Emp> for this project.
                                         </li>
                                         <li>
-                                            The <Emp>Plant Manager</Emp> at the Citizen's Energy water treatment plant
+                                            The <Emp>Plant Manager</Emp> at the Citizen&apos;s Energy water treatment plant
                                             in Indianapolis.
                                         </li>
                                         <li>
-                                            The <Emp>Environmental Steward</Emp> at Citizen's Energy.
+                                            The <Emp>Environmental Steward</Emp> at Citizen&apos;s Energy.
                                         </li>
                                     </ol>
                                 </ResearchDiv>
@@ -548,7 +548,7 @@ const NetilionConserve = () => {
                                 I along with the team posted all our findings on a Figjam board where we used affinity
                                 mapping to identify themes and group findings according to themes.
                                 <div className="affinity-image-container image-container">
-                                    <Image src={thematicAnalysis} layout="responsive" />
+                                    <Image src={thematicAnalysis} layout="responsive" alt="Thematic Analysis screenshot" />
                                 </div>
                             </DPSectionContent>
                         </DPSection>
@@ -625,7 +625,7 @@ const NetilionConserve = () => {
                         <DPSection id="current-workflow" sectionId="define">
                             <SectionTitle>Current Workflow</SectionTitle>
                             <DPSectionContent>
-                                <Image src={currentWorkflow} objectFit="contain" />
+                                <Image src={currentWorkflow} objectFit="contain" alt="current workflow diagram" />
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="pain-points" sectionId="define">
@@ -671,7 +671,7 @@ const NetilionConserve = () => {
                                     {competitorLogos.map(([logoSrc, competitorName]) => {
                                         return (
                                             <Card key={competitorName as string}>
-                                                <Image src={logoSrc} objectFit="contain" />
+                                                <Image src={logoSrc} objectFit="contain" alt={`${competitorName} - logo`}/>
                                                 {competitorName}
                                             </Card>
                                         );
@@ -692,7 +692,7 @@ const NetilionConserve = () => {
                             <DPSectionContent>
                                 Any solution we conceptualize needed to -
                                 <ol>
-                                    <li>Allow easy insight into the organization's sustainability footprint.</li>
+                                    <li>Allow easy insight into the organization&apos;s sustainability footprint.</li>
                                     <li>Simplify communication throughout the organization.</li>
                                     <li>Reduce the time taken to generate a report.</li>
                                 </ol>
@@ -706,7 +706,7 @@ const NetilionConserve = () => {
                                     voted internally(shown by the stamps) to finalize a set of features in the final
                                     product. The features in blue are the features that I conceptualized.
                                 </p>{' '}
-                                <Image layout="responsive" objectFit="contain" src={ideationFeatures} />
+                                <Image layout="responsive" objectFit="contain" src={ideationFeatures} alt="Ideated features figjam screenshot" />
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="final-idea" sectionId="ideation">
@@ -714,16 +714,16 @@ const NetilionConserve = () => {
                             <DPSectionContent>
                                 <p>
                                     In order to finalize an idea we ran the Plant Manager and the Environmental Steward
-                                    at Citizen's Energy, as well as the E+H Sponsor through our ideas and finalized the
+                                    at Citizen&apos;s Energy, as well as the E+H Sponsor through our ideas and finalized the
                                     following set of features.
                                 </p>
-                                <Image layout="responsive" objectFit="contain" src={finalIdea} />
+                                <Image layout="responsive" objectFit="contain" src={finalIdea} alt="Finalized features screenshot"/>
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="information-architecture" sectionId="prototype">
                             <SectionTitle>Information Architecture</SectionTitle>
                             <DPSectionContent>
-                                <Image layout="responsive" objectFit="contain" src={informationArchitecture} />
+                                <Image layout="responsive" objectFit="contain" src={informationArchitecture} alt="Information Architecture diagram" />
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="sketches" sectionId="prototype">
@@ -731,10 +731,10 @@ const NetilionConserve = () => {
                             <DPSectionContent>
                                 <p>We sketched out the following screens for the desktop application - </p>
                                 <div className="sketches-container">
-                                    {Object.entries(sketches).map(([imageName, imageSrc]) => {
+                                    {Object.entries(sketches).map(([imageName, imageSrc], index) => {
                                         return (
-                                            <div className="sketch-image-container">
-                                                <Image objectFit="contain" src={imageSrc} layout="responsive"></Image>
+                                            <div className="sketch-image-container" key={index}>
+                                                <Image objectFit="contain" src={imageSrc} layout="responsive" alt={`${imageName} screen sketch`} ></Image>
                                                 <ImageDescription>{imageName}</ImageDescription>
                                             </div>
                                         );
@@ -750,10 +750,10 @@ const NetilionConserve = () => {
                                     could use to perform usability tests.
                                 </p>
                                 <div className="mid-fi-screens-container">
-                                    {Object.entries(midFiScreens).map(([imageName, imageSrc]) => {
+                                    {Object.entries(midFiScreens).map(([imageName, imageSrc], index) => {
                                         return (
-                                            <div className="mid-fi-image-container">
-                                                <Image objectFit="contain" src={imageSrc} layout="responsive"></Image>
+                                            <div className="mid-fi-image-container" key={index}>
+                                                <Image objectFit="contain" src={imageSrc} layout="responsive" alt={`${imageName} screen mock-up`}></Image>
                                                 <ImageDescription>{imageName}</ImageDescription>
                                             </div>
                                         );
@@ -765,7 +765,7 @@ const NetilionConserve = () => {
                             <SectionTitle>Usability Testing</SectionTitle>
                             <DPSectionContent>
                                 Next, I evaluated the medium-fidelity prototype with the Plant Manager and Environmental
-                                Steward at Citizen's Energy and the E+H sponsor and found the following key issues with
+                                Steward at Citizen&apos;s Energy and the E+H sponsor and found the following key issues with
                                 our design.
                                 <ol>
                                     <li>
@@ -779,7 +779,7 @@ const NetilionConserve = () => {
                                         combinations of <Emp>readings from multiple sensors and excel sheets.</Emp>
                                     </li>
                                 </ol>
-                                <Link href="https://indiana-my.sharepoint.com/:x:/g/personal/nafark_iu_edu/EY6oqYksgKVBq0GFZa4DPjgBWVbhXCPpKHwjdfvgHvcRAA?e=ajfm4x">
+                                <Link href="https://indiana-my.sharepoint.com/:x:/g/personal/nafark_iu_edu/EY6oqYksgKVBq0GFZa4DPjgBWVbhXCPpKHwjdfvgHvcRAA?e=ajfm4x" passHref>
                                     <UnderlinedLink target="_blank">
                                         Here is the entire list of issues we found with our designs
                                     </UnderlinedLink>
@@ -821,13 +821,13 @@ const NetilionConserve = () => {
                             This was an interesting and challenging project where we got to learn about an entirely new
                             domain that we had no familiarity with. Overall we are all proud of the outcome of the
                             project and the growth we all experienced. Special thanks to <Emp>Matt Walsh</Emp> from E+H,{' '}
-                            <Emp>Justin Redman, and Anne McIver</Emp> from Citizen's Energy for their time and effort in
-                            helping us throughout the design process. Finally, this wouldn't have been possible without
+                            <Emp>Justin Redman, and Anne McIver</Emp> from Citizen&apos;s Energy for their time and effort in
+                            helping us throughout the design process. Finally, this wouldn&&apos;apos;t have been possible without
                             our mentor <Emp>Professor Lou Lenzi</Emp> whose insights and mentorship were the guiding
                             lights throughout this project.
                         </p>
                         <div className="team-image-container">
-                            <Image src={teamPicture} objectFit="contain" layout="responsive" />
+                            <Image src={teamPicture} objectFit="contain" layout="responsive" alt="Photograph of the team at the water treatment plant." />
                             <ImageDescription>
                                 The team with Matt Walsh and Justin Redman at the Water treatment plant.
                             </ImageDescription>
