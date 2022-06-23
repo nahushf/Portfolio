@@ -95,8 +95,8 @@ const screens = [
         src: homeScreen,
         desc: (
             <>
-                Users can <Emp>build custom statistics and build custom charts</Emp> out of one or more readings which
-                will be connected to the smart E+H sensors or to live excel sheets
+                Users can <Emp>build custom statistics and build custom charts</Emp> out of one or more readings that
+                will be connected to the smart E+H sensors or to live excel sheets.
             </>
         )
     },
@@ -107,7 +107,7 @@ const screens = [
             <>
                 Users can start discussions on every section of the UI for smoother communication within the
                 organization. These discussions can be turned into tasks that can be assigned to people within the
-                organization
+                organization.
             </>
         )
     },
@@ -128,7 +128,7 @@ const screens = [
             <>
                 Users can build <Emp>report templates using UI component IDs</Emp> (time-range in this case) as
                 placeholders. When the user clicks on "Download" the system will populate the placeholders with the
-                corresponding values
+                corresponding values.
             </>
         )
     },
@@ -137,8 +137,8 @@ const screens = [
         src: connectionsScreen,
         desc: (
             <>
-                Users can view the all the <Emp>E+H sensor connections and the connected excel sheets</Emp> in one place
-                along
+                Users can view all the <Emp>E+H sensor connections and the connected excel sheets</Emp> in one place
+                along&nbsp;
                 <Emp>with their health</Emp> (using E+H's Heartbeat Technology) and replacement recommendations.
             </>
         )
@@ -287,22 +287,23 @@ const NetilionConserve = () => {
                     </HeroStatsContainer>
                     <SplitSection title="The Client" className="the-client">
                         <p>
-                            <Emp>Endress and Hauser</Emp> is a company that manufactures IOT based precision measurement
-                            instruments such as flow meters, pressure meters, level meters, etc. which have the ability
-                            to transmit readings over the internet.
+                            <Emp>Endress and Hauser</Emp> is a company that manufactures&nbsp;
+                            <abbr title="Internet of Things">IoT</abbr>-based precision measurement instruments such as
+                            flow meters, pressure meters, level meters, etc. which can transmit readings over the
+                            internet.
                         </p>
                         <div className="eh-image-container">
                             <Image src={EHShortLogo} objectFit="contain" layout="responsive"></Image>
                         </div>
                         <p>
                             The company also sells a suite of digital products called{' '}
-                            <Emp>Netillion Water Network Insights (NWNI)</Emp> which works with the IOT based sensors to
-                            provide various water network insights in the Food & beverage , wastewater and chemical
-                            industries
+                            <Emp>Netillion Water Network Insights (NWNI)</Emp> which works with&nbsp; 
+                            <abbr title="Internet of Things">IoT</abbr>-based sensors to provide various water network
+                            insights in the Food & beverage, wastewater, and chemical industries.
                         </p>
                         <Image src={NetilionLogo} objectFit="contain" height={120} />
                         <p>
-                            In order to better understand how water treatment plants work, E+H connected us with{' '}
+                            To better understand how water treatment plants work, E+H connected us with{' '}
                             <Emp>Citizen's Energy</Emp> which is a company that owns water treatment plants in downtown
                             Indianapolis.
                         </p>
@@ -315,11 +316,11 @@ const NetilionConserve = () => {
                         <ol>
                             <li>
                                 Designed interview questionnaires and guided the conversation during the plant visit and
-                                interviews
+                                interviews.
                             </li>
-                            <li>Ideation and Sketching</li>
-                            <li>Constructed the Medium and High Fidelity Prototypes</li>
-                            <li>Conducted evaluations on the medium fidelity prototype.</li>
+                            <li>Ideation and Sketching.</li>
+                            <li>Constructed the Medium and High Fidelity Prototypes.</li>
+                            <li>Conducted evaluations on the medium-fidelity prototype.</li>
                         </ol>
                     </SplitSection>
                     <CardCollectionSection>
@@ -327,7 +328,7 @@ const NetilionConserve = () => {
                             <CardTitle>Problem Statement</CardTitle>
                             <CardContent>
                                 How might we make it easier for water treatment and community water companies to track
-                                their sustainability progress and activities
+                                their sustainability progress and activities?
                             </CardContent>
                         </Card>
                         <Card>
@@ -335,7 +336,7 @@ const NetilionConserve = () => {
                             <CardContent>
                                 A sustainability dashboard called <Emp>Netilion Conserve</Emp> that will allow users to
                                 start discussions on all measurements and charts to simplify communications as well as
-                                provide a template based report generation system.
+                                provide a template-based report generation system.
                             </CardContent>
                         </Card>
                     </CardCollectionSection>
@@ -345,13 +346,13 @@ const NetilionConserve = () => {
                             <SensorLogo />
                             <CardContent>
                                 Smart meters manufactured by E+H will send readings from all over the water treatment
-                                plant to a server
+                                plant to a server.
                             </CardContent>
                         </Card>
                         <Card className="centered">
                             <CardTitle>Netilion Conserve</CardTitle>
                             <NCIcon />
-                            <CardContent>The desktop application makes sense of the isolated data</CardContent>
+                            <CardContent>The desktop application makes sense of the isolated data.</CardContent>
                         </Card>
                         <div className="card-group">
                             <IconedListCard>
@@ -360,17 +361,17 @@ const NetilionConserve = () => {
                                 <p>Customized dashboards and an ability to generate custom visualizations.</p>
                             </IconedListCard>
                             <IconedListCard>
-                                <Emp>Template based Report generation</Emp>
+                                <Emp>Template-based Report generation</Emp>
                                 <TemplateIcon />
                                 <p>
                                     Users can upload report templates that the system will auto-fill for easier reports.
                                 </p>
                             </IconedListCard>
                             <IconedListCard>
-                                <Emp>Annotation based communications</Emp>
+                                <Emp>Annotation-based communications</Emp>
                                 <AnnotationIcon />
                                 <p>
-                                    Messages and tasks can be attached to any part of the UI for better communications.
+                                    Messages and tasks can be attached to any part of the UI for better communication.
                                 </p>
                             </IconedListCard>
                         </div>
@@ -423,18 +424,18 @@ const NetilionConserve = () => {
                                     children: 'Final Design',
                                     id: 'final-design'
                                 })}
-{/* {renderLink({ */}
-{/* navigateID: 'expert-validation', */}
-{/* children: 'Business Design', */}
-{/* id: 'business' */}
-{/* })} */}
+                                {/* {renderLink({ */}
+                                {/* navigateID: 'expert-validation', */}
+                                {/* children: 'Business Design', */}
+                                {/* id: 'business' */}
+                                {/* })} */}
                             </>
                         )}
                     >
                         <DPSection id="research" sectionId="research">
                             <SectionTitle>Research</SectionTitle>
                             <DPSectionContent>
-                                I used the following methods to conduct my research:
+                                I used the following methods to conduct my research -
                                 <div className="methods-group">
                                     <Card className="card">
                                         <EAIcon />
@@ -449,7 +450,7 @@ const NetilionConserve = () => {
                                         <Emp>Field Visit</Emp>
                                     </Card>
                                 </div>
-                                <p>See how and why I performed these methods below</p>
+                                <p>See how and why I performed these methods below.</p>
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="ea" sectionId="research" className="research-description-section">
@@ -458,8 +459,8 @@ const NetilionConserve = () => {
                                 <ResearchDiv>
                                     <Emp>Goal</Emp>
                                     <p>
-                                        To understand how water treatment works and the current sustainabiltyi tracking
-                                        landscape in the water treatment industry
+                                        To understand how water treatment works and the current sustainability tracking
+                                        landscape in the water treatment industry.
                                     </p>
                                 </ResearchDiv>
                                 <ResearchDiv>
@@ -473,7 +474,7 @@ const NetilionConserve = () => {
                                         >
                                             <UnderlinedLink target="_blank">
                                                 20 online articles about sustainability in the water treatment industry,
-                                                watched 15-20 videos
+                                                watched 15-20 videos,
                                             </UnderlinedLink>
                                         </Link>
                                         &nbsp; and went through the financial reports of Citizen's Energy (assigned
@@ -483,13 +484,13 @@ const NetilionConserve = () => {
                                 <ResearchDiv>
                                     <Emp>Challenges faced</Emp>
                                     <ol>
-                                        <li>Understanding competitor products which were paid</li>
+                                        <li>Understanding competitors' products that were paid.</li>
                                     </ol>
                                 </ResearchDiv>
                                 <ResearchDiv>
                                     <Emp>How I overcame them</Emp>
                                     <ol>
-                                        <li>Watched 4 videos about competitors products on youtube</li>
+                                        <li>Watched 4 videos about competitors' products on youtube.</li>
                                     </ol>
                                 </ResearchDiv>
                             </DPSectionContent>
@@ -505,29 +506,29 @@ const NetilionConserve = () => {
                                     <Emp>Goal</Emp>
                                     <p>
                                         To understand Citizen’s Energy’s water treatment process, E+H sensors used, The
-                                        stakeholders involved and their pain points
+                                        stakeholders involved, and their pain points.
                                     </p>
                                 </ResearchDiv>
                                 <ResearchDiv>
                                     <Emp>How did I do it?</Emp>
-                                    <p>Conducted an interview with the following stakeholders</p>
+                                    <p>Interviewed the following stakeholders - </p>
                                     <ol>
                                         <li>
-                                            The <Emp>E+H Sponsor</Emp> for this project
+                                            The <Emp>E+H Sponsor</Emp> for this project.
                                         </li>
                                         <li>
                                             The <Emp>Plant Manager</Emp> at the Citizen's Energy water treatment plant
-                                            in Indianapolis
+                                            in Indianapolis.
                                         </li>
                                         <li>
-                                            The <Emp>Environmental Steward</Emp> at Citizen's Energy
+                                            The <Emp>Environmental Steward</Emp> at Citizen's Energy.
                                         </li>
                                     </ol>
                                 </ResearchDiv>
                                 <ResearchDiv>
                                     <Emp>Challenges faced</Emp>
                                     <ol>
-                                        <li>Understanding the jargon involved in Water treatment processes</li>
+                                        <li>Understanding the jargon involved in Water treatment processes.</li>
                                     </ol>
                                 </ResearchDiv>
                                 <ResearchDiv>
@@ -535,7 +536,7 @@ const NetilionConserve = () => {
                                     <ol>
                                         <li>
                                             Watched 4 videos about industrial water processes by the Veolia Group on
-                                            youtube
+                                            youtube.
                                         </li>
                                     </ol>
                                 </ResearchDiv>
@@ -554,50 +555,50 @@ const NetilionConserve = () => {
                         <DPSection id="key-insights" sectionId="define">
                             <SectionTitle>Key Insights</SectionTitle>
                             <DPSectionContent>
-                                Here are some of the key insights from our research.
+                                Here are some of the key insights from our research -
                                 <InsightRow>
                                     <ListCard>
                                         <ListCardTitle>Insight #1</ListCardTitle>
                                         <Emp>A sustainable outlook is beneficial for companies</Emp>
                                         <p>
                                             Companies with a better sustainability footprint attract more talent and
-                                            business
+                                            business.
                                         </p>
                                     </ListCard>
                                     <ListCard>
                                         <ListCardTitle>Takeaway #1</ListCardTitle>
-                                        <Emp>Massive shift to sustainability</Emp>
-                                        <p>Companies are incentivized to build a sustainable outlook</p>
+                                        <Emp>A massive shift to sustainability</Emp>
+                                        <p>Companies are incentivized to build a sustainable outlook.</p>
                                     </ListCard>
                                 </InsightRow>
                                 <InsightRow>
                                     <ListCard>
                                         <ListCardTitle>Insight #2</ListCardTitle>
                                         <Emp>Increased spending on sustainability</Emp>
-                                        <p>Companies are ramping up their spending on sustainable activities</p>
+                                        <p>Companies are ramping up their spending on sustainable activities.</p>
                                     </ListCard>
                                     <ListCard>
                                         <ListCardTitle>Takeaway #2</ListCardTitle>
-                                        <Emp>Sustainability is a good market</Emp>
+                                        <Emp>Sustainability is a good market.</Emp>
                                         <p>
                                             With companies willing to spend, there is room for building a profitable
-                                            product
+                                            product.
                                         </p>
                                     </ListCard>
                                 </InsightRow>
                                 <InsightRow>
                                     <ListCard>
                                         <ListCardTitle>Insight #3</ListCardTitle>
-                                        <Emp>Current workflow is very time consuming</Emp>
+                                        <Emp>The current workflow is very time-consuming</Emp>
                                         <p>
-                                            The current process of collecting data ,generating a report and devising a
-                                            sustainability strategy takes over 80 hours
+                                            The current process of collecting data, generating a report, and devising a
+                                            sustainability strategy takes over 80 hours.
                                         </p>
                                     </ListCard>
                                     <ListCard>
                                         <ListCardTitle>Takeaway #3</ListCardTitle>
                                         <Emp>Need for efficiency</Emp>
-                                        <p>An ideal solution would be one which reduces this time drastically</p>
+                                        <p>An ideal solution would reduce this time drastically.</p>
                                     </ListCard>
                                 </InsightRow>
                                 <InsightRow>
@@ -606,7 +607,7 @@ const NetilionConserve = () => {
                                         <Emp>Slow Moving Industry</Emp>
                                         <p>
                                             Replacing sensors and infrastructure happens very rarely in the water
-                                            treatment industry
+                                            treatment industry.
                                         </p>
                                     </ListCard>
                                     <ListCard>
@@ -615,7 +616,7 @@ const NetilionConserve = () => {
                                         <p>
                                             An ideal solution would be one that not only works with the new E+H smart
                                             sensors but also provides backward compatibility for other sensors that are
-                                            currently in use
+                                            currently in use.
                                         </p>
                                     </ListCard>
                                 </InsightRow>
@@ -679,9 +680,9 @@ const NetilionConserve = () => {
                                 <div className="shortcomings">
                                     <Emp>The shortcomings we found in these competitors </Emp>
                                     <ul>
-                                        <li>No simplification for data collection</li>
-                                        <li>Weak support for data troubleshooting</li>
-                                        <li>No Improvement in communication and delegation</li>
+                                        <li>No simplification for data collection.</li>
+                                        <li>Weak support for data troubleshooting.</li>
+                                        <li>No Improvement in communication and delegation.</li>
                                     </ul>
                                 </div>
                             </DPSectionContent>
@@ -689,11 +690,11 @@ const NetilionConserve = () => {
                         <DPSection id="solution-rationale" sectionId="define">
                             <SectionTitle>Solution Rationale</SectionTitle>
                             <DPSectionContent>
-                                Any solution we conceptualize needed to
+                                Any solution we conceptualize needed to -
                                 <ol>
-                                    <li>Allow easy insight into the organizations sustainability footprint</li>
-                                    <li>Simplify communication throughout the organization</li>
-                                    <li>Reduce the time taken to generate a report</li>
+                                    <li>Allow easy insight into the organization's sustainability footprint.</li>
+                                    <li>Simplify communication throughout the organization.</li>
+                                    <li>Reduce the time taken to generate a report.</li>
                                 </ol>
                             </DPSectionContent>
                         </DPSection>
@@ -701,7 +702,7 @@ const NetilionConserve = () => {
                             <SectionTitle>Ideation</SectionTitle>
                             <DPSectionContent>
                                 <p>
-                                    For the ideation phase we conceptualized 3 features for each major pain point and
+                                    For the ideation phase, we conceptualized 3 features for each major pain point and
                                     voted internally(shown by the stamps) to finalize a set of features in the final
                                     product. The features in blue are the features that I conceptualized.
                                 </p>{' '}
@@ -728,7 +729,7 @@ const NetilionConserve = () => {
                         <DPSection id="sketches" sectionId="prototype">
                             <SectionTitle>Sketches</SectionTitle>
                             <DPSectionContent>
-                                <p>We sketched out the following screens for the desktop application</p>
+                                <p>We sketched out the following screens for the desktop application - </p>
                                 <div className="sketches-container">
                                     {Object.entries(sketches).map(([imageName, imageSrc]) => {
                                         return (
@@ -744,7 +745,10 @@ const NetilionConserve = () => {
                         <DPSection id="mid-fi" sectionId="prototype">
                             <SectionTitle>Medium Fidelity Designs</SectionTitle>
                             <DPSectionContent>
-                                <p>We sketched out the following screens for the desktop application</p>
+                                <p>
+                                    Next, I converted all of the sketches into a medium-fidelity Figma prototype which we
+                                    could use to perform usability tests.
+                                </p>
                                 <div className="mid-fi-screens-container">
                                     {Object.entries(midFiScreens).map(([imageName, imageSrc]) => {
                                         return (
@@ -760,22 +764,26 @@ const NetilionConserve = () => {
                         <DPSection id="evaluations" sectionId="evaluation">
                             <SectionTitle>Usability Testing</SectionTitle>
                             <DPSectionContent>
-                                Next, I evaluated the medium fidelity prototype with the Plant Manager and Environmental
+                                Next, I evaluated the medium-fidelity prototype with the Plant Manager and Environmental
                                 Steward at Citizen's Energy and the E+H sponsor and found the following key issues with
                                 our design.
                                 <ol>
                                     <li>
-                                        <Emp>Goals ought to be shown on the charts</Emp> and not just the stats
+                                        <Emp>Goals ought to be shown on the charts</Emp> and not just the stats.
                                     </li>
                                     <li>
-                                        There is <Emp>no time range</Emp> shown on the charts page
+                                        There is <Emp>no time range</Emp> shown on the charts page.
                                     </li>
                                     <li>
                                         For adding charts and stats, there is no way to capture values that might be
-                                        combinations of <Emp>readings from multiple sensors and excel sheets</Emp>
+                                        combinations of <Emp>readings from multiple sensors and excel sheets.</Emp>
                                     </li>
                                 </ol>
-                                <p>Here is the entire list of issues we found with our designs</p>
+                                <Link href="https://indiana-my.sharepoint.com/:x:/g/personal/nafark_iu_edu/EY6oqYksgKVBq0GFZa4DPjgBWVbhXCPpKHwjdfvgHvcRAA?e=ajfm4x">
+                                    <UnderlinedLink target="_blank">
+                                        Here is the entire list of issues we found with our designs
+                                    </UnderlinedLink>
+                                </Link>
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="final-designs" sectionId="final-design">
@@ -787,20 +795,20 @@ const NetilionConserve = () => {
                                 ></iframe>
                             </DPSectionContent>
                         </DPSection>
-{/* <DPSection id="business-design" sectionId="business"> */}
-{/* <SectionTitle>The Business Side</SectionTitle> */}
-{/* <DPSectionContent> */}
-{/* <p>Next we developed the business side of this product </p> */}
-{/* </DPSectionContent> */}
-{/* </DPSection> */}
+                        {/* <DPSection id="business-design" sectionId="business"> */}
+                        {/* <SectionTitle>The Business Side</SectionTitle> */}
+                        {/* <DPSectionContent> */}
+                        {/* <p>Next we developed the business side of this product </p> */}
+                        {/* </DPSectionContent> */}
+                        {/* </DPSection> */}
                     </DesignProcess>
                     <SplitSection title="Reflection">
                         <ul>
                             <li>
                                 <Emp>Understanding industrial processes:</Emp> This project exposed me to the
                                 complexities of understanding the industrial processes (water treatment in this case).
-                                It taught me the value of educating yourself about the industry specific terminology and
-                                jargon before actually speaking with the industry professionals{' '}
+                                It taught me the value of educating yourself about the industry-specific terminology and
+                                jargon before actually speaking with the industry professionals
                             </li>
                             <li>
                                 <Emp>Early Evaluations:</Emp> The evaluations performed on the medium-fidelity prototype
@@ -811,17 +819,17 @@ const NetilionConserve = () => {
                     <Section title="Final Thoughts" className="final-thoughts">
                         <p>
                             This was an interesting and challenging project where we got to learn about an entirely new
-                            domain that we had no familiarity of. Overall we all proud of the outcome of the project and
-                            the growth we all experienced. Special thanks to <Emp>Matt Walsh</Emp> from E+H,{' '}
-                            <Emp>Justin Redman and Anne McIver</Emp> from Citizen's Energy for their time and effort in
-                            helping us throughout the design process. Finally this wouldn't have been possible without
+                            domain that we had no familiarity with. Overall we are all proud of the outcome of the
+                            project and the growth we all experienced. Special thanks to <Emp>Matt Walsh</Emp> from E+H,{' '}
+                            <Emp>Justin Redman, and Anne McIver</Emp> from Citizen's Energy for their time and effort in
+                            helping us throughout the design process. Finally, this wouldn't have been possible without
                             our mentor <Emp>Professor Lou Lenzi</Emp> whose insights and mentorship were the guiding
-                            lights througout this project.
+                            lights throughout this project.
                         </p>
                         <div className="team-image-container">
                             <Image src={teamPicture} objectFit="contain" layout="responsive" />
                             <ImageDescription>
-                                The team with Matt Walsh and Justin Redman at the Water treatment plant
+                                The team with Matt Walsh and Justin Redman at the Water treatment plant.
                             </ImageDescription>
                         </div>
                     </Section>

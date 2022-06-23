@@ -8,7 +8,7 @@ import EHShortLogo from '../public/netilion-conserve/EH-short-logo.png'
 export const NETILION_CONSERVE = {
         id:1,
         title: 'Netilion Conserve',
-        description: 'Improved sustainability tracking for water treatment companies',
+        description: 'Improved sustainability tracking for water treatment companies.',
         gradient: ['#36D1DC', '#5B86E5'],
         cssGradient: `linear-gradient(122.9deg, #36D1DC -30.49%, #5B86E5 135.04%)`,
         image: NetilionConserveSplash,
