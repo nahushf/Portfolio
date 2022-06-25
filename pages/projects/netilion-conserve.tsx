@@ -2,9 +2,11 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import styled, { ThemeProvider, useTheme } from 'styled-components';
+import { CitizensLogo } from '../../components/icons/CitizensLogo';
 import {
     AnalystIcon,
     AnnotationIcon,
@@ -19,6 +21,7 @@ import {
     TemplateIcon
 } from '../../components/NetilionConserveIcons';
 import { IconedListCard } from '../../components/reusable/IconedListCard';
+import { UnderlinedLink } from '../../components/reusable/UnderlinedLink';
 import { Emp, ImageDescription } from '../../components/reusableComponents';
 import {
     BackButtonV2,
@@ -43,40 +46,32 @@ import {
     StatContentItem
 } from '../../components/scrollComponents';
 import { NETILION_CONSERVE, PROJECTS } from '../../constants/projects';
-import BrailleDisplayImage from '../../public/courtside/braille-display.png';
-import RemoteCoachingImage from '../../public/courtside/remote-coaching.png';
-import VirtualBoxingImage from '../../public/courtside/virtual-boxing.png';
+import { maxDevice } from '../../constants/styles';
+import benchmarkLogo from '../../public/netilion-conserve/benchmark-logo.png';
 import currentWorkflow from '../../public/netilion-conserve/current-workflow.png';
 import EHLongLogo from '../../public/netilion-conserve/EH-long-logo.png';
 import EHShortLogo from '../../public/netilion-conserve/EH-short-logo.png';
-import NetilionLogo from '../../public/netilion-conserve/netilion-logo.png';
-import thematicAnalysis from '../../public/netilion-conserve/thematic-analysis.png';
-import microsoftLogo from '../../public/netilion-conserve/microsoft-logo.png';
-import benchmarkLogo from '../../public/netilion-conserve/benchmark-logo.png';
-import nirasLogo from '../../public/netilion-conserve/niras-logo.png';
-import salesforceLogo from '../../public/netilion-conserve/salesforce-logo.png';
-import ideationFeatures from '../../public/netilion-conserve/ideation-features.png';
 import finalIdea from '../../public/netilion-conserve/final-idea.png';
+import ideationFeatures from '../../public/netilion-conserve/ideation-features.png';
 import informationArchitecture from '../../public/netilion-conserve/information-architecture.png';
-import homeSketch from '../../public/netilion-conserve/sketches/home.png';
-import dataConnectionSketch from '../../public/netilion-conserve/sketches/data-connections.png';
-import memoryPalaceSketch from '../../public/netilion-conserve/sketches/memory-palace.png';
+import microsoftLogo from '../../public/netilion-conserve/microsoft-logo.png';
 import annotationsAndChartsMF from '../../public/netilion-conserve/mid-fi/annotations-charts.png';
 import dataConnectionsMF from '../../public/netilion-conserve/mid-fi/data-connections.png';
 import memoryPalaceMF from '../../public/netilion-conserve/mid-fi/memory-palace.png';
 import reportsMF from '../../public/netilion-conserve/mid-fi/reports.png';
-import teamPicture from '../../public/netilion-conserve/team-picture.png';
-import { CitizensLogo } from '../../components/icons/CitizensLogo';
-import homeScreen from '../../public/netilion-conserve/screens/home.png';
+import NetilionLogo from '../../public/netilion-conserve/netilion-logo.png';
+import nirasLogo from '../../public/netilion-conserve/niras-logo.png';
+import salesforceLogo from '../../public/netilion-conserve/salesforce-logo.png';
 import annotationScreen from '../../public/netilion-conserve/screens/annotations.png';
 import connectionsScreen from '../../public/netilion-conserve/screens/connections.png';
+import homeScreen from '../../public/netilion-conserve/screens/home.png';
 import memoryPalaceScreen from '../../public/netilion-conserve/screens/memory-palace.png';
 import reportsScreen from '../../public/netilion-conserve/screens/reports.png';
-import { UnderlinedLink } from '../../components/reusable/UnderlinedLink';
-import Link from 'next/link';
-import { maxDevice } from '../../constants/styles';
-
-console.log(CitizensLogo);
+import dataConnectionSketch from '../../public/netilion-conserve/sketches/data-connections.png';
+import homeSketch from '../../public/netilion-conserve/sketches/home.png';
+import memoryPalaceSketch from '../../public/netilion-conserve/sketches/memory-palace.png';
+import teamPicture from '../../public/netilion-conserve/team-picture.png';
+import thematicAnalysis from '../../public/netilion-conserve/thematic-analysis.png';
 
 const sketches = {
     Home: homeSketch,
@@ -155,7 +150,7 @@ const competitorLogos = [
 ];
 
 const ScrollTriggerProxy = () => {
-    const { scroll } = useLocomotiveScroll();
+    // const { scroll } = useLocomotiveScroll();
     // useEffect(() => {
     // if (!scroll) {
     // return () => {};
@@ -190,7 +185,7 @@ const NetilionConserve = () => {
     const theme = useTheme();
     const containerRef = useRef(null);
     const projectDescriptor = NETILION_CONSERVE;
-    const { scroll } = useLocomotiveScroll();
+    // const { scroll } = useLocomotiveScroll();
     const keyFeatureSection = useRef<HTMLDivElement>(null);
     const [contentWidth, setContentWidth] = useState(0);
     useEffect(() => {
@@ -199,47 +194,47 @@ const NetilionConserve = () => {
         }
         setContentWidth((keyFeatureSection.current.querySelector(`.${wrapperClass}`) as HTMLDivElement).offsetWidth);
     }, []);
-    useEffect(() => {
-        if (!scroll) {
-            return;
-        }
-        gsap.registerPlugin(ScrollTrigger);
+    // useEffect(() => {
+    // if (!scroll) {
+    // return;
+    // }
+    // gsap.registerPlugin(ScrollTrigger);
 
-        scroll.on('scroll', ScrollTrigger.update);
+    // scroll.on('scroll', ScrollTrigger.update);
 
-        const element = scroll?.el;
-        scroll.on('scroll', ScrollTrigger.update);
-        ScrollTrigger.scrollerProxy(element, {
-            scrollTop(value) {
-                return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
-            },
-            getBoundingClientRect() {
-                return {
-                    top: 0,
-                    left: 0,
-                    width: window.innerWidth,
-                    height: window.innerHeight
-                };
-            },
-            pinType: element.style.transform ? 'transform' : 'fixed'
-        });
-        // const scrollWrapper = keyFeatureSection.current.querySelector('.abc') as HTMLDivElement;
-        // const scrollerWidth = scrollWrapper.offsetWidth;
-        // const horizontalScrollWidth = scrollerWidth - window.innerWidth;
-        // gsap.to('.abc', {
-        // scrollTrigger: {
-        // scroller: element, //locomotive-scroll
-        // scrub: true,
-        // trigger: '#key-features',
-        // pin: true,
-        // start: 'center center',
-        // end: scrollerWidth
-        // },
-        // x: horizontalScrollWidth,
-        // ease: 'none'
-        // });
-        // ScrollTrigger.scrollerProxy(scroller);
-    }, [scroll]);
+    // const element = scroll?.el;
+    // scroll.on('scroll', ScrollTrigger.update);
+    // ScrollTrigger.scrollerProxy(element, {
+    // scrollTop(value) {
+    // return arguments.length ? scroll.scrollTo(value, 0, 0) : scroll.scroll.instance.scroll.y;
+    // },
+    // getBoundingClientRect() {
+    // return {
+    // top: 0,
+    // left: 0,
+    // width: window.innerWidth,
+    // height: window.innerHeight
+    // };
+    // },
+    // pinType: element.style.transform ? 'transform' : 'fixed'
+    // });
+    // const scrollWrapper = keyFeatureSection.current.querySelector('.abc') as HTMLDivElement;
+    // const scrollerWidth = scrollWrapper.offsetWidth;
+    // const horizontalScrollWidth = scrollerWidth - window.innerWidth;
+    // gsap.to('.abc', {
+    // scrollTrigger: {
+    // scroller: element, //locomotive-scroll
+    // scrub: true,
+    // trigger: '#key-features',
+    // pin: true,
+    // start: 'center center',
+    // end: scrollerWidth
+    // },
+    // x: horizontalScrollWidth,
+    // ease: 'none'
+    // });
+    // ScrollTrigger.scrollerProxy(scroller);
+    // }, [scroll]);
     return (
         <ThemeProvider theme={{ ...theme, caseStudyColor: projectDescriptor.cssGradient }}>
             <Container data-scroll-container ref={containerRef}>
@@ -1230,6 +1225,79 @@ const Container = styled.div`
     }
     ${maxDevice.tablet} {
         .case-study-container {
+            #how-will-it-work {
+                .section-content {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: max-content max-content;
+                    display: grid;
+                    .card-group {
+                        grid-column-end: span 2;
+                        ${IconedListCard} {
+                            grid-template-rows: 1fr;
+                            position: relative;
+                            width: 100%;
+                            svg {
+                                grid-row-end: span 1;
+                            }
+                            p {
+                                display: none;
+                            }
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                background: ${(props) => props.theme.cardBackground};
+                                left: 24px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                border-top: 0px;
+                                border-bottom: 0px;
+                                width: 100%;
+                            }
+                            &:first-child,
+                            &:last-child {
+                                &::after {
+                                    transform: unset;
+                                    height: 10px;
+                                    width: 100%;
+                                }
+                            }
+                            &:first-child {
+                            &::before {
+
+                                    content: '';
+                                    border: 10px solid ${(props) => props.theme.cardBackground};
+                                    border-bottom: 0px;
+                                    border-left: 0px;
+                                    position: absolute;
+                                    right: -24px;
+                                    height: 300%;
+                                    bottom: 0px;
+                                    width: 100%;
+                                    z-index: -1;
+                            }
+                                &::after {
+                                    border-top: 0px;
+                                    border-left: 0px;
+                                }
+                            }
+                            &:last-child {
+                                &::before {
+                                    content: '';
+                                    border-left: 10px solid ${(props) => props.theme.cardBackground};
+                                    position: absolute;
+                                    right: -24px;
+                                    height: 300%;
+                                    bottom: 50%;
+                                }
+                                &::after {
+                                    border-bottom: 0px;
+                                    border-left: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
             #design-process {
                 .section-content {
                     #research {
