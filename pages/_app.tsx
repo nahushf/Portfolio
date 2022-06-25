@@ -42,11 +42,12 @@ const GlobalStyle = createGlobalStyle<any>`
         font-weight: 300;
     }
     h1 {
-        font-size: 88px;
+        font-size: 93px;
         margin: 0px;
-        font-family: 'ClashDisplay';
         font-weight: 500;
-        line-height: 88px;
+        color: ${(props) => props.theme.empText};
+        line-height: 1;
+            letter-spacing: -3px;
     }
     h1, h2, h3, h4 {
         color: #fafafa;
@@ -150,6 +151,15 @@ const GlobalStyle = createGlobalStyle<any>`
             list-style-type: circle;
         }
     }
+
+    ${maxDevice.mobile} {
+        body {
+            font-size: 14px;
+            h1 {
+                font-size: 32px;
+            }
+        }
+    }
 `;
 
 const AnimatedCursor = dynamic(() => import('../components/AnimatedCursor'), {
@@ -166,7 +176,10 @@ const appTheme_DEP = {
     empText: '#fafafa',
     cardBackground: darkBackground,
     cardRadius: '16px',
-    caseStudyColor: '#fafafa'
+    caseStudyColor: '#fafafa',
+    bodyFontSize: '20px',
+    mobileBodyFontSize: '16px',
+    mobileH1FontSize: '32px'
 };
 
 const appTheme = {
@@ -281,6 +294,10 @@ const MailIcon = styled.a`
     ${maxDevice.tablet} {
         bottom: 16px;
         right: 16px;
+    }
+    ${maxDevice.mobile} {
+        height: 56px;
+        width: 56px;
     }
 `;
 

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import { CUSTOM_EASING } from '../constants/styles';
+import { CUSTOM_EASING, maxDevice } from '../constants/styles';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -195,6 +195,16 @@ const Container = styled(motion.div)`
             padding: 4px 8px;
             border-radius: 20px;
             color: #9c92ab;
+        }
+    }
+    ${maxDevice.mobile} {
+        .project-information {
+            .project-title {
+                font-size: ${(props) => props.theme.mobileH1FontSize};
+            }
+            .project-description {
+                font-size: ${(props) => props.theme.mobileBodyFontSize};
+            }
         }
     }
 `;

@@ -44,6 +44,7 @@ const FooterBottomContainer = styled.div`
     gap: 16px;
     .courtesy {
         color: #7e7787;
+        text-align: center;
     }
     .social {
         display: flex;

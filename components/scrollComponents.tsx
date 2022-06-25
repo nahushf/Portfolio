@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { createContext, forwardRef, memo, ReactNode, useCallback, useContext, useEffect, useState } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import styled from 'styled-components';
+import { maxDevice } from '../constants/styles';
 import { FooterBottom } from './Footer';
 import { LeftArrow } from './LeftArrow';
 import { ProjectTile } from './ProjectTile';
@@ -27,11 +28,11 @@ export const Hero = ({ index, title, tagline, children, className = '' }) => {
             title={
                 <>
                     <div className="title-index">{index}</div>
-                    <div className="case-study-title">{title}</div>
+                    <h1 className="case-study-title">{title}</h1>
                     <div className="case-study-tagline">{tagline}</div>
                 </>
             }
-            className={className}
+            className={`hero ${className}`}
         >
             <div className="background" />
             {children}
@@ -100,6 +101,9 @@ export const Card = styled.div`
             text-align: center;
         }
     }
+    ${maxDevice.mobile} {
+        padding: 16px;
+    }
 `;
 
 export const HorizontalCard = styled(Card)`
@@ -152,16 +156,23 @@ export const CardCollectionSection = styled(Section)`
             }
         }
     }
+    ${maxDevice.mobile} {
+        .section-content {
+            flex-direction: column;
+        }
+    }
 `;
 
 export const SectionContainer = styled.div`
     padding: 0px calc(50vw - 512px);
     margin-bottom: 112px;
     .section-content {
-        p,
         ol,
         ul {
             margin: 8px 0px;
+        }
+        p {
+            margin-bottom: 24px;
         }
         ol,
         ul {
@@ -171,18 +182,29 @@ export const SectionContainer = styled.div`
             }
         }
     }
+    ${maxDevice.tablet} {
+        padding: 0px calc(50vw - 360px);
+    }
+    ${maxDevice.mobile} {
+        padding: 0px 16px;
+    }
 `;
 export const SectionTitle = styled.div`
     font-size: 24px;
     font-weight: bold;
     color: ${(props) => props.theme.empText};
     margin-bottom: 24px;
+    ${maxDevice.mobile} {
+        margin-bottom: 16px;
+        width: 100%;
+        min-width: 0;
+    }
 `;
 export const HeroContainer = styled(SplitSection)`
     height: 90vh;
     // margin-top: 88px;
     margin-bottom: 32px;
-    grid-template-columns: 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr;
     color: ${(props) => props.theme.background};
     position: relative;
     align-items: center;
@@ -207,12 +229,28 @@ export const HeroContainer = styled(SplitSection)`
             font-size: 16px;
         }
         .case-study-title {
-            font-size: 93px;
-            font-weight: bold;
-            letter-spacing: -3px;
-            line-height: 1;
+            color: ${(props) => props.theme.background};
         }
         .case-study-tagline {
+        }
+    }
+    ${maxDevice.tablet} {
+        grid-template-columns: 1fr !important;
+        padding-top: 80px;
+        height: unset;
+        ${SectionTitle} {
+            grid-row: 2;
+        }
+        .section-content {
+            grid-row: 1;
+        }
+    }
+    ${maxDevice.mobile} {
+        padding-top: 0px;
+        ${SectionTitle} {
+            .case-study-tagline {
+                font-size: ${(props) => props.theme.mobileBodyFontSize};
+            }
         }
     }
 `;
@@ -223,13 +261,36 @@ export const SplitSectionContainer = styled(Section)`
         width: 400px;
         flex-shrink: 0;
     }
+    ${maxDevice.tablet} {
+        grid-template-columns: 0.6fr 1fr;
+        ${SectionTitle} {
+            width: unset;
+        }
+    }
+    ${maxDevice.mobile} {
+        grid-template-columns: 1fr;
+        grid-template-rows: max-content 1fr;
+        ${SectionTitle} {
+            width: 100%;
+        }
+    }
 `;
 
-export const HeroStatsContainer = styled(Section)`
+export const HeroStatsContainer = styled(Section).attrs(({ className }) => ({
+    className: `hero-stats-containter ${className}`
+}))`
     padding-top: 0px;
     .section-content {
         display: flex;
         gap: 40px;
+    }
+    ${maxDevice.mobile} {
+        ${SectionTitle} {
+            margin-bottom: 8px;
+        }
+        .section-content {
+            flex-direction: column;
+        }
     }
 `;
 
@@ -431,6 +492,16 @@ const BackButtonContainer = styled.a`
         background: ${(props) => props.theme.caseStudyColor};
         z-index: -1;
     }
+    ${maxDevice.tablet} {
+
+        top: unset;
+        bottom: 16px;
+        left: 16px;
+    }
+    ${maxDevice.mobile} {
+        height: 56px;
+        width: 56px;
+    }
 `;
 
 export const CaseStudyFooter = ({ projects }: { projects: IProject[] }) => {
@@ -462,6 +533,13 @@ const CaseStudyFooterContainer = styled(Section)`
     .footer__bottom {
         margin-top: 56px;
         gap: 0px;
+    }
+    ${maxDevice.mobile} {
+        padding-bottom: 80px;
+        .footer-projects {
+            flex-direction: column;
+            max-width: 400px;
+        }
     }
 `;
 

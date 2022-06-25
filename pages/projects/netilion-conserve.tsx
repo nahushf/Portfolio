@@ -35,6 +35,7 @@ import {
     HeroStatsContainer,
     ListCard,
     ListCardTitle,
+    ProcessSectionHeader,
     Section,
     SectionTitle,
     SplitSection,
@@ -73,6 +74,7 @@ import memoryPalaceScreen from '../../public/netilion-conserve/screens/memory-pa
 import reportsScreen from '../../public/netilion-conserve/screens/reports.png';
 import { UnderlinedLink } from '../../components/reusable/UnderlinedLink';
 import Link from 'next/link';
+import { maxDevice } from '../../constants/styles';
 
 console.log(CitizensLogo);
 
@@ -127,8 +129,8 @@ const screens = [
         desc: (
             <>
                 Users can build <Emp>report templates using UI component IDs</Emp> (time-range in this case) as
-                placeholders. When the user clicks on &quot;Download&quot; the system will populate the placeholders with the
-                corresponding values.
+                placeholders. When the user clicks on &quot;Download&quot; the system will populate the placeholders
+                with the corresponding values.
             </>
         )
     },
@@ -250,7 +252,12 @@ const NetilionConserve = () => {
                         index={projectDescriptor.id.toString().padStart(2, '0')}
                         tagline={projectDescriptor.description}
                     >
-                        <Image src={projectDescriptor.image} objectFit="contain" priority alt="Netilion Conserve hero image"/>
+                        <Image
+                            src={projectDescriptor.image}
+                            objectFit="contain"
+                            priority
+                            alt="Netilion Conserve hero image"
+                        />
                     </Hero>
                     <HeroStatsContainer>
                         <HeroStat className="for">
@@ -293,19 +300,24 @@ const NetilionConserve = () => {
                             internet.
                         </p>
                         <div className="eh-image-container">
-                            <Image src={EHShortLogo} objectFit="contain" layout="responsive" alt="E+H Short Logo"></Image>
+                            <Image
+                                src={EHShortLogo}
+                                objectFit="contain"
+                                layout="responsive"
+                                alt="E+H Short Logo"
+                            ></Image>
                         </div>
                         <p>
                             The company also sells a suite of digital products called{' '}
-                            <Emp>Netillion Water Network Insights (NWNI)</Emp> which works with&nbsp; 
+                            <Emp>Netillion Water Network Insights (NWNI)</Emp> which works with&nbsp;
                             <abbr title="Internet of Things">IoT</abbr>-based sensors to provide various water network
                             insights in the Food & beverage, wastewater, and chemical industries.
                         </p>
-                        <Image src={NetilionLogo} objectFit="contain" height={120} alt="Netilion Logo"/>
+                        <Image src={NetilionLogo} objectFit="contain" height={120} alt="Netilion Logo" />
                         <p>
                             To better understand how water treatment plants work, E+H connected us with{' '}
-                            <Emp>Citizen&apos;s Energy</Emp> which is a company that owns water treatment plants in downtown
-                            Indianapolis.
+                            <Emp>Citizen&apos;s Energy</Emp> which is a company that owns water treatment plants in
+                            downtown Indianapolis.
                         </p>
                         <CitizensLogo />
                     </SplitSection>
@@ -323,7 +335,7 @@ const NetilionConserve = () => {
                             <li>Conducted evaluations on the medium-fidelity prototype.</li>
                         </ol>
                     </SplitSection>
-                    <CardCollectionSection>
+                    <CardCollectionSection id="problem-and-solution">
                         <Card>
                             <CardTitle>Problem Statement</CardTitle>
                             <CardContent>
@@ -381,11 +393,18 @@ const NetilionConserve = () => {
                             {screens.map(({ src, desc, title }, index) => (
                                 <div className="screen-info-container" key={index}>
                                     <div className="screen-info">
-                                        <div className="screen-info__title"><Emp>{title}</Emp></div>
+                                        <div className="screen-info__title">
+                                            <Emp>{title}</Emp>
+                                        </div>
                                         <div className="screen-info__description">{desc}</div>
                                     </div>
                                     <div className="screen__image-wrapper" key={index}>
-                                        <Image src={src} objectFit="contain" layout="responsive" alt={`${title} - screen`}/>
+                                        <Image
+                                            src={src}
+                                            objectFit="contain"
+                                            layout="responsive"
+                                            alt={`${title} - screen`}
+                                        />
                                     </div>
                                 </div>
                             ))}
@@ -490,7 +509,10 @@ const NetilionConserve = () => {
                                 <ResearchDiv>
                                     <Emp>How I overcame them</Emp>
                                     <ol>
-                                        <li>Watched 4 videos about competitors&apos; products on youtube.</li>
+                                        <li>
+                                            Watched advertisement and promo videos about competitors&apos; products on
+                                            youtube.
+                                        </li>
                                     </ol>
                                 </ResearchDiv>
                             </DPSectionContent>
@@ -517,8 +539,8 @@ const NetilionConserve = () => {
                                             The <Emp>E+H Sponsor</Emp> for this project.
                                         </li>
                                         <li>
-                                            The <Emp>Plant Manager</Emp> at the Citizen&apos;s Energy water treatment plant
-                                            in Indianapolis.
+                                            The <Emp>Plant Manager</Emp> at the Citizen&apos;s Energy water treatment
+                                            plant in Indianapolis.
                                         </li>
                                         <li>
                                             The <Emp>Environmental Steward</Emp> at Citizen&apos;s Energy.
@@ -535,8 +557,16 @@ const NetilionConserve = () => {
                                     <Emp>How I overcame them</Emp>
                                     <ol>
                                         <li>
-                                            Watched 4 videos about industrial water processes by the Veolia Group on
-                                            youtube.
+                                            Watched&nbsp;
+                                            <Link
+                                                href="https://youtube.com/playlist?list=PLMw6dmk-6yGoJAuW9I5r386ciEDfBkwQv"
+                                                passHref
+                                            >
+                                                <UnderlinedLink target="_blank">
+                                                    videos about industrial water processes
+                                                </UnderlinedLink>
+                                            </Link>
+                                            &nbsp; by the Veolia Group on youtube.
                                         </li>
                                     </ol>
                                 </ResearchDiv>
@@ -548,7 +578,11 @@ const NetilionConserve = () => {
                                 I along with the team posted all our findings on a Figjam board where we used affinity
                                 mapping to identify themes and group findings according to themes.
                                 <div className="affinity-image-container image-container">
-                                    <Image src={thematicAnalysis} layout="responsive" alt="Thematic Analysis screenshot" />
+                                    <Image
+                                        src={thematicAnalysis}
+                                        layout="responsive"
+                                        alt="Thematic Analysis screenshot"
+                                    />
                                 </div>
                             </DPSectionContent>
                         </DPSection>
@@ -671,7 +705,12 @@ const NetilionConserve = () => {
                                     {competitorLogos.map(([logoSrc, competitorName]) => {
                                         return (
                                             <Card key={competitorName as string}>
-                                                <Image src={logoSrc} objectFit="contain" alt={`${competitorName} - logo`}/>
+                                                <Image
+                                                    src={logoSrc}
+                                                    objectFit="contain"
+                                                    alt={`${competitorName} - logo`}
+                                                    layout="responsive"
+                                                />
                                                 {competitorName}
                                             </Card>
                                         );
@@ -706,7 +745,12 @@ const NetilionConserve = () => {
                                     voted internally(shown by the stamps) to finalize a set of features in the final
                                     product. The features in blue are the features that I conceptualized.
                                 </p>{' '}
-                                <Image layout="responsive" objectFit="contain" src={ideationFeatures} alt="Ideated features figjam screenshot" />
+                                <Image
+                                    layout="responsive"
+                                    objectFit="contain"
+                                    src={ideationFeatures}
+                                    alt="Ideated features figjam screenshot"
+                                />
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="final-idea" sectionId="ideation">
@@ -714,16 +758,26 @@ const NetilionConserve = () => {
                             <DPSectionContent>
                                 <p>
                                     In order to finalize an idea we ran the Plant Manager and the Environmental Steward
-                                    at Citizen&apos;s Energy, as well as the E+H Sponsor through our ideas and finalized the
-                                    following set of features.
+                                    at Citizen&apos;s Energy, as well as the E+H Sponsor through our ideas and finalized
+                                    the following set of features.
                                 </p>
-                                <Image layout="responsive" objectFit="contain" src={finalIdea} alt="Finalized features screenshot"/>
+                                <Image
+                                    layout="responsive"
+                                    objectFit="contain"
+                                    src={finalIdea}
+                                    alt="Finalized features screenshot"
+                                />
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="information-architecture" sectionId="prototype">
                             <SectionTitle>Information Architecture</SectionTitle>
                             <DPSectionContent>
-                                <Image layout="responsive" objectFit="contain" src={informationArchitecture} alt="Information Architecture diagram" />
+                                <Image
+                                    layout="responsive"
+                                    objectFit="contain"
+                                    src={informationArchitecture}
+                                    alt="Information Architecture diagram"
+                                />
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="sketches" sectionId="prototype">
@@ -734,7 +788,12 @@ const NetilionConserve = () => {
                                     {Object.entries(sketches).map(([imageName, imageSrc], index) => {
                                         return (
                                             <div className="sketch-image-container" key={index}>
-                                                <Image objectFit="contain" src={imageSrc} layout="responsive" alt={`${imageName} screen sketch`} ></Image>
+                                                <Image
+                                                    objectFit="contain"
+                                                    src={imageSrc}
+                                                    layout="responsive"
+                                                    alt={`${imageName} screen sketch`}
+                                                ></Image>
                                                 <ImageDescription>{imageName}</ImageDescription>
                                             </div>
                                         );
@@ -746,14 +805,19 @@ const NetilionConserve = () => {
                             <SectionTitle>Medium Fidelity Designs</SectionTitle>
                             <DPSectionContent>
                                 <p>
-                                    Next, I converted all of the sketches into a medium-fidelity Figma prototype which we
-                                    could use to perform usability tests.
+                                    Next, I converted all of the sketches into a medium-fidelity Figma prototype which
+                                    we could use to perform usability tests.
                                 </p>
                                 <div className="mid-fi-screens-container">
                                     {Object.entries(midFiScreens).map(([imageName, imageSrc], index) => {
                                         return (
                                             <div className="mid-fi-image-container" key={index}>
-                                                <Image objectFit="contain" src={imageSrc} layout="responsive" alt={`${imageName} screen mock-up`}></Image>
+                                                <Image
+                                                    objectFit="contain"
+                                                    src={imageSrc}
+                                                    layout="responsive"
+                                                    alt={`${imageName} screen mock-up`}
+                                                ></Image>
                                                 <ImageDescription>{imageName}</ImageDescription>
                                             </div>
                                         );
@@ -765,8 +829,8 @@ const NetilionConserve = () => {
                             <SectionTitle>Usability Testing</SectionTitle>
                             <DPSectionContent>
                                 Next, I evaluated the medium-fidelity prototype with the Plant Manager and Environmental
-                                Steward at Citizen&apos;s Energy and the E+H sponsor and found the following key issues with
-                                our design.
+                                Steward at Citizen&apos;s Energy and the E+H sponsor and found the following key issues
+                                with our design.
                                 <ol>
                                     <li>
                                         <Emp>Goals ought to be shown on the charts</Emp> and not just the stats.
@@ -779,7 +843,10 @@ const NetilionConserve = () => {
                                         combinations of <Emp>readings from multiple sensors and excel sheets.</Emp>
                                     </li>
                                 </ol>
-                                <Link href="https://indiana-my.sharepoint.com/:x:/g/personal/nafark_iu_edu/EY6oqYksgKVBq0GFZa4DPjgBWVbhXCPpKHwjdfvgHvcRAA?e=ajfm4x" passHref>
+                                <Link
+                                    href="https://indiana-my.sharepoint.com/:x:/g/personal/nafark_iu_edu/EY6oqYksgKVBq0GFZa4DPjgBWVbhXCPpKHwjdfvgHvcRAA?e=ajfm4x"
+                                    passHref
+                                >
                                     <UnderlinedLink target="_blank">
                                         Here is the entire list of issues we found with our designs
                                     </UnderlinedLink>
@@ -821,13 +888,18 @@ const NetilionConserve = () => {
                             This was an interesting and challenging project where we got to learn about an entirely new
                             domain that we had no familiarity with. Overall we are all proud of the outcome of the
                             project and the growth we all experienced. Special thanks to <Emp>Matt Walsh</Emp> from E+H,{' '}
-                            <Emp>Justin Redman, and Anne McIver</Emp> from Citizen&apos;s Energy for their time and effort in
-                            helping us throughout the design process. Finally, this wouldn&&apos;apos;t have been possible without
-                            our mentor <Emp>Professor Lou Lenzi</Emp> whose insights and mentorship were the guiding
-                            lights throughout this project.
+                            <Emp>Justin Redman, and Anne McIver</Emp> from Citizen&apos;s Energy for their time and
+                            effort in helping us throughout the design process. Finally, this wouldn&&apos;apos;t have
+                            been possible without our mentor <Emp>Professor Lou Lenzi</Emp> whose insights and
+                            mentorship were the guiding lights throughout this project.
                         </p>
                         <div className="team-image-container">
-                            <Image src={teamPicture} objectFit="contain" layout="responsive" alt="Photograph of the team at the water treatment plant." />
+                            <Image
+                                src={teamPicture}
+                                objectFit="contain"
+                                layout="responsive"
+                                alt="Photograph of the team at the water treatment plant."
+                            />
                             <ImageDescription>
                                 The team with Matt Walsh and Justin Redman at the Water treatment plant.
                             </ImageDescription>
@@ -857,13 +929,12 @@ const InsightRow = styled.div`
 `;
 
 const ResearchDiv = styled.div``;
-
 const Container = styled.div`
     width: 100%;
     font-size: 16px;
     p {
-        margin-top: 0px !important;
-        margin-bottom: 24px !important;
+        margin-top: 0px;
+        margin-bottom: 24px;
     }
     .case-study-container {
         display: flex;
@@ -883,9 +954,6 @@ const Container = styled.div`
                 flex-direction: column;
                 gap: 24px;
                 align-items: flex-start;
-                p {
-                    margin-bottom: 0px;
-                }
                 .eh-image-container {
                     height: 120px;
                     width: 180px;
@@ -1156,6 +1224,255 @@ const Container = styled.div`
                 display: flex;
                 .win-image-container {
                     flex: 1;
+                }
+            }
+        }
+    }
+    ${maxDevice.tablet} {
+        .case-study-container {
+            #design-process {
+                .section-content {
+                    #research {
+                        .methods-group {
+                            gap: 8px;
+                            display: grid;
+                            grid-template-columns: max-content max-content;
+                            justify-items: center;
+                            justify-content: center;
+                            ${Card} {
+                                width: 132px;
+                                svg {
+                                    height: 64px;
+                                }
+                                ${Emp} {
+                                    font-size: 12px;
+                                }
+                                &:last-child {
+                                    grid-column-end: span 2;
+                                }
+                            }
+                        }
+                    }
+                    #pain-points {
+                        ${DPSectionContent} {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 8px;
+                            ${Card} {
+                                display: grid;
+                                grid-template-columns: 100px 1fr;
+                                ${ListCardTitle} {
+                                    text-align: left;
+                                    height: unset;
+                                }
+                                svg {
+                                    grid-row-end: span 2;
+                                    justify-self: center;
+                                }
+                            }
+                        }
+                    }
+                    #competitors {
+                        ${DPSectionContent} {
+                            .competitors-wrapper {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 8px;
+                                ${Card} {
+                                    height: 80px;
+                                    grid-template-columns: 50px 1fr;
+                                }
+                            }
+                        }
+                    }
+                    #pain-points,
+                    #competitors {
+                        ${DPSectionContent} {
+                            width: 100%;
+                            max-width: 400px;
+                            ${Card} {
+                            }
+                        }
+                    }
+                    #sketches {
+                        .sketches-container {
+                            .sketch-image-container {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ${maxDevice.mobile} {
+        .case-study-container {
+            .hero {
+                .section-content {
+                    margin-bottom: -32px;
+                    margin-top: 64px;
+                }
+            }
+            ${HeroStatsContainer} {
+                .for {
+                    ${StatContent} {
+                        width: 240px;
+                    }
+                }
+            }
+            .the-client {
+                p {
+                    margin-bottom: 8px;
+                }
+                .section-content {
+                    gap: 16px;
+                    align-items: center;
+                    .eh-image-container {
+                        display: flex;
+                        span {
+                            flex: 1;
+                        }
+                    }
+                }
+            }
+            #problem-and-solution {
+                .section-content {
+                    gap: 8px;
+                }
+            }
+            #how-will-it-work {
+                .section-content {
+                    padding: 0px 32px;
+                    gap: 8px;
+                    & > ${Card} {
+                        position: relative;
+                        width: 100%;
+                        &::after {
+                            content: '';
+                            border: 10px solid ${(props) => props.theme.cardBackground};
+                            width: 32px;
+                            height: 100%;
+                            position: absolute;
+                            z-index: -1;
+                            top: 50%;
+                            transform: translateY(-5px);
+                        }
+                        &:first-child {
+                            &::after {
+                                border-left: 0px;
+                                right: -24px;
+                            }
+                        }
+                        &:nth-child(2) {
+                            &::after {
+                                border-right: 0px;
+                                border-bottom: 0px;
+                                left: -24px;
+                            }
+                        }
+                    }
+                    .card-group {
+                        width: 100%;
+                        gap: 8px;
+                        ${IconedListCard} {
+                            grid-template-rows: 1fr;
+                            position: relative;
+                            width: 100%;
+                            svg {
+                                grid-row-end: span 1;
+                            }
+                            p {
+                                display: none;
+                            }
+                            &::after {
+                                content: '';
+                                position: absolute;
+                                background: ${(props) => props.theme.cardBackground};
+                                left: -24px;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                border-top: 0px;
+                                border-bottom: 0px;
+                            }
+                            &:first-child,
+                            &:last-child {
+                                &::after {
+                                    transform: unset;
+                                    height: 10px;
+                                    width: 100%;
+                                }
+                            }
+                            &:first-child {
+                                &::after {
+                                    border-top: 0px;
+                                    border-left: 0px;
+                                }
+                            }
+                            &:last-child {
+                                &::before {
+                                    content: '';
+                                    border-left: 10px solid ${(props) => props.theme.cardBackground};
+                                    position: absolute;
+                                    left: -24px;
+                                    height: 300%;
+                                    bottom: 50%;
+                                }
+                                &::after {
+                                    border-bottom: 0px;
+                                    border-left: 0px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #key-features {
+                .section-content {
+                    .scroll-wrap {
+                        .screen-info-container {
+                            display: flex;
+                            flex-direction: column;
+                            .screen__image-wrapper {
+                                display: flex;
+                                width: 100%;
+                                margin-top: 24px;
+                                span {
+                                    flex: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            #design-process {
+                .design-process-title {
+                    min-width: 0;
+                    ${ProcessSectionHeader} {
+                        display: none;
+                    }
+                }
+                .section-content {
+                    padding-top: 0px;
+                    ${SectionTitle} {
+                        font-size: 20px;
+                    }
+                    #mid-fi {
+                        ${DPSectionContent} {
+                            .mid-fi-screens-container {
+                                grid-template-columns: 1fr;
+                            }
+                        }
+                    }
+                    #key-insights {
+                        ${DPSectionContent} {
+                            ${InsightRow} {
+                                gap: 8px;
+                                ${ListCard} {
+                                    margin-top: 8px;
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
