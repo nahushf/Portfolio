@@ -613,7 +613,8 @@ const Container = styled.div`
         }
         #screens {
             iframe {
-                height: 800px;
+                height: 80vh;
+                max-height: 800px;
                 width: 100%;
             }
         }
