@@ -122,6 +122,9 @@ const Container = styled(motion.div)`
         background: #291d37;
     }
     .project-information {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
         .project-title {
             color: #fff;
             font-weight: 800;
@@ -136,9 +139,10 @@ const Container = styled(motion.div)`
     .image-container {
         position: relative;
         padding: 24px;
+        flex: 1;
         padding-top: 60px;
         border-radius: 16px;
-        height: 400px;
+        max-height: 400px;
         display: flex;
         justify-content: center;
         align-items: start;
