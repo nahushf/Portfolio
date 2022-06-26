@@ -1,11 +1,10 @@
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
-import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import styled, { ThemeProvider, useTheme } from 'styled-components';
 import { BallIcon, CloudIcon, MobileIcon } from '../../components/CourtsideIcons';
-import { Footer } from '../../components/Footer';
-import { Emp, Navigation, ScreensSection } from '../../components/reusableComponents';
+import { Emp, ScreensSection } from '../../components/reusableComponents';
 import {
     BackButtonV2,
     Card,
@@ -21,38 +20,34 @@ import {
     HeroStatsContainer,
     ListCard,
     ListCardTitle,
-    ProcessSectionHeader,
     Section,
     SectionTitle,
     SplitSection,
     StatContent,
     StatContentItem
 } from '../../components/scrollComponents';
+import { NETILION_CONSERVE, TRUPAWS } from '../../constants/projects';
+import { maxDevice } from '../../constants/styles';
 import FiveGSports from '../../public/5G-sports.png';
-import ATTLogo from '../../public/AT&T-5g-logo.png';
-import bannerImage from '../../public/courtside/courtside-banner.png';
 import FiveG from '../../public/5G.png';
-import RemoteCoachingImage from '../../public/courtside/remote-coaching.png';
+import ATTLogo from '../../public/AT&T-5g-logo.png';
+import win1 from '../../public/courtside/award-1.jpg';
+import win2 from '../../public/courtside/award-2.jpg';
+import win3 from '../../public/courtside/award-3.jpg';
 import BrailleDisplayImage from '../../public/courtside/braille-display.png';
-import VirtualBoxingImage from '../../public/courtside/virtual-boxing.png';
-import { useLocomotiveScroll } from 'react-locomotive-scroll';
+import bannerImage from '../../public/courtside/courtside-banner.png';
 import ideaIllustration from '../../public/courtside/idea-illustration.png';
-import problemIllustration from '../../public/courtside/problem-statement-illustration.png';
+import informationArchitecture from '../../public/courtside/information-architecture.png';
 import initialSystemDesign from '../../public/courtside/initial-system-design.png';
 import navigationDesign from '../../public/courtside/navigation.png';
-import informationArchitecture from '../../public/courtside/information-architecture.png';
+import RemoteCoachingImage from '../../public/courtside/remote-coaching.png';
 import matchList from '../../public/courtside/screens/1-Match-List.png';
 import matchDetails from '../../public/courtside/screens/2-Match-Details.png';
 import matchAudio from '../../public/courtside/screens/3-Match-Audio.png';
 import matchStats from '../../public/courtside/screens/4-Match-Stats.png';
 import voiceAssistant from '../../public/courtside/screens/5-Voice-Assistant-1.png';
 import voicePlay from '../../public/courtside/screens/6-Voice-Play.png';
-import teamFunyuns from '../../public/courtside/team-funyuns.jpg';
-import win1 from '../../public/courtside/award-1.jpg';
-import win2 from '../../public/courtside/award-2.jpg';
-import win3 from '../../public/courtside/award-3.jpg';
-import { PROJECTS } from '../../constants/projects';
-import { ProjectTile } from '../../components/ProjectTile';
+import VirtualBoxingImage from '../../public/courtside/virtual-boxing.png';
 
 const wins = [win1, win2, win3];
 
@@ -222,8 +217,7 @@ const Courtside = () => {
                     <Section title="Spatial Audio Experience">
                         <BasketballAudio />
                     </Section>
-                    <Section className="mobile-app">
-                        <SectionTitle>Mobile App</SectionTitle>
+                    <Section className="mobile-app" title="Mobile App">
                         <ScreensSection srcs={['/courtside/match-list-and-details.mp4']} title="Match list and details">
                             The users can see all upcoming games on the application and can tap a game to see more
                             details and buy a virtual ticket
@@ -271,7 +265,7 @@ const Courtside = () => {
                                     <Card>
                                         <CardTitle>Low Latency</CardTitle>
                                     </Card>
-                                    <Image src={FiveG} height={102} objectFit="contain" />
+                                    <Image src={FiveG} height={64} objectFit="contain" />
                                     <div className="lower-research-points">
                                         <Card>
                                             <CardTitle>Greater Network Capacity</CardTitle>
@@ -431,18 +425,22 @@ const Courtside = () => {
                             </DPSectionContent>
                         </DPSection>
                         <DPSection className="screens-container" id="screens" sectionId="design">
-                            <SectionTitle>Screens</SectionTitle>
+                            <SectionTitle>Final Figma Prototype</SectionTitle>
                             <DPSectionContent>
-                                <Card>
-                                    {Object.entries(screens).map(([screenName, screenSrc], index) => {
-                                        return (
-                                            <div className="screen-image-container" key={index}>
-                                                <Image src={screenSrc as any} layout="responsive" />
-                                                <div className="screen-name">{screenName}</div>
-                                            </div>
-                                        );
-                                    })}
-                                </Card>
+                                <iframe
+                                    src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2FjJvMvGYxjpfnjljjdhQj7F%2FAT%2526T-Hackathon%3Fpage-id%3D72%253A2287%26node-id%3D72%253A4308%26viewport%3D752%252C160%252C0.07%26scaling%3Dscale-down%26starting-point-node-id%3D72%253A4308%26hide-ui%3D1"
+                                    allowFullScreen
+                                ></iframe>
+                                {/* <Card> */}
+                                {/* {Object.entries(screens).map(([screenName, screenSrc], index) => { */}
+                                {/* return ( */}
+                                {/* <div className="screen-image-container" key={index}> */}
+                                {/* <Image src={screenSrc as any} layout="responsive" /> */}
+                                {/* <div className="screen-name">{screenName}</div> */}
+                                {/* </div> */}
+                                {/* ); */}
+                                {/* })} */}
+                                {/* </Card> */}
                             </DPSectionContent>
                         </DPSection>
                     </DesignProcess>
@@ -491,7 +489,7 @@ const Courtside = () => {
                             ))}
                         </div>
                     </Section>
-                    <CaseStudyFooter projects={[PROJECTS[1], PROJECTS[2]]}></CaseStudyFooter>
+                    <CaseStudyFooter projects={[NETILION_CONSERVE, TRUPAWS]}></CaseStudyFooter>
                 </div>
             </Container>
         </ThemeProvider>
@@ -507,7 +505,7 @@ const Container = styled.div`
         justify-content: center;
         flex-direction: column;
         .our-challenge {
-            .section-content{
+            .section-content {
                 display: flex;
                 flex-direction: column;
                 gap: 24px;
@@ -521,6 +519,9 @@ const Container = styled.div`
             display: flex;
             justify-content: center;
             gap: 32px;
+            .win-image-container {
+                flex: 1;
+            }
             img {
                 height: 30vw;
             }
@@ -598,15 +599,96 @@ const Container = styled.div`
             }
         }
         .section-content {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            gap: 100px;
-            padding-top: 112px;
+            // display: flex;
+            // flex: 1;
+            // flex-direction: column;
+            // gap: 100px;
+            // padding-top: 112px;
             .wins-container {
                 display: flex;
                 .win-image-container {
                     flex: 1;
+                }
+            }
+        }
+        #screens {
+            iframe {
+                height: 800px;
+                width: 100%;
+            }
+        }
+    }
+    ${maxDevice.tablet} {
+        #design-process {
+            .section-content {
+                #formative-research {
+                    .research-viz {
+                        gap: 8px;
+                        & > ${Card} {
+                            order: 1;
+                            margin-top: 8px;
+                        }
+                        .lower-research-points {
+                            flex-direction: column;
+                            gap: 8px;
+                            order: 2;
+                        }
+                    }
+                }
+                #screens {
+                    ${DPSectionContent} {
+                        display: flex;
+                        justify-content: center;
+                        iframe {
+                            width: 370px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ${maxDevice.mobile} {
+        .mobile-app {
+            .section-content {
+                .screens-section {
+                    &:first-child {
+                        .screens-info {
+                            margin-top: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        #design-process {
+            .section-content {
+                #screens {
+                    ${DPSectionContent} {
+                        display: flex;
+                        justify-content: center;
+                        iframe {
+                            border: 1px solid ${(props) => props.theme.empText};
+                            width: 80vw;
+                            height: 170vw;
+                        }
+                    }
+                }
+                .app-sketches {
+                    .solution-formula {
+                        ${ListCard} {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        .final-thoughts {
+            .wins-container {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                img {
+                    height: unset;
                 }
             }
         }

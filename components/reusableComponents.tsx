@@ -6,7 +6,7 @@ import { Fragment, useEffect, useRef, useState } from 'react';
 import Scrollbars, { ScrollbarProps } from 'react-custom-scrollbars-2';
 import { InView } from 'react-intersection-observer';
 import styled from 'styled-components';
-import { CUSTOM_EASING, HOME_SHOW_VARIANT, red, textColor } from '../constants/styles';
+import { CUSTOM_EASING, HOME_SHOW_VARIANT, maxDevice, red, textColor } from '../constants/styles';
 import { isEmpty } from '../scripts/utils';
 import { Footer } from './Footer';
 
@@ -256,7 +256,7 @@ export const InsightsContainer = styled.div`
 export const ScreensSection = ({ title, children, srcs }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     return (
-        <ScreensSectionContainer className={srcs.length === 3 ? 'vertical' : ''}>
+        <ScreensSectionContainer className={`screens-section ${ srcs.length === 3 ? 'vertical' : '' }`}>
             <div className="screens-info">
                 <div className="screens-section__title">{title}</div>
                 <div className="screens-section__description">{children}</div>
@@ -306,6 +306,7 @@ export const ScreensSectionContainer = styled.div`
         margin-top: 80px;
         width: 100%;
         .screens-section__title {
+        margin-bottom: 24px;
             font-weight: 700;
         }
     }
@@ -324,6 +325,12 @@ export const ScreensSectionContainer = styled.div`
     &.vertical {
         flex-direction: column-reverse;
         align-items: center;
+    }
+    ${maxDevice.mobile} {
+        grid-template-columns: 1fr;
+        .screens-info {
+            padding-left: 0px;
+        }
     }
 `;
 
@@ -678,7 +685,7 @@ const AnimatedNameContainer = styled(Name)`
 export const ImageDescription = styled.div`
     font-size: 12px;
     line-height: 18px;
-    color: ${props => props.theme.textColor};
+    color: ${(props) => props.theme.textColor};
 `;
 
 export const CustomScroll = (props: ScrollbarProps) => {

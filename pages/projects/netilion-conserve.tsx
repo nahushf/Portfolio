@@ -1210,17 +1210,6 @@ const Container = styled.div`
             }
         }
         .section-content {
-            display: flex;
-            flex: 1;
-            flex-direction: column;
-            gap: 100px;
-            padding-top: 112px;
-            .wins-container {
-                display: flex;
-                .win-image-container {
-                    flex: 1;
-                }
-            }
         }
     }
     ${maxDevice.tablet} {
@@ -1513,17 +1502,7 @@ const Container = styled.div`
                 }
             }
             #design-process {
-                .design-process-title {
-                    min-width: 0;
-                    ${ProcessSectionHeader} {
-                        display: none;
-                    }
-                }
                 .section-content {
-                    padding-top: 0px;
-                    ${SectionTitle} {
-                        font-size: 20px;
-                    }
                     #mid-fi {
                         ${DPSectionContent} {
                             .mid-fi-screens-container {

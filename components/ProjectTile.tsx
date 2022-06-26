@@ -56,7 +56,6 @@ export const ProjectTile = ({
             ? {
                   glareEnable: true,
                   glareMaxOpacity: 0.6,
-                  gyroscope: true,
                   scale: 1.02,
                   transitionSpeed: 1500,
                   tiltMaxAngleY: 10,
@@ -131,6 +130,7 @@ const Container = styled(motion.div)`
         }
         .project-description {
             font-size: 18px;
+            height: 48px;
         }
     }
     .image-container {
@@ -138,7 +138,7 @@ const Container = styled(motion.div)`
         padding: 24px;
         padding-top: 60px;
         border-radius: 16px;
-        max-height: 400px;
+        height: 400px;
         display: flex;
         justify-content: center;
         align-items: start;
@@ -197,7 +197,7 @@ const Container = styled(motion.div)`
             color: #9c92ab;
         }
     }
-    ${maxDevice.mobile} {
+    ${maxDevice.tablet} {
         .project-information {
             .project-title {
                 font-size: ${(props) => props.theme.mobileH1FontSize};

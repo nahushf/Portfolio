@@ -3,6 +3,7 @@ import { createContext, forwardRef, memo, ReactNode, useCallback, useContext, us
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import styled from 'styled-components';
 import { maxDevice } from '../constants/styles';
+import { useIsDevice } from '../useWindowSize';
 import { FooterBottom } from './Footer';
 import { LeftArrow } from './LeftArrow';
 import { ProjectTile } from './ProjectTile';
@@ -62,20 +63,20 @@ const SectionImpl = (
         >
             {title ? (
                 title instanceof Function ? (
-                    title()
-                ) : (
-                    <SectionTitle
-                        {...(titleScrollTarget
-                            ? {
-                                  'data-scroll': true,
-                                  'data-scroll-sticky': true,
-                                  'data-scroll-target': titleScrollTarget
-                              }
-                            : {})}
-                    >
-                        {title}
-                    </SectionTitle>
-                )
+                title()
+            ) : (
+                <SectionTitle
+                    {...(titleScrollTarget
+                        ? {
+                            'data-scroll': true,
+                            'data-scroll-sticky': true,
+                            'data-scroll-target': titleScrollTarget
+                    }
+                    : {})}
+                >
+                    {title}
+                </SectionTitle>
+            )
             ) : null}
             <div className="section-content">{children}</div>{' '}
         </SectionContainer>
@@ -315,17 +316,17 @@ export const DPSectionContent = styled.div`
     ol.exploration-idea-list {
         li {
             margin-bottom: 32px;
-            .exploration-image-container {
-                margin: 16px 0px;
-                width: 100%;
-                max-width: 350px;
-            }
-            ${Emp} {
-                margin-bottom: 16px;
-            }
-            .idea-content {
-                margin-top: 16px;
-            }
+.exploration-image-container {
+    margin: 16px 0px;
+    width: 100%;
+    max-width: 350px;
+}
+${Emp} {
+    margin-bottom: 16px;
+}
+    .idea-content {
+        margin-top: 16px;
+    }
         }
     }
     .research-viz {
@@ -345,18 +346,18 @@ export const DPSectionContent = styled.div`
                 justify-content: center;
             }
         }
-        .lower-research-points {
-            display: flex;
-            gap: 72px;
-            ${Card} {
-                ${CardTitle} {
-                    -webkit-background-clip: unset;
-                    -webkit-text-fill-color: unset;
-                    background: none;
-                    color: ${(props) => props.theme.empText};
+            .lower-research-points {
+                display: flex;
+                gap: 72px;
+                ${Card} {
+                    ${CardTitle} {
+                        -webkit-background-clip: unset;
+                        -webkit-text-fill-color: unset;
+                        background: none;
+                        color: ${(props) => props.theme.empText};
+                    }
                 }
             }
-        }
     }
 `;
 
@@ -403,6 +404,7 @@ export const DesignProcessImpl = ({
         },
         [scroll, currentElementIds.toString(), setCurrentElementIds]
     );
+    const isDesktop = useIsDevice('desktop');
     return (
         <DPSectionContext.Provider value={{ currentElementIds: currentElementIds.split(','), setScrollSection() {} }}>
             <DesignProcessContainer
@@ -412,9 +414,8 @@ export const DesignProcessImpl = ({
                         <div
                             className="design-process-title"
                             data-scroll
-                            data-scroll-sticky
+                            data-scroll-sticky={isDesktop}
                             data-scroll-target="#design-process"
-                            style={{ paddingTop: '100px' }}
                         >
                             <SectionTitle>Design Process</SectionTitle>
                             {title(renderProcessLink)}
@@ -429,7 +430,41 @@ export const DesignProcessImpl = ({
 
 export const DesignProcess = memo(DesignProcessImpl);
 
-const DesignProcessContainer = styled(SplitSection)``;
+const DesignProcessContainer = styled(SplitSection)`
+    .section-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        gap: 100px;
+        padding-top: 112px;
+    }
+    .design-process-title {
+        padding-top: 100px;
+    }
+@media only screen and (max-width: 1280px) {
+    margin-top: -40px;
+    .section-content, .design-process-title {
+        padding-top: 140px;
+    }
+}
+${maxDevice.mobile} {
+    padding-top: 0px;
+    .design-process-title {
+        padding-top: 112px;
+        min-width: 0;
+        ${ProcessSectionHeader} {
+            display: none;
+        }
+    }
+        .section-content {
+            padding-top: 0px;
+            ${SectionTitle} {
+                font-size: 20px;
+            }
+        }
+
+}
+`;
 
 export const DPSection = ({ sectionId, className = '', ...props }) => {
     const { currentElementIds } = useContext(DPSectionContext);
@@ -450,11 +485,11 @@ export const DPSection = ({ sectionId, className = '', ...props }) => {
 };
 
 const DPSectionContainer = styled.div`
-    ${SectionTitle} {
-        width: 100%;
-    }
-    ${DPSectionContent} {
-    }
+${SectionTitle} {
+    width: 100%;
+}
+${DPSectionContent} {
+}
 `;
 
 export const BackButtonV2 = () => {
@@ -468,21 +503,21 @@ export const BackButtonV2 = () => {
 };
 
 const BackButtonContainer = styled.a`
-    position: fixed;
-    left: 32px;
-    top: 32px;
-    height: 80px;
-    width: 80px;
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 999;
-    background: ${(props) => props.theme.background};
-    svg {
-        height: 32px;
-        width: 32px;
-    }
+position: fixed;
+left: 32px;
+top: 32px;
+height: 80px;
+width: 80px;
+border-radius: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 999;
+background: ${(props) => props.theme.background};
+svg {
+    height: 32px;
+    width: 32px;
+}
     &::before {
         position: absolute;
         content: '';
@@ -492,16 +527,15 @@ const BackButtonContainer = styled.a`
         background: ${(props) => props.theme.caseStudyColor};
         z-index: -1;
     }
-    ${maxDevice.tablet} {
-
-        top: unset;
-        bottom: 16px;
-        left: 16px;
-    }
-    ${maxDevice.mobile} {
-        height: 56px;
-        width: 56px;
-    }
+${maxDevice.tablet} {
+    top: unset;
+    bottom: 16px;
+    left: 16px;
+}
+${maxDevice.mobile} {
+    height: 56px;
+    width: 56px;
+}
 `;
 
 export const CaseStudyFooter = ({ projects }: { projects: IProject[] }) => {
@@ -521,29 +555,29 @@ export const CaseStudyFooter = ({ projects }: { projects: IProject[] }) => {
 };
 
 const CaseStudyFooterContainer = styled(Section)`
-    background: ${(props) => props.theme.cardBackground};
-    padding-top: 56px;
-    padding-bottom: 56px;
-    margin-bottom: 0px;
-    .footer-projects {
-        margin-top: 24px;
-        display: flex;
-        gap: 24px;
-    }
+background: ${(props) => props.theme.cardBackground};
+padding-top: 56px;
+padding-bottom: 56px;
+margin-bottom: 0px;
+.footer-projects {
+    margin-top: 24px;
+    display: flex;
+    gap: 24px;
+}
     .footer__bottom {
         margin-top: 56px;
         gap: 0px;
     }
-    ${maxDevice.mobile} {
-        padding-bottom: 80px;
-        .footer-projects {
-            flex-direction: column;
-            max-width: 400px;
-        }
+${maxDevice.mobile} {
+    padding-bottom: 80px;
+    .footer-projects {
+        flex-direction: column;
+        max-width: 400px;
     }
+}
 `;
 
 export const StatContentItem = styled.div`
-    margin: 8px 0px;
+margin: 8px 0px;
 `;
 export const StatContent = styled.div``;
