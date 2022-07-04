@@ -36,10 +36,11 @@ import braveLogo from '../public/brave-logo.png';
 import collaboLogo from '../public/collabo.png';
 import statusphereLogo from '../public/statusphere-logo.png';
 import popmenuLogo from '../public/popmenu-logo.png';
-import {PROJECTS} from './projects';
+import { PROJECTS } from './projects';
 import shopifyLogo from '../public/shopify-logo.png';
 import relativityLogo from '../public/relativity-logo.jpeg';
 import logrocketLogo from '../public/logrocket-logo.png';
+import alarmLogo from '../public/alarm-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1329,7 +1330,7 @@ export const COMPANIES = [
         ]),
 
     new Company('Popmenu', 'popmenu', popmenuLogo, 300)
-    .setProjects([PROJECTS[2], PROJECTS[1]] )
+        .setProjects([PROJECTS[2], PROJECTS[1]])
         .setCompanyPoints((companyName) => [
             {
                 title: `The value of the domain`,
@@ -1460,5 +1461,34 @@ I see the value in the services that ${companyName} provides. As someone who is 
                     'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
             }
         ]),
+    new Company('Alarm.com', 'alarm', alarmLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Existing experience in IoT + Security`,
+                description: `
+        For my previous semester I had the privilege of working with Qumulex which is a competitor of the company. I helped them develop a feature set that would allow them to specifically target Security in the retail sector and the project exposed me to the value and the challenges of the domain the company works in.
+            `
+            },
+            {
+                title: 'Curiosity about the upcoming innovations in the domain',
+                description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ])
 ];
-

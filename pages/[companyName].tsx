@@ -9,7 +9,7 @@ import { Footer } from '../components/Footer';
 import { ProjectTile } from '../components/ProjectTile';
 import { AnimatedName, Emp, Name, Navigation } from '../components/reusableComponents';
 import { COMPANIES } from '../constants/companySpecificPoints';
-import { PROJECTS } from '../constants/projects';
+import { COURTSIDE, NETILION_CONSERVE, PROJECTS } from '../constants/projects';
 import { CUSTOM_EASING, darkBackground, HOME_FADE_PROPS, textColor } from '../constants/styles';
 import endMeme from '../public/end-meme.png';
 
@@ -23,12 +23,12 @@ const CompanyPage = ({ companyName }) => {
     if (!currentCompany) {
         return null;
     }
-    const projects = currentCompany.projects || [PROJECTS[2], PROJECTS[0]];
+    const projects = currentCompany.projects || [NETILION_CONSERVE, COURTSIDE];
     return (
         <Container>
             <Navigation variants />
             <div className="page-content">
-                <div className="landing">
+                <div className="landing" data-scroll-section>
                     <div className="intro-content">
                         <div className="intro-beginning">
                             <AnimatedName name={'Nahush.'} />
@@ -125,6 +125,7 @@ const ReasonSection = forwardRef<any, { className?: string; title: string | JSX.
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 ref={ref}
+                data-scroll-section
             >
                 <div className="background" />
                 <div className="reason-content-container">
@@ -139,7 +140,7 @@ const ReasonSection = forwardRef<any, { className?: string; title: string | JSX.
 const PointsSection = forwardRef<any, { className: string; title: string | JSX.Element; points: IPoint[] }>(
     function PointsSectionImpl({ className = '', title, points }, ref) {
         return (
-            <ReasonSection className="points-section" title={title} ref={ref}>
+            <ReasonSection className="points-section" title={title} ref={ref} data-scroll-section>
                 <>
                     {points.map((point, index) => {
                         return <Point {...point} key={index} />;
@@ -195,6 +196,7 @@ const Container = styled.div`
                 }
             }
             .project-tile {
+            height: unset;
                 &:hover {
                     background: #362844 !important;
                 }
