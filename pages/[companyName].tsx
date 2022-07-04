@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { ChevronDown } from '../components/ChevronDown';
 import { Footer } from '../components/Footer';
 import { ProjectTile } from '../components/ProjectTile';
+import { UnderlinedLink } from '../components/reusable/UnderlinedLink';
 import { AnimatedName, Emp, Name, Navigation } from '../components/reusableComponents';
 import { COMPANIES } from '../constants/companySpecificPoints';
 import { COURTSIDE, NETILION_CONSERVE, PROJECTS } from '../constants/projects';
@@ -54,10 +55,13 @@ const CompanyPage = ({ companyName }) => {
                             <p>
                                 I have collected a couple of my projects which I think you would like. Be sure to check
                                 out{' '}
-                                <Emp>
-                                    <Link href="/projects/courtside">Courtside</Link>
-                                </Emp>
-                                , which won me the <Emp>AT&T 5G Sports Hackathon.</Emp>
+                                <Link href="/projects/netilion-conserve" passHref>
+                                    <UnderlinedLink target="_blank">Netilion Conserve</UnderlinedLink>
+                                </Link>
+                                , which was a product design project I worked on for{' '}
+                                <Link href="https://www.us.endress.com/en?store_locale=en" passHref>
+                                    <UnderlinedLink target="_blank">Endress and Hauser</UnderlinedLink>
+                                </Link>
                             </p>
                         </motion.div>
                     </div>
@@ -196,7 +200,7 @@ const Container = styled.div`
                 }
             }
             .project-tile {
-            height: unset;
+                height: unset;
                 &:hover {
                     background: #362844 !important;
                 }
