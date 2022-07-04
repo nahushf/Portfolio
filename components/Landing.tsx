@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
-import { black, HOME_FADE_PROPS, red } from '../constants/styles';
+import { black, HOME_FADE_PROPS, maxDevice, red } from '../constants/styles';
 import { AnimatedName, Emp, HomePageSection } from './reusableComponents';
 
 const animationProps = HOME_FADE_PROPS;
@@ -80,5 +80,9 @@ export const Container = styled(HomePageSection)`
                 }
             }
         }
+    }
+    ${maxDevice.mobile} {
+        height: 83vh;
+        min-height: 540px;
     }
 `;

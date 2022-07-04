@@ -22,4 +22,5 @@ export const ProjectTileList = () => {
     );
 };
 
-const Container = styled(motion.div)``;
+const Container = styled(motion.div)`
+`;

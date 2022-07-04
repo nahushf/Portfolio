@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { maxDevice } from '../constants/styles';
 import { BehanceIcon, EmailIcon, InstaIcon, LinkedInIcon } from './InstaIcon';
 import { HomePageSection } from './reusableComponents';
 
@@ -52,6 +53,16 @@ const FooterBottomContainer = styled.div`
         gap: 16px;
         margin-bottom: 40px;
     }
+    ${maxDevice.mobile} {
+        margin-top: 32px;
+        align-items: flex-start;
+        .social {
+            margin-bottom: 0px;
+        }
+        .courtesy {
+            text-align: left;
+        }
+    }
 `;
 
 const Container = styled(HomePageSection)`
@@ -73,6 +84,14 @@ const Container = styled(HomePageSection)`
         strong {
             font-size: 24px;
             color: white;
+        }
+    }
+    ${maxDevice.mobile} {
+        padding-bottom: 80px;
+        .greet {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 16px;
         }
     }
 `;

@@ -12,6 +12,7 @@ declare interface IProject {
     tags: string[];
     badges?: {img: StaticImageData; tagline: string;}[];
     cssGradient?: string;
+    comingSoon?: boolean;
 }
 
 declare type VariantType = import('framer-motion').Variant;

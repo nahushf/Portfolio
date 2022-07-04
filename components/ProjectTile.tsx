@@ -39,7 +39,7 @@ const cardVariants = {
 };
 
 export const ProjectTile = ({
-    project: { route, gradient, image, title, description, tags, badges }
+    project: { route, gradient, image, title, description, tags, badges, comingSoon }
 }: {
     project: IProject;
 }) => {
@@ -73,8 +73,8 @@ export const ProjectTile = ({
                 whileTap="active"
                 whileInView="show"
                 variants={cardVariants}
-                onClick={() => router.push(route)}
-                className="project-tile"
+                onClick={() => !comingSoon && router.push(route)}
+                className={`project-tile ${comingSoon ? 'coming-soon' : ''}`}
             >
                 <div className="project-information">
                     <ImageWrapper {...imageWrapperProps}>
@@ -134,6 +134,40 @@ const Container = styled(motion.div)`
         .project-description {
             font-size: 18px;
             height: 48px;
+        }
+    }
+    &.coming-soon {
+        .image-container {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 110px);
+                color: white;
+                background: #9b9b9b;
+                text-align: center;
+                font-size: 20px;
+                background-image: url('/under-construction.png');
+                height: 100px;
+                width: 167px;
+                background-size: contain;
+                background-position: center;
+                box-shadow: 0px 8px 24px  rgba(51, 53, 79, 0.5);
+            }
+            &::before {
+                content: '';
+                height: 100%;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.3);
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                transform: translate3d(0, 0, 0px);
+            }
+            .image-layout-container {
+                opacity: 0.3;
+            }
         }
     }
     .image-container {

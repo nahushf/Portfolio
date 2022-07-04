@@ -256,7 +256,7 @@ export const InsightsContainer = styled.div`
 export const ScreensSection = ({ title, children, srcs }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     return (
-        <ScreensSectionContainer className={`screens-section ${ srcs.length === 3 ? 'vertical' : '' }`}>
+        <ScreensSectionContainer className={`screens-section ${srcs.length === 3 ? 'vertical' : ''}`}>
             <div className="screens-info">
                 <div className="screens-section__title">{title}</div>
                 <div className="screens-section__description">{children}</div>
@@ -306,7 +306,7 @@ export const ScreensSectionContainer = styled.div`
         margin-top: 80px;
         width: 100%;
         .screens-section__title {
-        margin-bottom: 24px;
+            margin-bottom: 24px;
             font-weight: 700;
         }
     }
@@ -612,6 +612,12 @@ export const Name = styled(motion.div)`
     .full-stop {
         color: ${red};
     }
+    ${maxDevice.mobile} {
+        padding: 0px;
+        font-size: 39px;
+        line-height: 1.5;
+        letter-spacing: -2px;
+    }
 `;
 
 export const Emp = styled.span`
@@ -679,6 +685,8 @@ const AnimatedNameContainer = styled(Name)`
     overflow: hidden;
     .animated-title__char:last-child {
         color: ${(props) => props.theme.primary};
+    }
+    ${maxDevice.mobile} {
     }
 `;
 

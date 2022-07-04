@@ -19,7 +19,6 @@ export const NETILION_CONSERVE = {
     image: NetilionConserveSplash,
     route: '/projects/netilion-conserve',
     tags: ['Industry Project', 'Product Design'],
-
     badges: [{ img: EHShortLogo, tagline: 'Client - Endress and Hauser' }]
 };
 
@@ -31,7 +30,8 @@ export const FARM2U = {
     image: Farm2USplash,
     route: '/projects/farm2u',
     tags: ['sustainability', 'Academic Project'],
-    badges: [academicProjectBadge]
+    badges: [academicProjectBadge],
+    comingSoon: true
 };
 export const TRUPAWS = {
     id: 4,
@@ -41,7 +41,8 @@ export const TRUPAWS = {
     image: TrupawsSplash,
     route: '/projects/trupaws',
     tags: ['pet-adoption', 'Academic Project'],
-    badges: [academicProjectBadge]
+    badges: [academicProjectBadge],
+    comingSoon: true
 };
 
 export const COURTSIDE = {

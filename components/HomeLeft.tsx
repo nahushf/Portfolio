@@ -21,8 +21,7 @@ export const HomeContent = () => {
     return (
         <Container autoHide>
             <div className="home-page-content">
-                <Landing
-                />
+                <Landing />
                 <HomePageSection
                     className="projects-container"
                     ref={projectsContainer}
@@ -92,6 +91,42 @@ export const HomeContent = () => {
     );
 };
 
+const WinSection = styled.div`
+    position: relative;
+    flex-shrink: 0;
+    height: 100%;
+    &:first-child {
+        grid-column-end: span 3;
+        display: flex;
+        align-items: center;
+        gap: 24px;
+    }
+    padding: 16px;
+    background: #291d37;
+    border-radius: 8px;
+    article {
+        margin-bottom: 16px;
+    }
+    .links-container {
+        display: flex;
+        gap: 16px;
+    }
+    a {
+        color: #fafafa;
+        text-decoration: underline;
+        display: flex;
+        color: ${(props) => props.theme.primary};
+        svg {
+            transform: rotate(-90deg);
+        }
+    }
+    ${maxDevice.mobile} {
+        &:first-child {
+            flex-direction: column;
+        }
+    }
+`;
+
 const Container = styled(ScrollBars)`
     overflow: auto;
     min-height: 0;
@@ -148,36 +183,29 @@ const Container = styled(ScrollBars)`
         .button--winona {
             margin-bottom: 16px;
         }
-    }
-`;
-
-const WinSection = styled.div`
-    position: relative;
-    flex-shrink: 0;
-    height: 100%;
-    &:first-child {
-        grid-column-end: span 3;
-        display: flex;
-        align-items: center;
-        gap: 24px;
-    }
-    padding: 16px;
-    background: #291d37;
-    border-radius: 8px;
-    article {
-        margin-bottom: 16px;
-    }
-    .links-container {
-        display: flex;
-        gap: 16px;
-    }
-    a {
-        color: #fafafa;
-        text-decoration: underline;
-        display: flex;
-        color: ${(props) => props.theme.primary};
-        svg {
-            transform: rotate(-90deg);
+        .home-page-content {
+            .projects-container {
+                .projects-list-container {
+                    grid-template-columns: 1fr;
+                }
+            }
         }
+        .wins-section,
+        #other-work {
+            height: unset;
+            margin-top: 100px;
+        }
+        .wins-section {
+            .wins-container {
+                grid-template-columns: 1fr;
+                ${WinSection} {
+                    grid-column-end: span 1;
+                }
+            }
+        }
+
+    h2, h3 {
+        font-size: ${(props) => props.theme.mobileH1FontSize};
+    }
     }
 `;
