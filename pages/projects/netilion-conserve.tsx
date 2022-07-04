@@ -3,7 +3,7 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import 'locomotive-scroll/dist/locomotive-scroll.css';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLocomotiveScroll } from 'react-locomotive-scroll';
 import styled, { ThemeProvider, useTheme } from 'styled-components';
 import { CitizensLogo } from '../../components/icons/CitizensLogo';
@@ -185,9 +185,22 @@ const NetilionConserve = () => {
     const theme = useTheme();
     const containerRef = useRef(null);
     const projectDescriptor = NETILION_CONSERVE;
-    // const { scroll } = useLocomotiveScroll();
+    const { scroll } = useLocomotiveScroll();
     const keyFeatureSection = useRef<HTMLDivElement>(null);
     const [contentWidth, setContentWidth] = useState(0);
+
+    console.log(scroll);
+    const OutlineLink = useCallback(({ destinationID: destinationSelector, children, offset = -200 }) => {
+        return (
+            <UnderlinedLink
+                onClick={() => {
+                    scroll.scrollTo(destinationSelector, { offset });
+                }}
+            >
+                {children}
+            </UnderlinedLink>
+        );
+    }, scroll);
     useEffect(() => {
         if (!keyFeatureSection.current) {
             return;
@@ -287,6 +300,20 @@ const NetilionConserve = () => {
                             </StatContent>
                         </HeroStat>
                     </HeroStatsContainer>
+                    <SplitSection id="outline" title="Case Study Outline">
+                        <p>This case study is divided into the following section. Feel free to jump around!</p>
+                        <div className="outline-links">
+                            <OutlineLink destinationID=".the-client">The Client</OutlineLink>
+                            <OutlineLink destinationID=".our-challenge">Our Challenge</OutlineLink>
+                            <OutlineLink destinationID=".my-contributions">My Contributions</OutlineLink>
+                            <OutlineLink destinationID="#problem-and-solution">Problem and Solution</OutlineLink>
+                            <OutlineLink destinationID="#how-will-it-work">How will it work</OutlineLink>
+                            <OutlineLink destinationID="#key-features">Key Features</OutlineLink>
+                            <OutlineLink destinationID="#design-process">Design Process</OutlineLink>
+                            <OutlineLink destinationID="#reflection">Reflection</OutlineLink>
+                            <OutlineLink destinationID=".final-thoughts">Final Thoughts</OutlineLink>
+                        </div>
+                    </SplitSection>
                     <SplitSection title="The Client" className="the-client">
                         <p>
                             <Emp>Endress and Hauser</Emp> is a company that manufactures&nbsp;
@@ -319,7 +346,7 @@ const NetilionConserve = () => {
                     <SplitSection title="Our Challenge" className="our-challenge">
                         Build a sustainability tracking system for Water Treatment Companies.
                     </SplitSection>
-                    <SplitSection title="My Contributions">
+                    <SplitSection title="My Contributions" className="my-contributions">
                         <ol>
                             <li>
                                 Designed interview questionnaires and guided the conversation during the plant visit and
@@ -864,7 +891,7 @@ const NetilionConserve = () => {
                         {/* </DPSectionContent> */}
                         {/* </DPSection> */}
                     </DesignProcess>
-                    <SplitSection title="Reflection">
+                    <SplitSection title="Reflection" id="reflection">
                         <ul>
                             <li>
                                 <Emp>Understanding industrial processes:</Emp> This project exposed me to the
@@ -941,6 +968,15 @@ const Container = styled.div`
                 flex-direction: column;
                 gap: 24px;
                 align-items: flex-start;
+            }
+        }
+        #outline {
+            .outline-links {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+                height: 104px;
+                flex-wrap: wrap;
             }
         }
         .the-client {
@@ -1251,8 +1287,7 @@ const Container = styled.div`
                                 }
                             }
                             &:first-child {
-                            &::before {
-
+                                &::before {
                                     content: '';
                                     border: 10px solid ${(props) => props.theme.cardBackground};
                                     border-bottom: 0px;
@@ -1263,7 +1298,7 @@ const Container = styled.div`
                                     bottom: 0px;
                                     width: 100%;
                                     z-index: -1;
-                            }
+                                }
                                 &::after {
                                     border-top: 0px;
                                     border-left: 0px;
@@ -1392,6 +1427,11 @@ const Container = styled.div`
                     }
                 }
             }
+            #outline {
+                .outline-links{
+                    height: unset;
+                }
+            }
             #problem-and-solution {
                 .section-content {
                     gap: 8px;
@@ -1400,6 +1440,7 @@ const Container = styled.div`
             #how-will-it-work {
                 .section-content {
                     padding: 0px 32px;
+                    grid-template-columns: 1fr;
                     gap: 8px;
                     & > ${Card} {
                         position: relative;
@@ -1431,6 +1472,7 @@ const Container = styled.div`
                     .card-group {
                         width: 100%;
                         gap: 8px;
+                        grid-column-end: span 1;
                         ${IconedListCard} {
                             grid-template-rows: 1fr;
                             position: relative;
@@ -1460,6 +1502,10 @@ const Container = styled.div`
                                 }
                             }
                             &:first-child {
+                                &::before {
+                                    border-top: 0px;
+                                    border-right: 0px;
+                                }
                                 &::after {
                                     border-top: 0px;
                                     border-left: 0px;
