@@ -5,6 +5,6 @@ export const UnderlinedLink = styled.a`
     text-decoration: underline;
     cursor: pointer;
     &:active {
-        color: ${props => props.theme.textColor};
+        color: ${props => props.theme.paragraph};
     }
 `;
