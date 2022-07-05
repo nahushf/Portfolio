@@ -1139,7 +1139,7 @@ const Container = styled.div`
                                 grid-column-end: span 1;
                             }
                             &:last-child {
-                                border-left: 1px solid ${(props) => props.theme.text};
+                                border-left: 1px solid ${(props) => props.theme.paragraph};
                                 padding-left: 16px;
                             }
                         }

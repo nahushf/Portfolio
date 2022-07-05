@@ -16,7 +16,7 @@ export const ProcessSectionHeader = styled.div`
         color: ${(props) => props.theme.empText};
     }
     &:active {
-        color: ${(props) => props.theme.textColor};
+        color: ${(props) => props.theme.paragraph};
     }
     &.active {
         color: ${(props) => props.theme.empText};

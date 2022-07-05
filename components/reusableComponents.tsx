@@ -139,7 +139,7 @@ const OverviewContainer = styled.div`
     }
     .salient-points {
         flex: 0.4;
-        color: ${(props) => props.theme.textColor};
+        color: ${(props) => props.theme.paragraph};
         .salient-points__title {
             font-weight: 700;
         }
