@@ -1,19 +1,18 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab, faBehance, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { faChevronRight, faEnvelope, faPause, faPlay, fas } from '@fortawesome/free-solid-svg-icons';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 import { AppProps } from 'next/app';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { Fragment, useRef } from 'react';
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { AnimationLayout } from '../components/AnimationLayout';
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
+import styled, { createGlobalStyle, DefaultTheme, ThemeProvider } from 'styled-components';
 import { EmailIcon } from '../components/InstaIcon';
 import { black, darkBackground, maxDevice, minDevice, red, textColor } from '../constants/styles';
 import '../styles/globals.css';
-import { LocomotiveScrollProvider } from 'react-locomotive-scroll';
-import { useRouter } from 'next/router';
-import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 library.add(fab, fas, faBehance, faInstagram, faLinkedinIn, faChevronRight, faPlay, faPause, faEnvelope);
 
@@ -166,7 +165,7 @@ const AnimatedCursor = dynamic(() => import('../components/AnimatedCursor'), {
     ssr: false
 });
 
-const appTheme_DEP = {
+const appTheme_DEP: DefaultTheme = {
     background: black,
     headline: '#fffffe',
     paragraph: textColor,
@@ -179,7 +178,9 @@ const appTheme_DEP = {
     caseStudyColor: '#fafafa',
     bodyFontSize: '20px',
     mobileBodyFontSize: '16px',
-    mobileH1FontSize: '32px'
+    mobileH1FontSize: '32px',
+    mobileH2FontSize: '24px',
+    darkBackground: '#11071e'
 };
 
 const appTheme = {

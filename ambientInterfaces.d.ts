@@ -10,7 +10,7 @@ declare interface IProject {
     image: StaticImageData;
     route: string;
     tags: string[];
-    badges?: {img: StaticImageData; tagline: string;}[];
+    badges?: { img: StaticImageData; tagline: string }[];
     cssGradient?: string;
     comingSoon?: boolean;
 }
@@ -18,3 +18,4 @@ declare interface IProject {
 declare type VariantType = import('framer-motion').Variant;
 
 declare type IProjectTileVariant = { [key: 'rest' | 'show' | 'hover' | 'active']: VariantType };
+

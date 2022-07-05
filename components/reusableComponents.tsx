@@ -5,10 +5,13 @@ import { useRouter } from 'next/router';
 import { Fragment, useEffect, useRef, useState } from 'react';
 import Scrollbars, { ScrollbarProps } from 'react-custom-scrollbars-2';
 import { InView } from 'react-intersection-observer';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
 import { CUSTOM_EASING, HOME_SHOW_VARIANT, maxDevice, red, textColor } from '../constants/styles';
 import { isEmpty } from '../scripts/utils';
+import { useIsDevice } from '../useWindowSize';
+import { CloseIcon } from './CloseIcon';
 import { Footer } from './Footer';
+import { MenuIcon } from './icons/MenuIcon';
 
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
     return (
@@ -527,6 +530,9 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
     const router = useRouter();
     const { initial, animate, exit } =
         (typeof variants === 'boolean' && variants === true ? HOME_SHOW_VARIANT(1.7) : variants) || {};
+    const isMobile = useIsDevice('mobile');
+    const [menuOpen, setMenuOpen] = useState(false);
+    const { paragraph } = useTheme();
     return (
         <NavigationContainer variants={{ initial, animate, exit }} initial="initial" animate="animate" exit="exit">
             <NavLink href="/">
@@ -534,14 +540,26 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
                     n<FullStop />{' '}
                 </div>
             </NavLink>
-            <div className="nav-items-container">
+            <div className="navigation-toggle mobile-only" onClick={() => isMobile && setMenuOpen(!menuOpen)}>
+                <MenuIcon />
+            </div>
+            <motion.div
+                animate={menuOpen ? 'open' : 'closed'}
+                initial="closed"
+                variants={{ closed: { x: isMobile ? '100%' : 0 }, open: { x: 0 } }}
+                transition={{ duration: 0.5, ease: CUSTOM_EASING }}
+                className={`nav-items-container `}
+            >
+                <div className="close-button-container" onClick={() => setMenuOpen(false)}>
+                    <CloseIcon className="mobile-only" fill={paragraph} />
+                </div>
                 <NavLink href="/">Home</NavLink>
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="https://medium.com/@nahush.farkande" newTab>
                     Blog
                 </NavLink>
                 <NavLink href="/static/Resume.pdf">Resume</NavLink>
-            </div>
+            </motion.div>
         </NavigationContainer>
     );
 };
@@ -600,6 +618,42 @@ const NavigationContainer = styled(motion.div)`
             }
         }
     }
+    ${maxDevice.mobile} {
+        .nav-items-container {
+            .close-button-container {
+                left: 0px;
+                top: 0px;
+                height: 80px;
+                width: 80px;
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                svg {
+                    height: 42px;
+                    width: 42px;
+                }
+            }
+            background: ${(props) => props.theme.darkBackground};
+            height: 100vh;
+            width: 90vw;
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            flex-direction: column;
+            gap: 16px;
+            padding-top: 80px;
+        }
+        .logo {
+            font-size: 56px;
+            letter-spacing: -3px;
+            line-height: 1;
+        }
+        .navigation-toggle {
+            display: flex;
+            align-items: center;
+        }
+    }
 `;
 
 export const Name = styled(motion.div)`
@@ -615,7 +669,7 @@ export const Name = styled(motion.div)`
     ${maxDevice.mobile} {
         padding: 0px;
         font-size: 39px;
-        line-height: 1.5;
+        line-height: 1;
         letter-spacing: -2px;
     }
 `;
@@ -653,11 +707,16 @@ const letterVariant = {
 };
 
 export const AnimatedTitle = ({ text }) => {
+    const isMobile = useIsDevice('mobile');
     return (
         <motion.div variants={parentVariant} initial="initial" animate="animate">
             {[...text.split('')].map((chr: string, index: number) => {
                 return chr === ' ' ? (
-                    <Fragment key="index">&nbsp;</Fragment>
+                    isMobile ? (
+                        <br />
+                    ) : (
+                        <Fragment key="index">&nbsp;</Fragment>
+                    )
                 ) : (
                     <motion.span
                         key={index}
@@ -693,7 +752,7 @@ const AnimatedNameContainer = styled(Name)`
 export const ImageDescription = styled.div`
     font-size: 12px;
     line-height: 18px;
-    color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.paragraph};
 `;
 
 export const CustomScroll = (props: ScrollbarProps) => {

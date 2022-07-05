@@ -5,7 +5,7 @@ import styled, { createGlobalStyle, useTheme } from 'styled-components';
 import { ChevronDown, ChevronDropDown } from '../components/ChevronDown';
 import { Footer } from '../components/Footer';
 import { Emp, Name, Navigation } from '../components/reusableComponents';
-import { red } from '../constants/styles';
+import { maxDevice, red } from '../constants/styles';
 
 const GlobalStyle = createGlobalStyle`
     #__next {
@@ -43,54 +43,54 @@ const AboutPage = () => {
                         <img src="/self.jpg" />
                     </div>
                 </AboutSection>
-{/* <AboutSection className="wins-section" id="wins-section" ref={winsSection}> */}
-{/* <h3>Here are some of the awards that my team projects have won:</h3> */}
-{/* <div className="wins-container"> */}
-{/* <WinSection> */}
-{/* <div className="image-container"> */}
-{/* <Image src={ATTWin} height="500px" width="400px" objectFit="contain" /> */}
-{/* </div> */}
-{/* <article> */}
-{/* <article> */}
-{/* The <Emp>Best Overall Product, Best Accessibility, and Best use of 5G</Emp> awards */}
-{/* at the AT&T 5G Sports Hackathon */}
-{/* </article> */}
-{/* <div className="links-container"> */}
-{/* <Link href="/projects/courtside" passHref> */}
-{/* <a target="_blank"> */}
-{/* View Project <ChevronDropDown fill={primary} />{' '} */}
-{/* </a> */}
-{/* </Link> */}
-{/* <Link */}
-{/* href="https://soic.iupui.edu/news/soic-students-dominate-5g-hackathon/" */}
-{/* passHref */}
-{/* > */}
-{/* <a> */}
-{/* Read Article <ChevronDropDown fill={primary} />{' '} */}
-{/* </a> */}
-{/* </Link> */}
-{/* </div> */}
-{/* </article> */}
-{/* </WinSection> */}
-{/* <WinSection> */}
-{/* <article> */}
-{/* <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint */}
-{/* sponsored by the School of Informatics and Computing */}
-{/* </article> */}
-{/* <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref> */}
-{/* <a target="_blank"> */}
-{/* Read Article */}
-{/* <ChevronDropDown fill={primary} />{' '} */}
-{/* </a> */}
-{/* </Link> */}
-{/* </WinSection> */}
-{/* <WinSection> */}
-{/* <article> */}
-{/* <Emp>3rd Place</Emp> at the Monon30 Innovation Sprint at IUPUI */}
-{/* </article> */}
-{/* </WinSection> */}
-{/* </div> */}
-{/* </AboutSection> */}
+                {/* <AboutSection className="wins-section" id="wins-section" ref={winsSection}> */}
+                {/* <h3>Here are some of the awards that my team projects have won:</h3> */}
+                {/* <div className="wins-container"> */}
+                {/* <WinSection> */}
+                {/* <div className="image-container"> */}
+                {/* <Image src={ATTWin} height="500px" width="400px" objectFit="contain" /> */}
+                {/* </div> */}
+                {/* <article> */}
+                {/* <article> */}
+                {/* The <Emp>Best Overall Product, Best Accessibility, and Best use of 5G</Emp> awards */}
+                {/* at the AT&T 5G Sports Hackathon */}
+                {/* </article> */}
+                {/* <div className="links-container"> */}
+                {/* <Link href="/projects/courtside" passHref> */}
+                {/* <a target="_blank"> */}
+                {/* View Project <ChevronDropDown fill={primary} />{' '} */}
+                {/* </a> */}
+                {/* </Link> */}
+                {/* <Link */}
+                {/* href="https://soic.iupui.edu/news/soic-students-dominate-5g-hackathon/" */}
+                {/* passHref */}
+                {/* > */}
+                {/* <a> */}
+                {/* Read Article <ChevronDropDown fill={primary} />{' '} */}
+                {/* </a> */}
+                {/* </Link> */}
+                {/* </div> */}
+                {/* </article> */}
+                {/* </WinSection> */}
+                {/* <WinSection> */}
+                {/* <article> */}
+                {/* <Emp>2nd Place</Emp> at the &quot;Neighbourhoods of the Future&quot; Design Sprint */}
+                {/* sponsored by the School of Informatics and Computing */}
+                {/* </article> */}
+                {/* <Link href="https://soic.iupui.edu/news/students-design-sprint-challenge/" passHref> */}
+                {/* <a target="_blank"> */}
+                {/* Read Article */}
+                {/* <ChevronDropDown fill={primary} />{' '} */}
+                {/* </a> */}
+                {/* </Link> */}
+                {/* </WinSection> */}
+                {/* <WinSection> */}
+                {/* <article> */}
+                {/* <Emp>3rd Place</Emp> at the Monon30 Innovation Sprint at IUPUI */}
+                {/* </article> */}
+                {/* </WinSection> */}
+                {/* </div> */}
+                {/* </AboutSection> */}
                 {/* <AboutSection> */}
                 {/* <h3>What I am currently upto</h3> */}
                 {/* <HobbySection></HobbySection> */}
@@ -128,6 +128,12 @@ const AboutSection = styled.div`
     }
     &.wins-section {
         padding: 24px;
+    }
+    ${maxDevice.mobile} {
+        &.primary-info {
+            height: unset;
+            grid-template-columns: 1fr;
+        }
     }
 `;
 
@@ -173,6 +179,21 @@ const Container = styled.div`
         justify-content: center;
         img {
             max-height: 61vh;
+        }
+    }
+    ${maxDevice.mobile} {
+        padding-top: 72px;
+        .about__left {
+            grid-row: 2;
+            padding: 16px;
+            .about__info {
+                ${Name} {
+                    font-size: ${(props) => props.theme.mobileH1FontSize};
+                }
+            }
+        }
+        .about__right {
+            grid-row: 1;
         }
     }
 `;
