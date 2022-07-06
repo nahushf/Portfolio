@@ -507,8 +507,16 @@ const NetilionConserve = () => {
                                 <ResearchDiv>
                                     <Emp>How did I do it?</Emp>
                                     <p>
-                                        The team researched online to fill each section of this Environmental Analysis
-                                        template. I read&nbsp;
+                                        The team researched online to fill each section of this&nbsp;
+                                        <Link
+                                            href="https://www.strategyzer.com/hubfs/Imported_Blog_Media/Business_Model_Environment-3.png"
+                                            passHref
+                                        >
+                                            <UnderlinedLink target="_blank">
+                                                Environmental Analysis template
+                                            </UnderlinedLink>
+                                        </Link>
+                                        . I read&nbsp;
                                         <Link
                                             href="https://docs.google.com/document/d/1--7kBDQk3-HJzp1gI3vN_SOoLwYWSX95X7sTZKEQJAw/edit"
                                             passHref
@@ -568,6 +576,10 @@ const NetilionConserve = () => {
                                             The <Emp>Environmental Steward</Emp> at Citizen&apos;s Energy.
                                         </li>
                                     </ol>
+                                    <p>
+                                        And conducted a <Emp>field visit</Emp> of the Citizen's Energy Indianapolis
+                                        water treatment plant (to understand how water treatment works)
+                                    </p>
                                 </ResearchDiv>
                                 <ResearchDiv>
                                     <Emp>Challenges faced</Emp>
@@ -845,6 +857,15 @@ const NetilionConserve = () => {
                                         );
                                     })}
                                 </div>
+                                <p>
+                                    To check out the full mid-fi prototype,&nbsp;
+                                    <Link
+                                        href="https://www.figma.com/proto/JXaxEpqsaAznBkglnlOCzG/IOT-Endress-%2B-Hauser?page-id=0%3A1&node-id=2%3A4564&viewport=399%2C435%2C0.08&scaling=scale-down&starting-point-node-id=2%3A4564"
+                                        passHref
+                                    >
+                                        <UnderlinedLink target="_blank">click here.</UnderlinedLink>
+                                    </Link>
+                                </p>
                             </DPSectionContent>
                         </DPSection>
                         <DPSection id="evaluations" sectionId="evaluation">
@@ -911,9 +932,9 @@ const NetilionConserve = () => {
                             domain that we had no familiarity with. Overall we are all proud of the outcome of the
                             project and the growth we all experienced. Special thanks to <Emp>Matt Walsh</Emp> from E+H,{' '}
                             <Emp>Justin Redman, and Anne McIver</Emp> from Citizen&apos;s Energy for their time and
-                            effort in helping us throughout the design process. Finally, this wouldn&&apos;apos;t have
-                            been possible without our mentor <Emp>Professor Lou Lenzi</Emp> whose insights and
-                            mentorship were the guiding lights throughout this project.
+                            effort in helping us throughout the design process. Finally, this wouldn&apos;t have been
+                            possible without our mentor <Emp>Professor Lou Lenzi</Emp> whose insights and mentorship
+                            were the guiding lights throughout this project.
                         </p>
                         <div className="team-image-container">
                             <Image
@@ -1217,6 +1238,10 @@ const Container = styled.div`
                             text-align: center;
                         }
                     }
+                    p:last-child {
+                        margin-top: 24px;
+                        margin-bottom: 0px;
+                    }
                 }
                 &#final-designs {
                     iframe {
@@ -1428,7 +1453,7 @@ const Container = styled.div`
                 }
             }
             #outline {
-                .outline-links{
+                .outline-links {
                     height: unset;
                 }
             }
