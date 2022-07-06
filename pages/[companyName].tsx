@@ -102,7 +102,7 @@ const CompanyPage = ({ companyName }) => {
                         <ProjectTile key={project.id} project={project} />
                     ))}
                 </ReasonSection>
-                <div className="end-of-page">
+                <div className="end-of-page" data-scroll-section>
                     {/* <div className="end-meme-container"> */}
                     {/* <Image src={endMeme} layout="responsive" objectFit="contain" /> */}
                     {/* </div> */}
