@@ -713,9 +713,9 @@ export const AnimatedTitle = ({ text }) => {
             {[...text.split('')].map((chr: string, index: number) => {
                 return chr === ' ' ? (
                     isMobile ? (
-                        <br />
+                        <br key={index} />
                     ) : (
-                        <Fragment key="index">&nbsp;</Fragment>
+                        <Fragment key={index}>&nbsp;</Fragment>
                     )
                 ) : (
                     <motion.span

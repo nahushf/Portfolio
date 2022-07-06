@@ -27,7 +27,7 @@ export const FooterBottom = () => {
 
 export const Footer = ({ css = '' }) => {
     return (
-        <Container className="footer" data-scroll-section>
+        <Container className="footer" data-scroll-section data-scroll>
             <div className="greet">
                 <strong>Hello again!!</strong> {` Thanks for visiting my portfolio. Let's connect! `}
             </div>
@@ -66,6 +66,7 @@ const FooterBottomContainer = styled.div`
 `;
 
 const Container = styled(HomePageSection)`
+    opacity: 1 !important;
     width: 100vw;
     color: #fff;
     background: #291d37;
