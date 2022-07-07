@@ -11,6 +11,7 @@ import { isEmpty } from '../scripts/utils';
 import { useIsDevice } from '../useWindowSize';
 import { CloseIcon } from './CloseIcon';
 import { Footer } from './Footer';
+import { Logo } from './icons/Logo';
 import { MenuIcon } from './icons/MenuIcon';
 
 export const BackButton = ({ href, text }: { href: string; text?: string }) => {
@@ -535,10 +536,8 @@ export const Navigation = ({ variants }: { variants?: { initial; animate; exit }
     const { paragraph } = useTheme();
     return (
         <NavigationContainer variants={{ initial, animate, exit }} initial="initial" animate="animate" exit="exit">
-            <NavLink href="/">
-                <div className="logo">
-                    n<FullStop />{' '}
-                </div>
+            <NavLink href="/" className="brand-container">
+                <Logo />
             </NavLink>
             <div className="navigation-toggle mobile-only" onClick={() => isMobile && setMenuOpen(!menuOpen)}>
                 <MenuIcon />
@@ -584,12 +583,16 @@ const NavigationContainer = styled(motion.div)`
     position: fixed;
     top: 0px;
     left: 0px;
-    padding: 8px 24px;
+    padding: 16px 24px;
     width: 100vw;
     display: flex;
     align-items: center;
     backdrop-filter: blur(24px);
     justify-content: space-between;
+    .brand-container {
+        display: flex;
+        align-items: center;
+    }
     img {
         height: 40px;
     }

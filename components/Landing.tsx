@@ -8,16 +8,11 @@ export const Landing = ({}) => {
     return (
         <Container className="landing" id="landing">
             <motion.div className="intro-title" {...animationProps}>
-                Hello, my name is
+                Hi there! my name is
             </motion.div>
             <AnimatedName />
             <motion.div className="description" {...animationProps}>
-                <div className="intro-tagline">
-                    I’m a <Emp>UX/Product Designer</Emp> with a passion for solving problems.
-                </div>
-                <div className="intro-bullets">
-                    <div className="intro-bullet"></div>
-                </div>
+                <div className="intro-tagline">I like to build beautiful products that solve real-world problems</div>
             </motion.div>
             {/* <motion.div className="links-container" {...animationProps}> */}
             {/* <Link href=""> */}

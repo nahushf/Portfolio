@@ -1,17 +1,16 @@
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import Link from 'next/link';
 import { useRef } from 'react';
+import ScrollBars from 'react-custom-scrollbars-2';
 import styled, { useTheme } from 'styled-components';
 import { HOME_FADE_PROPS, maxDevice } from '../constants/styles';
+import ATTWin from '../public/AT&T-win.jpg';
+import { ChevronDropDown } from './ChevronDown';
 import { Footer } from './Footer';
 import { Landing } from './Landing';
 import { OtherWork } from './OtherWork';
 import { ProjectTileList } from './ProjectTileList';
 import { Emp, HomePageSection } from './reusableComponents';
-import Link from 'next/link';
-import { ChevronDropDown } from './ChevronDown';
-import ATTWin from '../public/AT&T-win.jpg';
-import ScrollBars from 'react-custom-scrollbars-2';
 
 export const HomeContent = () => {
     const projectsContainer = useRef<HTMLDivElement>(null);
