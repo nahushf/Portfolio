@@ -577,7 +577,7 @@ const NetilionConserve = () => {
                                         </li>
                                     </ol>
                                     <p>
-                                        And conducted a <Emp>field visit</Emp> of the Citizen's Energy Indianapolis
+                                        And conducted a <Emp>field visit</Emp> of the Citizen&apos;s Energy Indianapolis
                                         water treatment plant (to understand how water treatment works)
                                     </p>
                                 </ResearchDiv>
