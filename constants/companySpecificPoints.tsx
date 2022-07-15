@@ -41,6 +41,7 @@ import shopifyLogo from '../public/shopify-logo.png';
 import relativityLogo from '../public/relativity-logo.jpeg';
 import logrocketLogo from '../public/logrocket-logo.png';
 import alarmLogo from '../public/alarm-logo.png';
+import SAPLogo from '../public/sap-logo.png';
 
 interface ICompanyPoint {
     title: string;
@@ -1472,6 +1473,41 @@ I see the value in the services that ${companyName} provides. As someone who is 
             {
                 title: 'Curiosity about the upcoming innovations in the domain',
                 description: `I am curious about what could be next in this domain. I wish to understand what the roadmap is like for the company and would like to contribute in building the next product the company is working on by providing a user-first perspective.`
+            }
+        ])
+        .setMePoints([
+            {
+                title: 'Philosophy: Be the dumbest person in the room',
+                description:
+                    'I am a strong believer in the "dumbest person in the room" philosophy. If one wishes to grow he needs to work with people who are more skilled.'
+            },
+            {
+                title: 'Quick Learner',
+                description:
+                    'I have a passion for learning and often enjoy being thrown into environments I possess little to no knowledge of'
+            },
+            {
+                title: 'Extensive closely related experience',
+                description:
+                    'Even though I am just starting my professional design journey, I have worked with and led multiple teams in the past 6 years when I worked as a front end developer and collaborated with multiple of UI/UX and Product Designers'
+            }
+        ]),
+
+    new Company('SAP', 'sap', SAPLogo, 200)
+        .setCompanyPoints((companyName) => [
+            {
+                title: `Wide Range of expertise`,
+                description: `
+        ${companyName}'s services ranging from ERP Systems to Digital Transformation expose the company to a wide variety to challenges. Working in such a company that provides such a wide range of expertise will force me to employ my entire design acumen and bring about growth in my design mindset.
+            `
+            },
+            {
+                title: 'Experience with Enterprise Applications',
+                description: `In a past life before switching to Design I worked as the Lead UI Developer for a Marketing Intelligence company that helped align revenue with the Marketing Funnel for businesses. My experience with this job exposed me to the scale of enterprise applications and also opened my eyes to the benefits of design in such complex systems.`
+            },
+{
+                title: 'An opportunity to work in a multi disciplinary team',
+                description: `One of the charms of the UX Design profession is a chance to work with people from multiple disciplines and build products that address several perspectives. This UX Design opportunity with the Consumer Industries Cloud will help me work in such an environment and push me to bring out the best in me in terms of design.`
             }
         ])
         .setMePoints([
