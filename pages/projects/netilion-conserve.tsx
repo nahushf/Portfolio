@@ -671,7 +671,7 @@ const NetilionConserve = () => {
                                 </InsightRow>
                                 <InsightRow>
                                     <ListCard>
-                                        <ListCardTitle>Insight #5</ListCardTitle>
+                                        <ListCardTitle>Insight #4</ListCardTitle>
                                         <Emp>Slow Moving Industry</Emp>
                                         <p>
                                             Replacing sensors and infrastructure happens very rarely in the water
@@ -679,7 +679,7 @@ const NetilionConserve = () => {
                                         </p>
                                     </ListCard>
                                     <ListCard>
-                                        <ListCardTitle>Takeaway #5</ListCardTitle>
+                                        <ListCardTitle>Takeaway #4</ListCardTitle>
                                         <Emp>Backward Compatibility</Emp>
                                         <p>
                                             An ideal solution would be one that not only works with the new E+H smart
