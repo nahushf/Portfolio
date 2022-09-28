@@ -26,7 +26,7 @@ import {
     StatContent,
     StatContentItem
 } from '../../components/scrollComponents';
-import { NETILION_CONSERVE, TRUPAWS } from '../../constants/projects';
+import { NETILION_CONSERVE, QXRETAIL } from '../../constants/projects';
 import { maxDevice } from '../../constants/styles';
 import FiveGSports from '../../public/5G-sports.png';
 import FiveG from '../../public/5G.png';
@@ -489,7 +489,7 @@ const Courtside = () => {
                             ))}
                         </div>
                     </Section>
-                    <CaseStudyFooter projects={[NETILION_CONSERVE, TRUPAWS]}></CaseStudyFooter>
+                    <CaseStudyFooter projects={[NETILION_CONSERVE, QXRETAIL]}></CaseStudyFooter>
                 </div>
             </Container>
         </ThemeProvider>
