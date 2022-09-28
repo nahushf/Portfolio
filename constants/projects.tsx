@@ -5,6 +5,8 @@ import CourtsideSplash from '../public/Courtside-splash.png';
 import NetilionConserveSplash from '../public/netilion-conserve-splash.png';
 import EHShortLogo from '../public/netilion-conserve/EH-short-logo.png';
 import IULogo from '../public/iu-logo.png';
+import QxRetailSplash from '../public/QxRetail-Splash.png';
+import QxLogo from '../public/QxLogo.png';
 
 const academicProjectBadge = {
     img: IULogo,
@@ -23,7 +25,7 @@ export const NETILION_CONSERVE = {
 };
 
 export const FARM2U = {
-    id: 3,
+    id: 4,
     title: 'Farm2U',
     description: 'Connecting people to their local produce in an efficient manner',
     gradient: ['#58B96E', '#7DBD78'],
@@ -33,17 +35,17 @@ export const FARM2U = {
     badges: [academicProjectBadge],
     comingSoon: true
 };
-export const TRUPAWS = {
-    id: 4,
-    title: 'Trupaws',
-    description: 'Matching adopters with shelter animals',
-    gradient: ['#F7516F', '#FED089'],
-    image: TrupawsSplash,
-    route: '/projects/trupaws',
-    tags: ['pet-adoption', 'Academic Project'],
-    badges: [academicProjectBadge],
-    comingSoon: true
-};
+// export const TRUPAWS = {
+// id: 5,
+// title: 'Trupaws',
+// description: 'Matching adopters with shelter animals',
+// gradient: ['#F7516F', '#FED089'],
+// image: TrupawsSplash,
+// route: '/projects/trupaws',
+// tags: ['pet-adoption', 'Academic Project'],
+// badges: [academicProjectBadge],
+// comingSoon: true
+// };
 
 export const COURTSIDE = {
     id: 2,
@@ -55,5 +57,15 @@ export const COURTSIDE = {
     tags: ['accessibility', 'hackathon'],
     badges: [{ img: ATT5GLogo, tagline: 'AT&T 5G Sports Hackathon Winner' }]
 };
+export const QXRETAIL = {
+    id: 3,
+    title: 'QxRetail',
+    description: 'The eyes and ears in Hardware Retail Stores.',
+    gradient: ['#3fb8f3', '#8eefd4'],
+    image: QxRetailSplash,
+    route: 'https://nahush-farkandes-dandy-site.webflow.io/projects/qxretail',
+    tags: ['Industry Project', 'Product Design'],
+    badges: [{ img: QxLogo, tagline: 'Client - Qumulex' }]
+};
 
-export const PROJECTS: IProject[] = [FARM2U, TRUPAWS, COURTSIDE, NETILION_CONSERVE];
+export const PROJECTS: IProject[] = [FARM2U, QXRETAIL, COURTSIDE, NETILION_CONSERVE];
