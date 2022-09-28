@@ -63,7 +63,7 @@ export const QXRETAIL = {
     description: 'The eyes and ears in Hardware Retail Stores.',
     gradient: ['#3fb8f3', '#8eefd4'],
     image: QxRetailSplash,
-    route: 'https://nahush-farkandes-dandy-site.webflow.io/projects/qxretail',
+    route: 'https://nahushf.webflow.io/projects/qxretail',
     tags: ['Industry Project', 'Product Design'],
     badges: [{ img: QxLogo, tagline: 'Client - Qumulex' }]
 };
