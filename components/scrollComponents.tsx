@@ -494,7 +494,7 @@ ${DPSectionContent} {
 
 export const BackButtonV2 = () => {
     return (
-        <Link href="/" passHref>
+        <Link href="https://www.nahushf.webflow.io" passHref>
             <BackButtonContainer>
                 <LeftArrow />
             </BackButtonContainer>
