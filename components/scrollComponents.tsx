@@ -120,7 +120,7 @@ export const ListCardTitle = styled.div`
 
 export const CardTitle = styled(ListCardTitle)`
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 300;
     background: ${(props) => props.theme.caseStudyColor};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -192,7 +192,7 @@ export const SectionContainer = styled.div`
 `;
 export const SectionTitle = styled.div`
     font-size: 24px;
-    font-weight: bold;
+    font-weight: 300;
     color: ${(props) => props.theme.empText};
     margin-bottom: 24px;
     ${maxDevice.mobile} {
@@ -233,6 +233,7 @@ export const HeroContainer = styled(SplitSection)`
             color: ${(props) => props.theme.background};
         }
         .case-study-tagline {
+            font-size: 16px;
         }
     }
     ${maxDevice.tablet} {

@@ -311,7 +311,7 @@ export const ScreensSectionContainer = styled.div`
         width: 100%;
         .screens-section__title {
             margin-bottom: 24px;
-            font-weight: 700;
+            font-weight: 300;
         }
     }
     .screen-images {
@@ -679,7 +679,7 @@ export const Name = styled(motion.div)`
 
 export const Emp = styled.span`
     color: ${(props) => props.theme.empText} !important;
-    font-weight: bold;
+    font-weight: 300;
 `;
 
 export const HomePageSection = styled(motion.div)`

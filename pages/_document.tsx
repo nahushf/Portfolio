@@ -13,10 +13,7 @@ class MyDocument extends Document<{ styleTags: Node }> {
         return (
             <Html prefix={`og: http://ogp.me/ns#`}>
                 <Head>
-                    <link
-                        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;1,200&display=swap"
-                        rel="stylesheet"
-                    />
+                    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet"></link>
                     <link rel="manifest" href="/manifest.json" />
                     <meta property="og:title" content="Nahush Farkande" />
                     <meta name="image" property="og:image" content="/website_thumbnail.png" />

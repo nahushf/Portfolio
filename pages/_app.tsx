@@ -41,15 +41,15 @@ const GlobalStyle = createGlobalStyle<any>`
         font-weight: 300;
     }
     h1 {
-        font-size: 93px;
+        font-size: 40px;
         margin: 0px;
-        font-weight: 500;
+        font-weight: 300;
         color: ${(props) => props.theme.empText};
-        line-height: 1;
-            letter-spacing: -3px;
+            letter-spacing: -2.4px;
     }
     h1, h2, h3, h4 {
         color: #fafafa;
+        line-height: 1.5;
     }
     h3 {
         letter-spacing: -1px;
@@ -58,7 +58,7 @@ const GlobalStyle = createGlobalStyle<any>`
     }
     h1, h3{
         color: #fafafa;
-        font-weight: 600;
+        font-weight: 300;
         margin: 0px;
     }
     #__next {
@@ -84,7 +84,6 @@ const GlobalStyle = createGlobalStyle<any>`
     ${maxDevice.tablet} {
         h1 {
             font-size: 48px;
-            line-height: 48px;
             letter-spacing: -2px;
         }
     }

@@ -34,6 +34,7 @@ import ATTLogo from '../../public/AT&T-5g-logo.png';
 import win1 from '../../public/courtside/award-1.jpg';
 import win2 from '../../public/courtside/award-2.jpg';
 import win3 from '../../public/courtside/award-3.jpg';
+import nextProjectArrow from '../../public/courtside/next-project-arrow.png';
 import BrailleDisplayImage from '../../public/courtside/braille-display.png';
 import bannerImage from '../../public/courtside/courtside-banner.png';
 import ideaIllustration from '../../public/courtside/idea-illustration.png';
@@ -48,6 +49,7 @@ import matchStats from '../../public/courtside/screens/4-Match-Stats.png';
 import voiceAssistant from '../../public/courtside/screens/5-Voice-Assistant-1.png';
 import voicePlay from '../../public/courtside/screens/6-Voice-Play.png';
 import VirtualBoxingImage from '../../public/courtside/virtual-boxing.png';
+import { BehanceIcon, EmailIcon, InstaIcon, LinkedInIcon } from '../../components/InstaIcon';
 
 const wins = [win1, win2, win3];
 
@@ -112,7 +114,7 @@ const Courtside = () => {
                 <div className="case-study-container">
                     <Hero
                         title={'Courtside'}
-                        index="01"
+                        index="02"
                         tagline="Enhancing the basketball experience for the visually impaired"
                     >
                         <Image src={bannerImage} objectFit="contain" priority />
@@ -489,7 +491,42 @@ const Courtside = () => {
                             ))}
                         </div>
                     </Section>
-                    <CaseStudyFooter projects={[NETILION_CONSERVE, QXRETAIL]}></CaseStudyFooter>
+                    <Section className="next-project-section">
+                        <a href="https://www.nahushf.com/projects/qxretail">
+                            <h4>
+                                Next Project: QxRetail <img src={nextProjectArrow.src} />{' '}
+                            </h4>
+                        </a>
+                    </Section>
+                    <Section className="footer-section">
+                        <div className="footer-content">
+                            <div className="footer-intro">
+                                <h2>Like what you see? Let's talk...</h2>
+                                <div className="footer-text">HMU for work, beers, advice, or memes</div>
+                            </div>
+                            <div className="footer-socials">
+                                <div className="email-container">
+                                    <div className="footer-text">Send me a message</div>
+                                    <a href="mailto:nahush.farkande@gmail.com">nahush.farkande@gmail.com</a>
+                                </div>
+                                <div className="connections-container">
+                                    <div className="footer-text">Or connect with me</div>
+                                    <div className="connection-icons-container">
+                                        <a href="https://www.linkedin.com/in/nahushfarkande/">
+                                            <LinkedInIcon />
+                                        </a>
+                                        <a href="https://www.instagram.com/nahushfarkande">
+                                            <InstaIcon />
+                                        </a>
+                                        <a href="https://www.behance.net/nahushFarkande">
+                                            <BehanceIcon />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="footer-courtesy">©2023 Nahush Farkande. Built with ❤️ and 🍺</div>
+                    </Section>
                 </div>
             </Container>
         </ThemeProvider>
@@ -500,6 +537,82 @@ const secondaryBannerGap = 32;
 const Container = styled.div`
     width: 100%;
     font-size: 16px;
+    .footer-section {
+        margin-bottom: 0px;
+        padding-top: 80px;
+        padding-bottom: 24px;
+        background: #291d37;
+        .section-content {
+            .footer-courtesy {
+                font-size: 12px;
+                margin-top: 80px;
+            }
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                .footer-intro {
+                    h2 {
+                        font-size: 30px;
+                        font-weight: 300;
+                        margin-bottom: 0px;
+                        margin-top: 0px;
+                    }
+                }
+                .footer-text {
+                    font-size: 16px;
+                    color: #fafafa;
+                    margin-bottom: 20px;
+                }
+                .footer-socials {
+                    display: flex;
+                    gap: 40px;
+                    .email-container {
+                        a {
+                            max-width: 280px;
+                            height: 48px;
+                            padding: 0px 15px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            background: #1b1525;
+                            border: 1px solid #fafafa;
+                            box-shadow: 8px 8px 0px 0px #fafafa;
+                            color: #fafafa;
+                            transition: all 0.2s ease-out;
+                            &:active {
+                                box-shadow: 0px 0px 0px 0px #fafafa;
+                                transform: translate(8px, 8px);
+                            }
+                        }
+                    }
+                    .connections-container {
+                        .connection-icons-container {
+                            height: 48px;
+                            display: flex;
+                            gap: 16px;
+                            a {
+                                display: flex;
+                                align-items: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        ${maxDevice.tablet} {
+            padding-bottom: 120px;
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+        ${maxDevice.mobile} {
+            .footer-content {
+                .footer-socials {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
     .case-study-container {
         display: flex;
         justify-content: center;
@@ -616,6 +729,23 @@ const Container = styled.div`
                 height: 80vh;
                 max-height: 800px;
                 width: 100%;
+            }
+        }
+    }
+    .next-project-section {
+        a {
+            h4 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 300;
+                text-decoration: underline;
+                font-size: 20px;
+                text-align: center;
+                color: #f1876a;
+                img {
+                    width: 36px;
+                }
             }
         }
     }
