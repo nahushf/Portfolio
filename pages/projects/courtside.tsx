@@ -501,7 +501,7 @@ const Courtside = () => {
                     <Section className="footer-section">
                         <div className="footer-content">
                             <div className="footer-intro">
-                                <h2>Like what you see? Let's talk...</h2>
+                                <h2>Like what you see? Let&apos;s talk...</h2>
                                 <div className="footer-text">HMU for work, beers, advice, or memes</div>
                             </div>
                             <div className="footer-socials">
