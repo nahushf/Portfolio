@@ -114,7 +114,7 @@ const Courtside = () => {
                 <div className="case-study-container">
                     <Hero
                         title={'Courtside'}
-                        index="02"
+                        index="03"
                         tagline="Enhancing the basketball experience for the visually impaired"
                     >
                         <Image src={bannerImage} objectFit="contain" priority />
